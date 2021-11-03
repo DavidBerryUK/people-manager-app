@@ -1,0 +1,33 @@
+//
+// Only used by factories for creating initial data
+//
+export enum EnumSkill {
+  Accountant,
+  AwsArchitect,
+  AzureArchitect,
+  AzurePipelines,
+  ClientManager,
+  CSharp,
+  Css,
+  Docker,
+  EntityFramework,
+  Java,
+  Javascript,
+  JavaSpring,
+  JiraAdmin,
+  JiraUser,
+  MsDatabaseDesigner,
+  Oracle,
+  BusinessAnalyst,
+  ProjectManagement,
+  RapidPrototypeEngineer,
+  React,
+  Sales,
+  SQL,
+  SupportTeam,
+  TechnicalLead,
+  Typescript,
+  UI,
+  UX,
+  VueJS,
+}
