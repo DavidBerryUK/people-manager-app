@@ -1,9 +1,8 @@
 import { EnumSortColumn } from "../../constants/EnumSortColumn";
 import { EnumSortDirection } from "../../constants/EnumSortDirectory";
-
+import { ISkillContextDispatchCommand } from "./interfaces/ISkillContextDispatchCommand";
 import React, { Dispatch, Reducer } from "react";
 import SkillApiModel from "../../apiRepository/models/SkillApiModel";
-import { ISkillContextDispatchCommand } from "./interfaces/ISkillContextDispatchCommand";
 
 // Interface defining data structure stored in this context
 //
@@ -32,7 +31,7 @@ const initialState: SkillContextProps = {
   totalPages: 0,
   totalRows: 0,
   rowsPerPage: 20,
-  sortColumn: EnumSortColumn.Forename,
+  sortColumn: EnumSortColumn.Skill,
   sortDirection: EnumSortDirection.asc,
 };
 

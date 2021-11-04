@@ -31,7 +31,7 @@ const initialState: TeamContextProps = {
   totalPages: 0,
   totalRows: 0,
   rowsPerPage: 20,
-  sortColumn: EnumSortColumn.Forename,
+  sortColumn: EnumSortColumn.Team,
   sortDirection: EnumSortDirection.asc,
 };
 

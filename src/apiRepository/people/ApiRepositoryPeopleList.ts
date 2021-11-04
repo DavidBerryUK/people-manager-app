@@ -1,10 +1,10 @@
 import { EnumSortColumn } from "../../constants/EnumSortColumn";
 import { EnumSortDirection } from "../../constants/EnumSortDirectory";
+import DataListApiModel from "../models/DataListApiModel";
 import FakeApiEndpoint from "../dataSources/FakeApiEndpoint";
 import MockUtilities from "../../utilities/MockUtilities";
 import PersonApiModel from "../models/PersonApiModel";
 import SortPeople from "../sorters/SortPeople";
-import DataListApiModel from "../models/DataListApiModel";
 
 export default class ApiRepositoryPeopleList {
   //
