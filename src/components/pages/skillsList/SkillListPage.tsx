@@ -1,10 +1,12 @@
 import React from "react";
+import { SkillContextProvider } from "../../../contexts/skillContext/SkillContext";
+import SkillListWidget from "../../widgetsDataLists/skillList/SkillListWidget";
 
 const SkillListPage: React.FC = () => {
   return (
-    <>
-      <h1>Skills List Page</h1>
-    </>
+    <SkillContextProvider>
+      <SkillListWidget />
+    </SkillContextProvider>
   );
 };
 

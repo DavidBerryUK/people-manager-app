@@ -1,6 +1,6 @@
 import { UseTeamContext } from "../../../contexts/teamContext/TeamContext";
 import CommandPageNumberSet from "../../../contexts/teamContext/actions/CommandPageNumberSet";
-import CommandTeamListSet from "../../../contexts/teamContext/actions/CommandPeopleListSet";
+import CommandTeamListSet from "../../../contexts/teamContext/actions/CommandTeamListSet";
 import PaginationWidget from "../../widgetsUI/pagination/PaginationWidget";
 import React, { useMemo } from "react";
 import TeamLineWidget from "./TeamLineWidget";

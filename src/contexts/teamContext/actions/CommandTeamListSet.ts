@@ -1,5 +1,5 @@
 //
-// Set Person List
+// Set Team List
 import TeamApiModel from "../../../apiRepository/models/TeamApiModel";
 import { ITeamContextDispatchCommand } from "../interfaces/ITeamContextDispatchCommand";
 import { TeamContextProps } from "../TeamContext";

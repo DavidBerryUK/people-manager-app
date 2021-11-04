@@ -26,8 +26,6 @@ export default class ApiRepositoryPeopleList {
       skip = 0;
     }
 
-    console.log(`ApiRepositoryPeopleList:getPeopleAsync page number: ${pageNo}  ${rowsPerPage}  skip:${skip}`);
-
     const rowsOnPage = fullList.slice(skip, skip + rowsPerPage);
 
     // create response

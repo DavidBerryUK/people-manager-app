@@ -28,7 +28,7 @@ export default class FactorySkills {
     list.push(new SkillApiModel(EnumSkill.JiraUser, "Jira User"));
     list.push(new SkillApiModel(EnumSkill.KubernetesAdmin, "Kubernetes Administrator"));
     list.push(new SkillApiModel(EnumSkill.MsDatabaseDesigner, "Microsoft Database Designer"));
-    list.push(new SkillApiModel(EnumSkill.Oracle, "Order"));
+    list.push(new SkillApiModel(EnumSkill.Oracle, "Oracle"));
     list.push(new SkillApiModel(EnumSkill.ProjectManagement, "Project Manager"));
     list.push(new SkillApiModel(EnumSkill.RapidPrototypeEngineer, "Rapid Proto type Engineer"));
     list.push(new SkillApiModel(EnumSkill.React, "ReactJS"));
