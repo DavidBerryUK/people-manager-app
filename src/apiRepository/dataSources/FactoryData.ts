@@ -11,6 +11,9 @@ interface IData {
   teams: Array<TeamApiModel>;
 }
 
+//
+// Create data required for fake API calls
+//
 export default class FactoryData {
   static createData(): IData {
     const skills = FactorySkills.createList();

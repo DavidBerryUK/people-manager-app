@@ -1,8 +1,9 @@
-import { EnumSkill } from "../enums/EnumSkill";
 import { EnumTeam } from "../enums/EnumTeam";
-import SkillApiModel from "../models/SkillApiModel";
 import TeamApiModel from "../models/TeamApiModel";
 
+//
+// Create list of teams
+//
 export default class FactoryTeams {
   static createList(): Array<TeamApiModel> {
     const list = new Array<TeamApiModel>();

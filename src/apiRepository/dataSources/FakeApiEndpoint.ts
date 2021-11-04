@@ -6,12 +6,11 @@ import DataFactory from "./FactoryData";
 //
 // fake online database
 //
+//
+// this is a singleton class, this code ensures only 1
+// instance of the class is ever generated
+//
 export default class FakeApiEndpoint {
-  ///
-  /// this is a singleton class, this code ensures only 1
-  /// instance of the class is ever generated
-  ///
-
   private static instance = new FakeApiEndpoint();
 
   // data simulating an online database
@@ -29,6 +28,9 @@ export default class FakeApiEndpoint {
     return FakeApiEndpoint.instance;
   }
 
+  //
+  // Create initial data the
+  //
   private initialiseData() {
     const data = DataFactory.createData();
     this.people = data.people;

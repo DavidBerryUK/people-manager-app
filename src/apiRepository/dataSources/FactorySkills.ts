@@ -1,6 +1,9 @@
 import { EnumSkill } from "../enums/EnumSkill";
 import SkillApiModel from "../models/SkillApiModel";
 
+//
+// Create list of skills
+//
 export default class FactorySkills {
   static createList(): Array<SkillApiModel> {
     const list = new Array<SkillApiModel>();
@@ -9,23 +12,29 @@ export default class FactorySkills {
     list.push(new SkillApiModel(EnumSkill.AwsArchitect, "Aws Architect"));
     list.push(new SkillApiModel(EnumSkill.AzureArchitect, "Azure Architect"));
     list.push(new SkillApiModel(EnumSkill.AzurePipelines, "Azure Pipelines"));
+    list.push(new SkillApiModel(EnumSkill.BusinessAnalyst, "Business Analyst"));
     list.push(new SkillApiModel(EnumSkill.ClientManager, "Client Manager"));
     list.push(new SkillApiModel(EnumSkill.CSharp, "C#"));
     list.push(new SkillApiModel(EnumSkill.Css, "CSS"));
+    list.push(new SkillApiModel(EnumSkill.DevOpsEngineerAws, "AWS DevOps Engineer"));
+    list.push(new SkillApiModel(EnumSkill.DevOpsEngineerAzure, "Azure DevOps Engineer"));
     list.push(new SkillApiModel(EnumSkill.Docker, "Docker"));
     list.push(new SkillApiModel(EnumSkill.EntityFramework, "Entity Framework"));
+    list.push(new SkillApiModel(EnumSkill.Git, "Git"));
     list.push(new SkillApiModel(EnumSkill.Java, "Java"));
     list.push(new SkillApiModel(EnumSkill.Javascript, "Javascript"));
     list.push(new SkillApiModel(EnumSkill.JavaSpring, "Java Sprint"));
     list.push(new SkillApiModel(EnumSkill.JiraAdmin, "Jira Administrator"));
     list.push(new SkillApiModel(EnumSkill.JiraUser, "Jira User"));
+    list.push(new SkillApiModel(EnumSkill.KubernetesAdmin, "Kubernetes Administrator"));
     list.push(new SkillApiModel(EnumSkill.MsDatabaseDesigner, "Microsoft Database Designer"));
     list.push(new SkillApiModel(EnumSkill.Oracle, "Order"));
-    list.push(new SkillApiModel(EnumSkill.BusinessAnalyst, "Business Analyst"));
     list.push(new SkillApiModel(EnumSkill.ProjectManagement, "Project Manager"));
     list.push(new SkillApiModel(EnumSkill.RapidPrototypeEngineer, "Rapid Proto type Engineer"));
     list.push(new SkillApiModel(EnumSkill.React, "ReactJS"));
     list.push(new SkillApiModel(EnumSkill.Sales, "Sales"));
+    list.push(new SkillApiModel(EnumSkill.ServiceDesk, "Service Desk"));
+    list.push(new SkillApiModel(EnumSkill.ServiceManager, "Service Manager"));
     list.push(new SkillApiModel(EnumSkill.SQL, "SQL"));
     list.push(new SkillApiModel(EnumSkill.SupportTeam, "SupportTeam"));
     list.push(new SkillApiModel(EnumSkill.TechnicalLead, "Technical Lead"));
