@@ -2,6 +2,8 @@ export enum EnumSortColumn {
   Forename,
   Surname,
   Email,
-  Teams,
-  Skills,
+  TeamsCollection,
+  SkillsCollection,
+  Team,
+  PeopleCollection,
 }

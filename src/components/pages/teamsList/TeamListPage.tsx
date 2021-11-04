@@ -1,10 +1,12 @@
 import React from "react";
+import { TeamContextProvider } from "../../../contexts/teamContext/TeamContext";
+import TeamListWidget from "../../widgetsDataLists/teamList/TeamListWidget";
 
 const TeamListPage: React.FC = () => {
   return (
-    <>
-      <h1>Team List Page</h1>
-    </>
+    <TeamContextProvider>
+      <TeamListWidget />
+    </TeamContextProvider>
   );
 };
 

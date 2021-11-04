@@ -9,8 +9,8 @@ const PeopleListHeader: React.FC = () => {
         <PeopleListHeaderCellWidget column={EnumSortColumn.Forename}>Forename</PeopleListHeaderCellWidget>
         <PeopleListHeaderCellWidget column={EnumSortColumn.Surname}>Surname</PeopleListHeaderCellWidget>
         <PeopleListHeaderCellWidget column={EnumSortColumn.Email}>Email</PeopleListHeaderCellWidget>
-        <PeopleListHeaderCellWidget column={EnumSortColumn.Teams}>Teams</PeopleListHeaderCellWidget>
-        <PeopleListHeaderCellWidget column={EnumSortColumn.Skills}>Skills</PeopleListHeaderCellWidget>
+        <PeopleListHeaderCellWidget column={EnumSortColumn.TeamsCollection}>Teams</PeopleListHeaderCellWidget>
+        <PeopleListHeaderCellWidget column={EnumSortColumn.SkillsCollection}>Skills</PeopleListHeaderCellWidget>
       </tr>
     </thead>
   );
