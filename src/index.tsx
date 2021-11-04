@@ -3,6 +3,7 @@ import "./index.css";
 import App from "./components/app/App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
+import "./styles/styles.scss";
 
 const rootElement = document.getElementById("root");
 

@@ -1,0 +1,31 @@
+.navigation {
+  background-color: #fff;
+  padding: 4px;
+  padding-left: 16px;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 4px;
+    user-select: none;
+    margin-left: 2px;
+    margin-right: 2px;
+    transition: background-color 0.5s;
+    &:hover {
+      background-color: #fcc;
+    }
+    &.selected {
+      background-color: #f88;
+      &:hover {
+        background-color: #f66;
+      }
+    }
+  }
+}

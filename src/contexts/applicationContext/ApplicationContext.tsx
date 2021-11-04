@@ -3,10 +3,6 @@ import CurrentUserStateModel from "./models/CurrentUserStateModel";
 import React, { Dispatch, Reducer } from "react";
 import ApplicationStateModel from "./models/ApplicationStateModel";
 
-export interface IDispatchObject {
-  entityName: string;
-}
-
 // Interface defining data structure stored in this context
 //
 export interface ApplicationContextProps {
@@ -21,7 +17,7 @@ export interface InitContextProps {
   dispatch: Dispatch<IApplicationContextDispatchCommand>;
 }
 
-// Setup the inital state of this context by creating new models
+// Setup the initial state of this context by creating new models
 //
 const initialState: ApplicationContextProps = {
   currentUser: new CurrentUserStateModel(),

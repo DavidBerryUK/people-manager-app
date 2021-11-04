@@ -138,6 +138,7 @@ export default class FactoryPeople {
       person.teams.push(team);
       team.people.push(person);
     });
+    this.people.push(person);
   }
 
   getTeam(id: EnumTeam): TeamApiModel {

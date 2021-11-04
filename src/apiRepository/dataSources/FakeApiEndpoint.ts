@@ -15,9 +15,9 @@ export default class FakeApiEndpoint {
 
   // data simulating an online database
   //
-  private people: Array<PersonApiModel> | undefined;
-  private skills: Array<SkillApiModel> | undefined;
-  private teams: Array<TeamApiModel> | undefined;
+  people: Array<PersonApiModel> | undefined;
+  skills: Array<SkillApiModel> | undefined;
+  teams: Array<TeamApiModel> | undefined;
 
   constructor() {
     if (FakeApiEndpoint.instance) {

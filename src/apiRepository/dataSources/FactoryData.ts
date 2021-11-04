@@ -18,10 +18,8 @@ export default class FactoryData {
   static createData(): IData {
     const skills = FactorySkills.createList();
     const teams = FactoryTeams.createList();
-
     const peopleFactory = new FactoryPeople(skills, teams);
     const people = peopleFactory.createList();
-
     const response = { people: people, skills: skills, teams: teams };
     return response;
   }
