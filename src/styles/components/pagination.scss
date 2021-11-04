@@ -8,17 +8,19 @@
     align-items: center;
     width: 80px;
     height: 30px;
-    border: solid 2px red;
+    border: solid 2px darken(#e44, 5);
     border-radius: 4px;
     margin: 4px;
-    transition: background-color 0.5s, color 0.5s;
+    transition: background-color 0.5s, color 0.5s, transform 0.5s;
     cursor: pointer;
-    color: #a00;
+    background-color: #e44;
     font-weight: bold;
-    background-color: #fee;
+    color: #fff;
     &:hover {
-      background-color: #fcc;
-      color: #e55;
+      color: #f5e5e5;
+      transform: scale(1.15, 1.15);
+      background-color: lighten(#e44, 10);
+      border: solid 2px lighten(#e44, 5);
     }
   }
 }

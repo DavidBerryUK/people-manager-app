@@ -1,10 +1,10 @@
 import { UsePeopleContext } from "../../../contexts/peopleContext/PeopleContext";
 import ApiRepositoryPeopleList from "../../../apiRepository/people/ApiRepositoryPeopleList";
 import CommandPeopleListSet from "../../../contexts/peopleContext/actions/CommandPeopleListSet";
+import PaginationWidget from "../../widgetsUI/pagination/PaginationWidget";
 import PeopleLineWidget from "./PeopleLineWidget";
 import PeopleListHeader from "./PeopleListHeader";
 import React, { useMemo } from "react";
-import PaginationWidget from "../../widgetsUI/pagination/PaginationWidget";
 
 const PeopleListWidget: React.FC = () => {
   const { state: peopleState, dispatch: peopleDispatch } = UsePeopleContext();
@@ -15,7 +15,7 @@ const PeopleListWidget: React.FC = () => {
   useMemo(async () => {
     const apiRepositoryPeopleList = new ApiRepositoryPeopleList();
     const peopleList = await apiRepositoryPeopleList.getPeopleAsync(peopleState.sortColumn, peopleState.sortDirection);
-    peopleDispatch(new CommandPeopleListSet(peopleList));
+    peopleDispatch(new CommandPeopleListSet(peopleList.data));
   }, [peopleDispatch, peopleState.sortColumn, peopleState.sortDirection]);
 
   //
