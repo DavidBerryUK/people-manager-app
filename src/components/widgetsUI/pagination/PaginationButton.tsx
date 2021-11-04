@@ -1,4 +1,4 @@
-import { EnumButtonType } from "../../../styles/components/EnumButtonType";
+import { EnumButtonType } from "./EnumButtonType";
 import { FaBackward, FaFastBackward, FaFastForward, FaForward, FaStepForward } from "react-icons/fa";
 import React from "react";
 
@@ -7,7 +7,7 @@ interface IProperties {
   pageNumber: number;
   enabled?: boolean;
   selected?: boolean;
-  onClick: (page: number) => void;
+  onPageSelected: (page: number) => void;
 }
 
 const PaginationButton: React.FC<IProperties> = (props) => {
@@ -55,8 +55,21 @@ const PaginationButton: React.FC<IProperties> = (props) => {
     return `Page ${props.pageNumber}`;
   };
 
+  // event handlers
+  //
+  const handleButtonClickEvent = () => {
+    props.onPageSelected(props.pageNumber);
+  };
+
+  const getClassName = (): string => {
+    if (props.selected === true) {
+      return "pagination-button selected";
+    }
+    return "pagination-button";
+  };
+
   return (
-    <div className="pagination-button" title={buttonTitle()}>
+    <div className={getClassName()} title={buttonTitle()} onClick={handleButtonClickEvent}>
       {buttonContent()}
     </div>
   );

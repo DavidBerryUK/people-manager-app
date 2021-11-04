@@ -10,24 +10,29 @@ export default class ApiRepositoryPeopleList {
   //
   // Get List Of People
   //
-  async getPeopleAsync(sortColumn: EnumSortColumn, sortDirection: EnumSortDirection): Promise<DataListApiModel<PersonApiModel>> {
+  async getPeopleAsync(sortColumn: EnumSortColumn, sortDirection: EnumSortDirection, pageNo: number, rowsPerPage: number): Promise<DataListApiModel<PersonApiModel>> {
     // artificial delay
-    //
     await MockUtilities.delayAsync(20);
 
     // get copy of people from fake api
-    //
     const fakeApi = new FakeApiEndpoint();
-    let people = fakeApi.people!;
+    let fullList = fakeApi.people!;
 
-    // sort by forename
-    //
-    people = SortPeople.sortData(people, sortColumn, sortDirection);
+    // sort
+    fullList = SortPeople.sortData(fullList, sortColumn, sortDirection);
 
-    var dataList = new DataListApiModel(people, 5, people.length);
+    var skip = (pageNo - 1) * rowsPerPage;
+    if (skip < 0) {
+      skip = 0;
+    }
 
-    // return
-    //
+    console.log(`ApiRepositoryPeopleList:getPeopleAsync page number: ${pageNo}  ${rowsPerPage}  skip:${skip}`);
+
+    const rowsOnPage = fullList.slice(skip, skip + rowsPerPage);
+
+    // create response
+    var dataList = new DataListApiModel(rowsOnPage, rowsPerPage, fullList.length);
+
     return dataList;
   }
 }

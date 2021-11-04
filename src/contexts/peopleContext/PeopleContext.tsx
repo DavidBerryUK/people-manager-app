@@ -9,8 +9,9 @@ import { EnumSortColumn } from "../../constants/EnumSortColumn";
 export interface PeopleContextProps {
   peopleList: Array<PersonApiModel>;
   pageNumber: number;
-  pageTotal: number;
-  rowsTotal: number;
+  totalPages: number;
+  totalRows: number;
+  rowsPerPage: number;
   sortColumn: EnumSortColumn;
   sortDirection: EnumSortDirection;
 }
@@ -26,9 +27,10 @@ export interface InitContextProps {
 //
 const initialState: PeopleContextProps = {
   peopleList: new Array<PersonApiModel>(),
-  pageNumber: 0,
-  pageTotal: 0,
-  rowsTotal: 0,
+  pageNumber: 1,
+  totalPages: 0,
+  totalRows: 0,
+  rowsPerPage: 20,
   sortColumn: EnumSortColumn.Forename,
   sortDirection: EnumSortDirection.asc,
 };

@@ -16,6 +16,16 @@
     background-color: #e44;
     font-weight: bold;
     color: #fff;
+    &.selected {
+      background-color: #f88;
+      color: #811;
+      font-weight: bold;
+      border: solid 2px darken(#e44, 15);
+
+      &:hover {
+        background-color: #f66;
+      }
+    }
     &:hover {
       color: #f5e5e5;
       transform: scale(1.15, 1.15);

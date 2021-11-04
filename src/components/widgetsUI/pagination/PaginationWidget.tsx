@@ -1,4 +1,4 @@
-import { EnumButtonType } from "../../../styles/components/EnumButtonType";
+import { EnumButtonType } from "./EnumButtonType";
 import PaginationButton from "./PaginationButton";
 import PaginationModel from "./PaginationModel";
 import React, { useMemo } from "react";
@@ -39,15 +39,15 @@ const PaginationWidget: React.FC<IPaginationProperties> = (props) => {
   //
   return (
     <div className="paginationContainer">
-      <PaginationButton enabled={pageModel.enableFirstPageButton} pageNumber={1} onClick={changePageClickHandler} type={EnumButtonType.First} />
-      <PaginationButton enabled={pageModel.enableSkipPreviousPageButton} pageNumber={pageModel.page - 10} onClick={changePageClickHandler} type={EnumButtonType.SkipPrevious} />
-      <PaginationButton enabled={pageModel.enablePreviousPageButton} pageNumber={pageModel.page - 1} onClick={changePageClickHandler} type={EnumButtonType.Previous} />
+      <PaginationButton enabled={pageModel.enableFirstPageButton} pageNumber={1} onPageSelected={changePageClickHandler} type={EnumButtonType.First} />
+      <PaginationButton enabled={pageModel.enableSkipPreviousPageButton} pageNumber={pageModel.page - 10} onPageSelected={changePageClickHandler} type={EnumButtonType.SkipPrevious} />
+      <PaginationButton enabled={pageModel.enablePreviousPageButton} pageNumber={pageModel.page - 1} onPageSelected={changePageClickHandler} type={EnumButtonType.Previous} />
       {pageModel.pageNumbers.map((item: number) => (
-        <PaginationButton key={`${item}`} selected={item === pageModel.page} pageNumber={item} onClick={changePageClickHandler} type={EnumButtonType.Page} />
+        <PaginationButton key={`${item}`} selected={item === pageModel.page} pageNumber={item} onPageSelected={changePageClickHandler} type={EnumButtonType.Page} />
       ))}
-      <PaginationButton enabled={pageModel.enableSkipNextPageButton} pageNumber={pageModel.page + 1} onClick={changePageClickHandler} type={EnumButtonType.Next} />
-      <PaginationButton enabled={pageModel.enableNextPageButton} pageNumber={pageModel.page + 10} onClick={changePageClickHandler} type={EnumButtonType.SkipNext} />
-      <PaginationButton enabled={pageModel.enableLastPageButton} pageNumber={pageModel.pageCount} onClick={changePageClickHandler} type={EnumButtonType.Last} />
+      <PaginationButton enabled={pageModel.enableSkipNextPageButton} pageNumber={pageModel.page + 1} onPageSelected={changePageClickHandler} type={EnumButtonType.Next} />
+      <PaginationButton enabled={pageModel.enableNextPageButton} pageNumber={pageModel.page + 10} onPageSelected={changePageClickHandler} type={EnumButtonType.SkipNext} />
+      <PaginationButton enabled={pageModel.enableLastPageButton} pageNumber={pageModel.pageCount} onPageSelected={changePageClickHandler} type={EnumButtonType.Last} />
     </div>
   );
 };

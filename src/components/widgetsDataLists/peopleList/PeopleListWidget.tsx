@@ -5,6 +5,7 @@ import PaginationWidget from "../../widgetsUI/pagination/PaginationWidget";
 import PeopleLineWidget from "./PeopleLineWidget";
 import PeopleListHeader from "./PeopleListHeader";
 import React, { useMemo } from "react";
+import CommandPageNumberSet from "../../../contexts/peopleContext/actions/CommandPageNumberSet";
 
 const PeopleListWidget: React.FC = () => {
   const { state: peopleState, dispatch: peopleDispatch } = UsePeopleContext();
@@ -14,15 +15,20 @@ const PeopleListWidget: React.FC = () => {
   //
   useMemo(async () => {
     const apiRepositoryPeopleList = new ApiRepositoryPeopleList();
-    const peopleList = await apiRepositoryPeopleList.getPeopleAsync(peopleState.sortColumn, peopleState.sortDirection);
-    peopleDispatch(new CommandPeopleListSet(peopleList.data));
-  }, [peopleDispatch, peopleState.sortColumn, peopleState.sortDirection]);
+    const peopleList = await apiRepositoryPeopleList.getPeopleAsync(peopleState.sortColumn, peopleState.sortDirection, peopleState.pageNumber, peopleState.rowsPerPage);
+
+    // update context with data
+    //
+    peopleDispatch(new CommandPeopleListSet(peopleList.data, peopleList.rowsPerPage, peopleList.totalPages, peopleList.totalRows));
+  }, [peopleDispatch, peopleState.sortColumn, peopleState.sortDirection, peopleState.rowsPerPage, peopleState.pageNumber]);
 
   //
   // Event Handlers
   //
   const handleOnPageChangeEvent = (pageNo: number) => {
-    console.log(pageNo);
+    // update context with new page number
+    //
+    peopleDispatch(new CommandPageNumberSet(pageNo));
   };
 
   return (
@@ -35,7 +41,7 @@ const PeopleListWidget: React.FC = () => {
           ))}
         </tbody>
       </table>
-      <PaginationWidget page={1} pageCount={5} onPageChanged={handleOnPageChangeEvent} />
+      <PaginationWidget page={peopleState.pageNumber} pageCount={peopleState.totalPages} onPageChanged={handleOnPageChangeEvent} />
     </div>
   );
 };

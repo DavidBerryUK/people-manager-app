@@ -4,7 +4,7 @@ import { IPeopleContextDispatchCommand } from "../interfaces/IPeopleContextDispa
 import { PeopleContextProps } from "../PeopleContext";
 
 //
-export default class CommandPageNumberChange implements IPeopleContextDispatchCommand {
+export default class CommandPageNumberSet implements IPeopleContextDispatchCommand {
   pageNumber: number;
 
   // Create the command with all data needed to update
