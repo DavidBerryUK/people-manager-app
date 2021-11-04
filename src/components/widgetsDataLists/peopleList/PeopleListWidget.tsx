@@ -1,9 +1,9 @@
-import React, { useMemo } from "react";
+import { UsePeopleContext } from "../../../contexts/peopleContext/PeopleContext";
 import ApiRepositoryPeopleList from "../../../apiRepository/people/ApiRepositoryPeopleList";
 import CommandPeopleListSet from "../../../contexts/peopleContext/actions/CommandPeopleListSet";
-import { UsePeopleContext } from "../../../contexts/peopleContext/PeopleContext";
 import PeopleLineWidget from "./PeopleLineWidget";
 import PeopleListHeader from "./PeopleListHeader";
+import React, { useMemo } from "react";
 
 const PeopleListWidget: React.FC = () => {
   const { state: peopleState, dispatch: peopleDispatch } = UsePeopleContext();
@@ -13,9 +13,9 @@ const PeopleListWidget: React.FC = () => {
   //
   useMemo(async () => {
     const apiRepositoryPeopleList = new ApiRepositoryPeopleList();
-    const peopleList = await apiRepositoryPeopleList.getPeopleAsync();
+    const peopleList = await apiRepositoryPeopleList.getPeopleAsync(peopleState.sortColumn, peopleState.sortDirection);
     peopleDispatch(new CommandPeopleListSet(peopleList));
-  }, [peopleDispatch]);
+  }, [peopleDispatch, peopleState.sortColumn, peopleState.sortDirection]);
 
   return (
     <table>

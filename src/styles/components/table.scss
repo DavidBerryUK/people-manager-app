@@ -9,12 +9,37 @@ table {
     font-size: 1.1em;
   }
 
-  th,
   td {
-    padding-left: 4px;
     padding-left: 8px;
+    padding-right: 8px;
     padding-top: 2px;
     padding-bottom: 2px;
+  }
+
+  th {
+    padding-left: 4px;
+    padding-left: 8px;
+    padding-top: 4px;
+    height: 40px;
+    cursor: pointer;
+    transition: background-color 0.5s;
+    user-select: none;
+
+    &:hover {
+      background-color: lighten(#e44, 10);
+    }
+
+    .title {
+      float: left;
+      padding-top: 4px;
+      height: 30px;
+    }
+    .icon {
+      float: right;
+      padding-top: 2px;
+      padding-right: 8px;
+      font-size: 24px;
+    }
   }
 
   tbody {

@@ -1,14 +1,16 @@
+import { EnumSortColumn } from "../../../constants/EnumSortColumn";
+import PeopleListHeaderCellWidget from "./PeopleListHeaderCellWidget";
 import React from "react";
 
 const PeopleListHeader: React.FC = () => {
   return (
     <thead>
       <tr>
-        <th>Forename</th>
-        <th>Surname</th>
-        <th>Email</th>
-        <th>Teams</th>
-        <th>Skills</th>
+        <PeopleListHeaderCellWidget column={EnumSortColumn.Forename}>Forename</PeopleListHeaderCellWidget>
+        <PeopleListHeaderCellWidget column={EnumSortColumn.Surname}>Surname</PeopleListHeaderCellWidget>
+        <PeopleListHeaderCellWidget column={EnumSortColumn.Email}>Email</PeopleListHeaderCellWidget>
+        <PeopleListHeaderCellWidget column={EnumSortColumn.Teams}>Teams</PeopleListHeaderCellWidget>
+        <PeopleListHeaderCellWidget column={EnumSortColumn.Skills}>Skills</PeopleListHeaderCellWidget>
       </tr>
     </thead>
   );

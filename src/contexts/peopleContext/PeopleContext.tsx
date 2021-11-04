@@ -1,11 +1,15 @@
+import { EnumSortDirection } from "../../constants/EnumSortDirectory";
 import { IPeopleContextDispatchCommand } from "./interfaces/IPeopleContextDispatchCommand";
-import React, { Dispatch, Reducer } from "react";
 import PersonApiModel from "../../apiRepository/models/PersonApiModel";
+import React, { Dispatch, Reducer } from "react";
+import { EnumSortColumn } from "../../constants/EnumSortColumn";
 
 // Interface defining data structure stored in this context
 //
 export interface PeopleContextProps {
   peopleList: Array<PersonApiModel>;
+  sortColumn: EnumSortColumn;
+  sortDirection: EnumSortDirection;
 }
 
 // Strongly type interface for updating this context, which is done by using
@@ -19,6 +23,8 @@ export interface InitContextProps {
 //
 const initialState: PeopleContextProps = {
   peopleList: new Array<PersonApiModel>(),
+  sortColumn: EnumSortColumn.Forename,
+  sortDirection: EnumSortDirection.asc,
 };
 
 // The reducer updates the actual data held in the context.
