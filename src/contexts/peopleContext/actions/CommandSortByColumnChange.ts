@@ -30,7 +30,7 @@ export default class CommandSortByColumnSet implements IPeopleContextDispatchCom
       }
     } else {
       sortColumn = this.sortByColumn;
-      sortDirection = EnumSortDirection.desc;
+      sortDirection = EnumSortDirection.asc;
     }
 
     return {

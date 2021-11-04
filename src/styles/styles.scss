@@ -1,8 +1,10 @@
-@import './components/navigation';
-@import './components/table';
+@import "./components/navigation";
+@import "./components/table";
+@import "./components/pagination";
+
 html {
-    background-color: #eee;
-    height:100%;
-    padding:0;
-    margin:0;
+  background-color: #eee;
+  height: 100%;
+  padding: 0;
+  margin: 0;
 }

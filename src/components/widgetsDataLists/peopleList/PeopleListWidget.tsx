@@ -4,6 +4,7 @@ import CommandPeopleListSet from "../../../contexts/peopleContext/actions/Comman
 import PeopleLineWidget from "./PeopleLineWidget";
 import PeopleListHeader from "./PeopleListHeader";
 import React, { useMemo } from "react";
+import PaginationWidget from "../../widgetsUI/pagination/PaginationWidget";
 
 const PeopleListWidget: React.FC = () => {
   const { state: peopleState, dispatch: peopleDispatch } = UsePeopleContext();
@@ -17,15 +18,25 @@ const PeopleListWidget: React.FC = () => {
     peopleDispatch(new CommandPeopleListSet(peopleList));
   }, [peopleDispatch, peopleState.sortColumn, peopleState.sortDirection]);
 
+  //
+  // Event Handlers
+  //
+  const handleOnPageChangeEvent = (pageNo: number) => {
+    console.log(pageNo);
+  };
+
   return (
-    <table>
-      <PeopleListHeader />
-      <tbody>
-        {peopleState.peopleList.map((row, index) => (
-          <PeopleLineWidget key={index} person={row} />
-        ))}
-      </tbody>
-    </table>
+    <div>
+      <table>
+        <PeopleListHeader />
+        <tbody>
+          {peopleState.peopleList.map((row, index) => (
+            <PeopleLineWidget key={index} person={row} />
+          ))}
+        </tbody>
+      </table>
+      <PaginationWidget page={1} pageCount={5} onPageChanged={handleOnPageChangeEvent} />
+    </div>
   );
 };
 
