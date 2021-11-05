@@ -1,9 +1,8 @@
 import { EnumSortColumn } from "../../../constants/EnumSortColumn";
-import { EnumSortDirection } from "../../../constants/EnumSortDirectory";
-import { FaArrowAltCircleDown, FaArrowAltCircleUp } from "react-icons/fa";
 import { UseTeamContext } from "../../../contexts/teamContext/TeamContext";
 import CommandSortByColumnSet from "../../../contexts/teamContext/actions/CommandSortByColumnSet";
 import React from "react";
+import SortIndicator from "../../widgetsUI/sortIndicator/SortIndicator";
 
 interface IProperties {
   column: EnumSortColumn;
@@ -25,10 +24,7 @@ const TeamListHeaderCellWidget: React.FC<IProperties> = (props) => {
     if (teamState.sortColumn !== props.column) {
       return <></>;
     }
-    if (teamState.sortDirection === EnumSortDirection.asc) {
-      return <FaArrowAltCircleDown />;
-    }
-    return <FaArrowAltCircleUp />;
+    return <SortIndicator direction={teamState.sortDirection} />;
   };
 
   return (

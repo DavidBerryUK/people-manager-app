@@ -1,5 +1,4 @@
 import { EnumSortColumn } from "../../../constants/EnumSortColumn";
-
 import React from "react";
 import SkillListHeaderCellWidget from "./SkillListHeaderCellWidget";
 

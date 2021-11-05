@@ -1,9 +1,8 @@
 import { EnumSortColumn } from "../../../constants/EnumSortColumn";
-import { EnumSortDirection } from "../../../constants/EnumSortDirectory";
-import { FaArrowAltCircleDown, FaArrowAltCircleUp } from "react-icons/fa";
 import { UseSkillContext } from "../../../contexts/skillContext/SkillContext";
 import CommandSortByColumnSet from "../../../contexts/skillContext/actions/CommandSortByColumnSet";
 import React from "react";
+import SortIndicator from "../../widgetsUI/sortIndicator/SortIndicator";
 
 interface IProperties {
   column: EnumSortColumn;
@@ -25,10 +24,7 @@ const SkillListHeaderCellWidget: React.FC<IProperties> = (props) => {
     if (skillState.sortColumn !== props.column) {
       return <></>;
     }
-    if (skillState.sortDirection === EnumSortDirection.asc) {
-      return <FaArrowAltCircleDown />;
-    }
-    return <FaArrowAltCircleUp />;
+    return <SortIndicator direction={skillState.sortDirection} />;
   };
 
   return (
