@@ -65,6 +65,9 @@ const PaginationButton: React.FC<IProperties> = (props) => {
     if (props.selected === true) {
       return "pagination-button selected";
     }
+    if (props.enabled === false) {
+      return "pagination-button disabled";
+    }
     return "pagination-button";
   };
 
