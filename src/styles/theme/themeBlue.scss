@@ -2,6 +2,7 @@
 @import "../components/table";
 @import "../components/pagination";
 @import "../components/theme-button";
+@import "../components//tags.scss";
 
 @mixin createThemeBlue() {
   $name: "theme-blue";
@@ -33,6 +34,10 @@
   $table-row-hover-background: lighten($baseColor, 40);
   $table-text: #000;
 
+  $tag-background: lighten($baseColor, 50);
+  $tag-border: lighten($baseColor, 40);
+  $tag-text: darken($baseColor, 10);
+
   // background
   HTML {
     &.#{$name} {
@@ -40,6 +45,7 @@
     }
   }
 
+  @include tags($name, $tag-background, $tag-border, $tag-text);
   @include themeButton($name, $baseColor);
   @include pagination($name, $button-background, $button-hover-background, $button-selected-background, $button-selected-hover-background, $button-text, $button-hover-text, $button-selected-text, $button-selected-hover-text);
   @include table($name, $table-background, $table-border, $table-grid, $table-row-alt-background, $table-header-background, $table-header-hover-background, $table-row-hover-background, $table-text, $table-header-text);

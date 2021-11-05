@@ -2,6 +2,7 @@
 @import "../components/table";
 @import "../components/pagination";
 @import "../components/theme-button";
+@import "../components//tags.scss";
 
 @mixin createThemeBlueDark() {
   $name: "theme-blue-dark";
@@ -38,6 +39,10 @@
   $table-row-hover-background: lighten($baseColor, 40);
   $table-text: lighten($baseColor, 55);
 
+  $tag-background: darken($baseColor, 5);
+  $tag-border: darken($baseColor, 10);
+  $tag-text: lighten($baseColor, 80);
+
   // background
   HTML {
     &.#{$name} {
@@ -45,6 +50,7 @@
     }
   }
 
+  @include tags($name, $tag-background, $tag-border, $tag-text);
   @include themeButton($name, darken($baseColor, 20));
   @include pagination($name, $button-background, $button-hover-background, $button-selected-background, $button-selected-hover-background, $button-text, $button-hover-text, $button-selected-text, $button-selected-hover-text);
   @include table($name, $table-background, $table-border, $table-grid, $table-row-alt-background, $table-header-background, $table-header-hover-background, $table-row-hover-background, $table-text, $table-header-text);
