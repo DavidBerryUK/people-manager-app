@@ -22,10 +22,14 @@ export default class FactoryPeople {
   skillDictionary: { [id: number]: SkillApiModel };
   teamDictionary: { [id: number]: TeamApiModel };
   people: Array<PersonApiModel>;
+  teams: Array<TeamApiModel>;
+  skills: Array<SkillApiModel>;
   nextId = 0;
 
   constructor(skills: Array<SkillApiModel>, teams: Array<TeamApiModel>) {
     this.people = new Array<PersonApiModel>();
+    this.teams = teams;
+    this.skills = skills;
     this.skillDictionary = skills.reduce((a, x) => ({ ...a, [x.id]: x }), {});
     this.teamDictionary = teams.reduce((a, x) => ({ ...a, [x.id]: x }), {});
   }
@@ -42,7 +46,39 @@ export default class FactoryPeople {
     this.CreateDevTeamFinance();
     this.createSalesTeam();
 
+    //
+    // order the data
+    //
+    this.sortPeopleSkills();
+    this.sortPeopleTeams();
+    this.sortTeamPeople();
+    this.sortSkillsPeople();
+
     return this.people;
+  }
+
+  private sortPeopleSkills() {
+    this.people.forEach((person) => {
+      person.skills = person.skills.sort((s1, s2) => s1.skill.name.localeCompare(s2.skill.name));
+    });
+  }
+
+  private sortPeopleTeams() {
+    this.people.forEach((person) => {
+      person.teams = person.teams.sort((t1, t2) => t1.name.localeCompare(t2.name));
+    });
+  }
+
+  private sortTeamPeople() {
+    this.teams.forEach((team) => {
+      team.people = team.people.sort((p1, p2) => p1.forename.localeCompare(p2.forename));
+    });
+  }
+
+  private sortSkillsPeople() {
+    this.skills.forEach((skill) => {
+      skill.people = skill.people.sort((s1, s2) => s1.person.forename.localeCompare(s2.person.forename));
+    });
   }
 
   private createAccountingAndAdminTeams() {
@@ -66,7 +102,7 @@ export default class FactoryPeople {
       [EnumTeam.DevOpsShiftB],
       [new SkillLevel(EnumSkill.ServiceManager, 4), new SkillLevel(EnumSkill.KubernetesAdmin, 4), new SkillLevel(EnumSkill.DevOpsEngineerAws, 4), new SkillLevel(EnumSkill.DevOpsEngineerAzure, 4), new SkillLevel(EnumSkill.AzurePipelines, 2)]
     );
-    this.addPerson("Angelina", "Jolie", [EnumTeam.DevOpsShiftB], [new SkillLevel(EnumSkill.ServiceDesk, 3), new SkillLevel(EnumSkill.DevOpsEngineerAws, 4), new SkillLevel(EnumSkill.KubernetesAdmin, 2)]);
+    this.addPerson("Angelina", "Jolie", [EnumTeam.Sales, EnumTeam.DevOpsShiftB], [new SkillLevel(EnumSkill.ProjectManagement, 3), new SkillLevel(EnumSkill.DevOpsEngineerAws, 4), new SkillLevel(EnumSkill.KubernetesAdmin, 2)]);
     this.addPerson("Scarlett", "Johansson", [EnumTeam.DevOpsShiftB], [new SkillLevel(EnumSkill.ServiceDesk, 3), new SkillLevel(EnumSkill.DevOpsEngineerAws, 5), new SkillLevel(EnumSkill.DevOpsEngineerAzure, 4)]);
     this.addPerson("Charlize", "Theron", [EnumTeam.DevOpsShiftB], [new SkillLevel(EnumSkill.ServiceDesk, 2), new SkillLevel(EnumSkill.DevOpsEngineerAzure, 2), new SkillLevel(EnumSkill.SQL, 3)]);
     this.addPerson("Nicole", "Kidman", [EnumTeam.DevOpsShiftB], [new SkillLevel(EnumSkill.ServiceDesk, 2), new SkillLevel(EnumSkill.DevOpsEngineerAzure, 1), new SkillLevel(EnumSkill.JiraAdmin, 4)]);
