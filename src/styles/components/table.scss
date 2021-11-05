@@ -1,73 +1,79 @@
-table {
-  width: 100%;
-  border-collapse: collapse;
+@import "./colors";
 
-  thead tr {
-    background-color: #e44;
-    color: #ffffff;
-    text-align: left;
-    font-size: 1.1em;
-  }
+@mixin table($theme-name) {
+  .#{$theme-name} {
+    table {
+      width: 100%;
+      border-collapse: collapse;
 
-  td {
-    padding-left: 8px;
-    padding-right: 8px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-  }
-
-  th {
-    padding-left: 4px;
-    padding-left: 8px;
-    padding-top: 4px;
-    height: 40px;
-    cursor: pointer;
-    transition: background-color 0.5s;
-    user-select: none;
-
-    &:hover {
-      background-color: lighten(#e44, 10);
-    }
-
-    .title {
-      float: left;
-      padding-top: 4px;
-      height: 30px;
-    }
-    .icon {
-      float: right;
-      padding-top: 2px;
-      padding-right: 8px;
-      font-size: 24px;
-    }
-  }
-
-  tbody {
-    font-size: 0.9em;
-    tr {
-      border-bottom: 1px solid #dddddd;
+      thead tr {
+        background-color: #e44;
+        color: #ffffff;
+        text-align: left;
+        font-size: 1.1em;
+      }
 
       td {
-        border-left: solid 1px #ddd;
+        padding-left: 8px;
+        padding-right: 8px;
+        padding-top: 2px;
+        padding-bottom: 2px;
       }
-      td:last-of-type {
-        border-right: 2px solid #ddd;
-      }
-      &:hover {
-        background-color: #fcc;
-      }
-      transition: background-color 0.12s;
-      cursor: pointer;
-    }
 
-    tr:nth-of-type(even) {
-      background-color: #f3f3f3;
-      &:hover {
-        background-color: #fcc;
+      th {
+        padding-left: 4px;
+        padding-left: 8px;
+        padding-top: 4px;
+        height: 40px;
+        cursor: pointer;
+        transition: background-color 0.5s;
+        user-select: none;
+
+        &:hover {
+          background-color: lighten(#e44, 10);
+        }
+
+        .title {
+          float: left;
+          padding-top: 4px;
+          height: 30px;
+        }
+        .icon {
+          float: right;
+          padding-top: 2px;
+          padding-right: 8px;
+          font-size: 24px;
+        }
       }
-    }
-    tr:last-of-type {
-      border-bottom: 2px solid #e44;
+
+      tbody {
+        font-size: 0.9em;
+        tr {
+          border-bottom: 1px solid #dddddd;
+
+          td {
+            border-left: solid 1px #ddd;
+          }
+          td:last-of-type {
+            border-right: 2px solid #ddd;
+          }
+          &:hover {
+            background-color: #fcc;
+          }
+          transition: background-color 0.12s;
+          cursor: pointer;
+        }
+
+        tr:nth-of-type(even) {
+          background-color: #f3f3f3;
+          &:hover {
+            background-color: #fcc;
+          }
+        }
+        tr:last-of-type {
+          border-bottom: 2px solid #e44;
+        }
+      }
     }
   }
 }

@@ -1,13 +1,13 @@
 import { IApplicationContextDispatchCommand } from "./interfaces/IApplicationContextDispatchCommand";
 import CurrentUserStateModel from "./models/CurrentUserStateModel";
 import React, { Dispatch, Reducer } from "react";
-import ApplicationStateModel from "./models/ApplicationStateModel";
+import { EnumTheme } from "../../constants/EnumeTheme";
 
 // Interface defining data structure stored in this context
 //
 export interface ApplicationContextProps {
   currentUser: CurrentUserStateModel;
-  applicationStateModel: ApplicationStateModel;
+  theme: EnumTheme;
 }
 
 // Strongly type interface for updating this context, which is done by using
@@ -21,7 +21,7 @@ export interface InitContextProps {
 //
 const initialState: ApplicationContextProps = {
   currentUser: new CurrentUserStateModel(),
-  applicationStateModel: new ApplicationStateModel(),
+  theme: EnumTheme.red,
 };
 
 // The reducer updates the actual data held in the context.
