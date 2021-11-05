@@ -12,7 +12,6 @@
         align-items: center;
         width: 80px;
         height: 30px;
-        //   border: solid 2px darken(#e44, 5);
         border-radius: 4px;
         margin: 4px;
         transition: background-color 0.5s, color 0.5s, transform 0.5s;
@@ -24,7 +23,6 @@
           background-color: $selected-background;
           color: $selected-text;
           font-weight: bold;
-          //border: solid 2px darken(#e44, 15);
 
           &:hover {
             background-color: $selected-hover-background;
@@ -34,7 +32,6 @@
           color: $hover-text;
           transform: scale(1.15, 1.15);
           background-color: $hover-background;
-          //border: solid 2px lighten(#e44, 5);
         }
       }
     }

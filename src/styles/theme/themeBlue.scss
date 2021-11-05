@@ -1,16 +1,13 @@
 @import "../components/navigation.scss";
 @import "../components/table";
 @import "../components/pagination";
+@import "../components/theme-button";
 
 @mixin createThemeBlue() {
   $name: "theme-blue";
   $baseColor: #325d79;
 
-  // html {
-  //   background-color: lighten($baseColor, 30);
-  // }
-  // navigation
-  $nav-background: #fff;
+  $nav-background: lighten($baseColor, 50);
   $nav-hover-background: lighten($baseColor, 40);
   $nav-selected-background: lighten($baseColor, 25);
   $nav-selected-hover-background: lighten($baseColor, 18);
@@ -36,8 +33,14 @@
   $table-row-hover-background: lighten($baseColor, 40);
   $table-text: #000;
 
-  // pagination
+  // background
+  HTML {
+    &.#{$name} {
+      background-color: lighten($baseColor, 40);
+    }
+  }
 
+  @include themeButton($name, $baseColor);
   @include pagination($name, $button-background, $button-hover-background, $button-selected-background, $button-selected-hover-background, $button-text, $button-hover-text, $button-selected-text, $button-selected-hover-text);
   @include table($name, $table-background, $table-border, $table-grid, $table-row-alt-background, $table-header-background, $table-header-hover-background, $table-row-hover-background, $table-text, $table-header-text);
   @include navigation($name, $nav-background, $nav-selected-background, $nav-hover-background, $nav-selected-hover-background, $nav-text, $nav-selected-text);

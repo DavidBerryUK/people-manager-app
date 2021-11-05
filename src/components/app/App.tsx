@@ -3,15 +3,15 @@ import ApplicationHeaderWidget from "../widgetsApp/applicationheader/Application
 import React from "react";
 
 import TopLevelRoutes from "../../services/routes/TopLevelRoute";
-import ThemeWidget from "../widgetsApp/theme/ThemeWidget";
+import ThemeProviderWidget from "../widgetsApp/themeProvider/ThemeProviderWidget";
 
 const App: React.FC = () => {
   return (
     <ApplicationContextProvider>
-      <ThemeWidget>
+      <ThemeProviderWidget>
         <ApplicationHeaderWidget />
         <TopLevelRoutes />
-      </ThemeWidget>
+      </ThemeProviderWidget>
     </ApplicationContextProvider>
   );
 };

@@ -1,22 +1,20 @@
+import { EnumTheme } from "../../../constants/EnumeTheme";
 import { ApplicationContextProps } from "../ApplicationContext";
 import { EnumApplicationContextAction, IApplicationContextDispatchCommand } from "../interfaces/IApplicationContextDispatchCommand";
 
 //
-// User has been authenticated via SSO
+// User has selected a different themere
 //
-export default class CommandAuthenticated implements IApplicationContextDispatchCommand {
-  accessToken: string;
-  userId: string;
-
+export default class CommandThemeSet implements IApplicationContextDispatchCommand {
+  theme: EnumTheme
 
   // identify the command type, useful for debugging
   readonly commandType: EnumApplicationContextAction = EnumApplicationContextAction.Authenticated;
 
   // Create the command with all data needed to update
   //  the state
-  constructor(accessToken: string, userId: string) {
-    this.accessToken = accessToken;
-    this.userId = userId;
+  constructor(theme: EnumTheme) {
+    this.theme = theme;
   }
 
   // Update the context and return the new state
@@ -24,6 +22,7 @@ export default class CommandAuthenticated implements IApplicationContextDispatch
   execute(state: ApplicationContextProps): ApplicationContextProps {
     return {
       ...state,
+      theme: this.theme,
     };
   }
 }

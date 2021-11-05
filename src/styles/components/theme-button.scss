@@ -1,0 +1,8 @@
+@import "./colors";
+
+@mixin themeButton($theme-name, $base) {
+  .#{$theme-name}-theme-button {
+    background-color: lighten($base, 20);
+    border: solid 2px lighten($base, 5);
+  }
+}

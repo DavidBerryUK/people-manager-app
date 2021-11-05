@@ -2,6 +2,7 @@ import { useHistory, useLocation } from "react-router";
 import FactoryNavButtons from "./factories/FactoryNavButtons";
 import NavButtonModel from "./models/NavButtonModel";
 import React from "react";
+import ThemeSelectorWidget from "../themeSelector/ThemeSelectorWidget";
 
 const ApplicationHeaderWidget: React.FC = () => {
   const history = useHistory();
@@ -23,19 +24,22 @@ const ApplicationHeaderWidget: React.FC = () => {
   };
 
   return (
-    <ul className="navigation">
-      {navButtons.map((button, index) => (
-        <li
-          key={index}
-          className={getClassName(button)}
-          onClick={() => {
-            handleSelectedEvent(button);
-          }}
-        >
-          {button.title}
-        </li>
-      ))}
-    </ul>
+    <div className="header">
+      <ul className="navigation">
+        {navButtons.map((button, index) => (
+          <li
+            key={index}
+            className={getClassName(button)}
+            onClick={() => {
+              handleSelectedEvent(button);
+            }}
+          >
+            {button.title}
+          </li>
+        ))}
+      </ul>
+      <ThemeSelectorWidget />
+    </div>
   );
 };
 

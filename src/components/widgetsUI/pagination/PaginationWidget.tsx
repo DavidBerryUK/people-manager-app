@@ -3,7 +3,7 @@ import PaginationButton from "./PaginationButton";
 import PaginationModel from "./PaginationModel";
 import React, { useMemo } from "react";
 
-interface IPaginationProperties {
+interface IProperties {
   page: number;
   pageCount: number;
   onPageChanged: (page: number) => void;
@@ -12,7 +12,7 @@ interface IPaginationProperties {
 // Component
 // Displays a row of pagination buttons
 //
-const PaginationWidget: React.FC<IPaginationProperties> = (props) => {
+const PaginationWidget: React.FC<IProperties> = (props) => {
   const [pageModel, setPageModel] = React.useState(new PaginationModel(props.page, props.pageCount));
 
   // Ony create pagination model once,regardless of how many screen refreshes,

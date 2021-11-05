@@ -1,14 +1,19 @@
-@import "./theme/themeGreen";
-@import "./theme/themeRed";
-@import "./theme/themeBlue";
-@import "./theme/themeBlueDark";
+// generic styles
+@import "./components/theme-buttons-general";
 
 html {
   background-color: #eee;
   height: 100%;
   padding: 0;
   margin: 0;
+  transition: background-color 0.5s;
 }
+
+// themed styles
+@import "./theme/themeGreen";
+@import "./theme/themeRed";
+@import "./theme/themeBlue";
+@import "./theme/themeBlueDark";
 
 @include createThemeGreen();
 @include createThemeRed();

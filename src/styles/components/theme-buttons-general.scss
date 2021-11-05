@@ -1,0 +1,12 @@
+.theme-selector {
+  display: flex;
+  align-items: center;
+
+  div {
+    width: 24px;
+    height: 24px;
+    border-radius: 8px;
+    margin-right: 8px;
+    cursor: pointer;
+  }
+}
