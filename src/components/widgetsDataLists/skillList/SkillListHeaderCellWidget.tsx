@@ -6,6 +6,7 @@ import SortIndicator from "../../widgetsUI/sortIndicator/SortIndicator";
 
 interface IProperties {
   column: EnumSortColumn;
+  sortable?: boolean;
 }
 
 const SkillListHeaderCellWidget: React.FC<IProperties> = (props) => {
@@ -14,8 +15,10 @@ const SkillListHeaderCellWidget: React.FC<IProperties> = (props) => {
   // Event Handlers
   //
   const handleColumnClickEvent = () => {
-    // update context with new sort order
-    skillDispatch(new CommandSortByColumnSet(props.column));
+    if (props.sortable) {
+      // update context with new sort order
+      skillDispatch(new CommandSortByColumnSet(props.column));
+    }
   };
 
   // Determine Sort Icon for Column
@@ -27,8 +30,17 @@ const SkillListHeaderCellWidget: React.FC<IProperties> = (props) => {
     return <SortIndicator direction={skillState.sortDirection} />;
   };
 
+  // Create Style
+  //
+  const className = (): string => {
+    if (props.sortable === true) {
+      return "sortable";
+    }
+    return "";
+  };
+
   return (
-    <th onClick={handleColumnClickEvent}>
+    <th className={className()} onClick={handleColumnClickEvent}>
       <div className="title">{props.children}</div>
       <div className="icon">{sortIcon()}</div>
     </th>

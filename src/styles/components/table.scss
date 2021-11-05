@@ -32,8 +32,10 @@
         transition: background-color 0.5s;
         user-select: none;
 
-        &:hover {
-          background-color: $hover-background;
+        &.sortable {
+          &:hover {
+            background-color: $hover-background;
+          }
         }
 
         .title {

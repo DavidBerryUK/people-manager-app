@@ -6,7 +6,9 @@ const TeamListHeader: React.FC = () => {
   return (
     <thead>
       <tr>
-        <TeamListHeaderCellWidget column={EnumSortColumn.Team}>Team</TeamListHeaderCellWidget>
+        <TeamListHeaderCellWidget column={EnumSortColumn.Team} sortable>
+          Team
+        </TeamListHeaderCellWidget>
         <TeamListHeaderCellWidget column={EnumSortColumn.PeopleCollection}>People</TeamListHeaderCellWidget>
       </tr>
     </thead>

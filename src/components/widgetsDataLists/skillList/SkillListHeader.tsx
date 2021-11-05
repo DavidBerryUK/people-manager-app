@@ -6,7 +6,9 @@ const SkillListHeader: React.FC = () => {
   return (
     <thead>
       <tr>
-        <SkillListHeaderCellWidget column={EnumSortColumn.Skill}>Skill</SkillListHeaderCellWidget>
+        <SkillListHeaderCellWidget column={EnumSortColumn.Skill} sortable>
+          Skill
+        </SkillListHeaderCellWidget>
         <SkillListHeaderCellWidget column={EnumSortColumn.PeopleCollection}>People</SkillListHeaderCellWidget>
       </tr>
     </thead>

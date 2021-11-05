@@ -6,9 +6,15 @@ const PeopleListHeader: React.FC = () => {
   return (
     <thead>
       <tr>
-        <PeopleListHeaderCellWidget column={EnumSortColumn.Forename}>Forename</PeopleListHeaderCellWidget>
-        <PeopleListHeaderCellWidget column={EnumSortColumn.Surname}>Surname</PeopleListHeaderCellWidget>
-        <PeopleListHeaderCellWidget column={EnumSortColumn.Email}>Email</PeopleListHeaderCellWidget>
+        <PeopleListHeaderCellWidget column={EnumSortColumn.Forename} sortable>
+          Forename
+        </PeopleListHeaderCellWidget>
+        <PeopleListHeaderCellWidget column={EnumSortColumn.Surname} sortable>
+          Surname
+        </PeopleListHeaderCellWidget>
+        <PeopleListHeaderCellWidget column={EnumSortColumn.Email} sortable>
+          Email
+        </PeopleListHeaderCellWidget>
         <PeopleListHeaderCellWidget column={EnumSortColumn.TeamsCollection}>Teams</PeopleListHeaderCellWidget>
         <PeopleListHeaderCellWidget column={EnumSortColumn.SkillsCollection}>Skills</PeopleListHeaderCellWidget>
       </tr>
