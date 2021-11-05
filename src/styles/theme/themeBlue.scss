@@ -1,0 +1,44 @@
+@import "../components/navigation.scss";
+@import "../components/table";
+@import "../components/pagination";
+
+@mixin createThemeBlue() {
+  $name: "theme-blue";
+  $baseColor: #325d79;
+
+  // html {
+  //   background-color: lighten($baseColor, 30);
+  // }
+  // navigation
+  $nav-background: #fff;
+  $nav-hover-background: lighten($baseColor, 40);
+  $nav-selected-background: lighten($baseColor, 25);
+  $nav-selected-hover-background: lighten($baseColor, 18);
+  $nav-selected-text: darken($baseColor, 5);
+  $nav-text: lighten($baseColor, 10);
+
+  $button-background: lighten($baseColor, 05);
+  $button-hover-background: lighten($baseColor, 20);
+  $button-hover-text: lighten($baseColor, 100);
+  $button-selected-background: lighten($baseColor, 25);
+  $button-selected-hover-background: lighten($baseColor, 35);
+  $button-selected-hover-text: darken($baseColor, 25);
+  $button-selected-text: darken($baseColor, 20);
+  $button-text: lighten($baseColor, 50);
+
+  $table-background: #fff;
+  $table-border: lighten($baseColor, 15);
+  $table-grid: #ddd;
+  $table-header-background: lighten($baseColor, 0);
+  $table-header-hover-background: lighten($baseColor, 20);
+  $table-header-text: #fff;
+  $table-row-alt-background: lighten($baseColor, 60);
+  $table-row-hover-background: lighten($baseColor, 40);
+  $table-text: #000;
+
+  // pagination
+
+  @include pagination($name, $button-background, $button-hover-background, $button-selected-background, $button-selected-hover-background, $button-text, $button-hover-text, $button-selected-text, $button-selected-hover-text);
+  @include table($name, $table-background, $table-border, $table-grid, $table-row-alt-background, $table-header-background, $table-header-hover-background, $table-row-hover-background, $table-text, $table-header-text);
+  @include navigation($name, $nav-background, $nav-selected-background, $nav-hover-background, $nav-selected-hover-background, $nav-text, $nav-selected-text);
+}

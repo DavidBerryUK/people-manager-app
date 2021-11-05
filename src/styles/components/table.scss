@@ -1,14 +1,17 @@
 @import "./colors";
 
-@mixin table($theme-name) {
+@mixin table($theme-name, $background, $table-border, $table-grid, $row-alt-background, $header-background, $hover-background, $row-hover-background, $text, $header-text) {
   .#{$theme-name} {
     table {
+      color: $text;
       width: 100%;
       border-collapse: collapse;
+      background-color: $background;
+      user-select: none;
 
       thead tr {
-        background-color: #e44;
-        color: #ffffff;
+        background-color: $header-background;
+        color: $header-text;
         text-align: left;
         font-size: 1.1em;
       }
@@ -30,7 +33,7 @@
         user-select: none;
 
         &:hover {
-          background-color: lighten(#e44, 10);
+          background-color: $hover-background;
         }
 
         .title {
@@ -49,29 +52,29 @@
       tbody {
         font-size: 0.9em;
         tr {
-          border-bottom: 1px solid #dddddd;
+          border-bottom: 1px solid $table-grid;
 
           td {
-            border-left: solid 1px #ddd;
+            border-left: solid 1px $table-grid;
           }
           td:last-of-type {
-            border-right: 2px solid #ddd;
+            border-right: 2px solid $table-grid;
           }
           &:hover {
-            background-color: #fcc;
+            background-color: $row-hover-background;
           }
           transition: background-color 0.12s;
           cursor: pointer;
         }
 
         tr:nth-of-type(even) {
-          background-color: #f3f3f3;
+          background-color: $row-alt-background;
           &:hover {
-            background-color: #fcc;
+            background-color: $row-hover-background;
           }
         }
         tr:last-of-type {
-          border-bottom: 2px solid #e44;
+          border-bottom: 2px solid $table-border;
         }
       }
     }

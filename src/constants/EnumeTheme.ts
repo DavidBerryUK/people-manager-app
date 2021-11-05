@@ -1,5 +1,6 @@
 export enum EnumTheme {
-  default = "theme-default",
+  green = "theme-green",
   red = "theme-red",
   blue = "theme-blue",
+  blueDark = "theme-blue-dark",
 }

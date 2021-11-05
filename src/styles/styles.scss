@@ -1,4 +1,7 @@
-@import "./theme/themeDefault";
+@import "./theme/themeGreen";
+@import "./theme/themeRed";
+@import "./theme/themeBlue";
+@import "./theme/themeBlueDark";
 
 html {
   background-color: #eee;
@@ -7,4 +10,7 @@ html {
   margin: 0;
 }
 
-@include createDefaultTheme();
+@include createThemeGreen();
+@include createThemeRed();
+@include createThemeBlue();
+@include createThemeBlueDark();

@@ -1,6 +1,6 @@
 @import "./colors";
 
-@mixin pagination($theme-name) {
+@mixin pagination($theme-name, $background, $hover-background, $selected-background, $selected-hover-background, $text, $hover-text, $selected-text, $selected-hover-text) {
   .#{$theme-name} {
     .paginationContainer {
       display: flex;
@@ -12,29 +12,29 @@
         align-items: center;
         width: 80px;
         height: 30px;
-        border: solid 2px darken(#e44, 5);
+        //   border: solid 2px darken(#e44, 5);
         border-radius: 4px;
         margin: 4px;
         transition: background-color 0.5s, color 0.5s, transform 0.5s;
         cursor: pointer;
-        background-color: #e44;
+        background-color: $background;
         font-weight: bold;
-        color: #fff;
+        color: $text;
         &.selected {
-          background-color: #f88;
-          color: #811;
+          background-color: $selected-background;
+          color: $selected-text;
           font-weight: bold;
-          border: solid 2px darken(#e44, 15);
+          //border: solid 2px darken(#e44, 15);
 
           &:hover {
-            background-color: #f66;
+            background-color: $selected-hover-background;
           }
         }
         &:hover {
-          color: #f5e5e5;
+          color: $hover-text;
           transform: scale(1.15, 1.15);
-          background-color: lighten(#e44, 10);
-          border: solid 2px lighten(#e44, 5);
+          background-color: $hover-background;
+          //border: solid 2px lighten(#e44, 5);
         }
       }
     }

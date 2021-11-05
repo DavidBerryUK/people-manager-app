@@ -1,7 +1,7 @@
-@mixin navigation($theme-name) {
+@mixin navigation($theme-name, $background, $selected-background, $hover-background, $selected-hover-background, $text, $selected-text) {
   .#{$theme-name} {
     .navigation {
-      background-color: #fff;
+      background-color: $background;
       padding: 4px;
       padding-left: 16px;
       margin: 0;
@@ -11,6 +11,7 @@
       li {
         display: flex;
         align-items: center;
+        color: $text;
         justify-content: center;
         width: 120px;
         height: 40px;
@@ -21,15 +22,15 @@
         margin-right: 2px;
         transition: background-color 0.5s, transform 0.5s;
         &:hover {
-          background-color: #fcc;
+          background-color: $hover-background;
           transform: scale(1.06, 1.06);
         }
         &.selected {
-          background-color: $navigation-selected-background;
-          color: #811;
+          background-color: $selected-background;
+          color: $selected-text;
           font-weight: bold;
           &:hover {
-            background-color: #f66;
+            background-color: $selected-hover-background;
           }
         }
       }

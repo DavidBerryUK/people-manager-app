@@ -1,0 +1,45 @@
+@import "../components/navigation.scss";
+@import "../components/table";
+@import "../components/pagination";
+
+@mixin createThemeBlueDark() {
+  $name: "theme-blue-dark";
+  $baseColor: #325d79;
+
+  // html {
+  //   background-color: darken($baseColor, 30);
+  // }
+
+  // navigation
+  $nav-background: darken($baseColor, 10);
+  $nav-hover-background: lighten($baseColor, 5);
+  $nav-selected-background: lighten($baseColor, 25);
+  $nav-text: lighten($baseColor, 50);
+  $nav-selected-text: darken($baseColor, 10);
+  $nav-selected-hover-background: lighten($baseColor, 18);
+
+  $button-background: lighten($baseColor, 05);
+  $button-hover-background: lighten($baseColor, 20);
+  $button-selected-background: lighten($baseColor, 25);
+  $button-selected-hover-background: lighten($baseColor, 35);
+  $button-selected-text: darken($baseColor, 20);
+  $button-selected-hover-text: darken($baseColor, 25);
+  $button-text: lighten($baseColor, 50);
+  $button-hover-text: lighten($baseColor, 100);
+
+  $table-background: lighten($baseColor, 5);
+  $table-border: lighten($baseColor, 15);
+  $table-grid: darken($baseColor, 30);
+  $table-header-background: lighten($baseColor, 0);
+  $table-header-hover-background: lighten($baseColor, 20);
+  $table-header-text: #fff;
+  $table-row-alt-background: lighten($baseColor, 15);
+  $table-row-hover-background: lighten($baseColor, 40);
+  $table-text: lighten($baseColor, 55);
+
+  // pagination
+
+  @include pagination($name, $button-background, $button-hover-background, $button-selected-background, $button-selected-hover-background, $button-text, $button-hover-text, $button-selected-text, $button-selected-hover-text);
+  @include table($name, $table-background, $table-border, $table-grid, $table-row-alt-background, $table-header-background, $table-header-hover-background, $table-row-hover-background, $table-text, $table-header-text);
+  @include navigation($name, $nav-background, $nav-selected-background, $nav-hover-background, $nav-selected-hover-background, $nav-text, $nav-selected-text);
+}
