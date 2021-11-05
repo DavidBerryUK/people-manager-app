@@ -14,7 +14,7 @@ const PeopleSkillTagsWidget: React.FC<IProperties> = (props) => {
       {props.peopleSkills.map((personSkill, index) => (
         <Tag key={index}>
           {personSkill.person.forename} {personSkill.person.surname}
-          <Rating />
+          <Rating rating={personSkill.level} />
         </Tag>
       ))}
     </TagContainer>

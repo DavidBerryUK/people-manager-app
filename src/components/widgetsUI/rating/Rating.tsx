@@ -1,15 +1,28 @@
 import { FaStar, FaRegStar } from "react-icons/fa";
 
-const Rating: React.FC = (props) => {
+interface IProperties {
+  rating: number;
+}
+
+const Rating: React.FC<IProperties> = (props) => {
   // Display Template
   //
+
+  const StarIcon = (index: number): JSX.Element => {
+    if (index <= props.rating) {
+      return <FaStar />;
+    }
+
+    return <FaRegStar />;
+  };
+
   return (
     <div>
-      <FaStar />
-      <FaStar />
-      <FaRegStar />
-      <FaRegStar />
-      <FaRegStar />
+      {StarIcon(1)}
+      {StarIcon(2)}
+      {StarIcon(3)}
+      {StarIcon(4)}
+      {StarIcon(5)}
     </div>
   );
 };
