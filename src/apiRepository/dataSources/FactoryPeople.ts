@@ -129,7 +129,7 @@ export default class FactoryPeople {
     this.addPerson("Scarlett", "Johansson", EnumRole.DevOps, [EnumTeam.DevOpsShiftB], [new SkillLevel(EnumSkill.ServiceDesk, 3), new SkillLevel(EnumSkill.DevOpsEngineerAws, 5), new SkillLevel(EnumSkill.DevOpsEngineerAzure, 4)]);
     this.addPerson("Charlize", "Theron", EnumRole.DevOps, [EnumTeam.DevOpsShiftB], [new SkillLevel(EnumSkill.ServiceDesk, 2), new SkillLevel(EnumSkill.DevOpsEngineerAzure, 2), new SkillLevel(EnumSkill.SQL, 3)]);
     this.addPerson("Nicole", "Kidman", EnumRole.DevOps, [EnumTeam.DevOpsShiftB], [new SkillLevel(EnumSkill.ServiceDesk, 2), new SkillLevel(EnumSkill.DevOpsEngineerAzure, 1), new SkillLevel(EnumSkill.JiraAdmin, 4)]);
-    this.addPerson("Ann", "Jathaway", EnumRole.DevOps, [EnumTeam.DevOpsShiftB], [new SkillLevel(EnumSkill.ServiceDesk, 2), new SkillLevel(EnumSkill.DevOpsEngineerAws, 2)]);
+    this.addPerson("Ann", "Hathaway", EnumRole.DevOps, [EnumTeam.DevOpsShiftB], [new SkillLevel(EnumSkill.ServiceDesk, 2), new SkillLevel(EnumSkill.DevOpsEngineerAws, 2)]);
   }
 
   private CreateDevOpsTeamC() {
@@ -148,6 +148,13 @@ export default class FactoryPeople {
   }
 
   private CreateDevTeamCouncil() {
+    this.addPerson(
+      "Tom",
+      "Hardy",
+      EnumRole.DeveloperPrincipal,
+      [EnumTeam.DevTeamCouncil],
+      [new SkillLevel(EnumSkill.SQL, 4), new SkillLevel(EnumSkill.JiraAdmin, 4), new SkillLevel(EnumSkill.React, 4), new SkillLevel(EnumSkill.VueJS, 4), new SkillLevel(EnumSkill.Typescript, 5), new SkillLevel(EnumSkill.CSharp, 4)]
+    );
     this.addPerson("Claire", "Balding", EnumRole.DeveloperPrincipal, [EnumTeam.DevTeamCouncil], [new SkillLevel(EnumSkill.ProjectManagement, 4), new SkillLevel(EnumSkill.JiraAdmin, 2)]);
     this.addPerson("Gabby", "Logan", EnumRole.DeveloperPrincipal, [EnumTeam.DevTeamCouncil], [new SkillLevel(EnumSkill.BusinessAnalyst, 3), new SkillLevel(EnumSkill.JiraUser, 4)]);
     this.addPerson("Matt", "Tebbutt", EnumRole.DeveloperLead, [EnumTeam.DevTeamCouncil], [new SkillLevel(EnumSkill.TechnicalLead, 3), new SkillLevel(EnumSkill.Java, 4), new SkillLevel(EnumSkill.JavaSpring, 4)]);
