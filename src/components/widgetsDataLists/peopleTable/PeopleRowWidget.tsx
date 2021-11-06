@@ -7,7 +7,7 @@ interface IProperties {
   person: PersonApiModel;
 }
 
-const PeopleLineWidget: React.FC<IProperties> = (props) => {
+const PeopleRowWidget: React.FC<IProperties> = (props) => {
   return (
     <tr>
       <td> {props.person.forename}</td>
@@ -23,4 +23,4 @@ const PeopleLineWidget: React.FC<IProperties> = (props) => {
   );
 };
 
-export default PeopleLineWidget;
+export default PeopleRowWidget;

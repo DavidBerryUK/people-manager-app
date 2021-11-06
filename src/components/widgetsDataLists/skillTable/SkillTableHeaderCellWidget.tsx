@@ -1,6 +1,6 @@
 import { EnumSortColumn } from "../../../constants/EnumSortColumn";
-import { UsePeopleContext } from "../../../contexts/peopleContext/PeopleContext";
-import CommandSortByColumnSet from "../../../contexts/peopleContext/actions/CommandSortByColumnSet";
+import { UseSkillContext } from "../../../contexts/skillContext/SkillContext";
+import CommandSortByColumnSet from "../../../contexts/skillContext/actions/CommandSortByColumnSet";
 import React from "react";
 import SortIndicator from "../../widgetsUI/sortIndicator/SortIndicator";
 
@@ -9,25 +9,25 @@ interface IProperties {
   sortable?: boolean;
 }
 
-const PeopleListHeaderCellWidget: React.FC<IProperties> = (props) => {
-  const { state: peopleState, dispatch: peopleDispatch } = UsePeopleContext();
+const SkillTableHeaderCellWidget: React.FC<IProperties> = (props) => {
+  const { state: skillState, dispatch: skillDispatch } = UseSkillContext();
 
   // Event Handlers
   //
   const handleColumnClickEvent = () => {
     if (props.sortable) {
       // update context with new sort order
-      peopleDispatch(new CommandSortByColumnSet(props.column));
+      skillDispatch(new CommandSortByColumnSet(props.column));
     }
   };
 
   // Determine Sort Icon for Column
   //
   const sortIcon = (): JSX.Element => {
-    if (peopleState.sortColumn !== props.column) {
+    if (skillState.sortColumn !== props.column) {
       return <></>;
     }
-    return <SortIndicator direction={peopleState.sortDirection} />;
+    return <SortIndicator direction={skillState.sortDirection} />;
   };
 
   // Create Style
@@ -47,4 +47,4 @@ const PeopleListHeaderCellWidget: React.FC<IProperties> = (props) => {
   );
 };
 
-export default PeopleListHeaderCellWidget;
+export default SkillTableHeaderCellWidget;

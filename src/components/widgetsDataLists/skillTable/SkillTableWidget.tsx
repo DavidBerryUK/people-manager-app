@@ -4,10 +4,10 @@ import CommandPageNumberSet from "../../../contexts/skillContext/actions/Command
 import CommandSkillListSet from "../../../contexts/skillContext/actions/CommandSkillListSet";
 import PaginationWidget from "../../widgetsUI/pagination/PaginationWidget";
 import React, { useMemo } from "react";
-import SkillLineWidget from "./SkillLineWidget";
-import SkillListHeader from "./SkillListHeader";
+import SkillRowWidget from "./SkillRowWidget";
+import SkillTableHeader from "./SkillTableHeader";
 
-const SkillListWidget: React.FC = () => {
+const SkillTableWidget: React.FC = () => {
   const { state: skillState, dispatch: skillDispatch } = UseSkillContext();
 
   //
@@ -34,10 +34,10 @@ const SkillListWidget: React.FC = () => {
   return (
     <div>
       <table>
-        <SkillListHeader />
+        <SkillTableHeader />
         <tbody>
           {skillState.skillList.map((row, index) => (
-            <SkillLineWidget key={index} skill={row} />
+            <SkillRowWidget key={index} skill={row} />
           ))}
         </tbody>
       </table>
@@ -46,4 +46,4 @@ const SkillListWidget: React.FC = () => {
   );
 };
 
-export default SkillListWidget;
+export default SkillTableWidget;

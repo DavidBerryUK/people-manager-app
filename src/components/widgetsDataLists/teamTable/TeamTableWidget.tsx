@@ -3,11 +3,11 @@ import CommandPageNumberSet from "../../../contexts/teamContext/actions/CommandP
 import CommandTeamListSet from "../../../contexts/teamContext/actions/CommandTeamListSet";
 import PaginationWidget from "../../widgetsUI/pagination/PaginationWidget";
 import React, { useMemo } from "react";
-import TeamLineWidget from "./TeamLineWidget";
-import TeamListHeader from "./TeamListHeader";
+import TeamRowWidget from "./TeamRowWidget";
+import TeamTableHeader from "./TeamTableHeader";
 import ApiRepositoryTeamList from "../../../apiRepository/teams/ApiRepositoryTeamList";
 
-const TeamListWidget: React.FC = () => {
+const TeamTableWidget: React.FC = () => {
   const { state: teamState, dispatch: teamDispatch } = UseTeamContext();
 
   //
@@ -34,10 +34,10 @@ const TeamListWidget: React.FC = () => {
   return (
     <div>
       <table>
-        <TeamListHeader />
+        <TeamTableHeader />
         <tbody>
           {teamState.teamList.map((row, index) => (
-            <TeamLineWidget key={index} team={row} />
+            <TeamRowWidget key={index} team={row} />
           ))}
         </tbody>
       </table>
@@ -46,4 +46,4 @@ const TeamListWidget: React.FC = () => {
   );
 };
 
-export default TeamListWidget;
+export default TeamTableWidget;

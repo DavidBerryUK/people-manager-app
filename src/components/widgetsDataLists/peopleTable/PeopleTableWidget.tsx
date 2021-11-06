@@ -2,12 +2,12 @@ import { UsePeopleContext } from "../../../contexts/peopleContext/PeopleContext"
 import ApiRepositoryPeopleList from "../../../apiRepository/people/ApiRepositoryPeopleList";
 import CommandPeopleListSet from "../../../contexts/peopleContext/actions/CommandPeopleListSet";
 import PaginationWidget from "../../widgetsUI/pagination/PaginationWidget";
-import PeopleLineWidget from "./PeopleLineWidget";
-import PeopleListHeader from "./PeopleListHeader";
+import PeopleRowWidget from "./PeopleRowWidget";
+import PeopleTableHeader from "./PeopleTableHeader";
 import React, { useMemo } from "react";
 import CommandPageNumberSet from "../../../contexts/peopleContext/actions/CommandPageNumberSet";
 
-const PeopleListWidget: React.FC = () => {
+const PeopleTableWidget: React.FC = () => {
   const { state: peopleState, dispatch: peopleDispatch } = UsePeopleContext();
 
   //
@@ -34,10 +34,10 @@ const PeopleListWidget: React.FC = () => {
   return (
     <div>
       <table>
-        <PeopleListHeader />
+        <PeopleTableHeader />
         <tbody>
           {peopleState.peopleList.map((row, index) => (
-            <PeopleLineWidget key={index} person={row} />
+            <PeopleRowWidget key={index} person={row} />
           ))}
         </tbody>
       </table>
@@ -46,4 +46,4 @@ const PeopleListWidget: React.FC = () => {
   );
 };
 
-export default PeopleListWidget;
+export default PeopleTableWidget;

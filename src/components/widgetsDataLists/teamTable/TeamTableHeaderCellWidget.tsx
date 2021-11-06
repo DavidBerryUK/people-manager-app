@@ -9,7 +9,7 @@ interface IProperties {
   sortable?: boolean;
 }
 
-const TeamListHeaderCellWidget: React.FC<IProperties> = (props) => {
+const TeamTableHeaderCellWidget: React.FC<IProperties> = (props) => {
   const { state: teamState, dispatch: teamDispatch } = UseTeamContext();
 
   // Event Handlers
@@ -47,4 +47,4 @@ const TeamListHeaderCellWidget: React.FC<IProperties> = (props) => {
   );
 };
 
-export default TeamListHeaderCellWidget;
+export default TeamTableHeaderCellWidget;

@@ -6,7 +6,7 @@ interface IProperties {
   skill: SkillApiModel;
 }
 
-const SkillLineWidget: React.FC<IProperties> = (props) => {
+const SkillRowWidget: React.FC<IProperties> = (props) => {
   return (
     <tr>
       <td> {props.skill.name}</td>
@@ -17,4 +17,4 @@ const SkillLineWidget: React.FC<IProperties> = (props) => {
   );
 };
 
-export default SkillLineWidget;
+export default SkillRowWidget;

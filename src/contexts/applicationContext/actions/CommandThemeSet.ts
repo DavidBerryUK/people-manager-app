@@ -1,4 +1,4 @@
-import { EnumTheme } from "../../../constants/EnumeTheme";
+import { EnumTheme } from "../../../constants/EnumTheme";
 import { ApplicationContextProps } from "../ApplicationContext";
 import { EnumApplicationContextAction, IApplicationContextDispatchCommand } from "../interfaces/IApplicationContextDispatchCommand";
 
@@ -6,7 +6,7 @@ import { EnumApplicationContextAction, IApplicationContextDispatchCommand } from
 // User has selected a different themere
 //
 export default class CommandThemeSet implements IApplicationContextDispatchCommand {
-  theme: EnumTheme
+  theme: EnumTheme;
 
   // identify the command type, useful for debugging
   readonly commandType: EnumApplicationContextAction = EnumApplicationContextAction.Authenticated;

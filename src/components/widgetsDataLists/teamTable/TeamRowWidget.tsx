@@ -6,7 +6,7 @@ interface IProperties {
   team: TeamApiModel;
 }
 
-const TeamLineWidget: React.FC<IProperties> = (props) => {
+const TeamRowWidget: React.FC<IProperties> = (props) => {
   return (
     <tr>
       <td> {props.team.name}</td>
@@ -17,4 +17,4 @@ const TeamLineWidget: React.FC<IProperties> = (props) => {
   );
 };
 
-export default TeamLineWidget;
+export default TeamRowWidget;

@@ -1,7 +1,7 @@
 import { IApplicationContextDispatchCommand } from "./interfaces/IApplicationContextDispatchCommand";
 import CurrentUserStateModel from "./models/CurrentUserStateModel";
 import React, { Dispatch, Reducer } from "react";
-import { EnumTheme } from "../../constants/EnumeTheme";
+import { EnumTheme } from "../../constants/EnumTheme";
 
 // Interface defining data structure stored in this context
 //
