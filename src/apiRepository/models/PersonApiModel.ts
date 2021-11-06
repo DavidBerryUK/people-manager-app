@@ -1,3 +1,4 @@
+import RoleApiModel from "./RoleApiModel";
 import SkillLevelApiModel from "./SkillLevelApiModel";
 import TeamApiModel from "./TeamApiModel";
 
@@ -7,6 +8,7 @@ export default class PersonApiModel {
   forename: string;
   surname: string;
   email: string;
+  role: RoleApiModel;
   skills: Array<SkillLevelApiModel>;
   teams: Array<TeamApiModel>;
 
@@ -18,6 +20,7 @@ export default class PersonApiModel {
     this.email = `${forename}.${surname}@acme.com`;
     this.skills = new Array<SkillLevelApiModel>();
     this.teams = new Array<TeamApiModel>();
+    this.role = new RoleApiModel();
 
     if (this.surname !== undefined && this.forename !== undefined) {
       this.userName = this.surname.substring(0, 1) + this.forename;

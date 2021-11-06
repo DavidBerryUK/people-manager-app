@@ -4,11 +4,14 @@ import FactoryTeams from "./FactoryTeams";
 import PersonApiModel from "../models/PersonApiModel";
 import SkillApiModel from "../models/SkillApiModel";
 import TeamApiModel from "../models/TeamApiModel";
+import RoleApiModel from "../models/RoleApiModel";
+import FactoryRoles from "./FactoryRoles";
 
 interface IData {
   people: Array<PersonApiModel>;
   skills: Array<SkillApiModel>;
   teams: Array<TeamApiModel>;
+  roles: Array<RoleApiModel>;
 }
 
 //
@@ -17,10 +20,11 @@ interface IData {
 export default class FactoryData {
   static createData(): IData {
     const skills = FactorySkills.createList();
+    const roles = FactoryRoles.createList();
     const teams = FactoryTeams.createList();
-    const peopleFactory = new FactoryPeople(skills, teams);
+    const peopleFactory = new FactoryPeople(skills, teams, roles);
     const people = peopleFactory.createList();
-    const response = { people: people, skills: skills, teams: teams };
+    const response = { people: people, roles: roles, skills: skills, teams: teams };
     return response;
   }
 }

@@ -1,6 +1,8 @@
+import { EnumRole } from "../enums/EnumRole";
 import { EnumSkill } from "../enums/EnumSkill";
 import { EnumTeam } from "../enums/EnumTeam";
 import PersonApiModel from "../models/PersonApiModel";
+import RoleApiModel from "../models/RoleApiModel";
 import SkillApiModel from "../models/SkillApiModel";
 import SkillLevelApiModel from "../models/SkillLevelApiModel";
 import TeamApiModel from "../models/TeamApiModel";
@@ -21,17 +23,24 @@ class SkillLevel {
 export default class FactoryPeople {
   skillDictionary: { [id: number]: SkillApiModel };
   teamDictionary: { [id: number]: TeamApiModel };
+  roleDictionary: { [id: number]: RoleApiModel };
   people: Array<PersonApiModel>;
-  teams: Array<TeamApiModel>;
+  roles: Array<RoleApiModel>;
   skills: Array<SkillApiModel>;
+  teams: Array<TeamApiModel>;
   nextId = 0;
 
-  constructor(skills: Array<SkillApiModel>, teams: Array<TeamApiModel>) {
+  constructor(skills: Array<SkillApiModel>, teams: Array<TeamApiModel>, roles: Array<RoleApiModel>) {
     this.people = new Array<PersonApiModel>();
-    this.teams = teams;
+    this.roles = roles;
     this.skills = skills;
+    this.teams = teams;
+    //
+    // create dictionary for arrays
+    //
     this.skillDictionary = skills.reduce((a, x) => ({ ...a, [x.id]: x }), {});
     this.teamDictionary = teams.reduce((a, x) => ({ ...a, [x.id]: x }), {});
+    this.roleDictionary = roles.reduce((a, x) => ({ ...a, [x.id]: x }), {});
   }
 
   createList() {
@@ -53,6 +62,7 @@ export default class FactoryPeople {
     this.sortPeopleTeams();
     this.sortTeamPeople();
     this.sortSkillsPeople();
+    this.sortRolePeople();
 
     return this.people;
   }
@@ -81,78 +91,98 @@ export default class FactoryPeople {
     });
   }
 
+  private sortRolePeople() {
+    this.roles.forEach((role) => {
+      role.people = role.people.sort((r1, r2) => r1.forename.localeCompare(r2.forename));
+    });
+  }
+
   private createAccountingAndAdminTeams() {
-    this.addPerson("Holly", "Willoughby", [EnumTeam.Administration, EnumTeam.Accountant], [new SkillLevel(EnumSkill.JiraAdmin, 4), new SkillLevel(EnumSkill.Accountant, 5)]);
-    this.addPerson("Ryan", "Clark-Neal", [EnumTeam.Administration, EnumTeam.Accountant], [new SkillLevel(EnumSkill.JiraAdmin, 3), new SkillLevel(EnumSkill.Accountant, 1)]);
-    this.addPerson("Dermot", "O'Leary", [EnumTeam.Administration, EnumTeam.Accountant], [new SkillLevel(EnumSkill.JiraAdmin, 2), new SkillLevel(EnumSkill.Accountant, 2)]);
-    this.addPerson("Ben", "Shepherd", [EnumTeam.Administration], [new SkillLevel(EnumSkill.JiraAdmin, 2)]);
-    this.addPerson("Alex", "Jones", [EnumTeam.Administration], [new SkillLevel(EnumSkill.JiraAdmin, 1)]);
+    this.addPerson("Holly", "Willoughby", EnumRole.Accountancy, [EnumTeam.Administration, EnumTeam.Accountant], [new SkillLevel(EnumSkill.JiraAdmin, 4), new SkillLevel(EnumSkill.Accountant, 5)]);
+    this.addPerson("Ryan", "Clark-Neal", EnumRole.Accountancy, [(EnumTeam.Administration, EnumTeam.Accountant)], [new SkillLevel(EnumSkill.JiraAdmin, 3), new SkillLevel(EnumSkill.Accountant, 1)]);
+    this.addPerson("Dermot", "O'Leary", EnumRole.Accountancy, [(EnumTeam.Administration, EnumTeam.Accountant)], [new SkillLevel(EnumSkill.JiraAdmin, 2), new SkillLevel(EnumSkill.Accountant, 2)]);
+    this.addPerson("Ben", "Shepherd", EnumRole.Administration, [EnumTeam.Administration], [new SkillLevel(EnumSkill.JiraAdmin, 2)]);
+    this.addPerson("Alex", "Jones", EnumRole.Administration, [EnumTeam.Administration], [new SkillLevel(EnumSkill.JiraAdmin, 1)]);
   }
 
   private CreateDevOpsTeamA() {
-    this.addPerson("Elvis", "Presley", [EnumTeam.DevOpsShiftA], [new SkillLevel(EnumSkill.TechnicalLead, 5), new SkillLevel(EnumSkill.ClientManager, 5)]);
-    this.addPerson("Sammy", "Davis Jnr", [EnumTeam.DevOpsShiftA], [new SkillLevel(EnumSkill.Oracle, 4)]);
-    this.addPerson("Frank", "Sinatra", [EnumTeam.DevOpsShiftA], [new SkillLevel(EnumSkill.ServiceDesk, 3), new SkillLevel(EnumSkill.DevOpsEngineerAws, 5), new SkillLevel(EnumSkill.DevOpsEngineerAzure, 4)]);
+    this.addPerson("Elvis", "Presley", EnumRole.DevOpsManager, [EnumTeam.DevOpsShiftA], [new SkillLevel(EnumSkill.TechnicalLead, 5), new SkillLevel(EnumSkill.ClientManager, 5)]);
+    this.addPerson("Sammy", "Davis Jnr", EnumRole.DevOps, [EnumTeam.DevOpsShiftA], [new SkillLevel(EnumSkill.Oracle, 4)]);
+    this.addPerson("Frank", "Sinatra", EnumRole.DevOps, [EnumTeam.DevOpsShiftA], [new SkillLevel(EnumSkill.ServiceDesk, 3), new SkillLevel(EnumSkill.DevOpsEngineerAws, 5), new SkillLevel(EnumSkill.DevOpsEngineerAzure, 4)]);
   }
 
   private CreateDevOpsTeamB() {
     this.addPerson(
       "Meryl",
       "Streep",
+      EnumRole.DevOpsManager,
       [EnumTeam.DevOpsShiftB],
       [new SkillLevel(EnumSkill.ServiceManager, 4), new SkillLevel(EnumSkill.KubernetesAdmin, 4), new SkillLevel(EnumSkill.DevOpsEngineerAws, 4), new SkillLevel(EnumSkill.DevOpsEngineerAzure, 4), new SkillLevel(EnumSkill.AzurePipelines, 2)]
     );
-    this.addPerson("Angelina", "Jolie", [EnumTeam.Sales, EnumTeam.DevOpsShiftB], [new SkillLevel(EnumSkill.ProjectManagement, 3), new SkillLevel(EnumSkill.DevOpsEngineerAws, 4), new SkillLevel(EnumSkill.KubernetesAdmin, 2)]);
-    this.addPerson("Scarlett", "Johansson", [EnumTeam.DevOpsShiftB], [new SkillLevel(EnumSkill.ServiceDesk, 3), new SkillLevel(EnumSkill.DevOpsEngineerAws, 5), new SkillLevel(EnumSkill.DevOpsEngineerAzure, 4)]);
-    this.addPerson("Charlize", "Theron", [EnumTeam.DevOpsShiftB], [new SkillLevel(EnumSkill.ServiceDesk, 2), new SkillLevel(EnumSkill.DevOpsEngineerAzure, 2), new SkillLevel(EnumSkill.SQL, 3)]);
-    this.addPerson("Nicole", "Kidman", [EnumTeam.DevOpsShiftB], [new SkillLevel(EnumSkill.ServiceDesk, 2), new SkillLevel(EnumSkill.DevOpsEngineerAzure, 1), new SkillLevel(EnumSkill.JiraAdmin, 4)]);
-    this.addPerson("Ann", "Jathaway", [EnumTeam.DevOpsShiftB], [new SkillLevel(EnumSkill.ServiceDesk, 2), new SkillLevel(EnumSkill.DevOpsEngineerAws, 2)]);
+    this.addPerson(
+      "Angelina",
+      "Jolie",
+      EnumRole.DevOpsManager,
+      [(EnumTeam.Sales, EnumTeam.DevOpsShiftB)],
+      [new SkillLevel(EnumSkill.ProjectManagement, 3), new SkillLevel(EnumSkill.DevOpsEngineerAws, 4), new SkillLevel(EnumSkill.KubernetesAdmin, 2)]
+    );
+    this.addPerson("Scarlett", "Johansson", EnumRole.DevOps, [EnumTeam.DevOpsShiftB], [new SkillLevel(EnumSkill.ServiceDesk, 3), new SkillLevel(EnumSkill.DevOpsEngineerAws, 5), new SkillLevel(EnumSkill.DevOpsEngineerAzure, 4)]);
+    this.addPerson("Charlize", "Theron", EnumRole.DevOps, [EnumTeam.DevOpsShiftB], [new SkillLevel(EnumSkill.ServiceDesk, 2), new SkillLevel(EnumSkill.DevOpsEngineerAzure, 2), new SkillLevel(EnumSkill.SQL, 3)]);
+    this.addPerson("Nicole", "Kidman", EnumRole.DevOps, [EnumTeam.DevOpsShiftB], [new SkillLevel(EnumSkill.ServiceDesk, 2), new SkillLevel(EnumSkill.DevOpsEngineerAzure, 1), new SkillLevel(EnumSkill.JiraAdmin, 4)]);
+    this.addPerson("Ann", "Jathaway", EnumRole.DevOps, [EnumTeam.DevOpsShiftB], [new SkillLevel(EnumSkill.ServiceDesk, 2), new SkillLevel(EnumSkill.DevOpsEngineerAws, 2)]);
   }
 
   private CreateDevOpsTeamC() {
     this.addPerson(
       "Al",
       "Pacino",
+      EnumRole.DevOpsManager,
       [EnumTeam.DevOpsShiftC],
       [new SkillLevel(EnumSkill.ServiceManager, 4), new SkillLevel(EnumSkill.KubernetesAdmin, 4), new SkillLevel(EnumSkill.DevOpsEngineerAws, 4), new SkillLevel(EnumSkill.DevOpsEngineerAzure, 4), new SkillLevel(EnumSkill.AzurePipelines, 2)]
     );
-    this.addPerson("Ray", "Liotta", [EnumTeam.DevOpsShiftC], [new SkillLevel(EnumSkill.ServiceDesk, 3), new SkillLevel(EnumSkill.DevOpsEngineerAws, 4), new SkillLevel(EnumSkill.KubernetesAdmin, 2)]);
-    this.addPerson("James", "Gandolfini", [EnumTeam.DevOpsShiftC], [new SkillLevel(EnumSkill.ServiceDesk, 3), new SkillLevel(EnumSkill.DevOpsEngineerAws, 5), new SkillLevel(EnumSkill.DevOpsEngineerAzure, 4)]);
-    this.addPerson("Robert", "De Niro", [EnumTeam.DevOpsShiftC], [new SkillLevel(EnumSkill.ServiceDesk, 2), new SkillLevel(EnumSkill.DevOpsEngineerAzure, 2), new SkillLevel(EnumSkill.SQL, 3)]);
-    this.addPerson("Leonardo", "DiCaprio", [EnumTeam.DevOpsShiftC], [new SkillLevel(EnumSkill.ServiceDesk, 2), new SkillLevel(EnumSkill.DevOpsEngineerAzure, 1), new SkillLevel(EnumSkill.JiraAdmin, 4)]);
-    this.addPerson("Samuel", "L Jackson", [EnumTeam.DevOpsShiftC], [new SkillLevel(EnumSkill.ServiceDesk, 2), new SkillLevel(EnumSkill.DevOpsEngineerAws, 2)]);
+    this.addPerson("Ray", "Liotta", EnumRole.DevOpsManager, [EnumTeam.DevOpsShiftC], [new SkillLevel(EnumSkill.ServiceDesk, 3), new SkillLevel(EnumSkill.DevOpsEngineerAws, 4), new SkillLevel(EnumSkill.KubernetesAdmin, 2)]);
+    this.addPerson("James", "Gandolfini", EnumRole.DevOpsManager, [EnumTeam.DevOpsShiftC], [new SkillLevel(EnumSkill.ServiceDesk, 3), new SkillLevel(EnumSkill.DevOpsEngineerAws, 5), new SkillLevel(EnumSkill.DevOpsEngineerAzure, 4)]);
+    this.addPerson("Robert", "De Niro", EnumRole.DevOps, [EnumTeam.DevOpsShiftC], [new SkillLevel(EnumSkill.ServiceDesk, 2), new SkillLevel(EnumSkill.DevOpsEngineerAzure, 2), new SkillLevel(EnumSkill.SQL, 3)]);
+    this.addPerson("Leonardo", "DiCaprio", EnumRole.DevOps, [EnumTeam.DevOpsShiftC], [new SkillLevel(EnumSkill.ServiceDesk, 2), new SkillLevel(EnumSkill.DevOpsEngineerAzure, 1), new SkillLevel(EnumSkill.JiraAdmin, 4)]);
+    this.addPerson("Samuel", "L Jackson", EnumRole.DevOps, [EnumTeam.DevOpsShiftC], [new SkillLevel(EnumSkill.ServiceDesk, 2), new SkillLevel(EnumSkill.DevOpsEngineerAws, 2)]);
   }
 
   private CreateDevTeamCouncil() {
-    this.addPerson("Claire", "Balding", [EnumTeam.DevTeamCouncil], [new SkillLevel(EnumSkill.ProjectManagement, 4), new SkillLevel(EnumSkill.JiraAdmin, 2)]);
-    this.addPerson("Gabby", "Logan", [EnumTeam.DevTeamCouncil], [new SkillLevel(EnumSkill.BusinessAnalyst, 3), new SkillLevel(EnumSkill.JiraUser, 4)]);
-    this.addPerson("Matt", "Tebbutt", [EnumTeam.DevTeamCouncil], [new SkillLevel(EnumSkill.TechnicalLead, 3), new SkillLevel(EnumSkill.Java, 4), new SkillLevel(EnumSkill.JavaSpring, 4)]);
-    this.addPerson("jake", "humphrey", [EnumTeam.DevTeamCouncil], [new SkillLevel(EnumSkill.UI, 4), new SkillLevel(EnumSkill.UX, 2), new SkillLevel(EnumSkill.React, 4), new SkillLevel(EnumSkill.VueJS, 5)]);
-    this.addPerson("Dan", "Walker", [EnumTeam.DevTeamCouncil], [new SkillLevel(EnumSkill.Java, 2), new SkillLevel(EnumSkill.Oracle, 3)]);
-    this.addPerson("Suzi ", "Perry", [EnumTeam.DevTeamCouncil], [new SkillLevel(EnumSkill.Javascript, 2), new SkillLevel(EnumSkill.React, 2)]);
+    this.addPerson("Claire", "Balding", EnumRole.DeveloperPrincipal, [EnumTeam.DevTeamCouncil], [new SkillLevel(EnumSkill.ProjectManagement, 4), new SkillLevel(EnumSkill.JiraAdmin, 2)]);
+    this.addPerson("Gabby", "Logan", EnumRole.DeveloperPrincipal, [EnumTeam.DevTeamCouncil], [new SkillLevel(EnumSkill.BusinessAnalyst, 3), new SkillLevel(EnumSkill.JiraUser, 4)]);
+    this.addPerson("Matt", "Tebbutt", EnumRole.DeveloperLead, [EnumTeam.DevTeamCouncil], [new SkillLevel(EnumSkill.TechnicalLead, 3), new SkillLevel(EnumSkill.Java, 4), new SkillLevel(EnumSkill.JavaSpring, 4)]);
+    this.addPerson("jake", "humphrey", EnumRole.DeveloperJnr, [EnumTeam.DevTeamCouncil], [new SkillLevel(EnumSkill.UI, 4), new SkillLevel(EnumSkill.UX, 2), new SkillLevel(EnumSkill.React, 4), new SkillLevel(EnumSkill.VueJS, 5)]);
+    this.addPerson("Dan", "Walker", EnumRole.DeveloperJnr, [EnumTeam.DevTeamCouncil], [new SkillLevel(EnumSkill.Java, 2), new SkillLevel(EnumSkill.Oracle, 3)]);
+    this.addPerson("Suzi ", "Perry", EnumRole.DeveloperLead, [EnumTeam.DevTeamCouncil], [new SkillLevel(EnumSkill.Javascript, 2), new SkillLevel(EnumSkill.React, 2)]);
   }
 
   private CreateDevTeamFinance() {
-    this.addPerson("Beyonce", "Knowles", [EnumTeam.DevTeamPensions], [new SkillLevel(EnumSkill.ProjectManagement, 4), new SkillLevel(EnumSkill.JiraAdmin, 2)]);
-    this.addPerson("Taylor", "Swift", [EnumTeam.DevTeamPensions], [new SkillLevel(EnumSkill.BusinessAnalyst, 3), new SkillLevel(EnumSkill.JiraUser, 4)]);
-    this.addPerson("Ariana", "Grande", [EnumTeam.DevTeamPensions], [new SkillLevel(EnumSkill.TechnicalLead, 3), new SkillLevel(EnumSkill.CSharp, 4), new SkillLevel(EnumSkill.React, 4), new SkillLevel(EnumSkill.Typescript, 4)]);
-    this.addPerson("Justin ", "Timberlake", [EnumTeam.DevTeamPensions], [new SkillLevel(EnumSkill.UI, 4), new SkillLevel(EnumSkill.UX, 5)]);
-    this.addPerson("Justin", "Bieber", [EnumTeam.DevTeamPensions], [new SkillLevel(EnumSkill.CSharp, 5), new SkillLevel(EnumSkill.SQL, 3)]);
-    this.addPerson("Katy ", "Perry", [EnumTeam.DevTeamPensions], [new SkillLevel(EnumSkill.Javascript, 2), new SkillLevel(EnumSkill.React, 5)]);
+    this.addPerson("Beyonce", "Knowles", EnumRole.DeveloperPrincipal, [EnumTeam.DevTeamPensions], [new SkillLevel(EnumSkill.ProjectManagement, 4), new SkillLevel(EnumSkill.JiraAdmin, 2)]);
+    this.addPerson("Taylor", "Swift", EnumRole.DeveloperPrincipal, [EnumTeam.DevTeamPensions], [new SkillLevel(EnumSkill.BusinessAnalyst, 3), new SkillLevel(EnumSkill.JiraUser, 4)]);
+    this.addPerson(
+      "Ariana",
+      "Grande",
+      EnumRole.DeveloperSenior,
+      [EnumTeam.DevTeamPensions],
+      [new SkillLevel(EnumSkill.TechnicalLead, 3), new SkillLevel(EnumSkill.CSharp, 4), new SkillLevel(EnumSkill.React, 4), new SkillLevel(EnumSkill.Typescript, 4)]
+    );
+    this.addPerson("Justin ", "Timberlake", EnumRole.DeveloperSenior, [EnumTeam.DevTeamPensions], [new SkillLevel(EnumSkill.UI, 4), new SkillLevel(EnumSkill.UX, 5)]);
+    this.addPerson("Justin", "Bieber", EnumRole.DeveloperLead, [EnumTeam.DevTeamPensions], [new SkillLevel(EnumSkill.CSharp, 5), new SkillLevel(EnumSkill.SQL, 3)]);
+    this.addPerson("Katy ", "Perry", EnumRole.DeveloperLead, [EnumTeam.DevTeamPensions], [new SkillLevel(EnumSkill.Javascript, 2), new SkillLevel(EnumSkill.React, 5)]);
   }
 
   private CreateDesignTeam() {
-    this.addPerson("Damien", "Hurst", [EnumTeam.Design], [new SkillLevel(EnumSkill.UI, 5), new SkillLevel(EnumSkill.UX, 5)]);
-    this.addPerson("Yayoi", "Kusama", [EnumTeam.Design], [new SkillLevel(EnumSkill.UI, 4), new SkillLevel(EnumSkill.UX, 2)]);
-    this.addPerson("Jeff", "Koons", [EnumTeam.Design], [new SkillLevel(EnumSkill.UX, 5), new SkillLevel(EnumSkill.UI, 2)]);
+    this.addPerson("Damien", "Hurst", EnumRole.DesignerPrincipal, [EnumTeam.Design], [new SkillLevel(EnumSkill.UI, 5), new SkillLevel(EnumSkill.UX, 5)]);
+    this.addPerson("Yayoi", "Kusama", EnumRole.Designer, [EnumTeam.Design], [new SkillLevel(EnumSkill.UI, 4), new SkillLevel(EnumSkill.UX, 2)]);
+    this.addPerson("Jeff", "Koons", EnumRole.Designer, [EnumTeam.Design], [new SkillLevel(EnumSkill.UX, 5), new SkillLevel(EnumSkill.UI, 2)]);
   }
 
   private createSalesTeam() {
-    this.addPerson("James", "Dyson", [EnumTeam.Sales], [new SkillLevel(EnumSkill.Sales, 5), new SkillLevel(EnumSkill.ClientManager, 3)]);
-    this.addPerson("Steve", "Jobs", [EnumTeam.Sales], [new SkillLevel(EnumSkill.Sales, 4), new SkillLevel(EnumSkill.ClientManager, 2)]);
-    this.addPerson("Henry", "Ford", [EnumTeam.Sales], [new SkillLevel(EnumSkill.Sales, 5), new SkillLevel(EnumSkill.ClientManager, 1)]);
-    this.addPerson("Jeff", "Bezos", [EnumTeam.Sales], [new SkillLevel(EnumSkill.Sales, 2), new SkillLevel(EnumSkill.ClientManager, 3)]);
-    this.addPerson("Elon", "Musk", [EnumTeam.Sales], [new SkillLevel(EnumSkill.Sales, 3), new SkillLevel(EnumSkill.ClientManager, 2)]);
+    this.addPerson("James", "Dyson", EnumRole.SalesDirector, [EnumTeam.Sales], [new SkillLevel(EnumSkill.Sales, 5), new SkillLevel(EnumSkill.ClientManager, 3)]);
+    this.addPerson("Steve", "Jobs", EnumRole.Sales, [EnumTeam.Sales], [new SkillLevel(EnumSkill.Sales, 4), new SkillLevel(EnumSkill.ClientManager, 2)]);
+    this.addPerson("Henry", "Ford", EnumRole.Sales, [EnumTeam.Sales], [new SkillLevel(EnumSkill.Sales, 5), new SkillLevel(EnumSkill.ClientManager, 1)]);
+    this.addPerson("Jeff", "Bezos", EnumRole.Sales, [EnumTeam.Sales], [new SkillLevel(EnumSkill.Sales, 2), new SkillLevel(EnumSkill.ClientManager, 3)]);
+    this.addPerson("Elon", "Musk", EnumRole.Sales, [EnumTeam.Sales], [new SkillLevel(EnumSkill.Sales, 3), new SkillLevel(EnumSkill.ClientManager, 2)]);
   }
 
   //
@@ -160,9 +190,12 @@ export default class FactoryPeople {
   //  also add links from the teams and skill entities back to the person
   //  to simulate a  navigable relational database
   //
-  private addPerson(forename: string, surname: string, teams: Array<EnumTeam>, skills: Array<SkillLevel>) {
+  private addPerson(forename: string, surname: string, role: EnumRole, teams: Array<EnumTeam>, skills: Array<SkillLevel>) {
     this.nextId = this.nextId + 1;
     const person = new PersonApiModel(this.nextId, forename, surname);
+    const roleObj = this.getRole(role);
+    roleObj.people.push(person);
+    person.role = roleObj;
     skills.forEach((s) => {
       const skill = this.getSkill(s.skill);
       const skillLevel = this.getSkillLevel(person, skill, s.level);
@@ -179,6 +212,10 @@ export default class FactoryPeople {
 
   getTeam(id: EnumTeam): TeamApiModel {
     return this.teamDictionary[id];
+  }
+
+  getRole(id: EnumRole): RoleApiModel {
+    return this.roleDictionary[id];
   }
 
   getSkill(id: EnumSkill): SkillApiModel {
