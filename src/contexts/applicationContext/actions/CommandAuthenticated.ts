@@ -1,5 +1,5 @@
 import { ApplicationContextProps } from "../ApplicationContext";
-import { EnumApplicationContextAction, IApplicationContextDispatchCommand } from "../interfaces/IApplicationContextDispatchCommand";
+import { IApplicationContextDispatchCommand } from "../interfaces/IApplicationContextDispatchCommand";
 
 //
 // User has been authenticated via SSO
@@ -7,10 +7,6 @@ import { EnumApplicationContextAction, IApplicationContextDispatchCommand } from
 export default class CommandAuthenticated implements IApplicationContextDispatchCommand {
   accessToken: string;
   userId: string;
-
-
-  // identify the command type, useful for debugging
-  readonly commandType: EnumApplicationContextAction = EnumApplicationContextAction.Authenticated;
 
   // Create the command with all data needed to update
   //  the state
