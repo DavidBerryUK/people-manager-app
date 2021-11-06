@@ -10,9 +10,10 @@
       .panel-header {
         background-color: $header-background;
         color: $header-text;
-        padding: 4px;
+        padding: 8px;
+        padding-left: 20px;
         font-weight: bolder;
-        font-size: 1.2em;
+        font-size: 1.5em;
       }
 
       .panel-body {

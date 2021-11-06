@@ -6,6 +6,7 @@
       border-collapse: collapse;
       background-color: $background;
       user-select: none;
+      border: solid 2px $table-border;
 
       thead tr {
         background-color: $header-background;
@@ -57,9 +58,7 @@
           td {
             border-left: solid 1px $table-grid;
           }
-          td:last-of-type {
-            border-right: 2px solid $table-grid;
-          }
+
           &:hover {
             background-color: $row-hover-background;
           }
@@ -72,9 +71,6 @@
           &:hover {
             background-color: $row-hover-background;
           }
-        }
-        tr:last-of-type {
-          border-bottom: 2px solid $table-border;
         }
       }
     }

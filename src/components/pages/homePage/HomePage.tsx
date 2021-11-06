@@ -7,6 +7,7 @@ const HomePage: React.FC = () => {
       <h2>React Demo</h2>
       <p>React demo featuring preferred application architecture and approach to codling to create a maintainable enterprise application</p>
       <ul>
+        <li>Dynamic css themes</li>
         <li>No third party frameworks, keeping code simple to follow</li>
         <li>Code splitting</li>
         <li>Strongly Typed contexts</li>

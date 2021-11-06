@@ -12,7 +12,7 @@ export default class ApiRepositorySkillList {
   //
   async getSkillsAsync(sortColumn: EnumSortColumn, sortDirection: EnumSortDirection, pageNo: number, rowsPerPage: number): Promise<DataListApiModel<SkillApiModel>> {
     // artificial delay
-    await MockUtilities.delayAsync(20);
+    await MockUtilities.demoNetworkDelayAsync();
 
     // get copy of people from fake api
     const fakeApi = new FakeApiEndpoint();

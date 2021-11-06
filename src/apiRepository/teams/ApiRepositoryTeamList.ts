@@ -12,7 +12,7 @@ export default class ApiRepositoryTeamList {
   //
   async getTeamsAsync(sortColumn: EnumSortColumn, sortDirection: EnumSortDirection, pageNo: number, rowsPerPage: number): Promise<DataListApiModel<TeamApiModel>> {
     // artificial delay
-    await MockUtilities.delayAsync(20);
+    await MockUtilities.demoNetworkDelayAsync();
 
     // get copy of people from fake api
     const fakeApi = new FakeApiEndpoint();

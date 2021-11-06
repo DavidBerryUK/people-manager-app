@@ -31,8 +31,8 @@
   $button-hover-text: lighten($baseColor, 100);
 
   $table-background: lighten($baseColor, 5);
-  $table-border: lighten($baseColor, 15);
-  $table-grid: darken($baseColor, 30);
+  $table-border: darken($baseColor, 5);
+  $table-grid: darken($baseColor, 0);
   $table-header-background: lighten($baseColor, 0);
   $table-header-hover-background: lighten($baseColor, 20);
   $table-header-text: #fff;
