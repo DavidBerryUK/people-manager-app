@@ -10,9 +10,9 @@ export default class FactoryNavButtons {
     var buttons = new Array<NavButtonModel>();
 
     buttons.push(new NavButtonModel(EnumTopLevelRoutes.HomePage, "Home"));
-    buttons.push(new NavButtonModel(EnumTopLevelRoutes.PeopleListPage, "People"));
-    buttons.push(new NavButtonModel(EnumTopLevelRoutes.TeamListPage, "Teams"));
-    buttons.push(new NavButtonModel(EnumTopLevelRoutes.SkillListPage, "Skills"));
+    buttons.push(new NavButtonModel(EnumTopLevelRoutes.PeopleListPageFullPath, "People"));
+    buttons.push(new NavButtonModel(EnumTopLevelRoutes.TeamListPageFullPath, "Teams"));
+    buttons.push(new NavButtonModel(EnumTopLevelRoutes.SkillListPageFullPath, "Skills"));
 
     return buttons;
   }
