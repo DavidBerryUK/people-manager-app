@@ -8,7 +8,6 @@ import TeamListPage from "../../components/pages/teamsList/TeamListPage";
 
 const SubListRoutes: React.FC = () => {
   let { path } = useRouteMatch();
-  console.log(path);
   return (
     <Switch>
       <Route path={`${path}${EnumTopLevelRoutes.PeopleListPageSubPath}`} component={PeopleListPage} />
