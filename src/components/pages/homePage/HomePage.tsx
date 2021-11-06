@@ -12,6 +12,7 @@ const HomePage: React.FC = () => {
         <li>Strongly Typed contexts</li>
         <li>Command based context updates</li>
         <li>Repository extracted from component</li>
+        <li>Loosely coupled ui components using context to pass data</li>
         <li>Strongly typed routes</li>
         <li>Low code components</li>
         <li>All models strongly typed</li>

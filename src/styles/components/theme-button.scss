@@ -1,5 +1,3 @@
-@import "./colors";
-
 @mixin themeButton($theme-name, $base) {
   .#{$theme-name}-theme-button {
     background-color: lighten($base, 20);

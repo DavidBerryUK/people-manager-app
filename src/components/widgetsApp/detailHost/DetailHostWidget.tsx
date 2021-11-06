@@ -1,19 +1,30 @@
 import { UseListDetailContext } from "../../../contexts/ListDetailContext.tsx/ListDetailContext";
+import DetailPersonWidget from "../detailPerson/DetailPersonWidget";
+import DetailRoleWidget from "../detailRole/DetailRoleWidget";
+import DetailSkillWidget from "../detailSkill/DetailSkillWidget";
+import DetailTeamWidget from "../detailTeam/DetailTeamWidget";
 import React from "react";
 
 const DetailHostWidget: React.FC = (props) => {
   const { state } = UseListDetailContext();
 
-  return (
-    <>
-      <h1>Detail Host Widget</h1>
-      <h4>person id:{state.personId}</h4>
-      <h4>team id:{state.teamId}</h4>
-      <h4>role id:{state.roleId}</h4>
-      <h4>skill id:{state.skillId}</h4>
-      {props.children}
-    </>
-  );
+  const detailWidgetFactory = (): JSX.Element => {
+    if (state.personId !== undefined) {
+      return <DetailPersonWidget />;
+    }
+    if (state.teamId !== undefined) {
+      return <DetailTeamWidget />;
+    }
+    if (state.skillId !== undefined) {
+      return <DetailSkillWidget />;
+    }
+    if (state.roleId !== undefined) {
+      return <DetailRoleWidget />;
+    }
+    return <></>;
+  };
+
+  return <>{detailWidgetFactory()}</>;
 };
 
 export default DetailHostWidget;

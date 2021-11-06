@@ -1,8 +1,9 @@
-@import "../components/navigation.scss";
-@import "../components/table";
+@import "../components/navigation";
 @import "../components/pagination";
+@import "../components/panels";
+@import "../components/table";
+@import "../components/tags";
 @import "../components/theme-button";
-@import "../components//tags.scss";
 
 @mixin createThemeRed() {
   $name: "theme-red";
@@ -50,6 +51,7 @@
     }
   }
 
+  @include panels($name, $tag-border, $table-background, $table-header-background, $table-text, $table-header-text);
   @include tags($name, $tag-background, $tag-border, $tag-text);
   @include themeButton($name, $baseColor);
   @include pagination($name, $button-background, $button-hover-background, $button-selected-background, $button-selected-hover-background, $button-text, $button-hover-text, $button-selected-text, $button-selected-hover-text);

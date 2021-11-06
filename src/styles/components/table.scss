@@ -1,5 +1,3 @@
-@import "./colors";
-
 @mixin table($theme-name, $background, $table-border, $table-grid, $row-alt-background, $header-background, $hover-background, $row-hover-background, $text, $header-text) {
   .#{$theme-name} {
     table {

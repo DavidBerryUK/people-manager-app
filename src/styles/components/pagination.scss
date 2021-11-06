@@ -1,5 +1,3 @@
-@import "./colors";
-
 @mixin pagination($theme-name, $background, $hover-background, $selected-background, $selected-hover-background, $text, $hover-text, $selected-text, $selected-hover-text) {
   .#{$theme-name} {
     .paginationContainer {
