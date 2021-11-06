@@ -1,4 +1,5 @@
 import PersonApiModel from "../models/PersonApiModel";
+import RoleApiModel from "../models/RoleApiModel";
 import SkillApiModel from "../models/SkillApiModel";
 import TeamApiModel from "../models/TeamApiModel";
 import DataFactory from "./FactoryData";
@@ -18,6 +19,7 @@ export default class FakeApiEndpoint {
   people: Array<PersonApiModel> | undefined;
   skills: Array<SkillApiModel> | undefined;
   teams: Array<TeamApiModel> | undefined;
+  roles: Array<RoleApiModel> | undefined;
 
   constructor() {
     if (FakeApiEndpoint.instance) {
@@ -36,5 +38,6 @@ export default class FakeApiEndpoint {
     this.people = data.people;
     this.skills = data.skills;
     this.teams = data.teams;
+    this.roles = data.roles;
   }
 }

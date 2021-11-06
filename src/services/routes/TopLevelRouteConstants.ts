@@ -4,7 +4,10 @@ export enum EnumTopLevelRoutes {
   PeopleListPageSubPath = "/people",
   SkillListPageSubPath = "/skills",
   TeamListPageSubPath = "/teams",
+  RoleListPageSubPath = "/roles",
+
   PeopleListPageFullPath = "/list/people",
   SkillListPageFullPath = "/list/skills",
   TeamListPageFullPath = "/list/teams",
+  RoleListPageFullPath = "/list/roles",
 }
