@@ -19,6 +19,11 @@
       margin-top: 2px;
       margin-bottom: 2px;
       margin-right: 2px;
+
+      &:hover {
+        background-color: lighten($tag-background, 10);
+        border: solid 2px lighten($tag-border, 10);
+      }
     }
   }
 }
