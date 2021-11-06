@@ -1,12 +1,31 @@
 @mixin panels($theme-name, $border, $background, $header-background, $text, $header-text) {
   .#{$theme-name} {
     .panel {
-      border: solid 2px $border;
+      display: flex;
+      flex-direction: column;
       background-color: $background;
       color: $text;
-      border-radius: 8px;
       overflow: hidden;
 
+      &.left {
+        flex-direction: row;
+        justify-content: start;
+      }
+
+      &.center {
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      &.right {
+        flex-direction: row;
+        justify-content: end;
+      }
+
+      &.border {
+        border: solid 2px $border;
+        border-radius: 8px;
+      }
       .panel-header {
         background-color: $header-background;
         color: $header-text;

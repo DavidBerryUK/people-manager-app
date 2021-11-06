@@ -1,5 +1,5 @@
 import { ListDetailContextProvider } from "../../../contexts/ListDetailContext.tsx/ListDetailContext";
-import DetailHostWidget from "../../widgetsApp/detailHost/DetailHostWidget";
+import DetailHostWidget from "../../widgetDetail/detailHost/DetailHostWidget";
 import LayoutList from "../../widgetLayout/listLayout/LayoutList";
 import LayoutListRegionDetail from "../../widgetLayout/listLayout/LayoutListRegionDetail";
 import LayoutListRegionList from "../../widgetLayout/listLayout/LayoutListRegionList";

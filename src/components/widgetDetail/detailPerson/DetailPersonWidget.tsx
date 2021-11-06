@@ -1,5 +1,7 @@
+import { EnumAvatarSize } from "../../../constants/EnumAvatarSize";
 import { UseListDetailContext } from "../../../contexts/ListDetailContext.tsx/ListDetailContext";
 import ApiRepositoryPeople from "../../../apiRepository/people/ApiRepositoryPeople";
+import Avatar from "../../widgetsUI/avatar/Avatar";
 import Form from "../../widgetTypography/form/Form";
 import FormLine from "../../widgetTypography/formLine/FormLine";
 import Panel from "../../widgetsUI/panel/Panel";
@@ -9,6 +11,7 @@ import PersonApiModel from "../../../apiRepository/models/PersonApiModel";
 import React, { useMemo, useState } from "react";
 import TextBody from "../../widgetTypography/textBody/TextBody";
 import TextLabel from "../../widgetTypography/textLabel/TextLabel";
+import { EnumPanelJustify } from "../../../constants/EnumPanelJustify";
 
 const DetailPersonWidget: React.FC = () => {
   const { state } = UseListDetailContext();
@@ -21,11 +24,14 @@ const DetailPersonWidget: React.FC = () => {
   }, [state.personId]);
 
   return (
-    <Panel>
+    <Panel border>
       <PanelHeader>
         {person.forename} {person.surname}
       </PanelHeader>
       <PanelBody>
+        <Panel justify={EnumPanelJustify.center}>
+          <Avatar size={EnumAvatarSize.large} url="" />
+        </Panel>
         <Form>
           <FormLine>
             <TextLabel>forename</TextLabel>
