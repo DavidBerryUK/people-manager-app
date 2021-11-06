@@ -21,7 +21,7 @@ export interface InitContextProps {
 //
 const initialState: ApplicationContextProps = {
   currentUser: new CurrentUserStateModel(),
-  theme: EnumTheme.green,
+  theme: EnumTheme.blue,
 };
 
 // The reducer updates the actual data held in the context.

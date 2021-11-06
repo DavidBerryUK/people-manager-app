@@ -1,0 +1,13 @@
+.layout-list {
+  display: flex;
+
+  .region-list {
+    flex-grow: 1;
+    margin: 6px;
+  }
+  .region-detail {
+    width: 400px;
+    margin-top: 6px;
+    margin-right: 6px;
+  }
+}

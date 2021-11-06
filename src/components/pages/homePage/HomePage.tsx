@@ -20,6 +20,7 @@ const HomePage: React.FC = () => {
         <li>Reusable Components</li>
         <li>No Magic strings</li>
         <li>Examples of function factories (sorting)</li>
+        <li>No CSS in pages for cleaner code</li>
       </ul>
     </>
   );
