@@ -15,11 +15,13 @@ const HomePage: React.FC = () => {
         <li>Repository extracted from component</li>
         <li>Loosely coupled ui components using context to pass data</li>
         <li>Strongly typed routes</li>
+        <li>Multi Level Routing</li>
         <li>Low code components</li>
         <li>All models strongly typed</li>
         <li>Simple Pages composed of reusable components</li>
         <li>Shared Layouts</li>
         <li>Reusable Components</li>
+        <li>Example UI Components such as panels, pagination, tags, ratings, navigation, theme selectors</li>
         <li>No Magic strings</li>
         <li>Examples of function factories (sorting)</li>
         <li>No CSS in pages for cleaner code</li>

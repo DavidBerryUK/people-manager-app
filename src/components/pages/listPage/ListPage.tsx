@@ -11,6 +11,7 @@ const ListPage: React.FC = (props) => {
     <ListDetailContextProvider>
       <LayoutList>
         <LayoutListRegionList>
+          {/* routed page goes here */}
           <SubListRoutes />
         </LayoutListRegionList>
         <LayoutListRegionDetail>
