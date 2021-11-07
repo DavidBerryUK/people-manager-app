@@ -20,16 +20,15 @@ export default class FactoryRoles {
     list.push(new RoleApiModel(EnumRole.DeveloperLead, "Developer Lead"));
     list.push(new RoleApiModel(EnumRole.DeveloperPrincipal, "Developer Principal"));
     list.push(new RoleApiModel(EnumRole.DeveloperSenior, "Developer Senior"));
+    list.push(new RoleApiModel(EnumRole.DevOps, "DevOps"));
+    list.push(new RoleApiModel(EnumRole.DevOpsManager, "DevOps Manager"));
     list.push(new RoleApiModel(EnumRole.HumanResources, "Human Resources"));
     list.push(new RoleApiModel(EnumRole.ProjectManagerJnr, "Project Manager Jnr"));
     list.push(new RoleApiModel(EnumRole.ProjectManagerLead, "Project Manager Lead"));
     list.push(new RoleApiModel(EnumRole.ProjectManagerPrincipal, "Project Manager Principal"));
     list.push(new RoleApiModel(EnumRole.ProjectManagerSenior, "Project Manager Senior"));
     list.push(new RoleApiModel(EnumRole.Sales, "Sales"));
-    list.push(new RoleApiModel(EnumRole.SalesDirector, "SalesDirector"));
-
-    list.push(new RoleApiModel(EnumRole.DevOpsManager, "DevOps Manager"));
-    list.push(new RoleApiModel(EnumRole.DevOps, "DevOps"));
+    list.push(new RoleApiModel(EnumRole.SalesDirector, "Sales Director"));
 
     return list;
   }

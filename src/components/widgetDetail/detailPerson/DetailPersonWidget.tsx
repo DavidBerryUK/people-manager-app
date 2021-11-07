@@ -34,6 +34,7 @@ const DetailPersonWidget: React.FC = () => {
         <Panel justify={EnumPanelJustify.center}>
           <Avatar size={EnumAvatarSize.large} url={person.avatarLargeUrl} />
         </Panel>
+        <TextSubHeader>{person.role.name}</TextSubHeader>
         <Form>
           <FormColumnContainer>
             <FormFieldGroup>
