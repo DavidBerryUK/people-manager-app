@@ -9,6 +9,10 @@ export default class FactorySkills {
     const list = new Array<SkillApiModel>();
 
     list.push(new SkillApiModel(EnumSkill.Accountant, "Accountant", ""));
+    list.push(new SkillApiModel(EnumSkill.AdobeIllustrator, "Adobe illustrator", "default.png"));
+    list.push(new SkillApiModel(EnumSkill.AdobePhotoShop, "Adobe PhotoShop", "default.png"));
+    list.push(new SkillApiModel(EnumSkill.AdobeXD, "Adobe XD", "default.png"));
+    list.push(new SkillApiModel(EnumSkill.AffinityDesigner, "AffinityDesigner", "default.png"));
     list.push(new SkillApiModel(EnumSkill.Angular1, "Angular v1", "angular.png"));
     list.push(new SkillApiModel(EnumSkill.Angular10, "Angular v10", "angular.png"));
     list.push(new SkillApiModel(EnumSkill.Aurelia, "Aurelia", "aurelia.png"));
@@ -27,9 +31,10 @@ export default class FactorySkills {
     list.push(new SkillApiModel(EnumSkill.Docker, "Docker", "default.png"));
     list.push(new SkillApiModel(EnumSkill.Ember, "Ember", "ember.png"));
     list.push(new SkillApiModel(EnumSkill.EntityFramework, "Entity Framework", "default.png"));
+    list.push(new SkillApiModel(EnumSkill.Figma, "Figma", "default.png"));
     list.push(new SkillApiModel(EnumSkill.Git, "Git", "git.png"));
     list.push(new SkillApiModel(EnumSkill.GoogleAnalytics, "Google Analytics", "googleanalytics.png"));
-    list.push(new SkillApiModel(EnumSkill.GraphQL, "GraphQl", "graphql.png"));
+    list.push(new SkillApiModel(EnumSkill.GraphQL, "Graph QL", "graphql.png"));
     list.push(new SkillApiModel(EnumSkill.Html, "Html", "html5.png"));
     list.push(new SkillApiModel(EnumSkill.Java, "Java", "default.png"));
     list.push(new SkillApiModel(EnumSkill.Javascript, "Javascript", "default.png"));
@@ -60,11 +65,17 @@ export default class FactorySkills {
     list.push(new SkillApiModel(EnumSkill.TechnicalLead, "Technical Lead", "default.png"));
     list.push(new SkillApiModel(EnumSkill.Typescript, "Typescript", "typescript.png"));
     list.push(new SkillApiModel(EnumSkill.UI, "User Interface Designer", "default.png"));
+    list.push(new SkillApiModel(EnumSkill.UserResearch, "User Research", "default.png"));
     list.push(new SkillApiModel(EnumSkill.UX, "User Experience Designer", ""));
     list.push(new SkillApiModel(EnumSkill.VisualStudioCode, "Visual Studio Code", "visualstudiocode.png"));
     list.push(new SkillApiModel(EnumSkill.VueJS, "VueJS", "vuejs.png"));
     list.push(new SkillApiModel(EnumSkill.Vuetify, "Vuetify", "vuetify.png"));
     list.push(new SkillApiModel(EnumSkill.Webpack, "Webpack", "webpack.png"));
+    list.push(new SkillApiModel(EnumSkill.IOS, "IOS Development", "webpack.png"));
+    list.push(new SkillApiModel(EnumSkill.FullStackDeveloper, "Full Stack Developer", "default.png"));
+    list.push(new SkillApiModel(EnumSkill.FrontEndDeveloper, "Front End Developer", "default.png"));
+    list.push(new SkillApiModel(EnumSkill.BackEndDeveloper, "Back end Developer", "default.png"));
+    list.push(new SkillApiModel(EnumSkill.AzureBus, "Azure Bus", "default.png"));
 
     return list;
   }
