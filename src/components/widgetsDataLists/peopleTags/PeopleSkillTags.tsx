@@ -1,5 +1,5 @@
 import { UseListDetailContext } from "../../../contexts/ListDetailContext.tsx/ListDetailContext";
-import CommandShowSkill from "../../../contexts/ListDetailContext.tsx/actions/CommandShowSkill";
+import CommandShowPerson from "../../../contexts/ListDetailContext.tsx/actions/CommandShowPerson";
 import Rating from "../../widgetsUI/rating/Rating";
 import React from "react";
 import SkillLevelApiModel from "../../../apiRepository/models/SkillLevelApiModel";
@@ -7,32 +7,32 @@ import Tag from "../../widgetsUI/tags/Tag";
 import TagContainer from "../../widgetsUI/tags/TagContainer";
 
 interface IProperties {
-  skills: Array<SkillLevelApiModel>;
+  peopleSkills: Array<SkillLevelApiModel>;
 }
 
-const SkillTagsWidget: React.FC<IProperties> = (props) => {
+const PeopleSkillTags: React.FC<IProperties> = (props) => {
   const { dispatch } = UseListDetailContext();
 
   // event handlers
   const handleSkillSelectedEvent = (skill: SkillLevelApiModel) => {
-    dispatch(new CommandShowSkill(skill.skill.id));
+    dispatch(new CommandShowPerson(skill.person.id));
   };
 
   return (
     <TagContainer>
-      {props.skills.map((skill, index) => (
+      {props.peopleSkills.map((personSkill, index) => (
         <Tag
           key={index}
           onClick={() => {
-            handleSkillSelectedEvent(skill);
+            handleSkillSelectedEvent(personSkill);
           }}
         >
-          {skill.skill.name}
-          <Rating rating={skill.level} />
+          {personSkill.person.forename} {personSkill.person.surname}
+          <Rating rating={personSkill.level} />
         </Tag>
       ))}
     </TagContainer>
   );
 };
 
-export default SkillTagsWidget;
+export default PeopleSkillTags;

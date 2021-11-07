@@ -1,7 +1,7 @@
 import React from "react";
 import PersonApiModel from "../../../apiRepository/models/PersonApiModel";
-import SkillTagsWidget from "../skillTags/SkillTagsWidget";
-import TeamTagsWidget from "../teamTags/TeamTagsWidget";
+import SkillTags from "../skillTags/SkillTags";
+import TeamTags from "../teamTags/TeamTags";
 
 interface IProperties {
   person: PersonApiModel;
@@ -14,10 +14,10 @@ const PeopleRowWidget: React.FC<IProperties> = (props) => {
       <td> {props.person.surname}</td>
       <td> {props.person.email}</td>
       <td>
-        <TeamTagsWidget teams={props.person.teams} />
+        <TeamTags teams={props.person.teams} />
       </td>
       <td>
-        <SkillTagsWidget skills={props.person.skills} />
+        <SkillTags skills={props.person.skills} />
       </td>
     </tr>
   );

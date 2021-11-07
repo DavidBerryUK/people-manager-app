@@ -9,7 +9,7 @@ interface IProperties {
   people: Array<PersonApiModel>;
 }
 
-const PeopleTagsWidget: React.FC<IProperties> = (props) => {
+const PeopleTags: React.FC<IProperties> = (props) => {
   const { dispatch } = UseListDetailContext();
 
   // event handlers
@@ -33,4 +33,4 @@ const PeopleTagsWidget: React.FC<IProperties> = (props) => {
   );
 };
 
-export default PeopleTagsWidget;
+export default PeopleTags;

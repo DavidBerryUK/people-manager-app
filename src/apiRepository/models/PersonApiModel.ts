@@ -15,6 +15,10 @@ export default class PersonApiModel {
   skills: Array<SkillLevelApiModel>;
   teams: Array<TeamApiModel>;
 
+  get fullName(): string {
+    return `${this.forename} ${this.surname}`;
+  }
+
   constructor(id?: number, forename?: string, surname?: string) {
     this.id = id || 0;
     this.forename = forename || "";

@@ -1,6 +1,6 @@
 import React from "react";
 import SkillApiModel from "../../../apiRepository/models/SkillApiModel";
-import PeopleSkillTagsWidget from "../peopleTags/PeopleSkillTagsWidget";
+import PeopleSkillTags from "../peopleTags/PeopleSkillTags";
 
 interface IProperties {
   skill: SkillApiModel;
@@ -11,7 +11,7 @@ const SkillRowWidget: React.FC<IProperties> = (props) => {
     <tr>
       <td> {props.skill.name}</td>
       <td>
-        <PeopleSkillTagsWidget peopleSkills={props.skill.people} />
+        <PeopleSkillTags peopleSkills={props.skill.people} />
       </td>
     </tr>
   );

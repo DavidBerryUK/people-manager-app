@@ -1,4 +1,4 @@
-import PeopleTagsWidget from "../peopleTags/PeopleTagsWidget";
+import PeopleTags from "../peopleTags/PeopleTags";
 import React from "react";
 import RoleApiModel from "../../../apiRepository/models/RoleApiModel";
 
@@ -11,7 +11,7 @@ const RoleRowWidget: React.FC<IProperties> = (props) => {
     <tr>
       <td> {props.role.name}</td>
       <td>
-        <PeopleTagsWidget people={props.role.people} />
+        <PeopleTags people={props.role.people} />
       </td>
     </tr>
   );

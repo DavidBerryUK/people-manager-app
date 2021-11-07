@@ -9,7 +9,7 @@ interface IProperties {
   teams: Array<TeamApiModel>;
 }
 
-const TeamTagsWidget: React.FC<IProperties> = (props) => {
+const TeamTags: React.FC<IProperties> = (props) => {
   const { dispatch } = UseListDetailContext();
 
   // event handlers
@@ -32,4 +32,4 @@ const TeamTagsWidget: React.FC<IProperties> = (props) => {
   );
 };
 
-export default TeamTagsWidget;
+export default TeamTags;

@@ -1,6 +1,6 @@
 import React from "react";
 import TeamApiModel from "../../../apiRepository/models/TeamApiModel";
-import PeopleTagsWidget from "../peopleTags/PeopleTagsWidget";
+import PeopleTags from "../peopleTags/PeopleTags";
 
 interface IProperties {
   team: TeamApiModel;
@@ -11,7 +11,7 @@ const TeamRowWidget: React.FC<IProperties> = (props) => {
     <tr>
       <td> {props.team.name}</td>
       <td>
-        <PeopleTagsWidget people={props.team.people} />
+        <PeopleTags people={props.team.people} />
       </td>
     </tr>
   );
