@@ -200,20 +200,39 @@ export default class FactoryPeople {
   private addPerson(forename: string, surname: string, role: EnumRole, teams: Array<EnumTeam>, skills: Array<SkillLevel>) {
     this.nextId = this.nextId + 1;
     const person = new PersonApiModel(this.nextId, forename, surname);
+
+    // add avatar image paths
+    //
+    const avatarName = `${person.forename}.${person.surname}.png`.toLocaleLowerCase().replace(" ", "").replace("'", "").replace("-", "");
+    person.avatarSmallUrl = `/avatars/small/${avatarName}`;
+    person.avatarMediumUrl = `/avatars/medium/${avatarName}`;
+    person.avatarLargeUrl = `/avatars/large/${avatarName}`;
+
+    // Add person to role
+    //
     const roleObj = this.getRole(role);
     roleObj.people.push(person);
     person.role = roleObj;
+
+    // Add person Skills
+    //
     skills.forEach((s) => {
       const skill = this.getSkill(s.skill);
       const skillLevel = this.getSkillLevel(person, skill, s.level);
       person.skills.push(skillLevel);
       skill.people.push(skillLevel);
     });
+
+    // Add person Teams
+    //
     teams.forEach((t) => {
       const team = this.getTeam(t);
       person.teams.push(team);
       team.people.push(person);
     });
+
+    // Add person to collection
+    //
     this.people.push(person);
   }
 

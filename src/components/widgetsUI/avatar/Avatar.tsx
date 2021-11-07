@@ -17,7 +17,7 @@ const Avatar: React.FC<IProperties> = (props) => {
     }
   };
 
-  return <div className={className()}></div>;
+  return <img className={className()} src={props.url} alt="face"></img>;
 };
 
 export default Avatar;
