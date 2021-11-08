@@ -16,6 +16,7 @@ import TeamTags from "../../widgetsDataLists/teamTags/TeamTags";
 import TextBody from "../../widgetTypography/textBody/TextBody";
 import TextLabel from "../../widgetTypography/textLabel/TextLabel";
 import TextSubHeader from "../../widgetTypography/textSubHeader/TextSubHeader";
+import RoleTag from "../../widgetsDataLists/roleTag/RoleTag";
 
 const DetailPersonWidget: React.FC = () => {
   const { state } = UseListDetailContext();
@@ -51,6 +52,8 @@ const DetailPersonWidget: React.FC = () => {
             </FormFieldGroup>
           </FormColumnContainer>
         </Form>
+        <TextSubHeader>Role</TextSubHeader>
+        <RoleTag role={person.role} />
         <TextSubHeader>Teams</TextSubHeader>
         <TeamTags teams={person.teams} />
         <TextSubHeader>Skills</TextSubHeader>

@@ -12,6 +12,9 @@ const PeopleTableHeader: React.FC = () => {
         <PeopleTableHeaderCellWidget column={EnumSortColumn.Surname} sortable>
           Surname
         </PeopleTableHeaderCellWidget>
+        <PeopleTableHeaderCellWidget column={EnumSortColumn.Role} sortable>
+          Role
+        </PeopleTableHeaderCellWidget>
         <PeopleTableHeaderCellWidget column={EnumSortColumn.Email} sortable>
           Email
         </PeopleTableHeaderCellWidget>
