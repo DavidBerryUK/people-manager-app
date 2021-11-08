@@ -231,7 +231,7 @@ export default class FactoryPeople {
   }
 
   private CreateDesignTeam() {
-    this.addPerson("phillipa", "Stephenson", EnumRole.DesignerPrincipal, [EnumTeam.Design], [new SkillLevel(EnumSkill.UI, 5), new SkillLevel(EnumSkill.UX, 5)]);
+    this.addPerson("Phillipa", "Stephenson", EnumRole.DesignerPrincipal, [EnumTeam.Design], [new SkillLevel(EnumSkill.UI, 5), new SkillLevel(EnumSkill.UX, 5)]);
     this.addPerson("Richard", "Riley", EnumRole.Designer, [EnumTeam.Design], [new SkillLevel(EnumSkill.UI, 4), new SkillLevel(EnumSkill.UX, 2)]);
     this.addPerson("Sonya", "Roberts", EnumRole.Designer, [EnumTeam.Design], [new SkillLevel(EnumSkill.UX, 5), new SkillLevel(EnumSkill.UI, 2)]);
     this.addPerson("Tom", "Hawkins", EnumRole.Designer, [EnumTeam.Design], [new SkillLevel(EnumSkill.UI, 4), new SkillLevel(EnumSkill.UX, 2)]);

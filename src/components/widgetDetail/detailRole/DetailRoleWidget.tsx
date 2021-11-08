@@ -9,6 +9,7 @@ import PanelHeader from "../../widgetsUI/panel/PanelHeader";
 import React, { useMemo, useState } from "react";
 import RoleApiModel from "../../../apiRepository/models/RoleApiModel";
 import TextSubHeader from "../../widgetTypography/textSubHeader/TextSubHeader";
+import PeopleTags from "../../widgetsDataLists/peopleTags/PeopleTags";
 
 const DetailRoleWidget: React.FC = () => {
   const { state } = UseListDetailContext();
@@ -28,6 +29,8 @@ const DetailRoleWidget: React.FC = () => {
           <ImageRole size={EnumIconSize.large} fileName={role.iconName} />
         </Panel>
         <TextSubHeader>{role.name}</TextSubHeader>
+        <TextSubHeader>People</TextSubHeader>
+        <PeopleTags people={role.people} />
       </PanelBody>
     </Panel>
   );

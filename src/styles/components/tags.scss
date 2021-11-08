@@ -19,6 +19,7 @@
       margin-top: 2px;
       margin-bottom: 2px;
       margin-right: 2px;
+      cursor: pointer;
 
       &:hover {
         background-color: lighten($tag-background, 10);

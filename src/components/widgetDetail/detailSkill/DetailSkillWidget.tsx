@@ -6,6 +6,7 @@ import ImageSkill from "../../widgetsUI/imageSkill/ImageSkill";
 import Panel from "../../widgetsUI/panel/Panel";
 import PanelBody from "../../widgetsUI/panel/PanelBody";
 import PanelHeader from "../../widgetsUI/panel/PanelHeader";
+import PeopleSkillTags from "../../widgetsDataLists/peopleTags/PeopleSkillTags";
 import React, { useMemo, useState } from "react";
 import SkillApiModel from "../../../apiRepository/models/SkillApiModel";
 import TextSubHeader from "../../widgetTypography/textSubHeader/TextSubHeader";
@@ -28,6 +29,8 @@ const DetailSkillWidget: React.FC = () => {
           <ImageSkill size={EnumIconSize.large} fileName={skill.iconName} />
         </Panel>
         <TextSubHeader>{skill.name}</TextSubHeader>
+        <TextSubHeader>People</TextSubHeader>
+        <PeopleSkillTags peopleSkills={skill.people} />
       </PanelBody>
     </Panel>
   );
