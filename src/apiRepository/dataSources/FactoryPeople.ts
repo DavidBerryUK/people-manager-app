@@ -256,7 +256,7 @@ export default class FactoryPeople {
 
     // add avatar image paths
     //
-    person.avatarFileName = `${person.forename}.${person.surname}.jpg`.toLocaleLowerCase().replace(" ", "").replace("'", "").replace("-", "");
+    person.iconName = `${person.forename}.${person.surname}.jpg`.toLocaleLowerCase().replace(" ", "").replace("'", "").replace("-", "");
 
     // Add person to role
     //

@@ -43,7 +43,7 @@ export default class FactorySkills {
     list.push(new SkillApiModel(EnumSkill.GoogleAnalytics, "Google Analytics", "google-analytics.png"));
     list.push(new SkillApiModel(EnumSkill.GraphQL, "Graph QL", "graphql.png"));
     list.push(new SkillApiModel(EnumSkill.Html, "Html", "html5.png"));
-    list.push(new SkillApiModel(EnumSkill.IOS, "IOS Development", "webpack.png"));
+    list.push(new SkillApiModel(EnumSkill.IOS, "IOS Development", "ios.png"));
     list.push(new SkillApiModel(EnumSkill.Java, "Java", "java.jpg"));
     list.push(new SkillApiModel(EnumSkill.Javascript, "Javascript", "javascript.jpg"));
     list.push(new SkillApiModel(EnumSkill.JavaSpring, "Java Spring", "javaspring.png"));

@@ -4,7 +4,7 @@ import SkillApiModel from "../models/SkillApiModel";
 
 export default class ApiRepositorySkill {
   //
-  // Get List Of Skills
+  // Get a Skill
   //
   async getSkillAsync(skillId: number): Promise<SkillApiModel> {
     // artificial delay

@@ -14,6 +14,8 @@ export enum EnumRole {
   DeveloperLead,
   DeveloperPrincipal,
   DeveloperSenior,
+  DevOps,
+  DevOpsManager,
   HumanResources,
   ProjectManagerJnr,
   ProjectManagerLead,
@@ -21,6 +23,6 @@ export enum EnumRole {
   ProjectManagerSenior,
   Sales,
   SalesDirector,
-  DevOpsManager,
-  DevOps,
+  Tester,
+  TestManager,
 }

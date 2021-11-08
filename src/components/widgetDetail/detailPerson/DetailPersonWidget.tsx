@@ -5,7 +5,7 @@ import ApiRepositoryPeople from "../../../apiRepository/people/ApiRepositoryPeop
 import Form from "../../widgetTypography/form/Form";
 import FormColumnContainer from "../../widgetTypography/formColumnContainer/FormColumnContainer";
 import FormFieldGroup from "../../widgetTypography/formFieldGroup/FormFieldGroup";
-import ImageAvatar from "../../widgetsUI/avatar/ImageAvatar";
+import ImageAvatar from "../../widgetsUI/imageAvatar/ImageAvatar";
 import Panel from "../../widgetsUI/panel/Panel";
 import PanelBody from "../../widgetsUI/panel/PanelBody";
 import PanelHeader from "../../widgetsUI/panel/PanelHeader";
@@ -32,7 +32,7 @@ const DetailPersonWidget: React.FC = () => {
       <PanelHeader>{person.fullName}</PanelHeader>
       <PanelBody>
         <Panel justify={EnumPanelJustify.center}>
-          <ImageAvatar size={EnumIconSize.large} fileName={person.avatarFileName} />
+          <ImageAvatar size={EnumIconSize.large} fileName={person.iconName} />
         </Panel>
         <TextSubHeader>{person.role.name}</TextSubHeader>
         <Form>

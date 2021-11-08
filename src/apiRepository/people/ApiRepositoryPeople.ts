@@ -4,7 +4,7 @@ import PersonApiModel from "../models/PersonApiModel";
 
 export default class ApiRepositoryPeople {
   //
-  // Get List Of People
+  // Get a person
   //
   async getPersonAsync(personId: number): Promise<PersonApiModel> {
     // artificial delay
