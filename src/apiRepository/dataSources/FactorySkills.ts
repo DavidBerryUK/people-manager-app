@@ -25,7 +25,7 @@ export default class FactorySkills {
     list.push(new SkillApiModel(EnumSkill.AzureDeveloper, "Azure Developer", "azure.png"));
     list.push(new SkillApiModel(EnumSkill.AzurePipelines, "Azure Pipelines", "azure.png"));
     list.push(new SkillApiModel(EnumSkill.BackboneJs, "BackboneJs", "backbone.png"));
-    list.push(new SkillApiModel(EnumSkill.BackEndDeveloper, "Back end Developer", "back-end-dev.png"));
+    list.push(new SkillApiModel(EnumSkill.BackEndDeveloper, "Back end Developer", "backend-end-dev.png"));
     list.push(new SkillApiModel(EnumSkill.BusinessAnalyst, "Business Analyst", "business-analyst.png"));
     list.push(new SkillApiModel(EnumSkill.ClientManager, "Client Manager", "client-manager.png"));
     list.push(new SkillApiModel(EnumSkill.CSharp, "C#", "csharp.png"));
@@ -63,9 +63,9 @@ export default class FactorySkills {
     list.push(new SkillApiModel(EnumSkill.ProjectManagement, "Project Manager", "project-manager.jpg"));
     list.push(new SkillApiModel(EnumSkill.Python, "Python", "python.png"));
     list.push(new SkillApiModel(EnumSkill.RapidPrototypeEngineer, "Rapid Proto type Engineer", "prototype.png"));
-    list.push(new SkillApiModel(EnumSkill.React, "ReactJS", "reactjs"));
+    list.push(new SkillApiModel(EnumSkill.React, "ReactJS", "reactjs.png"));
     list.push(new SkillApiModel(EnumSkill.Sage, "Sage", "sage.png"));
-    list.push(new SkillApiModel(EnumSkill.Sales, "Sales", "sale.png"));
+    list.push(new SkillApiModel(EnumSkill.Sales, "Sales", "sales.png"));
     list.push(new SkillApiModel(EnumSkill.Sass, "Sass", "sass.png"));
     list.push(new SkillApiModel(EnumSkill.ServiceDesk, "Service Desk", "service-desk.jpg"));
     list.push(new SkillApiModel(EnumSkill.ServiceManager, "Service Manager", "service-desk.jpg"));

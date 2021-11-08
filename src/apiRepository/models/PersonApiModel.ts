@@ -9,9 +9,7 @@ export default class PersonApiModel {
   surname: string;
   email: string;
   role: RoleApiModel;
-  avatarSmallUrl: string;
-  avatarMediumUrl: string;
-  avatarLargeUrl: string;
+  avatarFileName: string;
   skills: Array<SkillLevelApiModel>;
   teams: Array<TeamApiModel>;
 
@@ -24,9 +22,7 @@ export default class PersonApiModel {
     this.forename = forename || "";
     this.surname = surname || "";
     this.userName = "";
-    this.avatarSmallUrl = "";
-    this.avatarMediumUrl = "";
-    this.avatarLargeUrl = "";
+    this.avatarFileName = "";
     this.email = `${forename}.${surname}@acme.com`;
     this.skills = new Array<SkillLevelApiModel>();
     this.teams = new Array<TeamApiModel>();

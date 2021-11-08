@@ -256,10 +256,7 @@ export default class FactoryPeople {
 
     // add avatar image paths
     //
-    const avatarName = `${person.forename}.${person.surname}.jpg`.toLocaleLowerCase().replace(" ", "").replace("'", "").replace("-", "");
-    person.avatarSmallUrl = `/avatars/small/${avatarName}`;
-    person.avatarMediumUrl = `/avatars/medium/${avatarName}`;
-    person.avatarLargeUrl = `/avatars/large/${avatarName}`;
+    person.avatarFileName = `${person.forename}.${person.surname}.jpg`.toLocaleLowerCase().replace(" ", "").replace("'", "").replace("-", "");
 
     // Add person to role
     //

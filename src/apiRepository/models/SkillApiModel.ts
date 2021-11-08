@@ -6,10 +6,10 @@ export default class SkillApiModel {
   iconName: string;
   people: Array<SkillLevelApiModel>;
 
-  constructor(id: number, name: string, iconName: string) {
-    this.id = id;
-    this.name = name;
-    this.iconName = iconName;
+  constructor(id?: number, name?: string, iconName?: string) {
+    this.id = id || 0;
+    this.name = name || '';
+    this.iconName = iconName || '';
     this.people = new Array<SkillLevelApiModel>();
   }
 }

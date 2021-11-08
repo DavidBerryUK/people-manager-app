@@ -1,11 +1,11 @@
-import { EnumAvatarSize } from "../../../constants/EnumAvatarSize";
+import { EnumIconSize } from "../../../constants/EnumIconSize";
 import { EnumPanelJustify } from "../../../constants/EnumPanelJustify";
 import { UseListDetailContext } from "../../../contexts/ListDetailContext.tsx/ListDetailContext";
 import ApiRepositoryPeople from "../../../apiRepository/people/ApiRepositoryPeople";
-import Avatar from "../../widgetsUI/avatar/Avatar";
 import Form from "../../widgetTypography/form/Form";
 import FormColumnContainer from "../../widgetTypography/formColumnContainer/FormColumnContainer";
 import FormFieldGroup from "../../widgetTypography/formFieldGroup/FormFieldGroup";
+import ImageAvatar from "../../widgetsUI/avatar/ImageAvatar";
 import Panel from "../../widgetsUI/panel/Panel";
 import PanelBody from "../../widgetsUI/panel/PanelBody";
 import PanelHeader from "../../widgetsUI/panel/PanelHeader";
@@ -32,7 +32,7 @@ const DetailPersonWidget: React.FC = () => {
       <PanelHeader>{person.fullName}</PanelHeader>
       <PanelBody>
         <Panel justify={EnumPanelJustify.center}>
-          <Avatar size={EnumAvatarSize.large} url={person.avatarLargeUrl} />
+          <ImageAvatar size={EnumIconSize.large} fileName={person.avatarFileName} />
         </Panel>
         <TextSubHeader>{person.role.name}</TextSubHeader>
         <Form>

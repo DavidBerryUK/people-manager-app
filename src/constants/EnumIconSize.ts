@@ -1,4 +1,4 @@
-export enum EnumAvatarSize {
+export enum EnumIconSize {
   small,
   medium,
   large,
