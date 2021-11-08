@@ -8,6 +8,11 @@
       user-select: none;
       border: solid 2px $table-border;
 
+      thead {
+        position: sticky;
+        top: 63px;
+      }
+
       thead tr {
         background-color: $header-background;
         color: $header-text;

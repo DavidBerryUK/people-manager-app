@@ -24,7 +24,7 @@ const ApplicationHeaderWidget: React.FC = () => {
   };
 
   return (
-    <div className="header">
+    <div className="application-header">
       <ul className="navigation">
         {navButtons.map((button, index) => (
           <li

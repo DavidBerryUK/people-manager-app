@@ -1,11 +1,15 @@
 .layout-list {
   display: flex;
+  align-items: flex-start;
 
   .region-list {
     flex-grow: 1;
     margin: 6px;
   }
   .region-detail {
+    position: sticky;
+    top: 62px;
+
     width: 600px;
     margin-top: 6px;
     margin-right: 6px;

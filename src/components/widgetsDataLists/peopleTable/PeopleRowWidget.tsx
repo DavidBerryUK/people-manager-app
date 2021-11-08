@@ -1,5 +1,7 @@
-import React from "react";
+import { EnumIconSize } from "../../../constants/EnumIconSize";
+import ImageAvatar from "../../widgetsUI/imageAvatar/ImageAvatar";
 import PersonApiModel from "../../../apiRepository/models/PersonApiModel";
+import React from "react";
 import RoleTag from "../roleTag/RoleTag";
 import SkillTags from "../skillTags/SkillTags";
 import TeamTags from "../teamTags/TeamTags";
@@ -11,6 +13,9 @@ interface IProperties {
 const PeopleRowWidget: React.FC<IProperties> = (props) => {
   return (
     <tr>
+      <td>
+        <ImageAvatar fileName={props.person.iconName} size={EnumIconSize.small} />
+      </td>
       <td> {props.person.forename}</td>
       <td> {props.person.surname}</td>
       <td>

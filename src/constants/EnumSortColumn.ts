@@ -1,4 +1,5 @@
 export enum EnumSortColumn {
+  None,
   Email,
   Forename,
   PeopleCollection,

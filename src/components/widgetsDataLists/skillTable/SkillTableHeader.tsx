@@ -6,6 +6,7 @@ const SkillTableHeader: React.FC = () => {
   return (
     <thead>
       <tr>
+        <SkillTableHeaderCellWidget column={EnumSortColumn.None} />
         <SkillTableHeaderCellWidget column={EnumSortColumn.Skill} sortable>
           Skill
         </SkillTableHeaderCellWidget>

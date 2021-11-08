@@ -6,6 +6,7 @@ const PeopleTableHeader: React.FC = () => {
   return (
     <thead>
       <tr>
+        <PeopleTableHeaderCellWidget column={EnumSortColumn.None}></PeopleTableHeaderCellWidget>
         <PeopleTableHeaderCellWidget column={EnumSortColumn.Forename} sortable>
           Forename
         </PeopleTableHeaderCellWidget>

@@ -6,6 +6,7 @@ const RoleTableHeader: React.FC = () => {
   return (
     <thead>
       <tr>
+        <RoleTableHeaderCellWidget column={EnumSortColumn.None} />
         <RoleTableHeaderCellWidget column={EnumSortColumn.Role} sortable>
           Role
         </RoleTableHeaderCellWidget>
