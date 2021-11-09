@@ -23,24 +23,27 @@ export default class CommandTeamListSet implements ITeamContextDispatchCommand {
   // Update the context and return the new state
   // (this is called from within the ApplicationContext)
   execute(state: TeamContextProps): TeamContextProps {
+
     // only update pagination if required or react will endup in an endless loop
     //
-    const newPagination = state.pagination.clone();
+    let newPagination = state.pagination.clone();
     newPagination.rowsPerPage = this.rowsPerPage;
-    newPagination.totalPages = this.totalPages;
-    newPagination.totalRows = this.totalRows;
 
     if (newPagination.isEqualTo(state.pagination)) {
-      return {
-        ...state,
-        teamList: this.teamList
-      };
+      // if pagination hasn't changed, then don't update it as it will
+      // cause additional renders
+      newPagination = state.pagination;
     }
+
+    const newTableResults = state.tableStatsResults.clone();
+    newTableResults.totalPages = this.totalPages;
+    newTableResults.totalRows = this.totalRows;
 
     return {
       ...state,
       teamList: this.teamList,
-      pagination: newPagination
+      pagination: newPagination,
+      tableStatsResults: newTableResults,
     };
   }
 }

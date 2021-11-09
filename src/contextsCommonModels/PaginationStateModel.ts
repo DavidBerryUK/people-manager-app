@@ -9,15 +9,12 @@ export default class PaginationStateModel {
 
     private _sortColumn: EnumSortColumn;
     pageNumber: number;
-    totalPages: number;
-    totalRows: number;
+
     rowsPerPage: number;
     sortDirection: EnumSortDirection;
 
     constructor(defaultSortColumn: EnumSortColumn) {
         this.pageNumber = 1;
-        this.totalPages = 0;
-        this.totalRows = 0;
         this.rowsPerPage = 10;
         this._sortColumn = defaultSortColumn;
         this.sortDirection = EnumSortDirection.asc;
@@ -28,8 +25,6 @@ export default class PaginationStateModel {
     clone(): PaginationStateModel {
         const model = new PaginationStateModel(this._sortColumn);
         model.pageNumber = this.pageNumber;
-        model.totalPages = this.totalPages;
-        model.totalRows = this.totalRows;
         model.rowsPerPage = this.rowsPerPage;
         model.sortDirection = this.sortDirection;
         return model;
@@ -40,8 +35,6 @@ export default class PaginationStateModel {
     isEqualTo(model: PaginationStateModel): boolean {
         if (this._sortColumn !== model._sortColumn ||
             this.pageNumber !== model.pageNumber ||
-            this.totalPages !== model.totalPages ||
-            this.totalRows !== model.totalRows ||
             this.rowsPerPage !== model.rowsPerPage ||
             this.sortDirection !== model.sortDirection) {
             return false

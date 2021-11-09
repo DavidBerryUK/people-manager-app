@@ -52,7 +52,7 @@ const SkillTableWidget: React.FC = () => {
           ))}
         </tbody>
       </table>
-      <PaginationWidget page={skillState.pagination.pageNumber} pageCount={skillState.pagination.totalPages} onPageChanged={handleOnPageChangeEvent} />
+      <PaginationWidget page={skillState.pagination.pageNumber} pageCount={skillState.tableStatsResults.totalPages} onPageChanged={handleOnPageChangeEvent} />
     </div>
   );
 };

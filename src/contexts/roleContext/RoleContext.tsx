@@ -3,12 +3,14 @@ import React, { Dispatch, Reducer } from "react";
 import RoleApiModel from "../../apiRepository/models/RoleApiModel";
 import PaginationStateModel from "../../contextsCommonModels/PaginationStateModel";
 import { EnumSortColumn } from "../../constants/EnumSortColumn";
+import TableStatsResultsStateModel from "../../contextsCommonModels/TableStatusResultsStateModel";
 
 // Interface defining data structure stored in this context
 //
 export interface RoleContextProps {
   roleList: Array<RoleApiModel>;
   pagination: PaginationStateModel;
+  tableStatsResults: TableStatsResultsStateModel;
 }
 
 // Strongly type interface for updating this context, which is done by using
@@ -23,6 +25,7 @@ export interface InitContextProps {
 const initialState: RoleContextProps = {
   roleList: new Array<RoleApiModel>(),
   pagination: new PaginationStateModel(EnumSortColumn.Role),
+  tableStatsResults: new TableStatsResultsStateModel(),
 };
 
 // The reducer updates the actual data held in the context.

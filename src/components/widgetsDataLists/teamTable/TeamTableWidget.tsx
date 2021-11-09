@@ -53,7 +53,7 @@ const TeamTableWidget: React.FC = () => {
           ))}
         </tbody>
       </table>
-      <PaginationWidget page={teamState.pagination.pageNumber} pageCount={teamState.pagination.totalPages} onPageChanged={handleOnPageChangeEvent} />
+      <PaginationWidget page={teamState.pagination.pageNumber} pageCount={teamState.tableStatsResults.totalPages} onPageChanged={handleOnPageChangeEvent} />
     </div>
   );
 };

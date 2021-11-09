@@ -10,6 +10,7 @@ import PeopleRowWidget from "./PeopleRowWidget";
 import PeopleTableHeader from "./PeopleTableHeader";
 import React, { useEffect, useMemo } from "react";
 import UrlManagerService from "../../../services/urlManagers/UrlManagerService";
+import HistoryUrlBuilder from "../../../services/urlManagers/HistoryUrlBuilder";
 
 const PeopleTableWidget: React.FC = () => {
   const { state: peopleState, dispatch: peopleDispatch } = UsePeopleContext();
@@ -19,10 +20,7 @@ const PeopleTableWidget: React.FC = () => {
 
   // detect url change
   useEffect(() => {
-    console.log("****************** People Table [URL CHANGED] - get data ******************");
-
     if (history.action === "POP") {
-      console.log(`Url Params Changed:${location.search}   History:${history.action}`);
       var urlStateModel = UrlManagerService.getStateFromParam(location.search);
 
       // either user entered url or back/forward button was pressed
@@ -34,26 +32,22 @@ const PeopleTableWidget: React.FC = () => {
 
   // Get data when pagination state changes
   useMemo(async () => {
-    console.log("****************** People Table [GET DATA] - get data ******************");
-    console.log(peopleState.pagination);
-
     const apiRepositoryPeopleList = new ApiRepositoryPeopleList();
     const peopleList = await apiRepositoryPeopleList.getPeopleAsync(peopleState.pagination.sortColumn, peopleState.pagination.sortDirection, peopleState.pagination.pageNumber, peopleState.pagination.rowsPerPage);
-    // update context with data
 
+    // update context with data
     peopleDispatch(new CommandPeopleListSet(peopleList.data, peopleList.rowsPerPage, peopleList.totalPages, peopleList.totalRows));
   }, [peopleDispatch, peopleState.pagination]);
 
   //
-  // Event Handlers
+  // Event Handlers - use selected new page
   //
   const handleOnPageChangeEvent = (pageNo: number) => {
-    // update context with new page number
+    // update context with new page number to force data reload
     peopleDispatch(new CommandPageNumberSet(pageNo));
-
-    // set history
-    var params = UrlManagerService.createUrlParams(peopleState.pagination, listDetailContext.detailView);
-    history.push({ pathname: location.pathname, search: params });
+    // update page number in url
+    const newHistory = HistoryUrlBuilder.buildNewPageNoUrl(location.pathname, peopleState.pagination, listDetailContext.detailView, pageNo);
+    history.push(newHistory);
   };
 
   return (
@@ -66,7 +60,7 @@ const PeopleTableWidget: React.FC = () => {
           ))}
         </tbody>
       </table>
-      <PaginationWidget page={peopleState.pagination.pageNumber} pageCount={peopleState.pagination.totalPages} onPageChanged={handleOnPageChangeEvent} />
+      <PaginationWidget page={peopleState.pagination.pageNumber} pageCount={peopleState.tableStatsResults.totalPages} onPageChanged={handleOnPageChangeEvent} />
     </div>
   );
 };

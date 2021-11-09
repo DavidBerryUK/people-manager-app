@@ -3,12 +3,14 @@ import PaginationStateModel from "../../contextsCommonModels/PaginationStateMode
 import React, { Dispatch, Reducer } from "react";
 import SkillApiModel from "../../apiRepository/models/SkillApiModel";
 import { EnumSortColumn } from "../../constants/EnumSortColumn";
+import TableStatsResultsStateModel from "../../contextsCommonModels/TableStatusResultsStateModel";
 
 // Interface defining data structure stored in this context
 //
 export interface SkillContextProps {
   skillList: Array<SkillApiModel>;
   pagination: PaginationStateModel;
+  tableStatsResults: TableStatsResultsStateModel;
 }
 
 // Strongly type interface for updating this context, which is done by using
@@ -23,6 +25,7 @@ export interface InitContextProps {
 const initialState: SkillContextProps = {
   skillList: new Array<SkillApiModel>(),
   pagination: new PaginationStateModel(EnumSortColumn.Skill),
+  tableStatsResults: new TableStatsResultsStateModel(),
 };
 
 // The reducer updates the actual data held in the context.

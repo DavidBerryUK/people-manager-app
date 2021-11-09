@@ -8,6 +8,9 @@ import { PeopleContextProps } from "../PeopleContext";
 
 //
 export default class CommandRestoreFromUrl implements IPeopleContextDispatchCommand {
+
+
+
   urlParamState: UrlParamStateModel;
 
 
@@ -21,17 +24,23 @@ export default class CommandRestoreFromUrl implements IPeopleContextDispatchComm
   // (this is called from within the ApplicationContext)
   execute(state: PeopleContextProps): PeopleContextProps {
 
+    console.log("CommandRestoreFromUrl:execute");
+
     //  return { ...state };
-    const pagination = new PaginationStateModel(this.urlParamState.sortColumn);
-    pagination.pageNumber = this.urlParamState.pageNumber;
-    pagination.totalPages = this.urlParamState.totalPages;
-    pagination.totalRows = this.urlParamState.totalRows;
-    pagination.rowsPerPage = this.urlParamState.rowsPerPage;
-    pagination.sortDirection = this.urlParamState.sortDirection;
+    const newPagination = new PaginationStateModel(this.urlParamState.sortColumn);
+    newPagination.pageNumber = this.urlParamState.pageNumber;
+    newPagination.rowsPerPage = this.urlParamState.rowsPerPage;
+    newPagination.sortDirection = this.urlParamState.sortDirection;
+
+    if (newPagination.isEqualTo(state.pagination)) {
+      // if pagination hasn't changed, then don't update it as it will
+      // cause additional renders      
+      return state;
+    }
 
     return {
       ...state,
-      pagination: pagination
+      pagination: newPagination
     };
   }
 }

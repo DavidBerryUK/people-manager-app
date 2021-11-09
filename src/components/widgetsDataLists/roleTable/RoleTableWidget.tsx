@@ -54,7 +54,7 @@ const RoleTableWidget: React.FC = () => {
           ))}
         </tbody>
       </table>
-      <PaginationWidget page={roleState.pagination.pageNumber} pageCount={roleState.pagination.totalPages} onPageChanged={handleOnPageChangeEvent} />
+      <PaginationWidget page={roleState.pagination.pageNumber} pageCount={roleState.tableStatsResults.totalPages} onPageChanged={handleOnPageChangeEvent} />
     </div>
   );
 };
