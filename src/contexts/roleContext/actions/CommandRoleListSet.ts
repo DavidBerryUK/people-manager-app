@@ -23,15 +23,23 @@ export default class CommandRoleListSet implements IRoleContextDispatchCommand {
   // Update the context and return the new state
   // (this is called from within the ApplicationContext)
   execute(state: RoleContextProps): RoleContextProps {
-    const pagination = state.pagination.clone();
-    pagination.rowsPerPage = this.rowsPerPage;
-    pagination.totalPages = this.totalPages;
-    pagination.totalRows = this.totalRows;
+    // only update pagination if required or react will endup in an endless loop
+    //
+    const newPagination = state.pagination.clone();
+    newPagination.rowsPerPage = this.rowsPerPage;
+    newPagination.totalPages = this.totalPages;
+    newPagination.totalRows = this.totalRows;
+
+    if (newPagination.isEqualTo(state.pagination)) {
+      return {
+        ...state,
+        roleList: this.roleList
+      };
+    }
 
     return {
       ...state,
       roleList: this.roleList,
-      pagination: pagination
     };
   }
 }

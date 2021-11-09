@@ -56,6 +56,21 @@ export default class DetailViewStateModel {
         this._teamId = value;
     }
 
+    // get detail key for 
+    //  which view is selecgted
+    get detailKey(): number | undefined {
+        switch (this.viewType) {
+            case EnumDetailViewType.person:
+                return this._personId;
+            case EnumDetailViewType.role:
+                return this._roleId;
+            case EnumDetailViewType.skill:
+                return this._skillId;
+            case EnumDetailViewType.team:
+                return this._teamId;
+        }
+        return undefined;
+    }
 
     private clearAllKeys() {
         this._personId = undefined;

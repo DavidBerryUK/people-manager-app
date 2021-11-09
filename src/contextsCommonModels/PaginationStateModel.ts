@@ -35,6 +35,20 @@ export default class PaginationStateModel {
         return model;
     }
 
+    // determine if all values are equal
+    //
+    isEqualTo(model: PaginationStateModel): boolean {
+        if (this._sortColumn !== model._sortColumn ||
+            this.pageNumber !== model.pageNumber ||
+            this.totalPages !== model.totalPages ||
+            this.totalRows !== model.totalRows ||
+            this.rowsPerPage !== model.rowsPerPage ||
+            this.sortDirection !== model.sortDirection) {
+            return false
+        }
+        return true;
+    }
+
     // change sort column,
     //  no column change then toggle direction
     set sortColumn(sortColumn: EnumSortColumn) {

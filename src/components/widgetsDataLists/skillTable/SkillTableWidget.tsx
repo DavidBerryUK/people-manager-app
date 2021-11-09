@@ -17,6 +17,8 @@ const SkillTableWidget: React.FC = () => {
     const apiRepositorySkillList = new ApiRepositorySkillList();
     const skillList = await apiRepositorySkillList.getSkillsAsync(skillState.pagination.sortColumn, skillState.pagination.sortDirection, skillState.pagination.pageNumber, skillState.pagination.rowsPerPage);
 
+    console.log("****************** SkillTableWidget Component ******************");
+
     // update context with data
     //
     skillDispatch(new CommandSkillListSet(skillList.data, skillList.rowsPerPage, skillList.totalPages, skillList.totalRows));

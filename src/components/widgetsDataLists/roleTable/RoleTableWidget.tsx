@@ -1,7 +1,7 @@
 import { UseRoleContext } from "../../../contexts/roleContext/RoleContext";
 import ApiRepositoryRoleList from "../../../apiRepository/role/ApiRepositoryRoleList";
 import CommandPageNumberSet from "../../../contexts/roleContext/actions/CommandPageNumberSet";
-import CommandRoleListSet from "../../../contexts/roleContext/actions/CommandTeamListSet";
+import CommandRoleListSet from "../../../contexts/roleContext/actions/CommandRoleListSet";
 import PaginationWidget from "../../widgetsUI/pagination/PaginationWidget";
 import React, { useMemo } from "react";
 import RoleRowWidget from "./RoleRowWidget";
@@ -16,6 +16,8 @@ const RoleTableWidget: React.FC = () => {
   useMemo(async () => {
     const apiRepositoryRoleList = new ApiRepositoryRoleList();
     const roleList = await apiRepositoryRoleList.getRolesAsync(roleState.pagination.sortColumn, roleState.pagination.sortDirection, roleState.pagination.pageNumber, roleState.pagination.rowsPerPage);
+
+    console.log("****************** RoleTableWidget Component ******************");
 
     // update context with data
     //

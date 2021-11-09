@@ -1,11 +1,11 @@
 import { UseTeamContext } from "../../../contexts/teamContext/TeamContext";
+import ApiRepositoryTeamList from "../../../apiRepository/teams/ApiRepositoryTeamList";
 import CommandPageNumberSet from "../../../contexts/teamContext/actions/CommandPageNumberSet";
 import CommandTeamListSet from "../../../contexts/teamContext/actions/CommandTeamListSet";
 import PaginationWidget from "../../widgetsUI/pagination/PaginationWidget";
 import React, { useMemo } from "react";
 import TeamRowWidget from "./TeamRowWidget";
 import TeamTableHeader from "./TeamTableHeader";
-import ApiRepositoryTeamList from "../../../apiRepository/teams/ApiRepositoryTeamList";
 
 const TeamTableWidget: React.FC = () => {
   const { state: teamState, dispatch: teamDispatch } = UseTeamContext();
@@ -16,6 +16,8 @@ const TeamTableWidget: React.FC = () => {
   useMemo(async () => {
     const apiRepositoryTeamList = new ApiRepositoryTeamList();
     const teamList = await apiRepositoryTeamList.getTeamsAsync(teamState.pagination.sortColumn, teamState.pagination.sortDirection, teamState.pagination.pageNumber, teamState.pagination.rowsPerPage);
+
+    console.log("****************** TeamTableWidget Component ******************");
 
     // update context with data
     //
