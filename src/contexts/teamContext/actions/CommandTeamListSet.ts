@@ -23,12 +23,15 @@ export default class CommandTeamListSet implements ITeamContextDispatchCommand {
   // Update the context and return the new state
   // (this is called from within the ApplicationContext)
   execute(state: TeamContextProps): TeamContextProps {
+    const pagination = state.pagination.clone();
+    pagination.rowsPerPage = this.rowsPerPage;
+    pagination.totalPages = this.totalPages;
+    pagination.totalRows = this.totalRows;
+
     return {
       ...state,
       teamList: this.teamList,
-      totalPages: this.totalPages,
-      totalRows: this.totalRows,
-      rowsPerPage: this.rowsPerPage,
+      pagination: pagination
     };
   }
 }

@@ -15,12 +15,12 @@ const TeamTableWidget: React.FC = () => {
   //
   useMemo(async () => {
     const apiRepositoryTeamList = new ApiRepositoryTeamList();
-    const teamList = await apiRepositoryTeamList.getTeamsAsync(teamState.sortColumn, teamState.sortDirection, teamState.pageNumber, teamState.rowsPerPage);
+    const teamList = await apiRepositoryTeamList.getTeamsAsync(teamState.pagination.sortColumn, teamState.pagination.sortDirection, teamState.pagination.pageNumber, teamState.pagination.rowsPerPage);
 
     // update context with data
     //
     teamDispatch(new CommandTeamListSet(teamList.data, teamList.rowsPerPage, teamList.totalPages, teamList.totalRows));
-  }, [teamDispatch, teamState.sortColumn, teamState.sortDirection, teamState.rowsPerPage, teamState.pageNumber]);
+  }, [teamDispatch, teamState.pagination]);
 
   //
   // Event Handlers
@@ -41,7 +41,7 @@ const TeamTableWidget: React.FC = () => {
           ))}
         </tbody>
       </table>
-      <PaginationWidget page={teamState.pageNumber} pageCount={teamState.totalPages} onPageChanged={handleOnPageChangeEvent} />
+      <PaginationWidget page={teamState.pagination.pageNumber} pageCount={teamState.pagination.totalPages} onPageChanged={handleOnPageChangeEvent} />
     </div>
   );
 };

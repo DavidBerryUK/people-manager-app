@@ -1,19 +1,14 @@
-import { EnumSortDirection } from "../../constants/EnumSortDirectory";
 import { IPeopleContextDispatchCommand } from "./interfaces/IPeopleContextDispatchCommand";
 import PersonApiModel from "../../apiRepository/models/PersonApiModel";
 import React, { Dispatch, Reducer } from "react";
+import PaginationStateModel from "../../contextsCommonModels/PaginationStateModel";
 import { EnumSortColumn } from "../../constants/EnumSortColumn";
 
 // Interface defining data structure stored in this context
 //
 export interface PeopleContextProps {
   peopleList: Array<PersonApiModel>;
-  pageNumber: number;
-  totalPages: number;
-  totalRows: number;
-  rowsPerPage: number;
-  sortColumn: EnumSortColumn;
-  sortDirection: EnumSortDirection;
+  pagination: PaginationStateModel;
 }
 
 // Strongly type interface for updating this context, which is done by using
@@ -27,12 +22,7 @@ export interface InitContextProps {
 //
 const initialState: PeopleContextProps = {
   peopleList: new Array<PersonApiModel>(),
-  pageNumber: 1,
-  totalPages: 0,
-  totalRows: 0,
-  rowsPerPage: 20,
-  sortColumn: EnumSortColumn.Forename,
-  sortDirection: EnumSortDirection.asc,
+  pagination: new PaginationStateModel(EnumSortColumn.Forename),
 };
 
 // The reducer updates the actual data held in the context.

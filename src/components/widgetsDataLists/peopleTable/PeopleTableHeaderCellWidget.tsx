@@ -24,10 +24,10 @@ const PeopleTableHeaderCellWidget: React.FC<IProperties> = (props) => {
   // Determine Sort Icon for Column
   //
   const sortIcon = (): JSX.Element => {
-    if (peopleState.sortColumn !== props.column) {
+    if (peopleState.pagination.sortColumn !== props.column) {
       return <></>;
     }
-    return <SortIndicator direction={peopleState.sortDirection} />;
+    return <SortIndicator direction={peopleState.pagination.sortDirection} />;
   };
 
   // Create Style

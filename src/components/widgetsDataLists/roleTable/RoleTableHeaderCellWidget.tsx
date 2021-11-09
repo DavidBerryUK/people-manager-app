@@ -24,10 +24,10 @@ const RoleTableHeaderCellWidget: React.FC<IProperties> = (props) => {
   // Determine Sort Icon for Column
   //
   const sortIcon = (): JSX.Element => {
-    if (roleState.sortColumn !== props.column) {
+    if (roleState.pagination.sortColumn !== props.column) {
       return <></>;
     }
-    return <SortIndicator direction={roleState.sortDirection} />;
+    return <SortIndicator direction={roleState.pagination.sortDirection} />;
   };
 
   // Create Style

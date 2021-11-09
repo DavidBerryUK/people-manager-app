@@ -1,19 +1,14 @@
-import { EnumSortColumn } from "../../constants/EnumSortColumn";
-import { EnumSortDirection } from "../../constants/EnumSortDirectory";
 import { ITeamContextDispatchCommand } from "./interfaces/ITeamContextDispatchCommand";
 import React, { Dispatch, Reducer } from "react";
 import TeamApiModel from "../../apiRepository/models/TeamApiModel";
+import PaginationStateModel from "../../contextsCommonModels/PaginationStateModel";
+import { EnumSortColumn } from "../../constants/EnumSortColumn";
 
 // Interface defining data structure stored in this context
 //
 export interface TeamContextProps {
   teamList: Array<TeamApiModel>;
-  pageNumber: number;
-  totalPages: number;
-  totalRows: number;
-  rowsPerPage: number;
-  sortColumn: EnumSortColumn;
-  sortDirection: EnumSortDirection;
+  pagination: PaginationStateModel;
 }
 
 // Strongly type interface for updating this context, which is done by using
@@ -27,12 +22,7 @@ export interface InitContextProps {
 //
 const initialState: TeamContextProps = {
   teamList: new Array<TeamApiModel>(),
-  pageNumber: 1,
-  totalPages: 0,
-  totalRows: 0,
-  rowsPerPage: 20,
-  sortColumn: EnumSortColumn.Team,
-  sortDirection: EnumSortDirection.asc,
+  pagination: new PaginationStateModel(EnumSortColumn.Team),
 };
 
 // The reducer updates the actual data held in the context.

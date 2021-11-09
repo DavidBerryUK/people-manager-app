@@ -16,9 +16,13 @@ export default class CommandPageNumberSet implements IPeopleContextDispatchComma
   // Update the context and return the new state
   // (this is called from within the ApplicationContext)
   execute(state: PeopleContextProps): PeopleContextProps {
+
+    const pagination = state.pagination.clone();
+    pagination.pageNumber = this.pageNumber;
+
     return {
       ...state,
-      pageNumber: this.pageNumber,
+      pagination: pagination
     };
   }
 }

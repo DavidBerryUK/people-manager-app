@@ -15,12 +15,12 @@ const PeopleTableWidget: React.FC = () => {
   //
   useMemo(async () => {
     const apiRepositoryPeopleList = new ApiRepositoryPeopleList();
-    const peopleList = await apiRepositoryPeopleList.getPeopleAsync(peopleState.sortColumn, peopleState.sortDirection, peopleState.pageNumber, peopleState.rowsPerPage);
+    const peopleList = await apiRepositoryPeopleList.getPeopleAsync(peopleState.pagination.sortColumn, peopleState.pagination.sortDirection, peopleState.pagination.pageNumber, peopleState.pagination.rowsPerPage);
 
     // update context with data
     //
     peopleDispatch(new CommandPeopleListSet(peopleList.data, peopleList.rowsPerPage, peopleList.totalPages, peopleList.totalRows));
-  }, [peopleDispatch, peopleState.sortColumn, peopleState.sortDirection, peopleState.rowsPerPage, peopleState.pageNumber]);
+  }, [peopleDispatch, peopleState.pagination]);
 
   //
   // Event Handlers
@@ -41,7 +41,7 @@ const PeopleTableWidget: React.FC = () => {
           ))}
         </tbody>
       </table>
-      <PaginationWidget page={peopleState.pageNumber} pageCount={peopleState.totalPages} onPageChanged={handleOnPageChangeEvent} />
+      <PaginationWidget page={peopleState.pagination.pageNumber} pageCount={peopleState.pagination.totalPages} onPageChanged={handleOnPageChangeEvent} />
     </div>
   );
 };

@@ -24,12 +24,15 @@ export default class CommandSkillListSet implements ISkillContextDispatchCommand
   // Update the context and return the new state
   // (this is called from within the ApplicationContext)
   execute(state: SkillContextProps): SkillContextProps {
+    const pagination = state.pagination.clone();
+    pagination.rowsPerPage = this.rowsPerPage;
+    pagination.totalPages = this.totalPages;
+    pagination.totalRows = this.totalRows;
+
     return {
       ...state,
       skillList: this.skillList,
-      totalPages: this.totalPages,
-      totalRows: this.totalRows,
-      rowsPerPage: this.rowsPerPage,
+      pagination: pagination
     };
   }
 }

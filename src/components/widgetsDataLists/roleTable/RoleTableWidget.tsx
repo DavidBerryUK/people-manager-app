@@ -15,12 +15,12 @@ const RoleTableWidget: React.FC = () => {
   //
   useMemo(async () => {
     const apiRepositoryRoleList = new ApiRepositoryRoleList();
-    const roleList = await apiRepositoryRoleList.getRolesAsync(roleState.sortColumn, roleState.sortDirection, roleState.pageNumber, roleState.rowsPerPage);
+    const roleList = await apiRepositoryRoleList.getRolesAsync(roleState.pagination.sortColumn, roleState.pagination.sortDirection, roleState.pagination.pageNumber, roleState.pagination.rowsPerPage);
 
     // update context with data
     //
     roleDispatch(new CommandRoleListSet(roleList.data, roleList.rowsPerPage, roleList.totalPages, roleList.totalRows));
-  }, [roleDispatch, roleState.sortColumn, roleState.sortDirection, roleState.rowsPerPage, roleState.pageNumber]);
+  }, [roleDispatch, roleState.pagination]);
 
   //
   // Event Handlers
@@ -41,7 +41,7 @@ const RoleTableWidget: React.FC = () => {
           ))}
         </tbody>
       </table>
-      <PaginationWidget page={roleState.pageNumber} pageCount={roleState.totalPages} onPageChanged={handleOnPageChangeEvent} />
+      <PaginationWidget page={roleState.pagination.pageNumber} pageCount={roleState.pagination.totalPages} onPageChanged={handleOnPageChangeEvent} />
     </div>
   );
 };

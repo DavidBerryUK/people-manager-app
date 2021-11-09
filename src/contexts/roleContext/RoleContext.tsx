@@ -1,19 +1,14 @@
-import { EnumSortColumn } from "../../constants/EnumSortColumn";
-import { EnumSortDirection } from "../../constants/EnumSortDirectory";
 import { IRoleContextDispatchCommand } from "./interfaces/IRoleContextDispatchCommand";
 import React, { Dispatch, Reducer } from "react";
 import RoleApiModel from "../../apiRepository/models/RoleApiModel";
+import PaginationStateModel from "../../contextsCommonModels/PaginationStateModel";
+import { EnumSortColumn } from "../../constants/EnumSortColumn";
 
 // Interface defining data structure stored in this context
 //
 export interface RoleContextProps {
   roleList: Array<RoleApiModel>;
-  pageNumber: number;
-  totalPages: number;
-  totalRows: number;
-  rowsPerPage: number;
-  sortColumn: EnumSortColumn;
-  sortDirection: EnumSortDirection;
+  pagination: PaginationStateModel;
 }
 
 // Strongly type interface for updating this context, which is done by using
@@ -27,12 +22,7 @@ export interface InitContextProps {
 //
 const initialState: RoleContextProps = {
   roleList: new Array<RoleApiModel>(),
-  pageNumber: 1,
-  totalPages: 0,
-  totalRows: 0,
-  rowsPerPage: 20,
-  sortColumn: EnumSortColumn.Role,
-  sortDirection: EnumSortDirection.asc,
+  pagination: new PaginationStateModel(EnumSortColumn.Role),
 };
 
 // The reducer updates the actual data held in the context.

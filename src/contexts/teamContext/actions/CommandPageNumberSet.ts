@@ -16,9 +16,12 @@ export default class CommandPageNumberSet implements ITeamContextDispatchCommand
   // Update the context and return the new state
   // (this is called from within the ApplicationContext)
   execute(state: TeamContextProps): TeamContextProps {
+    const pagination = state.pagination.clone();
+    pagination.pageNumber = this.pageNumber;
+
     return {
       ...state,
-      pageNumber: this.pageNumber,
+      pagination: pagination
     };
   }
 }

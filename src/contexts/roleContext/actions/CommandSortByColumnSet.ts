@@ -1,7 +1,6 @@
 //
 // Set Role List
 import { EnumSortColumn } from "../../../constants/EnumSortColumn";
-import { EnumSortDirection } from "../../../constants/EnumSortDirectory";
 import { IRoleContextDispatchCommand } from "../interfaces/IRoleContextDispatchCommand";
 import { RoleContextProps } from "../RoleContext";
 
@@ -18,25 +17,12 @@ export default class CommandSortByColumnSet implements IRoleContextDispatchComma
   // Update the context and return the new state
   // (this is called from within the ApplicationContext)
   execute(state: RoleContextProps): RoleContextProps {
-    var sortColumn = state.sortColumn;
-    var sortDirection = state.sortDirection;
-
-    if (sortColumn === this.sortByColumn) {
-      // toggle direction
-      if (sortDirection === EnumSortDirection.asc) {
-        sortDirection = EnumSortDirection.desc;
-      } else {
-        sortDirection = EnumSortDirection.asc;
-      }
-    } else {
-      sortColumn = this.sortByColumn;
-      sortDirection = EnumSortDirection.asc;
-    }
+    const pagination = state.pagination.clone();
+    pagination.sortColumn = this.sortByColumn;
 
     return {
       ...state,
-      sortColumn: sortColumn,
-      sortDirection: sortDirection,
+      pagination: pagination
     };
   }
 }

@@ -24,10 +24,10 @@ const TeamTableHeaderCellWidget: React.FC<IProperties> = (props) => {
   // Determine Sort Icon for Column
   //
   const sortIcon = (): JSX.Element => {
-    if (teamState.sortColumn !== props.column) {
+    if (teamState.pagination.sortColumn !== props.column) {
       return <></>;
     }
-    return <SortIndicator direction={teamState.sortDirection} />;
+    return <SortIndicator direction={teamState.pagination.sortDirection} />;
   };
 
   // Create Style

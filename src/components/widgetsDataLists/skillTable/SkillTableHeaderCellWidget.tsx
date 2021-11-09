@@ -24,10 +24,10 @@ const SkillTableHeaderCellWidget: React.FC<IProperties> = (props) => {
   // Determine Sort Icon for Column
   //
   const sortIcon = (): JSX.Element => {
-    if (skillState.sortColumn !== props.column) {
+    if (skillState.pagination.sortColumn !== props.column) {
       return <></>;
     }
-    return <SortIndicator direction={skillState.sortDirection} />;
+    return <SortIndicator direction={skillState.pagination.sortDirection} />;
   };
 
   // Create Style

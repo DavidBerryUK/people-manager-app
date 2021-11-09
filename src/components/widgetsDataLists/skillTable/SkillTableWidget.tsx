@@ -15,12 +15,12 @@ const SkillTableWidget: React.FC = () => {
   //
   useMemo(async () => {
     const apiRepositorySkillList = new ApiRepositorySkillList();
-    const skillList = await apiRepositorySkillList.getSkillsAsync(skillState.sortColumn, skillState.sortDirection, skillState.pageNumber, skillState.rowsPerPage);
+    const skillList = await apiRepositorySkillList.getSkillsAsync(skillState.pagination.sortColumn, skillState.pagination.sortDirection, skillState.pagination.pageNumber, skillState.pagination.rowsPerPage);
 
     // update context with data
     //
     skillDispatch(new CommandSkillListSet(skillList.data, skillList.rowsPerPage, skillList.totalPages, skillList.totalRows));
-  }, [skillDispatch, skillState.sortColumn, skillState.sortDirection, skillState.rowsPerPage, skillState.pageNumber]);
+  }, [skillDispatch, skillState.pagination]);
 
   //
   // Event Handlers
@@ -41,7 +41,7 @@ const SkillTableWidget: React.FC = () => {
           ))}
         </tbody>
       </table>
-      <PaginationWidget page={skillState.pageNumber} pageCount={skillState.totalPages} onPageChanged={handleOnPageChangeEvent} />
+      <PaginationWidget page={skillState.pagination.pageNumber} pageCount={skillState.pagination.totalPages} onPageChanged={handleOnPageChangeEvent} />
     </div>
   );
 };
