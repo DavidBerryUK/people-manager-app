@@ -4,23 +4,26 @@ import DetailRoleWidget from "../detailRole/DetailRoleWidget";
 import DetailSkillWidget from "../detailSkill/DetailSkillWidget";
 import DetailTeamWidget from "../detailTeam/DetailTeamWidget";
 import React from "react";
+import { EnumDetailViewType } from "../../../constants/EnumDetailViewType";
 
 const DetailHostWidget: React.FC = (props) => {
   const { state } = UseListDetailContext();
 
   const detailWidgetFactory = (): JSX.Element => {
-    if (state.personId !== undefined) {
-      return <DetailPersonWidget />;
+    switch (state.detailView.viewType) {
+      case EnumDetailViewType.person:
+        return <DetailPersonWidget />;
+
+      case EnumDetailViewType.team:
+        return <DetailTeamWidget />;
+
+      case EnumDetailViewType.skill:
+        return <DetailSkillWidget />;
+
+      case EnumDetailViewType.role:
+        return <DetailRoleWidget />;
     }
-    if (state.teamId !== undefined) {
-      return <DetailTeamWidget />;
-    }
-    if (state.skillId !== undefined) {
-      return <DetailSkillWidget />;
-    }
-    if (state.roleId !== undefined) {
-      return <DetailRoleWidget />;
-    }
+
     return <></>;
   };
 

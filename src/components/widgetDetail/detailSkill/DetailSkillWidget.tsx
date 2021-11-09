@@ -17,9 +17,9 @@ const DetailSkillWidget: React.FC = () => {
 
   useMemo(async () => {
     const apiRepositoryPeople = new ApiRepositorySkill();
-    const skill = await apiRepositoryPeople.getSkillAsync(state.skillId!);
+    const skill = await apiRepositoryPeople.getSkillAsync(state.detailView.skillId!);
     setSkill(skill);
-  }, [state.skillId]);
+  }, [state.detailView.skillId]);
 
   return (
     <Panel border>

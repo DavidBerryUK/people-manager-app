@@ -1,14 +1,12 @@
 import { IListDetailDispatchCommand } from "./interfaces/IListDetailContextDispatchCommand";
 
 import React, { Dispatch, Reducer } from "react";
+import DetailViewStateModel from "./models/DetailViewStateModel";
 
 // Interface defining data structure stored in this context
 //
 export interface ListDetailContextProps {
-  personId: number | undefined;
-  skillId: number | undefined;
-  teamId: number | undefined;
-  roleId: number | undefined;
+  detailView: DetailViewStateModel;
 }
 
 // Strongly type interface for updating this context, which is done by using
@@ -21,10 +19,7 @@ export interface InitContextProps {
 // Setup the initial state of this context by creating new models
 //
 const initialState: ListDetailContextProps = {
-  personId: undefined,
-  skillId: undefined,
-  teamId: undefined,
-  roleId: undefined,
+  detailView: new DetailViewStateModel(),
 };
 
 // The reducer updates the actual data held in the context.

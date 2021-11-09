@@ -15,12 +15,13 @@ export default class CommandShowPerson implements IListDetailDispatchCommand {
   // Update the context and return the new state
   // (this is called from within the ApplicationContext)
   execute(state: ListDetailContextProps): ListDetailContextProps {
+
+    var detailView = state.detailView;
+    detailView.personId = this.personId;
+
     return {
       ...state,
-      personId: this.personId,
-      skillId: undefined,
-      teamId: undefined,
-      roleId: undefined,
+      detailView: detailView
     };
   }
 }

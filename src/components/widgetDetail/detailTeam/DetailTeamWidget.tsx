@@ -17,9 +17,9 @@ const DetailTeamWidget: React.FC = () => {
 
   useMemo(async () => {
     const apiRepositoryTeam = new ApiRepositoryTeam();
-    const team = await apiRepositoryTeam.getTeamAsync(state.teamId!);
+    const team = await apiRepositoryTeam.getTeamAsync(state.detailView.teamId!);
     setTeam(team);
-  }, [state.teamId]);
+  }, [state.detailView.teamId]);
 
   return (
     <Panel border>

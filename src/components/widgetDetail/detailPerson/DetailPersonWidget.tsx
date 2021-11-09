@@ -24,9 +24,9 @@ const DetailPersonWidget: React.FC = () => {
 
   useMemo(async () => {
     const apiRepositoryPeople = new ApiRepositoryPeople();
-    const person = await apiRepositoryPeople.getPersonAsync(state.personId!);
+    const person = await apiRepositoryPeople.getPersonAsync(state.detailView.personId!);
     setPerson(person);
-  }, [state.personId]);
+  }, [state.detailView.personId]);
 
   return (
     <Panel border>

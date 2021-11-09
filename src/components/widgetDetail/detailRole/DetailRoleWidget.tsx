@@ -17,9 +17,9 @@ const DetailRoleWidget: React.FC = () => {
 
   useMemo(async () => {
     const apiRepositoryRole = new ApiRepositoryRole();
-    const role = await apiRepositoryRole.getRoleAsync(state.roleId!);
+    const role = await apiRepositoryRole.getRoleAsync(state.detailView.roleId!);
     setRole(role);
-  }, [state.roleId]);
+  }, [state.detailView.roleId]);
 
   return (
     <Panel border>
