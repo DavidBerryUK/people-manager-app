@@ -7,7 +7,7 @@ import PaginationWidget from "../../widgetsUI/pagination/PaginationWidget";
 import React, { useMemo } from "react";
 import TeamRowWidget from "./TeamRowWidget";
 import TeamTableHeader from "./TeamTableHeader";
-import ListDetailUrlManager from "../../../services/urlManagers/ListDetailUrlManger";
+import UrlManagerService from "../../../services/urlManagers/UrlManagerService";
 import { useHistory, useLocation } from "react-router";
 
 const TeamTableWidget: React.FC = () => {
@@ -28,7 +28,7 @@ const TeamTableWidget: React.FC = () => {
   }, [teamDispatch, teamState.pagination]);
 
   useMemo(async () => {
-    const params = ListDetailUrlManager.createUrlParams(teamState.pagination, ListDetailState.detailView);
+    const params = UrlManagerService.createUrlParams(teamState.pagination, ListDetailState.detailView);
     if (location.search !== params) {
       history.push({ pathname: location.pathname, search: params });
     }

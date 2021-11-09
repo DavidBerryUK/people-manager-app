@@ -7,7 +7,7 @@ import PaginationWidget from "../../widgetsUI/pagination/PaginationWidget";
 import React, { useMemo } from "react";
 import SkillRowWidget from "./SkillRowWidget";
 import SkillTableHeader from "./SkillTableHeader";
-import ListDetailUrlManager from "../../../services/urlManagers/ListDetailUrlManger";
+import UrlManagerService from "../../../services/urlManagers/UrlManagerService";
 import { useHistory, useLocation } from "react-router";
 
 const SkillTableWidget: React.FC = () => {
@@ -28,7 +28,7 @@ const SkillTableWidget: React.FC = () => {
   }, [skillDispatch, skillState.pagination]);
 
   useMemo(async () => {
-    const params = ListDetailUrlManager.createUrlParams(skillState.pagination, ListDetailState.detailView);
+    const params = UrlManagerService.createUrlParams(skillState.pagination, ListDetailState.detailView);
     if (location.search !== params) {
       history.push({ pathname: location.pathname, search: params });
     }

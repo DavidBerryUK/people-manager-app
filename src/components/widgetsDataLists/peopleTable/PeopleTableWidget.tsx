@@ -1,14 +1,15 @@
+import { useHistory, useLocation } from "react-router";
+import { UseListDetailContext } from "../../../contexts/ListDetailContext.tsx/ListDetailContext";
 import { UsePeopleContext } from "../../../contexts/peopleContext/PeopleContext";
 import ApiRepositoryPeopleList from "../../../apiRepository/people/ApiRepositoryPeopleList";
 import CommandPageNumberSet from "../../../contexts/peopleContext/actions/CommandPageNumberSet";
 import CommandPeopleListSet from "../../../contexts/peopleContext/actions/CommandPeopleListSet";
+import CommandRestoreFromUrl from "../../../contexts/peopleContext/actions/CommandRestoreFromUrl";
 import PaginationWidget from "../../widgetsUI/pagination/PaginationWidget";
 import PeopleRowWidget from "./PeopleRowWidget";
 import PeopleTableHeader from "./PeopleTableHeader";
-import React, { useMemo } from "react";
-import ListDetailUrlManager from "../../../services/urlManagers/ListDetailUrlManger";
-import { UseListDetailContext } from "../../../contexts/ListDetailContext.tsx/ListDetailContext";
-import { useHistory, useLocation } from "react-router";
+import React, { useEffect, useMemo } from "react";
+import UrlManagerService from "../../../services/urlManagers/UrlManagerService";
 
 const PeopleTableWidget: React.FC = () => {
   const { state: peopleState, dispatch: peopleDispatch } = UsePeopleContext();
@@ -17,13 +18,25 @@ const PeopleTableWidget: React.FC = () => {
   const location = useLocation();
 
   // detect url change
-  useMemo(() => {
-    console.log(`Url Params Changed:${location.search}`);
-  }, [location.search]);
+  useEffect(() => {
+    console.log("****************** People Table [URL CHANGED] - get data ******************");
+
+    if (history.action === "POP") {
+      console.log(`Url Params Changed:${location.search}   History:${history.action}`);
+      var urlStateModel = UrlManagerService.getStateFromParam(location.search);
+
+      // either user entered url or back/forward button was pressed
+      // decoded required variables from the url paramters
+      // about to update the page state to display the correct data
+      peopleDispatch(new CommandRestoreFromUrl(urlStateModel));
+    }
+  }, [peopleDispatch, location.search, history.action]);
 
   // Get data when pagination state changes
   useMemo(async () => {
     console.log("****************** People Table [GET DATA] - get data ******************");
+    console.log(peopleState.pagination);
+
     const apiRepositoryPeopleList = new ApiRepositoryPeopleList();
     const peopleList = await apiRepositoryPeopleList.getPeopleAsync(peopleState.pagination.sortColumn, peopleState.pagination.sortDirection, peopleState.pagination.pageNumber, peopleState.pagination.rowsPerPage);
     // update context with data
@@ -39,7 +52,7 @@ const PeopleTableWidget: React.FC = () => {
     peopleDispatch(new CommandPageNumberSet(pageNo));
 
     // set history
-    var params = ListDetailUrlManager.createUrlParams(peopleState.pagination, listDetailContext.detailView);
+    var params = UrlManagerService.createUrlParams(peopleState.pagination, listDetailContext.detailView);
     history.push({ pathname: location.pathname, search: params });
   };
 

@@ -7,7 +7,7 @@ import PaginationWidget from "../../widgetsUI/pagination/PaginationWidget";
 import React, { useMemo } from "react";
 import RoleRowWidget from "./RoleRowWidget";
 import RoleTableHeader from "./RoleTableHeader";
-import ListDetailUrlManager from "../../../services/urlManagers/ListDetailUrlManger";
+import UrlManagerService from "../../../services/urlManagers/UrlManagerService";
 import { useHistory, useLocation } from "react-router";
 
 const RoleTableWidget: React.FC = () => {
@@ -29,7 +29,7 @@ const RoleTableWidget: React.FC = () => {
   }, [roleDispatch, roleState.pagination]);
 
   useMemo(async () => {
-    const params = ListDetailUrlManager.createUrlParams(roleState.pagination, ListDetailState.detailView);
+    const params = UrlManagerService.createUrlParams(roleState.pagination, ListDetailState.detailView);
     if (location.search !== params) {
       history.push({ pathname: location.pathname, search: params });
     }
