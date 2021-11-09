@@ -1,4 +1,5 @@
 import { EnumIconSize } from "../../../constants/EnumIconSize";
+import ImageBase from "../imageBase/ImageBase";
 
 interface IProperties {
   fileName: string;
@@ -6,30 +7,7 @@ interface IProperties {
 }
 
 const ImageTeam: React.FC<IProperties> = (props) => {
-  const className = (): string => {
-    switch (props.size) {
-      case EnumIconSize.small:
-        return "avatar small";
-      case EnumIconSize.medium:
-        return "avatar medium";
-      case EnumIconSize.large:
-        return "avatar large";
-    }
-  };
-
-  const fullPath = (): string => {
-    switch (props.size) {
-      case EnumIconSize.small:
-        return `/teams/small/${props.fileName}`;
-      case EnumIconSize.medium:
-        return `/teams/medium/${props.fileName}`;
-      case EnumIconSize.large:
-        return `/teams/large/${props.fileName}`;
-    }
-    return "";
-  };
-
-  return <img className={className()} src={fullPath()} alt="role"></img>;
+  return <ImageBase fileName={props.fileName} size={props.size} directory="teams" cssAltName="team" />;
 };
 
 export default ImageTeam;
