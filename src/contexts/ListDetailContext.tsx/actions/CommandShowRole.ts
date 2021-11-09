@@ -15,7 +15,7 @@ export default class CommandShowRole implements IListDetailDispatchCommand {
   // Update the context and return the new state
   // (this is called from within the ApplicationContext)
   execute(state: ListDetailContextProps): ListDetailContextProps {
-    var detailView = state.detailView;
+    var detailView = state.detailView.clone();
     detailView.roleId = this.roleId;
 
     return {

@@ -15,7 +15,7 @@ export default class PaginationStateModel {
     sortDirection: EnumSortDirection;
 
     constructor(defaultSortColumn: EnumSortColumn) {
-        this.pageNumber = 0;
+        this.pageNumber = 1;
         this.totalPages = 0;
         this.totalRows = 0;
         this.rowsPerPage = 10;

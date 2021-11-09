@@ -12,8 +12,9 @@ const LayoutList: React.FC = (props) => {
   //
   useMemo(() => {
     console.log("****************** LayoutList Component ******************");
-    console.log("location has changed to ");
-    console.log(location);
+    console.log(`* location has changed to ${location.pathname}`);
+    console.log("**********************************************************");
+    console.log("");
   }, [location]);
 
   // detect when navigation state in context has changed

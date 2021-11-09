@@ -16,7 +16,7 @@ export default class CommandShowPerson implements IListDetailDispatchCommand {
   // (this is called from within the ApplicationContext)
   execute(state: ListDetailContextProps): ListDetailContextProps {
 
-    var detailView = state.detailView;
+    var detailView = state.detailView.clone();
     detailView.personId = this.personId;
 
     return {

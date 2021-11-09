@@ -16,12 +16,12 @@ const PeopleRowWidget: React.FC<IProperties> = (props) => {
       <td>
         <ImageAvatar fileName={props.person.iconName} size={EnumIconSize.small} />
       </td>
-      <td> {props.person.forename}</td>
-      <td> {props.person.surname}</td>
+      <td>{props.person.forename}</td>
+      <td>{props.person.surname}</td>
       <td>
         <RoleTag role={props.person.role} />
       </td>
-      <td> {props.person.email}</td>
+      <td>{props.person.email}</td>
       <td>
         <TeamTags teams={props.person.teams} />
       </td>

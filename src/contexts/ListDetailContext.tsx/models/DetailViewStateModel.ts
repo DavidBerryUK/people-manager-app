@@ -11,6 +11,16 @@ export default class DetailViewStateModel {
         this.clearAllKeys();
     }
 
+    clone(): DetailViewStateModel {
+        var model = new DetailViewStateModel();
+        model._personId = this._personId;
+        model._skillId = this._skillId;
+        model._teamId = this._teamId;
+        model._roleId = this._roleId;
+        model.viewType = this.viewType;
+        return model;
+    }
+
     //
     // getters and setters to ensure only 1 detail key
     // is set at a time, this also sets the detail view

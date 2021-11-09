@@ -1,3 +1,4 @@
+import { UseListDetailContext } from "../../../contexts/ListDetailContext.tsx/ListDetailContext";
 import { UseTeamContext } from "../../../contexts/teamContext/TeamContext";
 import ApiRepositoryTeamList from "../../../apiRepository/teams/ApiRepositoryTeamList";
 import CommandPageNumberSet from "../../../contexts/teamContext/actions/CommandPageNumberSet";
@@ -6,23 +7,32 @@ import PaginationWidget from "../../widgetsUI/pagination/PaginationWidget";
 import React, { useMemo } from "react";
 import TeamRowWidget from "./TeamRowWidget";
 import TeamTableHeader from "./TeamTableHeader";
+import ListDetailUrlManager from "../../../services/urlManagers/ListDetailUrlManger";
+import { useHistory, useLocation } from "react-router";
 
 const TeamTableWidget: React.FC = () => {
   const { state: teamState, dispatch: teamDispatch } = UseTeamContext();
-
+  const { state: ListDetailState } = UseListDetailContext();
+  const location = useLocation();
+  const history = useHistory();
   //
   // Get the data from the repository
   //
   useMemo(async () => {
+    console.log("****************** Team Table [GET DATA] : Get Data ******************");
     const apiRepositoryTeamList = new ApiRepositoryTeamList();
     const teamList = await apiRepositoryTeamList.getTeamsAsync(teamState.pagination.sortColumn, teamState.pagination.sortDirection, teamState.pagination.pageNumber, teamState.pagination.rowsPerPage);
-
-    console.log("****************** TeamTableWidget Component ******************");
-
     // update context with data
     //
     teamDispatch(new CommandTeamListSet(teamList.data, teamList.rowsPerPage, teamList.totalPages, teamList.totalRows));
   }, [teamDispatch, teamState.pagination]);
+
+  useMemo(async () => {
+    const params = ListDetailUrlManager.createUrlParams(teamState.pagination, ListDetailState.detailView);
+    if (location.search !== params) {
+      history.push({ pathname: location.pathname, search: params });
+    }
+  }, [teamState.pagination, ListDetailState.detailView, location, history]);
 
   //
   // Event Handlers

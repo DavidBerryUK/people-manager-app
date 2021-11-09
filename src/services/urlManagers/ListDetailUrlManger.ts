@@ -1,10 +1,10 @@
-import { EnumDetailViewType } from "../../constants/EnumDetailViewType";
+import DetailViewStateModel from "../../contexts/ListDetailContext.tsx/models/DetailViewStateModel";
 import PaginationStateModel from "../../contextsCommonModels/PaginationStateModel";
 
 
 export default class ListDetailUrlManager {
 
-    static createUrlParams(pagination: PaginationStateModel | null, detailView: EnumDetailViewType, detailKey: number | undefined): string {
+    static createUrlParams(pagination: PaginationStateModel | null, detail: DetailViewStateModel | null): string {
 
         var params = '';
 
@@ -16,8 +16,13 @@ export default class ListDetailUrlManager {
                 `&pageRows=${pagination.rowsPerPage}`;
         }
 
-        if (detailView !== EnumDetailViewType.none) {
-            params = `${params}&detail=${detailView}&detailKey=${detailKey}`
+        if (detail) {
+            if (detail.viewType) {
+                params = `${params}&detail=${detail.viewType}`;
+            }
+            if (detail.detailKey) {
+                params = `${params}&detailKey=${detail.detailKey}`;
+            }
         }
         return params;
     }
