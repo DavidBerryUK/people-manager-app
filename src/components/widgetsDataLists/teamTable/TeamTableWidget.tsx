@@ -14,8 +14,8 @@ const TeamTableWidget: React.FC = () => {
   const { state: teamState, dispatch: teamDispatch } = useTeamContext();
 
   // URL Managers
-  useDataTableUrlWriter(EnumListType.teams);
-  useDataTableUrlReader(EnumListType.people);
+  const { writeUrlHistory } = useDataTableUrlWriter(EnumListType.teams);
+  useDataTableUrlReader(EnumListType.teams);
 
   useMemo(async () => {
     // use repository to get data when state changes, then add it to the people list context
@@ -30,6 +30,7 @@ const TeamTableWidget: React.FC = () => {
   const handleOnPageChangeEvent = (pageNo: number) => {
     // update context with new page number to force data reload
     teamDispatch(new CommandPageNumberSet(pageNo));
+    writeUrlHistory();
   };
 
   return (

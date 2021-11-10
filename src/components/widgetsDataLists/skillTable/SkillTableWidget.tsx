@@ -14,7 +14,7 @@ const SkillTableWidget: React.FC = () => {
   const { state: skillState, dispatch: skillDispatch } = useSkillContext();
 
   // URL Managers
-  useDataTableUrlWriter(EnumListType.skills);
+  const { writeUrlHistory } = useDataTableUrlWriter(EnumListType.skills);
   useDataTableUrlReader(EnumListType.skills);
 
   useMemo(async () => {
@@ -30,6 +30,7 @@ const SkillTableWidget: React.FC = () => {
   const handleOnPageChangeEvent = (pageNo: number) => {
     // update context with new page number to force data reload
     skillDispatch(new CommandPageNumberSet(pageNo));
+    writeUrlHistory();
   };
 
   return (

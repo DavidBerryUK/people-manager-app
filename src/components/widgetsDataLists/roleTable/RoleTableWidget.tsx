@@ -14,7 +14,7 @@ const RoleTableWidget: React.FC = () => {
   const { state: roleState, dispatch: roleDispatch } = useRoleContext();
 
   // URL Managers
-  useDataTableUrlWriter(EnumListType.roles);
+  const { writeUrlHistory } = useDataTableUrlWriter(EnumListType.roles);
   useDataTableUrlReader(EnumListType.roles);
 
   useMemo(async () => {
@@ -30,6 +30,7 @@ const RoleTableWidget: React.FC = () => {
   const handleOnPageChangeEvent = (pageNo: number) => {
     // update context with new page number to force data reload
     roleDispatch(new CommandPageNumberSet(pageNo));
+    writeUrlHistory();
   };
 
   return (

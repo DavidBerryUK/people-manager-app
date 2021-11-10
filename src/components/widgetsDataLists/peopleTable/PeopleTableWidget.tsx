@@ -14,7 +14,7 @@ const PeopleTableWidget: React.FC = () => {
   const { state: peopleState, dispatch: peopleDispatch } = usePeopleContext();
 
   // URL Managers
-  useDataTableUrlWriter(EnumListType.people);
+  const { writeUrlHistory } = useDataTableUrlWriter(EnumListType.people);
   useDataTableUrlReader(EnumListType.people);
 
   useMemo(async () => {
@@ -30,6 +30,7 @@ const PeopleTableWidget: React.FC = () => {
   const handleOnPageChangeEvent = (pageNo: number) => {
     // update context with new page number to force data reload
     peopleDispatch(new CommandPageNumberSet(pageNo));
+    writeUrlHistory();
   };
 
   return (
