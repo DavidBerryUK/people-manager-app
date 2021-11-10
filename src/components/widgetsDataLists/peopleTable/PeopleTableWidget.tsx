@@ -7,15 +7,15 @@ import PaginationWidget from "../../widgetsUI/pagination/PaginationWidget";
 import PeopleRowWidget from "./PeopleRowWidget";
 import PeopleTableHeader from "./PeopleTableHeader";
 import React, { useMemo } from "react";
-import useDataTableUrlReader from "../hooks/UseDataTableUrlReader";
-import useDataTableUrlWriter from "../hooks/UseDataTableUrlWriter";
+import useDataTableUrlReader from "../../hooks/UseDataTableUrlReader";
+import useDataTableUrlWriter from "../../hooks/UseDataTableUrlWriter";
 
 const PeopleTableWidget: React.FC = () => {
   const { state: peopleState, dispatch: peopleDispatch } = usePeopleContext();
 
   // URL Managers
   useDataTableUrlWriter(EnumListType.people);
-  useDataTableUrlReader();
+  useDataTableUrlReader(EnumListType.people);
 
   useMemo(async () => {
     // use repository to get data when state changes, then add it to the people list context

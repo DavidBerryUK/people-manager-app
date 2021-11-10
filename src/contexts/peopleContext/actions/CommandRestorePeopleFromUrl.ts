@@ -7,7 +7,7 @@ import { IPeopleContextDispatchCommand } from "../interfaces/IPeopleContextDispa
 import { PeopleContextProps } from "../PeopleContext";
 
 //
-export default class CommandRestoreFromUrl implements IPeopleContextDispatchCommand {
+export default class CommandRestorePeopleFromUrl implements IPeopleContextDispatchCommand {
 
 
 

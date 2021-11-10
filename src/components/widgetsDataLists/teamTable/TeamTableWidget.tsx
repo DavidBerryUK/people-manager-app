@@ -7,13 +7,15 @@ import PaginationWidget from "../../widgetsUI/pagination/PaginationWidget";
 import React, { useMemo } from "react";
 import TeamRowWidget from "./TeamRowWidget";
 import TeamTableHeader from "./TeamTableHeader";
-import useDataTableUrlWriter from "../hooks/UseDataTableUrlWriter";
+import useDataTableUrlReader from "../../hooks/UseDataTableUrlReader";
+import useDataTableUrlWriter from "../../hooks/UseDataTableUrlWriter";
 
 const TeamTableWidget: React.FC = () => {
   const { state: teamState, dispatch: teamDispatch } = useTeamContext();
 
   // URL Managers
   useDataTableUrlWriter(EnumListType.teams);
+  useDataTableUrlReader(EnumListType.people);
 
   useMemo(async () => {
     // use repository to get data when state changes, then add it to the people list context

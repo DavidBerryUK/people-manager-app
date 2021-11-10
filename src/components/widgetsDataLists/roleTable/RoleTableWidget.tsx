@@ -7,17 +7,16 @@ import PaginationWidget from "../../widgetsUI/pagination/PaginationWidget";
 import React, { useMemo } from "react";
 import RoleRowWidget from "./RoleRowWidget";
 import RoleTableHeader from "./RoleTableHeader";
-import useDataTableUrlWriter from "../hooks/UseDataTableUrlWriter";
+import useDataTableUrlReader from "../../hooks/UseDataTableUrlReader";
+import useDataTableUrlWriter from "../../hooks/UseDataTableUrlWriter";
 
 const RoleTableWidget: React.FC = () => {
   const { state: roleState, dispatch: roleDispatch } = useRoleContext();
 
   // URL Managers
   useDataTableUrlWriter(EnumListType.roles);
+  useDataTableUrlReader(EnumListType.roles);
 
-  //
-  // Get the data from the repository
-  //
   useMemo(async () => {
     // use repository to get data when state changes, then add it to the people list context
     const apiRepositoryRoleList = new ApiRepositoryRoleList();

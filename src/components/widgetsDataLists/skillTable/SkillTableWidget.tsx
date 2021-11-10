@@ -7,17 +7,16 @@ import PaginationWidget from "../../widgetsUI/pagination/PaginationWidget";
 import React, { useMemo } from "react";
 import SkillRowWidget from "./SkillRowWidget";
 import SkillTableHeader from "./SkillTableHeader";
-import useDataTableUrlWriter from "../hooks/UseDataTableUrlWriter";
+import useDataTableUrlReader from "../../hooks/UseDataTableUrlReader";
+import useDataTableUrlWriter from "../../hooks/UseDataTableUrlWriter";
 
 const SkillTableWidget: React.FC = () => {
   const { state: skillState, dispatch: skillDispatch } = useSkillContext();
 
   // URL Managers
   useDataTableUrlWriter(EnumListType.skills);
+  useDataTableUrlReader(EnumListType.skills);
 
-  //
-  // Get the data from the repository
-  //
   useMemo(async () => {
     // use repository to get data when state changes, then add it to the people list context
     const apiRepositorySkillList = new ApiRepositorySkillList();
