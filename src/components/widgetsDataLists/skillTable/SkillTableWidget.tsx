@@ -1,4 +1,4 @@
-import { UseListDetailContext } from "../../../contexts/ListDetailContext.tsx/ListDetailContext";
+import { EnumListType } from "../../../constants/EnumListType";
 import { useSkillContext } from "../../../contexts/skillContext/SkillContext";
 import ApiRepositorySkillList from "../../../apiRepository/skills/ApiRepositorySkillList";
 import CommandPageNumberSet from "../../../contexts/skillContext/actions/CommandPageNumberSet";
@@ -7,37 +7,29 @@ import PaginationWidget from "../../widgetsUI/pagination/PaginationWidget";
 import React, { useMemo } from "react";
 import SkillRowWidget from "./SkillRowWidget";
 import SkillTableHeader from "./SkillTableHeader";
-import UrlManagerService from "../../../services/urlManagers/UrlManagerService";
-import { useHistory, useLocation } from "react-router";
+import useDataTableUrlWriter from "../hooks/UseDataTableUrlWriter";
 
 const SkillTableWidget: React.FC = () => {
   const { state: skillState, dispatch: skillDispatch } = useSkillContext();
-  const { state: ListDetailState } = UseListDetailContext();
-  const location = useLocation();
-  const history = useHistory();
+
+  // URL Managers
+  useDataTableUrlWriter(EnumListType.skills);
+
   //
   // Get the data from the repository
   //
   useMemo(async () => {
+    // use repository to get data when state changes, then add it to the people list context
     const apiRepositorySkillList = new ApiRepositorySkillList();
     const skillList = await apiRepositorySkillList.getSkillsAsync(skillState.pagination.sortColumn, skillState.pagination.sortDirection, skillState.pagination.pageNumber, skillState.pagination.rowsPerPage);
-    // update context with data
-    //
     skillDispatch(new CommandSkillListSet(skillList.data, skillList.rowsPerPage, skillList.totalPages, skillList.totalRows));
   }, [skillDispatch, skillState.pagination]);
 
-  useMemo(async () => {
-    const params = UrlManagerService.createUrlParams(skillState.pagination, ListDetailState.detailView);
-    if (location.search !== params) {
-      history.push({ pathname: location.pathname, search: params });
-    }
-  }, [skillState.pagination, ListDetailState.detailView, location, history]);
   //
   // Event Handlers
   //
   const handleOnPageChangeEvent = (pageNo: number) => {
-    // update context with new page number
-    //
+    // update context with new page number to force data reload
     skillDispatch(new CommandPageNumberSet(pageNo));
   };
 

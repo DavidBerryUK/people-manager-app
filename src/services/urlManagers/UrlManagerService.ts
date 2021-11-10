@@ -8,7 +8,7 @@ import UrlParameterNames from "./constants/UrlParamterNames";
 export default class UrlManagerService {
 
     //
-    //
+    // create url parameters string from object states and return..
     //
     static createUrlParams(pagination: PaginationStateModel | null, detail: DetailViewStateModel | null): string {
 
@@ -34,7 +34,7 @@ export default class UrlManagerService {
     }
 
     //
-    // create strongly typed data model from the url string
+    // convert a url parameter string to a strongly typed data object
     //
     static getStateFromParam(params: string): UrlParamStateModel {
 
@@ -42,7 +42,6 @@ export default class UrlManagerService {
         //
         var dictionary = UrlUtilities.convertParamsToDictionary(params);
         var urlParameters = new UrlParametersModel(dictionary);
-
         //
         // Pagination
         //
@@ -50,7 +49,6 @@ export default class UrlManagerService {
         const rowsPerPage = urlParameters.rowsPerPage;
         const sortColumn = urlParameters.sortColumn;
         const sortDirection = urlParameters.sortDirection;
-
         //
         // Detail View
         //
@@ -69,8 +67,4 @@ export default class UrlManagerService {
 
         return state;
     }
-
-
-
-
 }

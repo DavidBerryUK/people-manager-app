@@ -1,3 +1,4 @@
+import { EnumListType } from "../../../constants/EnumListType";
 import { usePeopleContext } from "../../../contexts/peopleContext/PeopleContext";
 import ApiRepositoryPeopleList from "../../../apiRepository/people/ApiRepositoryPeopleList";
 import CommandPageNumberSet from "../../../contexts/peopleContext/actions/CommandPageNumberSet";
@@ -12,13 +13,12 @@ import useDataTableUrlWriter from "../hooks/UseDataTableUrlWriter";
 const PeopleTableWidget: React.FC = () => {
   const { state: peopleState, dispatch: peopleDispatch } = usePeopleContext();
 
-  // udate url to match state
-  useDataTableUrlWriter();
+  // URL Managers
+  useDataTableUrlWriter(EnumListType.people);
   useDataTableUrlReader();
 
-  // Get data when pagination state changes
   useMemo(async () => {
-    // use repository to get data, then add it to the people list context
+    // use repository to get data when state changes, then add it to the people list context
     const apiRepositoryPeopleList = new ApiRepositoryPeopleList();
     const peopleList = await apiRepositoryPeopleList.getPeopleAsync(peopleState.pagination.sortColumn, peopleState.pagination.sortDirection, peopleState.pagination.pageNumber, peopleState.pagination.rowsPerPage);
     peopleDispatch(new CommandPeopleListSet(peopleList.data, peopleList.rowsPerPage, peopleList.totalPages, peopleList.totalRows));
