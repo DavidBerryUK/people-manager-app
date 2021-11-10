@@ -63,7 +63,7 @@ export default PeopleContext;
 
 // Helper Function to access context
 //
-export const UsePeopleContext = () => {
+export const usePeopleContext = () => {
   const context = React.useContext(PeopleContext);
   return context;
 };

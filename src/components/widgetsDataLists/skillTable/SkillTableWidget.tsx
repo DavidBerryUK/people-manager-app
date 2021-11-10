@@ -1,5 +1,5 @@
 import { UseListDetailContext } from "../../../contexts/ListDetailContext.tsx/ListDetailContext";
-import { UseSkillContext } from "../../../contexts/skillContext/SkillContext";
+import { useSkillContext } from "../../../contexts/skillContext/SkillContext";
 import ApiRepositorySkillList from "../../../apiRepository/skills/ApiRepositorySkillList";
 import CommandPageNumberSet from "../../../contexts/skillContext/actions/CommandPageNumberSet";
 import CommandSkillListSet from "../../../contexts/skillContext/actions/CommandSkillListSet";
@@ -11,7 +11,7 @@ import UrlManagerService from "../../../services/urlManagers/UrlManagerService";
 import { useHistory, useLocation } from "react-router";
 
 const SkillTableWidget: React.FC = () => {
-  const { state: skillState, dispatch: skillDispatch } = UseSkillContext();
+  const { state: skillState, dispatch: skillDispatch } = useSkillContext();
   const { state: ListDetailState } = UseListDetailContext();
   const location = useLocation();
   const history = useHistory();

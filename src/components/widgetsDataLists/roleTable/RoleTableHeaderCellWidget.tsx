@@ -1,5 +1,5 @@
 import { EnumSortColumn } from "../../../constants/EnumSortColumn";
-import { UseRoleContext } from "../../../contexts/roleContext/RoleContext";
+import { useRoleContext } from "../../../contexts/roleContext/RoleContext";
 import CommandSortByColumnSet from "../../../contexts/roleContext/actions/CommandSortByColumnSet";
 import React from "react";
 import SortIndicator from "../../widgetsUI/sortIndicator/SortIndicator";
@@ -10,7 +10,7 @@ interface IProperties {
 }
 
 const RoleTableHeaderCellWidget: React.FC<IProperties> = (props) => {
-  const { state: roleState, dispatch: roleDispatch } = UseRoleContext();
+  const { state: roleState, dispatch: roleDispatch } = useRoleContext();
 
   // Event Handlers
   //

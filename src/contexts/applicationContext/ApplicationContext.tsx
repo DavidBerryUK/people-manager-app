@@ -59,7 +59,7 @@ export default ApplicationContext;
 
 // Helper Function to access context
 //
-export const UseApplicationContext = () => {
+export const useApplicationContext = () => {
   const context = React.useContext(ApplicationContext);
   return context;
 };

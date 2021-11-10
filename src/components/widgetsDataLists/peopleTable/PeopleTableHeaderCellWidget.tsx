@@ -1,5 +1,5 @@
 import { EnumSortColumn } from "../../../constants/EnumSortColumn";
-import { UsePeopleContext } from "../../../contexts/peopleContext/PeopleContext";
+import { usePeopleContext } from "../../../contexts/peopleContext/PeopleContext";
 import CommandSortByColumnSet from "../../../contexts/peopleContext/actions/CommandSortByColumnSet";
 import React from "react";
 import SortIndicator from "../../widgetsUI/sortIndicator/SortIndicator";
@@ -10,7 +10,7 @@ interface IProperties {
 }
 
 const PeopleTableHeaderCellWidget: React.FC<IProperties> = (props) => {
-  const { state: peopleState, dispatch: peopleDispatch } = UsePeopleContext();
+  const { state: peopleState, dispatch: peopleDispatch } = usePeopleContext();
 
   // Event Handlers
   //

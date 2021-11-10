@@ -1,5 +1,5 @@
 import { UseListDetailContext } from "../../../contexts/ListDetailContext.tsx/ListDetailContext";
-import { UseRoleContext } from "../../../contexts/roleContext/RoleContext";
+import { useRoleContext } from "../../../contexts/roleContext/RoleContext";
 import ApiRepositoryRoleList from "../../../apiRepository/role/ApiRepositoryRoleList";
 import CommandPageNumberSet from "../../../contexts/roleContext/actions/CommandPageNumberSet";
 import CommandRoleListSet from "../../../contexts/roleContext/actions/CommandRoleListSet";
@@ -11,7 +11,7 @@ import UrlManagerService from "../../../services/urlManagers/UrlManagerService";
 import { useHistory, useLocation } from "react-router";
 
 const RoleTableWidget: React.FC = () => {
-  const { state: roleState, dispatch: roleDispatch } = UseRoleContext();
+  const { state: roleState, dispatch: roleDispatch } = useRoleContext();
   const { state: ListDetailState } = UseListDetailContext();
   const location = useLocation();
   const history = useHistory();

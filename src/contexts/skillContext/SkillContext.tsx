@@ -63,7 +63,7 @@ export default SkillContext;
 
 // Helper Function to access context
 //
-export const UseSkillContext = () => {
+export const useSkillContext = () => {
   const context = React.useContext(SkillContext);
   return context;
 };

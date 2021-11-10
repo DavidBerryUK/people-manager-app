@@ -63,7 +63,7 @@ export default TeamContext;
 
 // Helper Function to access context
 //
-export const UseTeamContext = () => {
+export const useTeamContext = () => {
   const context = React.useContext(TeamContext);
   return context;
 };

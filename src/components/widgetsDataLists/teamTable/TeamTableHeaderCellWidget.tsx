@@ -1,5 +1,5 @@
 import { EnumSortColumn } from "../../../constants/EnumSortColumn";
-import { UseTeamContext } from "../../../contexts/teamContext/TeamContext";
+import { useTeamContext } from "../../../contexts/teamContext/TeamContext";
 import CommandSortByColumnSet from "../../../contexts/teamContext/actions/CommandSortByColumnSet";
 import React from "react";
 import SortIndicator from "../../widgetsUI/sortIndicator/SortIndicator";
@@ -10,7 +10,7 @@ interface IProperties {
 }
 
 const TeamTableHeaderCellWidget: React.FC<IProperties> = (props) => {
-  const { state: teamState, dispatch: teamDispatch } = UseTeamContext();
+  const { state: teamState, dispatch: teamDispatch } = useTeamContext();
 
   // Event Handlers
   //

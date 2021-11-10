@@ -1,5 +1,5 @@
 import { EnumSortColumn } from "../../../constants/EnumSortColumn";
-import { UseSkillContext } from "../../../contexts/skillContext/SkillContext";
+import { useSkillContext } from "../../../contexts/skillContext/SkillContext";
 import CommandSortByColumnSet from "../../../contexts/skillContext/actions/CommandSortByColumnSet";
 import React from "react";
 import SortIndicator from "../../widgetsUI/sortIndicator/SortIndicator";
@@ -10,7 +10,7 @@ interface IProperties {
 }
 
 const SkillTableHeaderCellWidget: React.FC<IProperties> = (props) => {
-  const { state: skillState, dispatch: skillDispatch } = UseSkillContext();
+  const { state: skillState, dispatch: skillDispatch } = useSkillContext();
 
   // Event Handlers
   //

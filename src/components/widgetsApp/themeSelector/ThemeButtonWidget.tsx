@@ -1,4 +1,4 @@
-import { UseApplicationContext } from "../../../contexts/applicationContext/ApplicationContext";
+import { useApplicationContext } from "../../../contexts/applicationContext/ApplicationContext";
 import CommandThemeSet from "../../../contexts/applicationContext/actions/CommandThemeSet";
 import React from "react";
 import ThemeConfigModel from "./models/ThemeConfigModel";
@@ -8,7 +8,7 @@ interface IProperties {
 }
 
 const ThemeButtonWidget: React.FC<IProperties> = (props) => {
-  const { dispatch: applicationDispatch } = UseApplicationContext();
+  const { dispatch: applicationDispatch } = useApplicationContext();
 
   const handleSelectThemeClick = () => {
     applicationDispatch(new CommandThemeSet(props.theme.theme));

@@ -1,8 +1,8 @@
 import React from "react";
-import { UseApplicationContext } from "../../../contexts/applicationContext/ApplicationContext";
+import { useApplicationContext } from "../../../contexts/applicationContext/ApplicationContext";
 
 const ThemeProviderWidget: React.FC = (props) => {
-  const { state: applicationState } = UseApplicationContext();
+  const { state: applicationState } = useApplicationContext();
 
   const rootElement = document.getElementById("document-root");
   if (rootElement) {

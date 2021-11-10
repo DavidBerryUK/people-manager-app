@@ -63,7 +63,7 @@ export default RoleContext;
 
 // Helper Function to access context
 //
-export const UseRoleContext = () => {
+export const useRoleContext = () => {
   const context = React.useContext(RoleContext);
   return context;
 };

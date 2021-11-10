@@ -9,6 +9,12 @@ type result = { pathname: string, search: string }
 //
 export default class HistoryUrlBuilder {
 
+    static buildUrl(path: string, pagination: PaginationStateModel, detail: DetailViewStateModel): result {
+        var params = UrlManagerService.createUrlParams(pagination, detail);
+        var result = { pathname: path, search: params };
+        return result;
+    }
+
     static buildNewPageNoUrl(path: string, pagination: PaginationStateModel, detail: DetailViewStateModel, pageNumber: number): result {
         var newPagination = pagination.clone();
         newPagination.pageNumber = pageNumber;

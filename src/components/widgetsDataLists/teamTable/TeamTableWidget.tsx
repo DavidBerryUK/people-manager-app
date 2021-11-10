@@ -1,5 +1,5 @@
 import { UseListDetailContext } from "../../../contexts/ListDetailContext.tsx/ListDetailContext";
-import { UseTeamContext } from "../../../contexts/teamContext/TeamContext";
+import { useTeamContext } from "../../../contexts/teamContext/TeamContext";
 import ApiRepositoryTeamList from "../../../apiRepository/teams/ApiRepositoryTeamList";
 import CommandPageNumberSet from "../../../contexts/teamContext/actions/CommandPageNumberSet";
 import CommandTeamListSet from "../../../contexts/teamContext/actions/CommandTeamListSet";
@@ -11,7 +11,7 @@ import UrlManagerService from "../../../services/urlManagers/UrlManagerService";
 import { useHistory, useLocation } from "react-router";
 
 const TeamTableWidget: React.FC = () => {
-  const { state: teamState, dispatch: teamDispatch } = UseTeamContext();
+  const { state: teamState, dispatch: teamDispatch } = useTeamContext();
   const { state: ListDetailState } = UseListDetailContext();
   const location = useLocation();
   const history = useHistory();
