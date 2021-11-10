@@ -67,7 +67,6 @@ export default class UrlManagerService {
             detailViewType,
             detailKey)
 
-        console.log(dictionary);
         return state;
     }
 

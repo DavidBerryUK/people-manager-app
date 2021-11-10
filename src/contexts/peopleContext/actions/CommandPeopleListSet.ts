@@ -23,9 +23,6 @@ export default class CommandPeopleListSet implements IPeopleContextDispatchComma
   // Update the context and return the new state
   // (this is called from within the ApplicationContext)
   execute(state: PeopleContextProps): PeopleContextProps {
-
-    console.log("CommandPeopleListSet:execute");
-
     // only update pagination if required or react will endup in an endless loop
     //
     let newPagination = state.pagination.clone();
@@ -43,8 +40,7 @@ export default class CommandPeopleListSet implements IPeopleContextDispatchComma
 
     if (!newPagination.isEqualTo(state.pagination)) {
       // if pagination hasn't changed, then don't update it as it will
-      // cause additional renders
-      console.log("Updating Pagination as it has been updated");
+      // cause additional renders      
       response.pagination = newPagination;
     }
 

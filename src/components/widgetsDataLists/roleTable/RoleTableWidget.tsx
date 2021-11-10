@@ -20,7 +20,6 @@ const RoleTableWidget: React.FC = () => {
   // Get the data from the repository
   //
   useMemo(async () => {
-    console.log("****************** Role Table [GET DATA] - get data ******************");
     const apiRepositoryRoleList = new ApiRepositoryRoleList();
     const roleList = await apiRepositoryRoleList.getRolesAsync(roleState.pagination.sortColumn, roleState.pagination.sortDirection, roleState.pagination.pageNumber, roleState.pagination.rowsPerPage);
     // update context with data

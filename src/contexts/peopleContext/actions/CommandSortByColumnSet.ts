@@ -16,9 +16,6 @@ export default class CommandSortByColumnSet implements IPeopleContextDispatchCom
   // Update the context and return the new state
   // (this is called from within the ApplicationContext)
   execute(state: PeopleContextProps): PeopleContextProps {
-
-    console.log("CommandSortByColumnSet:execute");
-
     const pagination = state.pagination.clone();
     pagination.sortColumn = this.sortByColumn;
 

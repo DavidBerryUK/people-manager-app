@@ -19,7 +19,6 @@ const SkillTableWidget: React.FC = () => {
   // Get the data from the repository
   //
   useMemo(async () => {
-    console.log("****************** Skill Table [GET DATA] - get data ******************");
     const apiRepositorySkillList = new ApiRepositorySkillList();
     const skillList = await apiRepositorySkillList.getSkillsAsync(skillState.pagination.sortColumn, skillState.pagination.sortDirection, skillState.pagination.pageNumber, skillState.pagination.rowsPerPage);
     // update context with data

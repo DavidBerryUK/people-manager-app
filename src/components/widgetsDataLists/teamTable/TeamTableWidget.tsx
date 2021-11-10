@@ -19,7 +19,6 @@ const TeamTableWidget: React.FC = () => {
   // Get the data from the repository
   //
   useMemo(async () => {
-    console.log("****************** Team Table [GET DATA] : Get Data ******************");
     const apiRepositoryTeamList = new ApiRepositoryTeamList();
     const teamList = await apiRepositoryTeamList.getTeamsAsync(teamState.pagination.sortColumn, teamState.pagination.sortDirection, teamState.pagination.pageNumber, teamState.pagination.rowsPerPage);
     // update context with data

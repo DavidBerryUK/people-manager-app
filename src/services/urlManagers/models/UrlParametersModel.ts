@@ -1,13 +1,12 @@
-//
-// encapsulate logic that converts a dictionary containing
-// parameters from a url into strongly typed 
-// properties for use by the application
-
 import { EnumDetailViewType } from "../../../constants/EnumDetailViewType";
 import { EnumSortColumn } from "../../../constants/EnumSortColumn";
 import { EnumSortDirection } from "../../../constants/EnumSortDirectory";
 import UrlParameterNames from "../constants/UrlParamterNames";
 
+//
+// strongly typed model that represents values in a 
+// url parameter string. the values are provided to this model
+// as a dictionary in the constructor
 //
 export default class UrlModel {
 
@@ -50,6 +49,9 @@ export default class UrlModel {
         return 0;
     }
 
+    //
+    // Constructor
+    //
     constructor(dictionary: { [name: string]: string } = {}) {
         this.dictionary = dictionary;
     }
