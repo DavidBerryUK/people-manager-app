@@ -10,7 +10,7 @@ const RoleTableHeader: React.FC = () => {
         <RoleTableHeaderCellWidget column={EnumSortColumn.Role} sortable>
           Role
         </RoleTableHeaderCellWidget>
-        <RoleTableHeaderCellWidget column={EnumSortColumn.PeopleCollection}>Role</RoleTableHeaderCellWidget>
+        <RoleTableHeaderCellWidget column={EnumSortColumn.None}>Role</RoleTableHeaderCellWidget>
       </tr>
     </thead>
   );

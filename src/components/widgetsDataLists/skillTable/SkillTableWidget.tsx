@@ -22,6 +22,8 @@ const SkillTableWidget: React.FC = () => {
     const apiRepositorySkillList = new ApiRepositorySkillList();
     const skillList = await apiRepositorySkillList.getSkillsAsync(skillState.pagination.sortColumn, skillState.pagination.sortDirection, skillState.pagination.pageNumber, skillState.pagination.rowsPerPage);
     skillDispatch(new CommandSkillListSet(skillList.data, skillList.rowsPerPage, skillList.totalPages, skillList.totalRows));
+    writeUrlHistory();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [skillDispatch, skillState.pagination]);
 
   //
@@ -30,7 +32,6 @@ const SkillTableWidget: React.FC = () => {
   const handleOnPageChangeEvent = (pageNo: number) => {
     // update context with new page number to force data reload
     skillDispatch(new CommandPageNumberSet(pageNo));
-    writeUrlHistory();
   };
 
   return (

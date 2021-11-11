@@ -1,12 +1,11 @@
 import DetailViewStateModel from "../../contexts/ListDetailContext.tsx/models/DetailViewStateModel";
 import PaginationStateModel from "../../contextsCommonModels/PaginationStateModel";
-import UrlUtilities from "./UrlUtilities";
-import UrlParamStateModel from "./models/UrlParamStateModel";
-import UrlParametersModel from "./models/UrlParametersModel";
 import UrlParameterNames from "./constants/UrlParamterNames";
+import UrlParametersModel from "./models/UrlParametersModel";
+import UrlParamStateModel from "./models/UrlParamStateModel";
+import UrlUtilities from "./UrlUtilities";
 
 export default class UrlManagerService {
-
     //
     // create url parameters string from object states and return..
     //

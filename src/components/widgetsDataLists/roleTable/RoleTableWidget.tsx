@@ -22,6 +22,8 @@ const RoleTableWidget: React.FC = () => {
     const apiRepositoryRoleList = new ApiRepositoryRoleList();
     const roleList = await apiRepositoryRoleList.getRolesAsync(roleState.pagination.sortColumn, roleState.pagination.sortDirection, roleState.pagination.pageNumber, roleState.pagination.rowsPerPage);
     roleDispatch(new CommandRoleListSet(roleList.data, roleList.rowsPerPage, roleList.totalPages, roleList.totalRows));
+    writeUrlHistory();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [roleDispatch, roleState.pagination]);
 
   //
@@ -30,7 +32,6 @@ const RoleTableWidget: React.FC = () => {
   const handleOnPageChangeEvent = (pageNo: number) => {
     // update context with new page number to force data reload
     roleDispatch(new CommandPageNumberSet(pageNo));
-    writeUrlHistory();
   };
 
   return (

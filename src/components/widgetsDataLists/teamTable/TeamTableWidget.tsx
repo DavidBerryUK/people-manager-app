@@ -22,6 +22,8 @@ const TeamTableWidget: React.FC = () => {
     const apiRepositoryTeamList = new ApiRepositoryTeamList();
     const teamList = await apiRepositoryTeamList.getTeamsAsync(teamState.pagination.sortColumn, teamState.pagination.sortDirection, teamState.pagination.pageNumber, teamState.pagination.rowsPerPage);
     teamDispatch(new CommandTeamListSet(teamList.data, teamList.rowsPerPage, teamList.totalPages, teamList.totalRows));
+    writeUrlHistory();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [teamDispatch, teamState.pagination]);
 
   //
@@ -30,7 +32,6 @@ const TeamTableWidget: React.FC = () => {
   const handleOnPageChangeEvent = (pageNo: number) => {
     // update context with new page number to force data reload
     teamDispatch(new CommandPageNumberSet(pageNo));
-    writeUrlHistory();
   };
 
   return (

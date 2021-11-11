@@ -19,8 +19,8 @@ const PeopleTableHeader: React.FC = () => {
         <PeopleTableHeaderCellWidget column={EnumSortColumn.Email} sortable>
           Email
         </PeopleTableHeaderCellWidget>
-        <PeopleTableHeaderCellWidget column={EnumSortColumn.TeamsCollection}>Teams</PeopleTableHeaderCellWidget>
-        <PeopleTableHeaderCellWidget column={EnumSortColumn.SkillsCollection}>Skills</PeopleTableHeaderCellWidget>
+        <PeopleTableHeaderCellWidget column={EnumSortColumn.None}>Teams</PeopleTableHeaderCellWidget>
+        <PeopleTableHeaderCellWidget column={EnumSortColumn.None}>Skills</PeopleTableHeaderCellWidget>
       </tr>
     </thead>
   );

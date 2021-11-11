@@ -18,10 +18,14 @@ const PeopleTableWidget: React.FC = () => {
   useDataTableUrlReader(EnumListType.people);
 
   useMemo(async () => {
+    console.log("PeopleTableWidget-getdata");
     // use repository to get data when state changes, then add it to the people list context
     const apiRepositoryPeopleList = new ApiRepositoryPeopleList();
     const peopleList = await apiRepositoryPeopleList.getPeopleAsync(peopleState.pagination.sortColumn, peopleState.pagination.sortDirection, peopleState.pagination.pageNumber, peopleState.pagination.rowsPerPage);
     peopleDispatch(new CommandPeopleListSet(peopleList.data, peopleList.rowsPerPage, peopleList.totalPages, peopleList.totalRows));
+
+    writeUrlHistory();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [peopleDispatch, peopleState.pagination]);
 
   //
@@ -30,7 +34,6 @@ const PeopleTableWidget: React.FC = () => {
   const handleOnPageChangeEvent = (pageNo: number) => {
     // update context with new page number to force data reload
     peopleDispatch(new CommandPageNumberSet(pageNo));
-    writeUrlHistory();
   };
 
   return (

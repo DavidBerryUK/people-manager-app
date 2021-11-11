@@ -1,17 +1,16 @@
-
+import { EnumListType } from "../../constants/EnumListType";
 import { useEffect } from "react";
 import { useHistory, useLocation } from "react-router";
-import { EnumListType } from "../../constants/EnumListType";
-import CommandRestoreDetailFromUrl from "../../contexts/ListDetailContext.tsx/actions/CommandRestoreDetailFromUrl";
 import { UseListDetailContext } from "../../contexts/ListDetailContext.tsx/ListDetailContext";
-import CommandRestorePeopleFromUrl from "../../contexts/peopleContext/actions/CommandRestorePeopleFromUrl";
 import { usePeopleContext } from "../../contexts/peopleContext/PeopleContext";
-import CommandRestoreRolesFromUrl from "../../contexts/roleContext/actions/CommandRestoreRolesFromUrl";
 import { useRoleContext } from "../../contexts/roleContext/RoleContext";
-import CommandRestoreSkillsFromUrl from "../../contexts/skillContext/actions/CommandRestoreSkillsFromUrl";
 import { useSkillContext } from "../../contexts/skillContext/SkillContext";
-import CommandRestoreTeamFromUrl from "../../contexts/teamContext/actions/CommandRestoreTeamFromUrl";
 import { useTeamContext } from "../../contexts/teamContext/TeamContext";
+import CommandRestoreDetailFromUrl from "../../contexts/ListDetailContext.tsx/actions/CommandRestoreDetailFromUrl";
+import CommandRestorePeopleFromUrl from "../../contexts/peopleContext/actions/CommandRestorePeopleFromUrl";
+import CommandRestoreRolesFromUrl from "../../contexts/roleContext/actions/CommandRestoreRolesFromUrl";
+import CommandRestoreSkillsFromUrl from "../../contexts/skillContext/actions/CommandRestoreSkillsFromUrl";
+import CommandRestoreTeamFromUrl from "../../contexts/teamContext/actions/CommandRestoreTeamFromUrl";
 import UrlManagerService from "../../services/urlManagers/UrlManagerService";
 
 

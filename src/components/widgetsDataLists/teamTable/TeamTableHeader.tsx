@@ -10,7 +10,7 @@ const TeamTableHeader: React.FC = () => {
         <TeamTableHeaderCellWidget column={EnumSortColumn.Team} sortable>
           Team
         </TeamTableHeaderCellWidget>
-        <TeamTableHeaderCellWidget column={EnumSortColumn.PeopleCollection}>People</TeamTableHeaderCellWidget>
+        <TeamTableHeaderCellWidget column={EnumSortColumn.None}>People</TeamTableHeaderCellWidget>
       </tr>
     </thead>
   );
