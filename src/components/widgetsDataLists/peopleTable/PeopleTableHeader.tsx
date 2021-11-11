@@ -1,4 +1,4 @@
-import { EnumSortColumn } from "../../../constants/EnumSortColumn";
+import { EnumSortColumn } from "../../../constants/enums/EnumSortColumn";
 import PeopleTableHeaderCellWidget from "./PeopleTableHeaderCellWidget";
 import React from "react";
 

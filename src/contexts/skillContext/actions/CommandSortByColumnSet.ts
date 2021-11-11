@@ -1,6 +1,6 @@
 //
 // Set Skill List
-import { EnumSortColumn } from "../../../constants/EnumSortColumn";
+import { EnumSortColumn } from "../../../constants/enums/EnumSortColumn";
 import { ISkillContextDispatchCommand } from "../interfaces/ISkillContextDispatchCommand";
 import { SkillContextProps } from "../SkillContext";
 

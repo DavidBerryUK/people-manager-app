@@ -4,7 +4,7 @@ import DetailRoleWidget from "../detailRole/DetailRoleWidget";
 import DetailSkillWidget from "../detailSkill/DetailSkillWidget";
 import DetailTeamWidget from "../detailTeam/DetailTeamWidget";
 import React from "react";
-import { EnumDetailViewType } from "../../../constants/EnumDetailViewType";
+import { EnumDetailViewType } from "../../../constants/enums/EnumDetailViewType";
 
 const DetailHostWidget: React.FC = (props) => {
   const { state } = UseListDetailContext();

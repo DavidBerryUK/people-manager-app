@@ -1,4 +1,4 @@
-import { EnumListType } from "../../constants/EnumListType";
+import { EnumListType } from "../../constants/enums/EnumListType";
 import { useEffect } from "react";
 import { useHistory, useLocation } from "react-router";
 import { UseListDetailContext } from "../../contexts/ListDetailContext.tsx/ListDetailContext";

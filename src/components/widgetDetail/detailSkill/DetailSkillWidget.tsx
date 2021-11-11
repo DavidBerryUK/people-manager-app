@@ -1,5 +1,5 @@
-import { EnumIconSize } from "../../../constants/EnumIconSize";
-import { EnumPanelJustify } from "../../../constants/EnumPanelJustify";
+import { EnumIconSize } from "../../../constants/enums/EnumIconSize";
+import { EnumPanelJustify } from "../../../constants/enums/EnumPanelJustify";
 import { UseListDetailContext } from "../../../contexts/ListDetailContext.tsx/ListDetailContext";
 import ApiRepositorySkill from "../../../apiRepository/skills/ApiRepositorySkill";
 import ImageSkill from "../../widgetsUI/imageSkill/ImageSkill";

@@ -1,6 +1,6 @@
 //
 // Set Team List
-import { EnumSortColumn } from "../../../constants/EnumSortColumn";
+import { EnumSortColumn } from "../../../constants/enums/EnumSortColumn";
 import { ITeamContextDispatchCommand } from "../interfaces/ITeamContextDispatchCommand";
 import { TeamContextProps } from "../TeamContext";
 

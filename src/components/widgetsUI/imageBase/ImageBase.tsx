@@ -1,4 +1,4 @@
-import { EnumIconSize } from "../../../constants/EnumIconSize";
+import { EnumIconSize } from "../../../constants/enums/EnumIconSize";
 
 interface IProperties {
   cssAltName: string;

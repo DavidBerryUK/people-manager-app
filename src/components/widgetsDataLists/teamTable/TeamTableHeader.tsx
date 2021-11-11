@@ -1,4 +1,4 @@
-import { EnumSortColumn } from "../../../constants/EnumSortColumn";
+import { EnumSortColumn } from "../../../constants/enums/EnumSortColumn";
 import TeamTableHeaderCellWidget from "./TeamTableHeaderCellWidget";
 import React from "react";
 

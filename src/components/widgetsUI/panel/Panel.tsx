@@ -1,4 +1,4 @@
-import { EnumPanelJustify } from "../../../constants/EnumPanelJustify";
+import { EnumPanelJustify } from "../../../constants/enums/EnumPanelJustify";
 
 interface IProperties {
   border?: boolean;

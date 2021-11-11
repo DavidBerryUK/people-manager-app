@@ -1,9 +1,9 @@
+import { EnumSortColumn } from "../../constants/enums/EnumSortColumn";
 import { ITeamContextDispatchCommand } from "./interfaces/ITeamContextDispatchCommand";
-import React, { Dispatch, Reducer } from "react";
-import TeamApiModel from "../../apiRepository/models/TeamApiModel";
 import PaginationStateModel from "../../contextsCommonModels/PaginationStateModel";
-import { EnumSortColumn } from "../../constants/EnumSortColumn";
+import React, { Dispatch, Reducer } from "react";
 import TableStatsResultsStateModel from "../../contextsCommonModels/TableStatusResultsStateModel";
+import TeamApiModel from "../../apiRepository/models/TeamApiModel";
 
 // Interface defining data structure stored in this context
 //

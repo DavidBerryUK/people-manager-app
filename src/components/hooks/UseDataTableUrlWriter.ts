@@ -1,5 +1,5 @@
-import { EnumListType } from "../../constants/EnumListType";
-import { EnumSortColumn } from "../../constants/EnumSortColumn";
+import { EnumListType } from "../../constants/enums/EnumListType";
+import { EnumSortColumn } from "../../constants/enums/EnumSortColumn";
 import { useHistory, useLocation } from "react-router";
 import { UseListDetailContext } from "../../contexts/ListDetailContext.tsx/ListDetailContext";
 import { usePeopleContext } from "../../contexts/peopleContext/PeopleContext";

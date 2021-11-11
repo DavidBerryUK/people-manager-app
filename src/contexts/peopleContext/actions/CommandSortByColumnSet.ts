@@ -1,5 +1,5 @@
 // Set Person List
-import { EnumSortColumn } from "../../../constants/EnumSortColumn";
+import { EnumSortColumn } from "../../../constants/enums/EnumSortColumn";
 import { IPeopleContextDispatchCommand } from "../interfaces/IPeopleContextDispatchCommand";
 import { PeopleContextProps } from "../PeopleContext";
 

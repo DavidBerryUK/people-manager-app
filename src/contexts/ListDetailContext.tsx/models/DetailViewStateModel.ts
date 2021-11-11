@@ -1,4 +1,4 @@
-import { EnumDetailViewType } from "../../../constants/EnumDetailViewType";
+import { EnumDetailViewType } from "../../../constants/enums/EnumDetailViewType";
 
 export default class DetailViewStateModel {
     private _personId: number | undefined;

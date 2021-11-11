@@ -1,4 +1,4 @@
-import { EnumListType } from "../../../constants/EnumListType";
+import { EnumListType } from "../../../constants/enums/EnumListType";
 import { useTeamContext } from "../../../contexts/teamContext/TeamContext";
 import ApiRepositoryTeamList from "../../../apiRepository/teams/ApiRepositoryTeamList";
 import CommandPageNumberSet from "../../../contexts/teamContext/actions/CommandPageNumberSet";

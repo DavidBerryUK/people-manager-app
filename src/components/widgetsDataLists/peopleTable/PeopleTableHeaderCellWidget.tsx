@@ -1,4 +1,4 @@
-import { EnumSortColumn } from "../../../constants/EnumSortColumn";
+import { EnumSortColumn } from "../../../constants/enums/EnumSortColumn";
 import { usePeopleContext } from "../../../contexts/peopleContext/PeopleContext";
 import CommandSortByColumnSet from "../../../contexts/peopleContext/actions/CommandSortByColumnSet";
 import React from "react";

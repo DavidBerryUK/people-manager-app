@@ -1,4 +1,4 @@
-import { EnumListType } from "../../../constants/EnumListType";
+import { EnumListType } from "../../../constants/enums/EnumListType";
 import { useRoleContext } from "../../../contexts/roleContext/RoleContext";
 import ApiRepositoryRoleList from "../../../apiRepository/role/ApiRepositoryRoleList";
 import CommandPageNumberSet from "../../../contexts/roleContext/actions/CommandPageNumberSet";

@@ -1,6 +1,6 @@
 //
 // Set Role List
-import { EnumSortColumn } from "../../../constants/EnumSortColumn";
+import { EnumSortColumn } from "../../../constants/enums/EnumSortColumn";
 import { IRoleContextDispatchCommand } from "../interfaces/IRoleContextDispatchCommand";
 import { RoleContextProps } from "../RoleContext";
 

@@ -1,4 +1,4 @@
-import { EnumTheme } from "../../../constants/EnumTheme";
+import { EnumTheme } from "../../../constants/enums/EnumTheme";
 import { ApplicationContextProps } from "../ApplicationContext";
 import { IApplicationContextDispatchCommand } from "../interfaces/IApplicationContextDispatchCommand";
 

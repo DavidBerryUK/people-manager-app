@@ -1,5 +1,5 @@
-import { EnumSortColumn } from "../../constants/EnumSortColumn";
-import { EnumSortDirection } from "../../constants/EnumSortDirectory";
+import { EnumSortColumn } from "../../constants/enums/EnumSortColumn";
+import { EnumSortDirection } from "../../constants/enums/EnumSortDirectory";
 import MockUtilities from "../../utilities/MockUtilities";
 import FakeApiEndpoint from "../dataSources/FakeApiEndpoint";
 import DataListApiModel from "../models/DataListApiModel";

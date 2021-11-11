@@ -1,6 +1,6 @@
-import { EnumDetailViewType } from "../../../constants/EnumDetailViewType";
-import { EnumSortColumn } from "../../../constants/EnumSortColumn";
-import { EnumSortDirection } from "../../../constants/EnumSortDirectory";
+import { EnumDetailViewType } from "../../../constants/enums/EnumDetailViewType";
+import { EnumSortColumn } from "../../../constants/enums/EnumSortColumn";
+import { EnumSortDirection } from "../../../constants/enums/EnumSortDirectory";
 import UrlParameterNames from "../constants/UrlParamterNames";
 
 //
@@ -43,14 +43,14 @@ export default class UrlModel {
         } else if (this.sortColumn === EnumSortColumn.Email) {
             console.log("   ****** sort = Email");
         } else {
-            console.log(EnumSortColumn.Forename);
-            console.log(EnumSortColumn["Forename"]);
-            console.log(EnumSortColumn.Surname);
-            console.log(EnumSortColumn["Surname"]);
-            console.log(EnumSortColumn.Role);
-            console.log(EnumSortColumn["Role"]);
-            console.log(EnumSortColumn.Email);
-            console.log(EnumSortColumn["Email"]);
+            // console.log(EnumSortColumn.Forename);
+            // console.log(EnumSortColumn["Forename"]);
+            // console.log(EnumSortColumn.Surname);
+            // console.log(EnumSortColumn["Surname"]);
+            // console.log(EnumSortColumn.Role);
+            // console.log(EnumSortColumn["Role"]);
+            // console.log(EnumSortColumn.Email);
+            // console.log(EnumSortColumn["Email"]);
 
             var s1 = "Role";
             var s1b = s1 as keyof typeof EnumSortColumn;

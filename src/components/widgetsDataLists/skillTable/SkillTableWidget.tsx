@@ -1,4 +1,4 @@
-import { EnumListType } from "../../../constants/EnumListType";
+import { EnumListType } from "../../../constants/enums/EnumListType";
 import { useSkillContext } from "../../../contexts/skillContext/SkillContext";
 import ApiRepositorySkillList from "../../../apiRepository/skills/ApiRepositorySkillList";
 import CommandPageNumberSet from "../../../contexts/skillContext/actions/CommandPageNumberSet";

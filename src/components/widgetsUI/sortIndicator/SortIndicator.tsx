@@ -1,4 +1,4 @@
-import { EnumSortDirection } from "../../../constants/EnumSortDirectory";
+import { EnumSortDirection } from "../../../constants/enums/EnumSortDirectory";
 import { FaArrowAltCircleDown, FaArrowAltCircleUp } from "react-icons/fa";
 import React from "react";
 

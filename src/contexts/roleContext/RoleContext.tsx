@@ -1,8 +1,8 @@
+import { EnumSortColumn } from "../../constants/enums/EnumSortColumn";
 import { IRoleContextDispatchCommand } from "./interfaces/IRoleContextDispatchCommand";
+import PaginationStateModel from "../../contextsCommonModels/PaginationStateModel";
 import React, { Dispatch, Reducer } from "react";
 import RoleApiModel from "../../apiRepository/models/RoleApiModel";
-import PaginationStateModel from "../../contextsCommonModels/PaginationStateModel";
-import { EnumSortColumn } from "../../constants/EnumSortColumn";
 import TableStatsResultsStateModel from "../../contextsCommonModels/TableStatusResultsStateModel";
 
 // Interface defining data structure stored in this context

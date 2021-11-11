@@ -1,4 +1,4 @@
-import { EnumTheme } from "../../../../constants/EnumTheme";
+import { EnumTheme } from "../../../../constants/enums/EnumTheme";
 
 export default class ThemeConfigModel {
   name: string;

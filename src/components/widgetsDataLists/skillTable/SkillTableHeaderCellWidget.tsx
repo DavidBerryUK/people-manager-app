@@ -1,4 +1,4 @@
-import { EnumSortColumn } from "../../../constants/EnumSortColumn";
+import { EnumSortColumn } from "../../../constants/enums/EnumSortColumn";
 import { useSkillContext } from "../../../contexts/skillContext/SkillContext";
 import CommandSortByColumnSet from "../../../contexts/skillContext/actions/CommandSortByColumnSet";
 import React from "react";

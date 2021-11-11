@@ -1,4 +1,4 @@
-import { EnumIconSize } from "../../../constants/EnumIconSize";
+import { EnumIconSize } from "../../../constants/enums/EnumIconSize";
 import ImageAvatar from "../../widgetsUI/imageAvatar/ImageAvatar";
 import PersonApiModel from "../../../apiRepository/models/PersonApiModel";
 import React from "react";
