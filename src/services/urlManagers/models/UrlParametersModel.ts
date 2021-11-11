@@ -1,6 +1,6 @@
 import { EnumDetailViewType } from "../../../constants/enums/EnumDetailViewType";
-import { EnumSortColumn } from "../../../constants/enums/EnumSortColumn";
-import { EnumSortDirection } from "../../../constants/enums/EnumSortDirectory";
+import EnumSortColumnConvert, { EnumSortColumn } from "../../../constants/enums/EnumSortColumn";
+import EnumSortDirectionConvert, { EnumSortDirection } from "../../../constants/enums/EnumSortDirection";
 import UrlParameterNames from "../constants/UrlParamterNames";
 
 //
@@ -30,50 +30,6 @@ export default class UrlModel {
         this.sortColumn = this.evaluateSortColumn();
         this.sortDirection = this.evaluateSortDirection();
         this.detailViewType = this.evaluateDetailType();
-
-        console.log("###############################################################");
-        console.log(this.sortColumn);
-
-        if (this.sortColumn === EnumSortColumn.Forename) {
-            console.log("   ****** sort = forename");
-        } else if (this.sortColumn === EnumSortColumn.Surname) {
-            console.log("   ****** sort = Surname");
-        } else if (this.sortColumn === EnumSortColumn.Role) {
-            console.log("   ****** sort = Role");
-        } else if (this.sortColumn === EnumSortColumn.Email) {
-            console.log("   ****** sort = Email");
-        } else {
-            // console.log(EnumSortColumn.Forename);
-            // console.log(EnumSortColumn["Forename"]);
-            // console.log(EnumSortColumn.Surname);
-            // console.log(EnumSortColumn["Surname"]);
-            // console.log(EnumSortColumn.Role);
-            // console.log(EnumSortColumn["Role"]);
-            // console.log(EnumSortColumn.Email);
-            // console.log(EnumSortColumn["Email"]);
-
-            var s1 = "Role";
-            var s1b = s1 as keyof typeof EnumSortColumn;
-            var r1 = EnumSortColumn.Role;
-            var r2 = EnumSortColumn[s1b];
-            if (r1 === r2) {
-                console.log("MATCH");
-            } else {
-                console.log("BOOOOO");
-            }
-
-            console.log("________________column does not match anything_______________")
-            console.log(this.sortColumn);
-        }
-    }
-
-    private evaluateSortColumn(): EnumSortColumn {
-        var value = this.dictionary[UrlParameterNames.sortColumn];
-        var valueTyped = value as keyof typeof EnumSortColumn;
-        var response = EnumSortColumn[valueTyped]
-        console.log(response);
-        return response;
-
     }
 
     private getNumberForKey(key: string, defaultValue: number): number {
@@ -84,15 +40,16 @@ export default class UrlModel {
         return Number(value);
     }
 
-
-
     private evaluateSortDirection(): EnumSortDirection {
-        var value = this.dictionary[UrlParameterNames.sortDirection];
+        var textValue = this.dictionary[UrlParameterNames.sortDirection];
+        var enumValue = EnumSortDirectionConvert.toEnum(textValue);
+        return enumValue;
+    }
 
-        if (value === undefined) {
-            return EnumSortDirection.asc;
-        }
-        return value as EnumSortDirection;
+    private evaluateSortColumn(): EnumSortColumn {
+        var textValue = this.dictionary[UrlParameterNames.sortColumn];
+        var enumValue = EnumSortColumnConvert.toEnum(textValue);
+        return enumValue;
     }
 
     private evaluateDetailType(): EnumDetailViewType {

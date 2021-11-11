@@ -23,40 +23,30 @@ function useDataTableUrlWriter(listType: EnumListType) {
     const { state: roleState } = useRoleContext();
     const { state: skillState } = useSkillContext();
 
-    // console.log("People State");
-    // console.log(peopleState);
-
-    // console.log("Team State");
-    // console.log(teamState);
-
-    // console.log("Skill State");
-    // console.log(skillState);
-
-    // console.log("Role State");
-    // console.log(roleState);
-
-
     function writeUrlHistory() {
-        console.log("writeHistory");
+        console.log(`writeHistory   ${history.action}`);
+
+        if (history.action === "POP") {
+            console.log("         DO NOT WRITE NEW HISTORY AS THIS WAS A POP");
+            return;
+        }
 
         var pagination = new PaginationStateModel(EnumSortColumn.None);
 
         if (listType === EnumListType.people) {
-            console.log("               useDataTableUrlWriter: people");
             pagination = peopleState.pagination;
         }
         if (listType === EnumListType.teams) {
-            console.log("               useDataTableUrlWriter: teams");
             pagination = teamState.pagination;
         }
         if (listType === EnumListType.roles) {
-            console.log("               useDataTableUrlWriter: roles");
             pagination = roleState.pagination;
         }
         if (listType === EnumListType.skills) {
-            console.log("               useDataTableUrlWriter: skills");
             pagination = skillState.pagination;
         }
+
+
 
         const newHistory = HistoryUrlBuilder.buildUrl(location.pathname, pagination, listDetailState.detailView);
         history.push(newHistory);

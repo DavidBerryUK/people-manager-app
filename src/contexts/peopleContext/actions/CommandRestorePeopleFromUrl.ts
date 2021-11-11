@@ -27,10 +27,6 @@ export default class CommandRestorePeopleFromUrl implements IPeopleContextDispat
 
     console.log("RESTORE PERSON FROM HISTORY");
     console.log(`         parameter     :${this.urlParamState}`);
-    console.log(`         page number   :${newPagination.pageNumber}`);
-    console.log(`         rows per page :${newPagination.rowsPerPage}`);
-    console.log(`         sort column   :${newPagination.sortColumn}`);
-    console.log(`         sort direction:${newPagination.sortDirection}`);
 
     if (newPagination.isEqualTo(state.pagination)) {
       // if pagination hasn't changed, then don't update it as it will

@@ -1,6 +1,6 @@
 import { EnumDetailViewType } from "../../../constants/enums/EnumDetailViewType";
 import { EnumSortColumn } from "../../../constants/enums/EnumSortColumn";
-import { EnumSortDirection } from "../../../constants/enums/EnumSortDirectory";
+import { EnumSortDirection } from "../../../constants/enums/EnumSortDirection";
 // Represents values of params in URL,
 //  used when user enters their own url, or
 

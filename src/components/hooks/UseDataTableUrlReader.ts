@@ -30,28 +30,21 @@ function useDataTableUrlReader(listType: EnumListType) {
 
     useEffect(() => {
         if (history.action === "POP") {
-
-            console.log("useDataTableUrlReader: Restoring state from URL");
-
             var urlStateModel = UrlManagerService.getStateFromParam(location.search);
 
             if (listType === EnumListType.people) {
-                console.log("               useDataTableUrlReader:restoring people");
                 peopleDispatch(new CommandRestorePeopleFromUrl(urlStateModel));
             }
 
             if (listType === EnumListType.teams) {
-                console.log("               useDataTableUrlReader:restoring teams");
                 teamDispatch(new CommandRestoreTeamFromUrl(urlStateModel));
             }
 
             if (listType === EnumListType.skills) {
-                console.log("               useDataTableUrlReader:restoring skills");
                 skillDispatch(new CommandRestoreSkillsFromUrl(urlStateModel));
             }
 
             if (listType === EnumListType.roles) {
-                console.log("               useDataTableUrlReader:restoring roles");
                 roleDispatch(new CommandRestoreRolesFromUrl(urlStateModel));
             }
 

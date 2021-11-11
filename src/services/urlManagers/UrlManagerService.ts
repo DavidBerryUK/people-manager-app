@@ -1,3 +1,5 @@
+import EnumSortColumnConvert from "../../constants/enums/EnumSortColumn";
+import EnumSortDirectionConvert from "../../constants/enums/EnumSortDirection";
 import DetailViewStateModel from "../../contexts/ListDetailContext.tsx/models/DetailViewStateModel";
 import PaginationStateModel from "../../contextsCommonModels/PaginationStateModel";
 import UrlParameterNames from "./constants/UrlParamterNames";
@@ -17,8 +19,8 @@ export default class UrlManagerService {
             params = `${params}` +
                 `?${UrlParameterNames.pageNumber}=${pagination.pageNumber}` +
                 `&${UrlParameterNames.rowsPerPage}=${pagination.rowsPerPage}` +
-                `&${UrlParameterNames.sortColumn}=${pagination.sortColumn}` +
-                `&${UrlParameterNames.sortDirection}=${pagination.sortDirection}`;
+                `&${UrlParameterNames.sortColumn}=${EnumSortColumnConvert.toString(pagination.sortColumn)}` +
+                `&${UrlParameterNames.sortDirection}=${EnumSortDirectionConvert.toString(pagination.sortDirection)}`;
         }
 
         if (detail) {

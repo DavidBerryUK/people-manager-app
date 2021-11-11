@@ -1,5 +1,5 @@
 import { EnumSortColumn } from "../../constants/enums/EnumSortColumn";
-import { EnumSortDirection } from "../../constants/enums/EnumSortDirectory";
+import { EnumSortDirection } from "../../constants/enums/EnumSortDirection";
 import RoleApiModel from "../models/RoleApiModel";
 
 type compareType = { (o1: RoleApiModel, o2: RoleApiModel): number };

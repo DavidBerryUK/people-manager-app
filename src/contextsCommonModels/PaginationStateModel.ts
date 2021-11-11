@@ -1,5 +1,5 @@
 import { EnumSortColumn } from "../constants/enums/EnumSortColumn";
-import { EnumSortDirection } from "../constants/enums/EnumSortDirectory";
+import { EnumSortDirection } from "../constants/enums/EnumSortDirection";
 //
 // Common pagination model for all list views,
 // includes logic for changing sort columns and toggling direction
