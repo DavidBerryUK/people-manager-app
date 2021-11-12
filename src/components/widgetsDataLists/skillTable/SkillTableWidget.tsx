@@ -1,10 +1,11 @@
-import { EnumListType } from "../../../constants/enums/EnumListType";
+import { EnumSortColumn } from "../../../constants/enums/EnumSortColumn";
 import { useSkillContext } from "../../../contexts/skillContext/SkillContext";
 import ApiRepositorySkillList from "../../../apiRepository/skills/ApiRepositorySkillList";
 import CommandPageNumberSet from "../../../contexts/skillContext/actions/CommandPageNumberSet";
 import CommandSkillListSet from "../../../contexts/skillContext/actions/CommandSkillListSet";
+import PaginationStateModel from "../../../contextsCommonModels/PaginationStateModel";
 import PaginationWidget from "../../widgetsUI/pagination/PaginationWidget";
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import SkillRowWidget from "./SkillRowWidget";
 import SkillTableHeader from "./SkillTableHeader";
 import useDataTableUrlReader from "../../hooks/UseDataTableUrlReader";
@@ -12,19 +13,23 @@ import useDataTableUrlWriter from "../../hooks/UseDataTableUrlWriter";
 
 const SkillTableWidget: React.FC = () => {
   const { state: skillState, dispatch: skillDispatch } = useSkillContext();
+  const [lastRequest, setLastRequest] = useState(new PaginationStateModel(EnumSortColumn.None));
 
   // URL Managers
-  const { writeUrlHistory } = useDataTableUrlWriter(EnumListType.skills);
-  useDataTableUrlReader(EnumListType.skills);
+  const { writeUrlHistory } = useDataTableUrlWriter();
+  useDataTableUrlReader();
 
   useMemo(async () => {
     // use repository to get data when state changes, then add it to the people list context
-    const apiRepositorySkillList = new ApiRepositorySkillList();
-    const skillList = await apiRepositorySkillList.getSkillsAsync(skillState.pagination.sortColumn, skillState.pagination.sortDirection, skillState.pagination.pageNumber, skillState.pagination.rowsPerPage);
-    skillDispatch(new CommandSkillListSet(skillList.data, skillList.rowsPerPage, skillList.totalPages, skillList.totalRows));
-    writeUrlHistory();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [skillDispatch, skillState.pagination]);
+    if (lastRequest.isNotEqualTo(skillState.pagination)) {
+      console.log("######################################## SKILL GET DATA #########################");
+      const apiRepositorySkillList = new ApiRepositorySkillList();
+      const skillList = await apiRepositorySkillList.getSkillsAsync(skillState.pagination.sortColumn, skillState.pagination.sortDirection, skillState.pagination.pageNumber, skillState.pagination.rowsPerPage);
+      setLastRequest(skillState.pagination);
+      skillDispatch(new CommandSkillListSet(skillList.data, skillList.rowsPerPage, skillList.totalPages, skillList.totalRows));
+      writeUrlHistory();
+    }
+  }, [skillDispatch, skillState.pagination, writeUrlHistory, lastRequest]);
 
   //
   // Event Handlers

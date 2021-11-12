@@ -1,4 +1,3 @@
-import { EnumListType } from "../../constants/enums/EnumListType";
 import { EnumSortColumn } from "../../constants/enums/EnumSortColumn";
 import { useHistory, useLocation } from "react-router";
 import { UseListDetailContext } from "../../contexts/ListDetailContext.tsx/ListDetailContext";
@@ -13,7 +12,7 @@ import PaginationStateModel from "../../contextsCommonModels/PaginationStateMode
 //
 // updates the url with parameters to reflect the current state
 //
-function useDataTableUrlWriter(listType: EnumListType) {
+function useDataTableUrlWriter() {
 
     const history = useHistory();
     const location = useLocation();
@@ -24,29 +23,54 @@ function useDataTableUrlWriter(listType: EnumListType) {
     const { state: skillState } = useSkillContext();
 
     function writeUrlHistory() {
-        console.log(`writeHistory   ${history.action}`);
 
-        if (history.action === "POP") {
-            console.log("         DO NOT WRITE NEW HISTORY AS THIS WAS A POP");
-            return;
-        }
+        console.log(`******* function writeUrlHistory():${history.action} `);
+
+        // if (history.action === "POP") {
+        //     // do not write a new history as this was a 
+        //     // back / forward button press            
+        //     return;
+        // }
 
         var pagination = new PaginationStateModel(EnumSortColumn.None);
 
-        if (listType === EnumListType.people) {
+        if (peopleState) {
             pagination = peopleState.pagination;
         }
-        if (listType === EnumListType.teams) {
+
+        if (teamState) {
             pagination = teamState.pagination;
         }
-        if (listType === EnumListType.roles) {
+        if (roleState) {
             pagination = roleState.pagination;
         }
-        if (listType === EnumListType.skills) {
+        if (skillState) {
             pagination = skillState.pagination;
         }
 
         const newHistory = HistoryUrlBuilder.buildUrl(location.pathname, pagination, listDetailState.detailView);
+
+        console.log("######################################## WRITE HISTORY #########################");
+        console.log(`Current: ${history.location.pathname}      ${history.location.search}`)
+        console.log(`New    : ${newHistory.pathname}            ${newHistory.search}`)
+
+        if (history.location.pathname === newHistory.pathname &&
+            history.location.search === newHistory.search) {
+            // location and params same, user may have pressed back button  
+            return;
+        }
+
+        if (history.location.pathname === newHistory.pathname) {
+            if (history.location.search === '' && newHistory.search !== '') {
+                //
+                // if web was landed on with no parameters, the page may well generate
+                // default params, so we need to overright the blanks history with the
+                // enriched one
+                history.replace(newHistory);
+                return;
+            }
+        }
+
         history.push(newHistory);
     }
 

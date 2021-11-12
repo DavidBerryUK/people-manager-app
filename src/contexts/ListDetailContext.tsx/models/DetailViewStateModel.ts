@@ -63,7 +63,7 @@ export default class DetailViewStateModel {
     set roleId(value: number | undefined) {
         this.clearAllKeys();
         this.viewType = EnumDetailViewType.role;
-        this._teamId = value;
+        this._roleId = value;
     }
 
     // get detail key for 

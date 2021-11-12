@@ -1,4 +1,3 @@
-import { EnumListType } from "../../constants/enums/EnumListType";
 import { useEffect } from "react";
 import { useHistory, useLocation } from "react-router";
 import { UseListDetailContext } from "../../contexts/ListDetailContext.tsx/ListDetailContext";
@@ -18,7 +17,7 @@ import UrlManagerService from "../../services/urlManagers/UrlManagerService";
 // this hook will decode the variables from the url paramters
 // and update the page state to display the correct data to force
 // correct page reload
-function useDataTableUrlReader(listType: EnumListType) {
+function useDataTableUrlReader() {
 
     const history = useHistory();
     const location = useLocation();
@@ -30,27 +29,32 @@ function useDataTableUrlReader(listType: EnumListType) {
 
     useEffect(() => {
         if (history.action === "POP") {
+
+            console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    RESTORING FROM HISTORY    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+
             var urlStateModel = UrlManagerService.getStateFromParam(location.search);
 
-            if (listType === EnumListType.people) {
+            if (peopleDispatch) {
                 peopleDispatch(new CommandRestorePeopleFromUrl(urlStateModel));
             }
 
-            if (listType === EnumListType.teams) {
+            if (teamDispatch) {
                 teamDispatch(new CommandRestoreTeamFromUrl(urlStateModel));
             }
 
-            if (listType === EnumListType.skills) {
+            if (skillDispatch) {
                 skillDispatch(new CommandRestoreSkillsFromUrl(urlStateModel));
             }
 
-            if (listType === EnumListType.roles) {
+            if (roleDispatch) {
                 roleDispatch(new CommandRestoreRolesFromUrl(urlStateModel));
             }
 
-            detailDispatch(new CommandRestoreDetailFromUrl(urlStateModel));
+            if (detailDispatch) {
+                detailDispatch(new CommandRestoreDetailFromUrl(urlStateModel));
+            }
         }
-    }, [listType, location.search, history.action, peopleDispatch, teamDispatch, skillDispatch, roleDispatch, detailDispatch]);
+    }, [location.search, history.action, peopleDispatch, teamDispatch, skillDispatch, roleDispatch, detailDispatch]);
 
 }
 

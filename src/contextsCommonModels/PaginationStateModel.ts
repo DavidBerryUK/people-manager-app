@@ -41,6 +41,10 @@ export default class PaginationStateModel {
         return true;
     }
 
+    isNotEqualTo(model: PaginationStateModel): boolean {
+        return !(this.isEqualTo(model));
+    }
+
     // change sort column,
     //  no column change then toggle direction
     set sortColumn(sortColumn: EnumSortColumn) {

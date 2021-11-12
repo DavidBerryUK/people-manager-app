@@ -10,16 +10,24 @@ import PeopleTags from "../../widgetsDataLists/peopleTags/PeopleTags";
 import React, { useMemo, useState } from "react";
 import TeamApiModel from "../../../apiRepository/models/TeamApiModel";
 import TextSubHeader from "../../widgetTypography/textSubHeader/TextSubHeader";
+import useDataTableUrlWriter from "../../hooks/UseDataTableUrlWriter";
 
 const DetailTeamWidget: React.FC = () => {
   const { state } = UseListDetailContext();
   const [team, setTeam] = useState(new TeamApiModel());
 
+  // URL Managers
+  const { writeUrlHistory } = useDataTableUrlWriter();
+
   useMemo(async () => {
-    const apiRepositoryTeam = new ApiRepositoryTeam();
-    const team = await apiRepositoryTeam.getTeamAsync(state.detailView.teamId!);
-    setTeam(team);
-  }, [state.detailView.teamId]);
+    if (state.detailView.teamId !== team.id) {
+      console.log("######################################## DETAIIL: GET TEAM #########################");
+      const apiRepositoryTeam = new ApiRepositoryTeam();
+      const teamData = await apiRepositoryTeam.getTeamAsync(state.detailView.teamId!);
+      setTeam(teamData);
+      writeUrlHistory();
+    }
+  }, [state.detailView.teamId, team.id, writeUrlHistory]);
 
   return (
     <Panel border>

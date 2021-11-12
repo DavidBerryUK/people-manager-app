@@ -11,22 +11,30 @@ import PanelBody from "../../widgetsUI/panel/PanelBody";
 import PanelHeader from "../../widgetsUI/panel/PanelHeader";
 import PersonApiModel from "../../../apiRepository/models/PersonApiModel";
 import React, { useMemo, useState } from "react";
+import RoleTag from "../../widgetsDataLists/roleTag/RoleTag";
 import SkillTags from "../../widgetsDataLists/skillTags/SkillTags";
 import TeamTags from "../../widgetsDataLists/teamTags/TeamTags";
 import TextBody from "../../widgetTypography/textBody/TextBody";
 import TextLabel from "../../widgetTypography/textLabel/TextLabel";
 import TextSubHeader from "../../widgetTypography/textSubHeader/TextSubHeader";
-import RoleTag from "../../widgetsDataLists/roleTag/RoleTag";
+import useDataTableUrlWriter from "../../hooks/UseDataTableUrlWriter";
 
 const DetailPersonWidget: React.FC = () => {
   const { state } = UseListDetailContext();
   const [person, setPerson] = useState(new PersonApiModel());
 
+  // URL Managers
+  const { writeUrlHistory } = useDataTableUrlWriter();
+
   useMemo(async () => {
-    const apiRepositoryPeople = new ApiRepositoryPeople();
-    const person = await apiRepositoryPeople.getPersonAsync(state.detailView.personId!);
-    setPerson(person);
-  }, [state.detailView.personId]);
+    if (state.detailView.personId !== person.id) {
+      console.log("######################################## DETAIIL: GET PERSON #########################");
+      const apiRepositoryPeople = new ApiRepositoryPeople();
+      const personData = await apiRepositoryPeople.getPersonAsync(state.detailView.personId!);
+      setPerson(personData);
+      writeUrlHistory();
+    }
+  }, [person.id, state.detailView.personId, writeUrlHistory]);
 
   return (
     <Panel border>

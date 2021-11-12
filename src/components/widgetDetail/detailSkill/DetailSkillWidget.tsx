@@ -10,16 +10,24 @@ import PeopleSkillTags from "../../widgetsDataLists/peopleTags/PeopleSkillTags";
 import React, { useMemo, useState } from "react";
 import SkillApiModel from "../../../apiRepository/models/SkillApiModel";
 import TextSubHeader from "../../widgetTypography/textSubHeader/TextSubHeader";
+import useDataTableUrlWriter from "../../hooks/UseDataTableUrlWriter";
 
 const DetailSkillWidget: React.FC = () => {
   const { state } = UseListDetailContext();
   const [skill, setSkill] = useState(new SkillApiModel());
 
+  // URL Managers
+  const { writeUrlHistory } = useDataTableUrlWriter();
+
   useMemo(async () => {
-    const apiRepositoryPeople = new ApiRepositorySkill();
-    const skill = await apiRepositoryPeople.getSkillAsync(state.detailView.skillId!);
-    setSkill(skill);
-  }, [state.detailView.skillId]);
+    if (state.detailView.skillId !== skill.id) {
+      console.log("######################################## DETAIIL: GET SKILL #########################");
+      const apiRepositoryPeople = new ApiRepositorySkill();
+      const skillData = await apiRepositoryPeople.getSkillAsync(state.detailView.skillId!);
+      setSkill(skillData);
+      writeUrlHistory();
+    }
+  }, [skill.id, state.detailView.skillId, writeUrlHistory]);
 
   return (
     <Panel border>
