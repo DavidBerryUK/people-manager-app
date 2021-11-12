@@ -7,18 +7,10 @@ const PeopleTableHeader: React.FC = () => {
     <thead>
       <tr>
         <PeopleTableHeaderCellWidget column={EnumSortColumn.None}></PeopleTableHeaderCellWidget>
-        <PeopleTableHeaderCellWidget column={EnumSortColumn.Forename} sortable>
-          Forename
-        </PeopleTableHeaderCellWidget>
-        <PeopleTableHeaderCellWidget column={EnumSortColumn.Surname} sortable>
-          Surname
-        </PeopleTableHeaderCellWidget>
-        <PeopleTableHeaderCellWidget column={EnumSortColumn.Role} sortable>
-          Role
-        </PeopleTableHeaderCellWidget>
-        <PeopleTableHeaderCellWidget column={EnumSortColumn.Email} sortable>
-          Email
-        </PeopleTableHeaderCellWidget>
+        <PeopleTableHeaderCellWidget column={EnumSortColumn.Forename}>Forename</PeopleTableHeaderCellWidget>
+        <PeopleTableHeaderCellWidget column={EnumSortColumn.Surname}>Surname</PeopleTableHeaderCellWidget>
+        <PeopleTableHeaderCellWidget column={EnumSortColumn.Role}>Role</PeopleTableHeaderCellWidget>
+        <PeopleTableHeaderCellWidget column={EnumSortColumn.Email}>Email</PeopleTableHeaderCellWidget>
         <PeopleTableHeaderCellWidget column={EnumSortColumn.None}>Teams</PeopleTableHeaderCellWidget>
         <PeopleTableHeaderCellWidget column={EnumSortColumn.None}>Skills</PeopleTableHeaderCellWidget>
       </tr>

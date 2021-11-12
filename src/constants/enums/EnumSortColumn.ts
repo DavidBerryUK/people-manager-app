@@ -25,6 +25,11 @@ const teamText = "team";
 export default class EnumSortColumnConvert {
 
   static toEnum(value: string): EnumSortColumn {
+
+    if (value === undefined || value === null) {
+      return EnumSortColumn.None;
+    }
+
     switch (value.toLocaleLowerCase().trim()) {
       case noneText:
         return EnumSortColumn.None;
@@ -46,6 +51,11 @@ export default class EnumSortColumnConvert {
   }
 
   static toString(value: EnumSortColumn): string {
+
+    if (value === undefined || value === null) {
+      return noneText;
+    }
+
     switch (value) {
       case EnumSortColumn.None:
         return noneText;

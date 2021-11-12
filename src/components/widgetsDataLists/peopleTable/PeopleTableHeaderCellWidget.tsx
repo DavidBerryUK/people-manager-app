@@ -2,11 +2,10 @@ import { EnumSortColumn } from "../../../constants/enums/EnumSortColumn";
 import { usePeopleContext } from "../../../contexts/peopleContext/PeopleContext";
 import CommandSortByColumnSet from "../../../contexts/peopleContext/actions/CommandSortByColumnSet";
 import React from "react";
-import SortIndicator from "../../widgetsUI/sortIndicator/SortIndicator";
+import TableColumnHeader from "../../widgetsUI/tableColumnHeader/TableColumnHeader";
 
 interface IProperties {
   column: EnumSortColumn;
-  sortable?: boolean;
 }
 
 const PeopleTableHeaderCellWidget: React.FC<IProperties> = (props) => {
@@ -15,35 +14,13 @@ const PeopleTableHeaderCellWidget: React.FC<IProperties> = (props) => {
   // Event Handlers
   //
   const handleColumnClickEvent = () => {
-    if (props.sortable) {
-      // update context with new sort order
-      peopleDispatch(new CommandSortByColumnSet(props.column));
-    }
-  };
-
-  // Determine Sort Icon for Column
-  //
-  const sortIcon = (): JSX.Element => {
-    if (peopleState.pagination.sortColumn !== props.column) {
-      return <></>;
-    }
-    return <SortIndicator direction={peopleState.pagination.sortDirection} />;
-  };
-
-  // Create Style
-  //
-  const className = (): string => {
-    if (props.sortable === true) {
-      return "sortable";
-    }
-    return "";
+    peopleDispatch(new CommandSortByColumnSet(props.column));
   };
 
   return (
-    <th className={className()} onClick={handleColumnClickEvent}>
-      <div className="title">{props.children}</div>
-      <div className="icon">{sortIcon()}</div>
-    </th>
+    <TableColumnHeader column={props.column} pagination={peopleState.pagination} onClick={handleColumnClickEvent}>
+      {props.children}
+    </TableColumnHeader>
   );
 };
 

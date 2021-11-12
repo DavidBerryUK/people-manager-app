@@ -7,9 +7,7 @@ const SkillTableHeader: React.FC = () => {
     <thead>
       <tr>
         <SkillTableHeaderCellWidget column={EnumSortColumn.None} />
-        <SkillTableHeaderCellWidget column={EnumSortColumn.Skill} sortable>
-          Skill
-        </SkillTableHeaderCellWidget>
+        <SkillTableHeaderCellWidget column={EnumSortColumn.Skill}>Skill</SkillTableHeaderCellWidget>
         <SkillTableHeaderCellWidget column={EnumSortColumn.None}>People</SkillTableHeaderCellWidget>
       </tr>
     </thead>

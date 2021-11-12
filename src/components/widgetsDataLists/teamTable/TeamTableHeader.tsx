@@ -7,9 +7,7 @@ const TeamTableHeader: React.FC = () => {
     <thead>
       <tr>
         <TeamTableHeaderCellWidget column={EnumSortColumn.None} />
-        <TeamTableHeaderCellWidget column={EnumSortColumn.Team} sortable>
-          Team
-        </TeamTableHeaderCellWidget>
+        <TeamTableHeaderCellWidget column={EnumSortColumn.Team}>Team</TeamTableHeaderCellWidget>
         <TeamTableHeaderCellWidget column={EnumSortColumn.None}>People</TeamTableHeaderCellWidget>
       </tr>
     </thead>

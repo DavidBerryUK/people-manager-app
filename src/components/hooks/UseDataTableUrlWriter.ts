@@ -46,16 +46,11 @@ function useDataTableUrlWriter(listType: EnumListType) {
             pagination = skillState.pagination;
         }
 
-
-
         const newHistory = HistoryUrlBuilder.buildUrl(location.pathname, pagination, listDetailState.detailView);
         history.push(newHistory);
     }
 
-
     return { writeUrlHistory }
-
-
 }
 
 export default useDataTableUrlWriter

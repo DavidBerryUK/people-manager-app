@@ -2,7 +2,6 @@
 // Remember to update convertors and tests if you
 // add a new entry
 //
-
 export enum EnumSortDirection {
   asc,
   desc
@@ -17,6 +16,10 @@ const descText = "desc"
 export default class EnumSortDirectionConvert {
 
   static toEnum(value: string): EnumSortDirection {
+    if (value === undefined || value === null) {
+      return EnumSortDirection.asc;
+    }
+
     switch (value.toLocaleLowerCase().trim()) {
       case ascText:
         return EnumSortDirection.asc;
@@ -27,6 +30,11 @@ export default class EnumSortDirectionConvert {
   }
 
   static toString(value: EnumSortDirection): string {
+
+    if (value === undefined || value === null) {
+      return ascText;
+    }
+
     switch (value) {
       case EnumSortDirection.asc:
         return ascText;
