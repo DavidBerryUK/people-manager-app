@@ -25,6 +25,7 @@ const HomePage: React.FC = () => {
         <li>No Magic strings</li>
         <li>Examples of function factories (sorting)</li>
         <li>No CSS in pages for cleaner code</li>
+        <li>Experimental navigation using state context, adding in browser url later using a single custom hook</li>
       </ul>
     </>
   );
