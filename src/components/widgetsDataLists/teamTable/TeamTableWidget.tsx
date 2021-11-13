@@ -27,11 +27,7 @@ const TeamTableWidget: React.FC = () => {
     }
   }, [teamDispatch, teamState.pagination, teamState.previousTeamListParameters, writeUrlHistory]);
 
-  //
-  // Event Handlers
-  //
   const handleOnPageChangeEvent = (pageNo: number) => {
-    // update context with new page number to force data reload
     teamDispatch(new CommandPageNumberSet(pageNo));
   };
 

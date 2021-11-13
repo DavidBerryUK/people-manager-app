@@ -1,11 +1,10 @@
-import { EnumSortColumn } from "../../../constants/enums/EnumSortColumn";
 import { useRoleContext } from "../../../contexts/roleContext/RoleContext";
 import ApiRepositoryRoleList from "../../../apiRepository/role/ApiRepositoryRoleList";
 import CommandPageNumberSet from "../../../contexts/roleContext/actions/CommandPageNumberSet";
 import CommandRoleListSet from "../../../contexts/roleContext/actions/CommandRoleListSet";
-import PaginationApiModel from "../../../apiRepository/models/PaginationApiModel";
 import PaginationWidget from "../../widgetsUI/pagination/PaginationWidget";
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
+import RepositoryRoleListParams from "../../../apiRepository/role/models/RepositoryRoleListParams";
 import RoleRowWidget from "./RoleRowWidget";
 import RoleTableHeader from "./RoleTableHeader";
 import useDataTableUrlReader from "../../hooks/UseDataTableUrlReader";
@@ -13,23 +12,20 @@ import useDataTableUrlWriter from "../../hooks/UseDataTableUrlWriter";
 
 const RoleTableWidget: React.FC = () => {
   const { state: roleState, dispatch: roleDispatch } = useRoleContext();
-  const [lastRequest, setLastRequest] = useState(new PaginationApiModel(EnumSortColumn.None));
 
   // URL Managers
   const { writeUrlHistory } = useDataTableUrlWriter();
   useDataTableUrlReader();
 
   useMemo(async () => {
-    if (lastRequest.isNotEqualTo(roleState.pagination)) {
-      console.log("######################################## ROLE GET DATA #########################");
-      // use repository to get data when state changes, then add it to the people list context
+    var params = new RepositoryRoleListParams(roleState.pagination.sortColumn, roleState.pagination.sortDirection, roleState.pagination.pageNo, roleState.pagination.rowsPerPage);
+    if (params.isNotEqualTo(roleState.previousRoleListParameters)) {
       const apiRepositoryRoleList = new ApiRepositoryRoleList();
-      const roleList = await apiRepositoryRoleList.getRolesAsync(roleState.pagination.sortColumn, roleState.pagination.sortDirection, roleState.pagination.pageNo, roleState.pagination.rowsPerPage);
-      setLastRequest(roleState.pagination);
-      roleDispatch(new CommandRoleListSet(roleList.data, roleList.rowsPerPage, roleList.totalPages, roleList.totalRows));
+      const roleList = await apiRepositoryRoleList.getRolesAsync(params);
+      roleDispatch(new CommandRoleListSet(roleList.data, params, roleList.totalPages, roleList.totalRows));
       writeUrlHistory();
     }
-  }, [roleDispatch, roleState.pagination, writeUrlHistory, lastRequest]);
+  }, [roleDispatch, roleState.pagination, roleState.previousRoleListParameters, writeUrlHistory]);
 
   //
   // Event Handlers
