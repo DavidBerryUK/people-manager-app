@@ -21,8 +21,6 @@ function useDataTableUrlWriter() {
   const { state: skillState } = useSkillContext();
 
   function writeUrlHistory() {
-    console.log(`******* function writeUrlHistory():${history.action} `);
-
     var pagination = new PaginationApiModel(EnumSortColumn.None);
 
     if (peopleState) {

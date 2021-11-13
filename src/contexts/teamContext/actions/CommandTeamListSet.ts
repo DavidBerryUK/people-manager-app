@@ -27,6 +27,7 @@ export default class CommandTeamListSet implements ITeamContextDispatchCommand {
     const newTableResults = state.tableStatsResults.clone();
     newTableResults.totalPages = this.totalPages;
     newTableResults.totalRows = this.totalRows;
+
     const newTeamListParameters = this.teamListParameters.clone();
 
     return {

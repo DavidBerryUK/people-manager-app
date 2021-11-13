@@ -1,9 +1,10 @@
-//
-// Set Role List
 import RoleApiModel from "../../../apiRepository/models/RoleApiModel";
 import RepositoryRoleListParams from "../../../apiRepository/role/models/RepositoryRoleListParams";
 import { IRoleContextDispatchCommand } from "../interfaces/IRoleContextDispatchCommand";
 import { RoleContextProps } from "../RoleContext";
+
+//
+// Set Role List
 
 //
 export default class CommandRoleListSet implements IRoleContextDispatchCommand {
@@ -27,6 +28,7 @@ export default class CommandRoleListSet implements IRoleContextDispatchCommand {
     const newTableResults = state.tableStatsResults.clone();
     newTableResults.totalPages = this.totalPages;
     newTableResults.totalRows = this.totalRows;
+
     const newRoleListParameters = this.roleListParameters.clone();
 
     return {

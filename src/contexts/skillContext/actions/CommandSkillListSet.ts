@@ -1,22 +1,22 @@
-//
-// Set Skill List
-
 import SkillApiModel from "../../../apiRepository/models/SkillApiModel";
+import RepositorySkillListParams from "../../../apiRepository/skills/models/RepositorySkillListParams";
 import { ISkillContextDispatchCommand } from "../interfaces/ISkillContextDispatchCommand";
 import { SkillContextProps } from "../SkillContext";
+//
+// Set Skill List
 
 //
 export default class CommandSkillListSet implements ISkillContextDispatchCommand {
   skillList: Array<SkillApiModel>;
-  rowsPerPage: number;
+  skillListParameters: RepositorySkillListParams;
   totalPages: number;
   totalRows: number;
 
   // Create the command with all data needed to update
   //  the state
-  constructor(skillList: Array<SkillApiModel>, rowsPerPage: number, totalPages: number, totalRows: number) {
+  constructor(skillList: Array<SkillApiModel>, skillListParameters: RepositorySkillListParams, totalPages: number, totalRows: number) {
     this.skillList = skillList;
-    this.rowsPerPage = rowsPerPage;
+    this.skillListParameters = skillListParameters;
     this.totalPages = totalPages;
     this.totalRows = totalRows;
   }
@@ -24,25 +24,16 @@ export default class CommandSkillListSet implements ISkillContextDispatchCommand
   // Update the context and return the new state
   // (this is called from within the ApplicationContext)
   execute(state: SkillContextProps): SkillContextProps {
-    // only update pagination if required or react will endup in an endless loop
-    //
-    let newPagination = state.pagination.clone();
-    newPagination.rowsPerPage = this.rowsPerPage;
-
-    if (newPagination.isEqualTo(state.pagination)) {
-      // if pagination hasn't changed, then don't update it as it will
-      // cause additional renders
-      newPagination = state.pagination;
-    }
-
     const newTableResults = state.tableStatsResults.clone();
     newTableResults.totalPages = this.totalPages;
     newTableResults.totalRows = this.totalRows;
 
+    const newSkillListParameters = this.skillListParameters.clone();
+
     return {
       ...state,
       skillList: this.skillList,
-      pagination: newPagination,
+      previousSkillListParameters: newSkillListParameters,
       tableStatsResults: newTableResults,
     };
   }

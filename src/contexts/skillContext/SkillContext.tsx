@@ -4,11 +4,13 @@ import PaginationApiModel from "../../apiRepository/models/PaginationApiModel";
 import React, { Dispatch, Reducer } from "react";
 import SkillApiModel from "../../apiRepository/models/SkillApiModel";
 import TableStatsResultsStateModel from "../../contextsCommonModels/TableStatusResultsStateModel";
+import RepositorySkillListParams from "../../apiRepository/skills/models/RepositorySkillListParams";
 
 // Interface defining data structure stored in this context
 //
 export interface SkillContextProps {
   skillList: Array<SkillApiModel>;
+  previousSkillListParameters: RepositorySkillListParams;
   pagination: PaginationApiModel;
   tableStatsResults: TableStatsResultsStateModel;
 }
@@ -24,6 +26,7 @@ export interface InitContextProps {
 //
 const initialState: SkillContextProps = {
   skillList: new Array<SkillApiModel>(),
+  previousSkillListParameters: RepositorySkillListParams.zero,
   pagination: new PaginationApiModel(EnumSortColumn.Skill),
   tableStatsResults: new TableStatsResultsStateModel(),
 };

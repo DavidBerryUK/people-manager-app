@@ -27,6 +27,7 @@ export default class CommandPeopleListSet implements IPeopleContextDispatchComma
     const newTableResults = state.tableStatsResults.clone();
     newTableResults.totalPages = this.totalPages;
     newTableResults.totalRows = this.totalRows;
+
     const newPeopleListParameters = this.peopleListParameters.clone();
 
     return {
