@@ -22,7 +22,7 @@ const RoleTableWidget: React.FC = () => {
     if (params.isNotEqualTo(roleState.previousRoleListParameters)) {
       const apiRepositoryRoleList = new ApiRepositoryRoleList();
       const roleList = await apiRepositoryRoleList.getRolesAsync(params);
-      roleDispatch(new CommandRoleListSet(roleList.data, params, roleList.totalPages, roleList.totalRows));
+      roleDispatch(new CommandRoleListSet(roleList, params));
       writeUrlHistory();
     }
   }, [roleDispatch, roleState.pagination, roleState.previousRoleListParameters, writeUrlHistory]);
@@ -40,12 +40,12 @@ const RoleTableWidget: React.FC = () => {
       <table>
         <RoleTableHeader />
         <tbody>
-          {roleState.roleList.map((row, index) => (
+          {roleState.roleList.data.map((row, index) => (
             <RoleRowWidget key={index} role={row} />
           ))}
         </tbody>
       </table>
-      <PaginationWidget page={roleState.pagination.pageNo} pageCount={roleState.tableStatsResults.totalPages} onPageChanged={handleOnPageChangeEvent} />
+      <PaginationWidget page={roleState.pagination.pageNo} pageCount={roleState.roleList.totalPages} onPageChanged={handleOnPageChangeEvent} />
     </div>
   );
 };

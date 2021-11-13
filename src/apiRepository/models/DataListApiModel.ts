@@ -10,4 +10,8 @@ export default class DataListApiModel<T> {
     this.rowsPerPage = rowsPerPage;
     this.totalPages = Math.ceil(totalRows / rowsPerPage);
   }
+
+  static zero<T>() {
+    return new DataListApiModel(new Array<T>(), 0, 0);
+  }
 }

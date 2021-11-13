@@ -1,18 +1,17 @@
 import { EnumSortColumn } from "../../constants/enums/EnumSortColumn";
 import { ISkillContextDispatchCommand } from "./interfaces/ISkillContextDispatchCommand";
+import DataListApiModel from "../../apiRepository/models/DataListApiModel";
 import PaginationApiModel from "../../apiRepository/models/PaginationApiModel";
 import React, { Dispatch, Reducer } from "react";
-import SkillApiModel from "../../apiRepository/models/SkillApiModel";
-import TableStatsResultsStateModel from "../../contextsCommonModels/TableStatusResultsStateModel";
 import RepositorySkillListParams from "../../apiRepository/skills/models/RepositorySkillListParams";
+import SkillApiModel from "../../apiRepository/models/SkillApiModel";
 
 // Interface defining data structure stored in this context
 //
 export interface SkillContextProps {
-  skillList: Array<SkillApiModel>;
+  skillList: DataListApiModel<SkillApiModel>;
   previousSkillListParameters: RepositorySkillListParams;
   pagination: PaginationApiModel;
-  tableStatsResults: TableStatsResultsStateModel;
 }
 
 // Strongly type interface for updating this context, which is done by using
@@ -25,10 +24,9 @@ export interface InitContextProps {
 // Setup the initial state of this context by creating new models
 //
 const initialState: SkillContextProps = {
-  skillList: new Array<SkillApiModel>(),
+  skillList: DataListApiModel.zero<SkillApiModel>(),
   previousSkillListParameters: RepositorySkillListParams.zero,
   pagination: new PaginationApiModel(EnumSortColumn.Skill),
-  tableStatsResults: new TableStatsResultsStateModel(),
 };
 
 // The reducer updates the actual data held in the context.

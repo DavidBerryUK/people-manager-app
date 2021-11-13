@@ -21,7 +21,7 @@ const PeopleTableWidget: React.FC = () => {
     if (params.isNotEqualTo(peopleState.previousPeopleListParameters)) {
       const apiRepositoryPeopleList = new ApiRepositoryPeopleList();
       const peopleList = await apiRepositoryPeopleList.getPeopleAsync(params);
-      peopleDispatch(new CommandPeopleListSet(peopleList.data, params, peopleList.totalPages, peopleList.totalRows));
+      peopleDispatch(new CommandPeopleListSet(peopleList, params));
       writeUrlHistory();
     }
   }, [peopleDispatch, peopleState.pagination, peopleState.previousPeopleListParameters, writeUrlHistory]);
@@ -35,12 +35,12 @@ const PeopleTableWidget: React.FC = () => {
       <table>
         <PeopleTableHeader />
         <tbody>
-          {peopleState.peopleList.map((row, index) => (
+          {peopleState.peopleList.data.map((row, index) => (
             <PeopleRowWidget key={index} person={row} />
           ))}
         </tbody>
       </table>
-      <PaginationWidget page={peopleState.pagination.pageNo} pageCount={peopleState.tableStatsResults.totalPages} onPageChanged={handleOnPageChangeEvent} />
+      <PaginationWidget page={peopleState.pagination.pageNo} pageCount={peopleState.peopleList.totalPages} onPageChanged={handleOnPageChangeEvent} />
     </div>
   );
 };

@@ -22,7 +22,7 @@ const SkillTableWidget: React.FC = () => {
     if (params.isNotEqualTo(skillState.previousSkillListParameters)) {
       const apiRepositorySkillList = new ApiRepositorySkillList();
       const skillList = await apiRepositorySkillList.getSkillsAsync(params);
-      skillDispatch(new CommandSkillListSet(skillList.data, params, skillList.totalPages, skillList.totalRows));
+      skillDispatch(new CommandSkillListSet(skillList, params));
       writeUrlHistory();
     }
   }, [skillDispatch, skillState.pagination, skillState.previousSkillListParameters, writeUrlHistory]);
@@ -40,12 +40,12 @@ const SkillTableWidget: React.FC = () => {
       <table>
         <SkillTableHeader />
         <tbody>
-          {skillState.skillList.map((row, index) => (
+          {skillState.skillList.data.map((row, index) => (
             <SkillRowWidget key={index} skill={row} />
           ))}
         </tbody>
       </table>
-      <PaginationWidget page={skillState.pagination.pageNo} pageCount={skillState.tableStatsResults.totalPages} onPageChanged={handleOnPageChangeEvent} />
+      <PaginationWidget page={skillState.pagination.pageNo} pageCount={skillState.skillList.totalPages} onPageChanged={handleOnPageChangeEvent} />
     </div>
   );
 };

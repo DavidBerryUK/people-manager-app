@@ -22,7 +22,7 @@ const TeamTableWidget: React.FC = () => {
     if (params.isNotEqualTo(teamState.previousTeamListParameters)) {
       const apiRepositoryTeamList = new ApiRepositoryTeamList();
       const teamList = await apiRepositoryTeamList.getTeamsAsync(params);
-      teamDispatch(new CommandTeamListSet(teamList.data, params, teamList.totalPages, teamList.totalRows));
+      teamDispatch(new CommandTeamListSet(teamList, params));
       writeUrlHistory();
     }
   }, [teamDispatch, teamState.pagination, teamState.previousTeamListParameters, writeUrlHistory]);
@@ -36,12 +36,12 @@ const TeamTableWidget: React.FC = () => {
       <table>
         <TeamTableHeader />
         <tbody>
-          {teamState.teamList.map((row, index) => (
+          {teamState.teamList.data.map((row, index) => (
             <TeamRowWidget key={index} team={row} />
           ))}
         </tbody>
       </table>
-      <PaginationWidget page={teamState.pagination.pageNo} pageCount={teamState.tableStatsResults.totalPages} onPageChanged={handleOnPageChangeEvent} />
+      <PaginationWidget page={teamState.pagination.pageNo} pageCount={teamState.teamList.totalPages} onPageChanged={handleOnPageChangeEvent} />
     </div>
   );
 };

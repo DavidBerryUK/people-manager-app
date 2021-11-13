@@ -1,18 +1,17 @@
 import { EnumSortColumn } from "../../constants/enums/EnumSortColumn";
 import { ITeamContextDispatchCommand } from "./interfaces/ITeamContextDispatchCommand";
+import DataListApiModel from "../../apiRepository/models/DataListApiModel";
 import PaginationApiModel from "../../apiRepository/models/PaginationApiModel";
 import React, { Dispatch, Reducer } from "react";
-import TableStatsResultsStateModel from "../../contextsCommonModels/TableStatusResultsStateModel";
-import TeamApiModel from "../../apiRepository/models/TeamApiModel";
 import RepositoryTeamListParams from "../../apiRepository/teams/models/RepositoryTeamListParams";
+import TeamApiModel from "../../apiRepository/models/TeamApiModel";
 
 // Interface defining data structure stored in this context
 //
 export interface TeamContextProps {
-  teamList: Array<TeamApiModel>;
+  teamList: DataListApiModel<TeamApiModel>;
   previousTeamListParameters: RepositoryTeamListParams;
   pagination: PaginationApiModel;
-  tableStatsResults: TableStatsResultsStateModel;
 }
 
 // Strongly type interface for updating this context, which is done by using
@@ -25,10 +24,9 @@ export interface InitContextProps {
 // Setup the initial state of this context by creating new models
 //
 const initialState: TeamContextProps = {
-  teamList: new Array<TeamApiModel>(),
+  teamList: DataListApiModel.zero<TeamApiModel>(),
   previousTeamListParameters: RepositoryTeamListParams.zero,
   pagination: new PaginationApiModel(EnumSortColumn.Team),
-  tableStatsResults: new TableStatsResultsStateModel(),
 };
 
 // The reducer updates the actual data held in the context.
