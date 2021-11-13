@@ -12,7 +12,7 @@ import useDataTableUrlWriter from "../../hooks/UseDataTableUrlWriter";
 
 const PeopleTableWidget: React.FC = () => {
   const { state: peopleState, dispatch: peopleDispatch } = usePeopleContext();
-  const [lastRequest, setLastRequest] = useState(RepositoryPeopleListParams.default);
+  const [lastRequest, setLastRequest] = useState(RepositoryPeopleListParams.zero);
 
   // URL Managers
   const { writeUrlHistory } = useDataTableUrlWriter();

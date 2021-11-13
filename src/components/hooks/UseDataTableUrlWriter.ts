@@ -60,7 +60,7 @@ function useDataTableUrlWriter() {
       if (history.location.search === "" && newHistory.search !== "") {
         //
         // if web was landed on with no parameters, the page may well generate
-        // default params, so we need to overright the blanks history with the
+        // default params, so we need to overwrite the blanks history with the
         // enriched one
         history.replace(newHistory);
         return;
