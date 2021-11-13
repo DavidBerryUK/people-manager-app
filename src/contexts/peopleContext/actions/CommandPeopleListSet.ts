@@ -3,19 +3,20 @@
 import { IPeopleContextDispatchCommand } from "../interfaces/IPeopleContextDispatchCommand";
 import { PeopleContextProps } from "../PeopleContext";
 import PersonApiModel from "../../../apiRepository/models/PersonApiModel";
+import RepositoryPeopleListParams from "../../../apiRepository/people/models/RepositoryPeopleListParams";
 
 //
 export default class CommandPeopleListSet implements IPeopleContextDispatchCommand {
   peopleList: Array<PersonApiModel>;
-  rowsPerPage: number;
+  peopleListParameters: RepositoryPeopleListParams;
   totalPages: number;
   totalRows: number;
 
   // Create the command with all data needed to update
   //  the state
-  constructor(peopleList: Array<PersonApiModel>, rowsPerPage: number, totalPages: number, totalRows: number) {
+  constructor(peopleList: Array<PersonApiModel>, peopleListParameters: RepositoryPeopleListParams, totalPages: number, totalRows: number) {
     this.peopleList = peopleList;
-    this.rowsPerPage = rowsPerPage;
+    this.peopleListParameters = peopleListParameters;
     this.totalPages = totalPages;
     this.totalRows = totalRows;
   }
@@ -23,27 +24,16 @@ export default class CommandPeopleListSet implements IPeopleContextDispatchComma
   // Update the context and return the new state
   // (this is called from within the ApplicationContext)
   execute(state: PeopleContextProps): PeopleContextProps {
-    // only update pagination if required or react will endup in an endless loop
-    //
-    let newPagination = state.pagination.clone();
-    newPagination.rowsPerPage = this.rowsPerPage;
-
     const newTableResults = state.tableStatsResults.clone();
     newTableResults.totalPages = this.totalPages;
     newTableResults.totalRows = this.totalRows;
+    const newPeopleListParameters = this.peopleListParameters.clone();
 
-    var response = {
+    return {
       ...state,
       peopleList: this.peopleList,
+      previousPeopleListParameters: newPeopleListParameters,
       tableStatsResults: newTableResults,
     };
-
-    if (!newPagination.isEqualTo(state.pagination)) {
-      // if pagination hasn't changed, then don't update it as it will
-      // cause additional renders      
-      response.pagination = newPagination;
-    }
-
-    return response;
   }
 }

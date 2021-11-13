@@ -2,14 +2,16 @@ import DataListApiModel from "../models/DataListApiModel";
 import FakeApiEndpoint from "../dataSources/FakeApiEndpoint";
 import MockUtilities from "../../utilities/MockUtilities";
 import PersonApiModel from "../models/PersonApiModel";
-import SortPeople from "../sorters/SortPeople";
 import RepositoryPeopleListParams from "./models/RepositoryPeopleListParams";
+import SortPeople from "../sorters/SortPeople";
 
 export default class ApiRepositoryPeopleList {
   //
   // Get List Of People
   //
   async getPeopleAsync(params: RepositoryPeopleListParams): Promise<DataListApiModel<PersonApiModel>> {
+    console.log("######################################## ApiRepositoryPeopleList:getPeopleAsync");
+
     // artificial delay
     await MockUtilities.demoNetworkDelayAsync();
 

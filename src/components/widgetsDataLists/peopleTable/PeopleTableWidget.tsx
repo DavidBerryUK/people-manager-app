@@ -5,38 +5,28 @@ import CommandPeopleListSet from "../../../contexts/peopleContext/actions/Comman
 import PaginationWidget from "../../widgetsUI/pagination/PaginationWidget";
 import PeopleRowWidget from "./PeopleRowWidget";
 import PeopleTableHeader from "./PeopleTableHeader";
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import RepositoryPeopleListParams from "../../../apiRepository/people/models/RepositoryPeopleListParams";
 import useDataTableUrlReader from "../../hooks/UseDataTableUrlReader";
 import useDataTableUrlWriter from "../../hooks/UseDataTableUrlWriter";
 
 const PeopleTableWidget: React.FC = () => {
   const { state: peopleState, dispatch: peopleDispatch } = usePeopleContext();
-  const [lastRequest, setLastRequest] = useState(RepositoryPeopleListParams.zero);
 
-  // URL Managers
   const { writeUrlHistory } = useDataTableUrlWriter();
   useDataTableUrlReader();
 
   useMemo(async () => {
     var params = new RepositoryPeopleListParams(peopleState.pagination.sortColumn, peopleState.pagination.sortDirection, peopleState.pagination.pageNo, peopleState.pagination.rowsPerPage);
-    console.log(params);
-    // use repository to get data when state changes, then add it to the people list context
-    if (lastRequest.isNotEqualTo(params)) {
-      console.log("######################################## PEOPLE GET DATA #########################");
+    if (params.isNotEqualTo(peopleState.previousPeopleListParameters)) {
       const apiRepositoryPeopleList = new ApiRepositoryPeopleList();
       const peopleList = await apiRepositoryPeopleList.getPeopleAsync(params);
-      setLastRequest(params);
-      peopleDispatch(new CommandPeopleListSet(peopleList.data, peopleList.rowsPerPage, peopleList.totalPages, peopleList.totalRows));
+      peopleDispatch(new CommandPeopleListSet(peopleList.data, params, peopleList.totalPages, peopleList.totalRows));
       writeUrlHistory();
     }
-  }, [peopleDispatch, peopleState.pagination, writeUrlHistory, lastRequest]);
+  }, [peopleDispatch, peopleState.pagination, peopleState.previousPeopleListParameters, writeUrlHistory]);
 
-  //
-  // Event Handlers - use selected new page
-  //
   const handleOnPageChangeEvent = (pageNo: number) => {
-    // update context with new page number to force data reload
     peopleDispatch(new CommandPageNumberSet(pageNo));
   };
 

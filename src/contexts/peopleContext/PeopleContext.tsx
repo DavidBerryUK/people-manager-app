@@ -3,12 +3,14 @@ import { IPeopleContextDispatchCommand } from "./interfaces/IPeopleContextDispat
 import PaginationApiModel from "../../apiRepository/models/PaginationApiModel";
 import PersonApiModel from "../../apiRepository/models/PersonApiModel";
 import React, { Dispatch, Reducer } from "react";
+import RepositoryPeopleListParams from "../../apiRepository/people/models/RepositoryPeopleListParams";
 import TableStatsResultsStateModel from "../../contextsCommonModels/TableStatusResultsStateModel";
 
 // Interface defining data structure stored in this context
 //
 export interface PeopleContextProps {
   peopleList: Array<PersonApiModel>;
+  previousPeopleListParameters: RepositoryPeopleListParams;
   pagination: PaginationApiModel;
   tableStatsResults: TableStatsResultsStateModel;
 }
@@ -24,6 +26,7 @@ export interface InitContextProps {
 //
 const initialState: PeopleContextProps = {
   peopleList: new Array<PersonApiModel>(),
+  previousPeopleListParameters: RepositoryPeopleListParams.zero,
   pagination: new PaginationApiModel(EnumSortColumn.Forename),
   tableStatsResults: new TableStatsResultsStateModel(),
 };

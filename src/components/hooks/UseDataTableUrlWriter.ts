@@ -23,18 +23,11 @@ function useDataTableUrlWriter() {
   function writeUrlHistory() {
     console.log(`******* function writeUrlHistory():${history.action} `);
 
-    // if (history.action === "POP") {
-    //     // do not write a new history as this was a
-    //     // back / forward button press
-    //     return;
-    // }
-
     var pagination = new PaginationApiModel(EnumSortColumn.None);
 
     if (peopleState) {
       pagination = peopleState.pagination;
     }
-
     if (teamState) {
       pagination = teamState.pagination;
     }
@@ -47,12 +40,8 @@ function useDataTableUrlWriter() {
 
     const newHistory = HistoryUrlBuilder.buildUrl(location.pathname, pagination, listDetailState.detailView);
 
-    console.log("######################################## WRITE HISTORY #########################");
-    console.log(`Current: ${history.location.pathname}      ${history.location.search}`);
-    console.log(`New    : ${newHistory.pathname}            ${newHistory.search}`);
-
     if (history.location.pathname === newHistory.pathname && history.location.search === newHistory.search) {
-      // location and params same, user may have pressed back button
+      // location and params same, user may have pressed back button, don't add new history
       return;
     }
 
