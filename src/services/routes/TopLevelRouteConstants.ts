@@ -2,12 +2,14 @@ export enum EnumTopLevelRoutes {
   HomePage = "/home",
   ListPage = "/list",
   PeopleListPageSubPath = "/people",
+  ProjectListPageSubPath = "/projects",
+  RoleListPageSubPath = "/roles",
   SkillListPageSubPath = "/skills",
   TeamListPageSubPath = "/teams",
-  RoleListPageSubPath = "/roles",
 
   PeopleListPageFullPath = "/list/people",
+  ProjectListPageFullPath = "/list/projects",
+  RoleListPageFullPath = "/list/roles",
   SkillListPageFullPath = "/list/skills",
   TeamListPageFullPath = "/list/teams",
-  RoleListPageFullPath = "/list/roles",
 }
