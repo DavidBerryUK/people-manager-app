@@ -28,7 +28,7 @@ const DetailPersonWidget: React.FC = () => {
 
   useMemo(async () => {
     if (state.detailView.personId !== person.id) {
-      console.log("######################################## DETAIIL: GET PERSON #########################");
+      console.log("######################################## DETAIL: GET PERSON #########################");
       const apiRepositoryPeople = new ApiRepositoryPeople();
       const personData = await apiRepositoryPeople.getPersonAsync(state.detailView.personId!);
       setPerson(personData);

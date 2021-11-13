@@ -4,12 +4,15 @@ import App from "./components/app/App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import "./styles/styles.scss";
+import { Suspense } from "react";
 
 const rootElement = document.getElementById("root");
 
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    <Suspense fallback={<div>Loading...</div>}>
+      <App />
+    </Suspense>
   </BrowserRouter>,
   rootElement
 );

@@ -21,7 +21,7 @@ const DetailSkillWidget: React.FC = () => {
 
   useMemo(async () => {
     if (state.detailView.skillId !== skill.id) {
-      console.log("######################################## DETAIIL: GET SKILL #########################");
+      console.log("######################################## DETAIL: GET SKILL #########################");
       const apiRepositoryPeople = new ApiRepositorySkill();
       const skillData = await apiRepositoryPeople.getSkillAsync(state.detailView.skillId!);
       setSkill(skillData);

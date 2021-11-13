@@ -1,11 +1,14 @@
 import { EnumTopLevelRoutes } from "./TopLevelRouteConstants";
 import { Route, Switch } from "react-router-dom";
 import { useRouteMatch } from "react-router";
-import PeopleListPage from "../../components/pages/peopleList/PeopleListPage";
-import React from "react";
-import SkillListPage from "../../components/pages/skillsList/SkillListPage";
-import TeamListPage from "../../components/pages/teamsList/TeamListPage";
-import RoleListPage from "../../components/pages/roleList/RoleListPage";
+import React, { lazy } from "react";
+
+// enable code splitting for pages
+//
+const PeopleListPage = lazy(() => import("../../components/pages/peopleList/PeopleListPage"));
+const SkillListPage = lazy(() => import("../../components/pages/skillsList/SkillListPage"));
+const TeamListPage = lazy(() => import("../../components/pages/teamsList/TeamListPage"));
+const RoleListPage = lazy(() => import("../../components/pages/roleList/RoleListPage"));
 
 const SubListRoutes: React.FC = () => {
   let { path } = useRouteMatch();

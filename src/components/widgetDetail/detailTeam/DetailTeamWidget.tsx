@@ -21,7 +21,7 @@ const DetailTeamWidget: React.FC = () => {
 
   useMemo(async () => {
     if (state.detailView.teamId !== team.id) {
-      console.log("######################################## DETAIIL: GET TEAM #########################");
+      console.log("######################################## DETAIL: GET TEAM #########################");
       const apiRepositoryTeam = new ApiRepositoryTeam();
       const teamData = await apiRepositoryTeam.getTeamAsync(state.detailView.teamId!);
       setTeam(teamData);

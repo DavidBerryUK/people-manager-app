@@ -1,8 +1,11 @@
 import { EnumTopLevelRoutes } from "./TopLevelRouteConstants";
 import { Route, Switch } from "react-router-dom";
-import HomePage from "../../components/pages/homePage/HomePage";
-import ListPage from "../../components/pages/listPage/ListPage";
-import React from "react";
+import React, { lazy } from "react";
+
+// enable code splitting for pages
+//
+const HomePage = lazy(() => import("../../components/pages/homePage/HomePage"));
+const ListPage = lazy(() => import("../../components/pages/listPage/ListPage"));
 
 const TopLevelRoutes: React.SFC = () => {
   return (
