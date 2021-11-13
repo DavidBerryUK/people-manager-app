@@ -3,7 +3,7 @@ import { useRoleContext } from "../../../contexts/roleContext/RoleContext";
 import ApiRepositoryRoleList from "../../../apiRepository/role/ApiRepositoryRoleList";
 import CommandPageNumberSet from "../../../contexts/roleContext/actions/CommandPageNumberSet";
 import CommandRoleListSet from "../../../contexts/roleContext/actions/CommandRoleListSet";
-import PaginationStateModel from "../../../contextsCommonModels/PaginationStateModel";
+import PaginationApiModel from "../../../apiRepository/models/PaginationApiModel";
 import PaginationWidget from "../../widgetsUI/pagination/PaginationWidget";
 import React, { useMemo, useState } from "react";
 import RoleRowWidget from "./RoleRowWidget";
@@ -13,7 +13,7 @@ import useDataTableUrlWriter from "../../hooks/UseDataTableUrlWriter";
 
 const RoleTableWidget: React.FC = () => {
   const { state: roleState, dispatch: roleDispatch } = useRoleContext();
-  const [lastRequest, setLastRequest] = useState(new PaginationStateModel(EnumSortColumn.None));
+  const [lastRequest, setLastRequest] = useState(new PaginationApiModel(EnumSortColumn.None));
 
   // URL Managers
   const { writeUrlHistory } = useDataTableUrlWriter();
@@ -24,7 +24,7 @@ const RoleTableWidget: React.FC = () => {
       console.log("######################################## ROLE GET DATA #########################");
       // use repository to get data when state changes, then add it to the people list context
       const apiRepositoryRoleList = new ApiRepositoryRoleList();
-      const roleList = await apiRepositoryRoleList.getRolesAsync(roleState.pagination.sortColumn, roleState.pagination.sortDirection, roleState.pagination.pageNumber, roleState.pagination.rowsPerPage);
+      const roleList = await apiRepositoryRoleList.getRolesAsync(roleState.pagination.sortColumn, roleState.pagination.sortDirection, roleState.pagination.pageNo, roleState.pagination.rowsPerPage);
       setLastRequest(roleState.pagination);
       roleDispatch(new CommandRoleListSet(roleList.data, roleList.rowsPerPage, roleList.totalPages, roleList.totalRows));
       writeUrlHistory();
@@ -49,7 +49,7 @@ const RoleTableWidget: React.FC = () => {
           ))}
         </tbody>
       </table>
-      <PaginationWidget page={roleState.pagination.pageNumber} pageCount={roleState.tableStatsResults.totalPages} onPageChanged={handleOnPageChangeEvent} />
+      <PaginationWidget page={roleState.pagination.pageNo} pageCount={roleState.tableStatsResults.totalPages} onPageChanged={handleOnPageChangeEvent} />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import { EnumSortColumn } from "../../constants/enums/EnumSortColumn";
 import { ISkillContextDispatchCommand } from "./interfaces/ISkillContextDispatchCommand";
-import PaginationStateModel from "../../contextsCommonModels/PaginationStateModel";
+import PaginationApiModel from "../../apiRepository/models/PaginationApiModel";
 import React, { Dispatch, Reducer } from "react";
 import SkillApiModel from "../../apiRepository/models/SkillApiModel";
 import TableStatsResultsStateModel from "../../contextsCommonModels/TableStatusResultsStateModel";
@@ -9,7 +9,7 @@ import TableStatsResultsStateModel from "../../contextsCommonModels/TableStatusR
 //
 export interface SkillContextProps {
   skillList: Array<SkillApiModel>;
-  pagination: PaginationStateModel;
+  pagination: PaginationApiModel;
   tableStatsResults: TableStatsResultsStateModel;
 }
 
@@ -24,7 +24,7 @@ export interface InitContextProps {
 //
 const initialState: SkillContextProps = {
   skillList: new Array<SkillApiModel>(),
-  pagination: new PaginationStateModel(EnumSortColumn.Skill),
+  pagination: new PaginationApiModel(EnumSortColumn.Skill),
   tableStatsResults: new TableStatsResultsStateModel(),
 };
 

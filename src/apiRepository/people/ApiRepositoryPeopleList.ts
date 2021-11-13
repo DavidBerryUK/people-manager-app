@@ -1,16 +1,15 @@
-import { EnumSortColumn } from "../../constants/enums/EnumSortColumn";
-import { EnumSortDirection } from "../../constants/enums/EnumSortDirection";
 import DataListApiModel from "../models/DataListApiModel";
 import FakeApiEndpoint from "../dataSources/FakeApiEndpoint";
 import MockUtilities from "../../utilities/MockUtilities";
 import PersonApiModel from "../models/PersonApiModel";
 import SortPeople from "../sorters/SortPeople";
+import RepositoryPeopleListParams from "./models/RepositoryPeopleListParams";
 
 export default class ApiRepositoryPeopleList {
   //
   // Get List Of People
   //
-  async getPeopleAsync(sortColumn: EnumSortColumn, sortDirection: EnumSortDirection, pageNo: number, rowsPerPage: number): Promise<DataListApiModel<PersonApiModel>> {
+  async getPeopleAsync(params: RepositoryPeopleListParams): Promise<DataListApiModel<PersonApiModel>> {
     // artificial delay
     await MockUtilities.demoNetworkDelayAsync();
 
@@ -19,17 +18,17 @@ export default class ApiRepositoryPeopleList {
     let fullList = fakeApi.people!;
 
     // sort
-    fullList = SortPeople.sortData(fullList, sortColumn, sortDirection);
+    fullList = SortPeople.sortData(fullList, params.sortColumn, params.sortDirection);
 
-    var skip = (pageNo - 1) * rowsPerPage;
+    var skip = (params.pageNo - 1) * params.rowsPerPage;
     if (skip < 0) {
       skip = 0;
     }
 
-    const rowsOnPage = fullList.slice(skip, skip + rowsPerPage);
+    const rowsOnPage = fullList.slice(skip, skip + params.rowsPerPage);
 
     // create response
-    var dataList = new DataListApiModel(rowsOnPage, rowsPerPage, fullList.length);
+    var dataList = new DataListApiModel(rowsOnPage, params.rowsPerPage, fullList.length);
 
     return dataList;
   }

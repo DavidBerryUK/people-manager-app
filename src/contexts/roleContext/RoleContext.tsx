@@ -1,6 +1,6 @@
 import { EnumSortColumn } from "../../constants/enums/EnumSortColumn";
 import { IRoleContextDispatchCommand } from "./interfaces/IRoleContextDispatchCommand";
-import PaginationStateModel from "../../contextsCommonModels/PaginationStateModel";
+import PaginationApiModel from "../../apiRepository/models/PaginationApiModel";
 import React, { Dispatch, Reducer } from "react";
 import RoleApiModel from "../../apiRepository/models/RoleApiModel";
 import TableStatsResultsStateModel from "../../contextsCommonModels/TableStatusResultsStateModel";
@@ -9,7 +9,7 @@ import TableStatsResultsStateModel from "../../contextsCommonModels/TableStatusR
 //
 export interface RoleContextProps {
   roleList: Array<RoleApiModel>;
-  pagination: PaginationStateModel;
+  pagination: PaginationApiModel;
   tableStatsResults: TableStatsResultsStateModel;
 }
 
@@ -24,7 +24,7 @@ export interface InitContextProps {
 //
 const initialState: RoleContextProps = {
   roleList: new Array<RoleApiModel>(),
-  pagination: new PaginationStateModel(EnumSortColumn.Role),
+  pagination: new PaginationApiModel(EnumSortColumn.Role),
   tableStatsResults: new TableStatsResultsStateModel(),
 };
 

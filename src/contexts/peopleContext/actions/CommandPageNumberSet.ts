@@ -17,11 +17,11 @@ export default class CommandPageNumberSet implements IPeopleContextDispatchComma
   // (this is called from within the ApplicationContext)
   execute(state: PeopleContextProps): PeopleContextProps {
     const pagination = state.pagination.clone();
-    pagination.pageNumber = this.pageNumber;
+    pagination.pageNo = this.pageNumber;
 
     return {
       ...state,
-      pagination: pagination
+      pagination: pagination,
     };
   }
 }

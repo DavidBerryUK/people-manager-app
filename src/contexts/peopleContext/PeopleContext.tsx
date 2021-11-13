@@ -1,6 +1,6 @@
 import { EnumSortColumn } from "../../constants/enums/EnumSortColumn";
 import { IPeopleContextDispatchCommand } from "./interfaces/IPeopleContextDispatchCommand";
-import PaginationStateModel from "../../contextsCommonModels/PaginationStateModel";
+import PaginationApiModel from "../../apiRepository/models/PaginationApiModel";
 import PersonApiModel from "../../apiRepository/models/PersonApiModel";
 import React, { Dispatch, Reducer } from "react";
 import TableStatsResultsStateModel from "../../contextsCommonModels/TableStatusResultsStateModel";
@@ -9,7 +9,7 @@ import TableStatsResultsStateModel from "../../contextsCommonModels/TableStatusR
 //
 export interface PeopleContextProps {
   peopleList: Array<PersonApiModel>;
-  pagination: PaginationStateModel;
+  pagination: PaginationApiModel;
   tableStatsResults: TableStatsResultsStateModel;
 }
 
@@ -24,7 +24,7 @@ export interface InitContextProps {
 //
 const initialState: PeopleContextProps = {
   peopleList: new Array<PersonApiModel>(),
-  pagination: new PaginationStateModel(EnumSortColumn.Forename),
+  pagination: new PaginationApiModel(EnumSortColumn.Forename),
   tableStatsResults: new TableStatsResultsStateModel(),
 };
 

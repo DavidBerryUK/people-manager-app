@@ -17,11 +17,11 @@ export default class CommandPageNumberSet implements IRoleContextDispatchCommand
   // (this is called from within the ApplicationContext)
   execute(state: RoleContextProps): RoleContextProps {
     const pagination = state.pagination.clone();
-    pagination.pageNumber = this.pageNumber;
+    pagination.pageNo = this.pageNumber;
 
     return {
       ...state,
-      pagination: pagination
+      pagination: pagination,
     };
   }
 }

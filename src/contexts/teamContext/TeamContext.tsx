@@ -1,6 +1,6 @@
 import { EnumSortColumn } from "../../constants/enums/EnumSortColumn";
 import { ITeamContextDispatchCommand } from "./interfaces/ITeamContextDispatchCommand";
-import PaginationStateModel from "../../contextsCommonModels/PaginationStateModel";
+import PaginationApiModel from "../../apiRepository/models/PaginationApiModel";
 import React, { Dispatch, Reducer } from "react";
 import TableStatsResultsStateModel from "../../contextsCommonModels/TableStatusResultsStateModel";
 import TeamApiModel from "../../apiRepository/models/TeamApiModel";
@@ -9,7 +9,7 @@ import TeamApiModel from "../../apiRepository/models/TeamApiModel";
 //
 export interface TeamContextProps {
   teamList: Array<TeamApiModel>;
-  pagination: PaginationStateModel;
+  pagination: PaginationApiModel;
   tableStatsResults: TableStatsResultsStateModel;
 }
 
@@ -24,7 +24,7 @@ export interface InitContextProps {
 //
 const initialState: TeamContextProps = {
   teamList: new Array<TeamApiModel>(),
-  pagination: new PaginationStateModel(EnumSortColumn.Team),
+  pagination: new PaginationApiModel(EnumSortColumn.Team),
   tableStatsResults: new TableStatsResultsStateModel(),
 };
 

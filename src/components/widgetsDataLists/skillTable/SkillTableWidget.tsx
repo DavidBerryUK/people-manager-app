@@ -3,7 +3,7 @@ import { useSkillContext } from "../../../contexts/skillContext/SkillContext";
 import ApiRepositorySkillList from "../../../apiRepository/skills/ApiRepositorySkillList";
 import CommandPageNumberSet from "../../../contexts/skillContext/actions/CommandPageNumberSet";
 import CommandSkillListSet from "../../../contexts/skillContext/actions/CommandSkillListSet";
-import PaginationStateModel from "../../../contextsCommonModels/PaginationStateModel";
+import PaginationApiModel from "../../../apiRepository/models/PaginationApiModel";
 import PaginationWidget from "../../widgetsUI/pagination/PaginationWidget";
 import React, { useMemo, useState } from "react";
 import SkillRowWidget from "./SkillRowWidget";
@@ -13,7 +13,7 @@ import useDataTableUrlWriter from "../../hooks/UseDataTableUrlWriter";
 
 const SkillTableWidget: React.FC = () => {
   const { state: skillState, dispatch: skillDispatch } = useSkillContext();
-  const [lastRequest, setLastRequest] = useState(new PaginationStateModel(EnumSortColumn.None));
+  const [lastRequest, setLastRequest] = useState(new PaginationApiModel(EnumSortColumn.None));
 
   // URL Managers
   const { writeUrlHistory } = useDataTableUrlWriter();
@@ -24,7 +24,7 @@ const SkillTableWidget: React.FC = () => {
     if (lastRequest.isNotEqualTo(skillState.pagination)) {
       console.log("######################################## SKILL GET DATA #########################");
       const apiRepositorySkillList = new ApiRepositorySkillList();
-      const skillList = await apiRepositorySkillList.getSkillsAsync(skillState.pagination.sortColumn, skillState.pagination.sortDirection, skillState.pagination.pageNumber, skillState.pagination.rowsPerPage);
+      const skillList = await apiRepositorySkillList.getSkillsAsync(skillState.pagination.sortColumn, skillState.pagination.sortDirection, skillState.pagination.pageNo, skillState.pagination.rowsPerPage);
       setLastRequest(skillState.pagination);
       skillDispatch(new CommandSkillListSet(skillList.data, skillList.rowsPerPage, skillList.totalPages, skillList.totalRows));
       writeUrlHistory();
@@ -49,7 +49,7 @@ const SkillTableWidget: React.FC = () => {
           ))}
         </tbody>
       </table>
-      <PaginationWidget page={skillState.pagination.pageNumber} pageCount={skillState.tableStatsResults.totalPages} onPageChanged={handleOnPageChangeEvent} />
+      <PaginationWidget page={skillState.pagination.pageNo} pageCount={skillState.tableStatsResults.totalPages} onPageChanged={handleOnPageChangeEvent} />
     </div>
   );
 };
