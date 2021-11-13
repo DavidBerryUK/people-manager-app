@@ -1,21 +1,22 @@
 //
 // Set Team List
 import TeamApiModel from "../../../apiRepository/models/TeamApiModel";
+import RepositoryTeamListParams from "../../../apiRepository/teams/models/RepositoryTeamListParams";
 import { ITeamContextDispatchCommand } from "../interfaces/ITeamContextDispatchCommand";
 import { TeamContextProps } from "../TeamContext";
 
 //
 export default class CommandTeamListSet implements ITeamContextDispatchCommand {
   teamList: Array<TeamApiModel>;
-  rowsPerPage: number;
+  teamListParameters: RepositoryTeamListParams;
   totalPages: number;
   totalRows: number;
 
   // Create the command with all data needed to update
   //  the state
-  constructor(teamList: Array<TeamApiModel>, rowsPerPage: number, totalPages: number, totalRows: number) {
+  constructor(teamList: Array<TeamApiModel>, teamListParameters: RepositoryTeamListParams, totalPages: number, totalRows: number) {
     this.teamList = teamList;
-    this.rowsPerPage = rowsPerPage;
+    this.teamListParameters = teamListParameters;
     this.totalPages = totalPages;
     this.totalRows = totalRows;
   }
@@ -23,26 +24,15 @@ export default class CommandTeamListSet implements ITeamContextDispatchCommand {
   // Update the context and return the new state
   // (this is called from within the ApplicationContext)
   execute(state: TeamContextProps): TeamContextProps {
-
-    // only update pagination if required or react will endup in an endless loop
-    //
-    let newPagination = state.pagination.clone();
-    newPagination.rowsPerPage = this.rowsPerPage;
-
-    if (newPagination.isEqualTo(state.pagination)) {
-      // if pagination hasn't changed, then don't update it as it will
-      // cause additional renders
-      newPagination = state.pagination;
-    }
-
     const newTableResults = state.tableStatsResults.clone();
     newTableResults.totalPages = this.totalPages;
     newTableResults.totalRows = this.totalRows;
+    const newTeamListParameters = this.teamListParameters.clone();
 
     return {
       ...state,
       teamList: this.teamList,
-      pagination: newPagination,
+      previousTeamListParameters: newTeamListParameters,
       tableStatsResults: newTableResults,
     };
   }

@@ -1,11 +1,10 @@
-import { EnumSortColumn } from "../../../constants/enums/EnumSortColumn";
 import { useTeamContext } from "../../../contexts/teamContext/TeamContext";
 import ApiRepositoryTeamList from "../../../apiRepository/teams/ApiRepositoryTeamList";
 import CommandPageNumberSet from "../../../contexts/teamContext/actions/CommandPageNumberSet";
 import CommandTeamListSet from "../../../contexts/teamContext/actions/CommandTeamListSet";
-import PaginationApiModel from "../../../apiRepository/models/PaginationApiModel";
 import PaginationWidget from "../../widgetsUI/pagination/PaginationWidget";
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
+import RepositoryTeamListParams from "../../../apiRepository/teams/models/RepositoryTeamListParams";
 import TeamRowWidget from "./TeamRowWidget";
 import TeamTableHeader from "./TeamTableHeader";
 import useDataTableUrlReader from "../../hooks/UseDataTableUrlReader";
@@ -13,23 +12,20 @@ import useDataTableUrlWriter from "../../hooks/UseDataTableUrlWriter";
 
 const TeamTableWidget: React.FC = () => {
   const { state: teamState, dispatch: teamDispatch } = useTeamContext();
-  const [lastRequest, setLastRequest] = useState(new PaginationApiModel(EnumSortColumn.None));
 
   // URL Managers
   const { writeUrlHistory } = useDataTableUrlWriter();
   useDataTableUrlReader();
 
   useMemo(async () => {
-    // use repository to get data when state changes, then add it to the people list context
-    if (lastRequest.isNotEqualTo(teamState.pagination)) {
-      console.log("######################################## TEAM GET DATA #########################");
+    var params = new RepositoryTeamListParams(teamState.pagination.sortColumn, teamState.pagination.sortDirection, teamState.pagination.pageNo, teamState.pagination.rowsPerPage);
+    if (params.isNotEqualTo(teamState.previousTeamListParameters)) {
       const apiRepositoryTeamList = new ApiRepositoryTeamList();
-      const teamList = await apiRepositoryTeamList.getTeamsAsync(teamState.pagination.sortColumn, teamState.pagination.sortDirection, teamState.pagination.pageNo, teamState.pagination.rowsPerPage);
-      setLastRequest(teamState.pagination);
-      teamDispatch(new CommandTeamListSet(teamList.data, teamList.rowsPerPage, teamList.totalPages, teamList.totalRows));
+      const teamList = await apiRepositoryTeamList.getTeamsAsync(params);
+      teamDispatch(new CommandTeamListSet(teamList.data, params, teamList.totalPages, teamList.totalRows));
       writeUrlHistory();
     }
-  }, [teamDispatch, teamState.pagination, writeUrlHistory, lastRequest]);
+  }, [teamDispatch, teamState.pagination, teamState.previousTeamListParameters, writeUrlHistory]);
 
   //
   // Event Handlers

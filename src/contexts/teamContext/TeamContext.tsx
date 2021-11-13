@@ -4,11 +4,13 @@ import PaginationApiModel from "../../apiRepository/models/PaginationApiModel";
 import React, { Dispatch, Reducer } from "react";
 import TableStatsResultsStateModel from "../../contextsCommonModels/TableStatusResultsStateModel";
 import TeamApiModel from "../../apiRepository/models/TeamApiModel";
+import RepositoryTeamListParams from "../../apiRepository/teams/models/RepositoryTeamListParams";
 
 // Interface defining data structure stored in this context
 //
 export interface TeamContextProps {
   teamList: Array<TeamApiModel>;
+  previousTeamListParameters: RepositoryTeamListParams;
   pagination: PaginationApiModel;
   tableStatsResults: TableStatsResultsStateModel;
 }
@@ -24,6 +26,7 @@ export interface InitContextProps {
 //
 const initialState: TeamContextProps = {
   teamList: new Array<TeamApiModel>(),
+  previousTeamListParameters: RepositoryTeamListParams.zero,
   pagination: new PaginationApiModel(EnumSortColumn.Team),
   tableStatsResults: new TableStatsResultsStateModel(),
 };
