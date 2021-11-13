@@ -4,16 +4,16 @@ import ProjectApiModel from "../models/ProjectApiModel";
 
 export default class ApiRepositoryProject {
   //
-  // Get a Skill
+  // Get a Project
   //
-  async getProjectAsync(skillId: number): Promise<ProjectApiModel> {
+  async getProjectAsync(projectId: number): Promise<ProjectApiModel> {
     // artificial delay
     await MockUtilities.demoNetworkDelayAsync();
 
     // get copy of people from fake api
     const fakeApi = new FakeApiEndpoint();
     let projects = fakeApi.projects?.filter((project) => {
-      return project.id === skillId;
+      return project.id === projectId;
     });
     if (projects === undefined || projects.length === 0) {
       return new ProjectApiModel();

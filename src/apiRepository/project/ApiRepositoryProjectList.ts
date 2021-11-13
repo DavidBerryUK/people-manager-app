@@ -5,7 +5,7 @@ import ProjectApiModel from "../models/ProjectApiModel";
 import RepositoryProjectListParams from "./models/RepositoryProjectListParams";
 import SortProjects from "../sorters/SortProjects";
 
-export default class ApiRepositorySkillList {
+export default class ApiRepositoryProjectList {
   //
   // Get List Of Projects
   //

@@ -42,5 +42,8 @@ export default class FakeApiEndpoint {
     this.teams = data.teams;
     this.roles = data.roles;
     this.projects = new Array<ProjectApiModel>();
+    this.projects.push(new ProjectApiModel(1, "IOS Product Inventory"));
+    this.projects.push(new ProjectApiModel(2, "Windows CE Shop Floor Audit"));
+    this.projects.push(new ProjectApiModel(3, "Vehicle Service Bookings"));
   }
 }
