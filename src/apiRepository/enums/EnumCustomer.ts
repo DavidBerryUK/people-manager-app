@@ -1,0 +1,15 @@
+export enum EnumCustomer {
+  CareHireSpecialists,
+  CareInsurance,
+  GlobalBank,
+  HealthCareUK,
+  HouseInsurance,
+  MetalsIncorporated,
+  MobilePhoneShop,
+  NorthernUkBank,
+  PensionsUkLtd,
+  RetailKitchenware,
+  RuggedCampingShop,
+  VehicleRentals,
+  VehicleServicingLtd,
+}

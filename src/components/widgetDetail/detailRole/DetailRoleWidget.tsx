@@ -6,7 +6,7 @@ import ImageRole from "../../widgetsUI/imageRole/ImageRole";
 import Panel from "../../widgetsUI/panel/Panel";
 import PanelBody from "../../widgetsUI/panel/PanelBody";
 import PanelHeader from "../../widgetsUI/panel/PanelHeader";
-import PeopleTags from "../../widgetsDataLists/peopleTags/PeopleTags";
+import PeopleTags from "../../widgetTags/peopleTags/PeopleTags";
 import React, { useMemo, useState } from "react";
 import RoleApiModel from "../../../apiRepository/models/RoleApiModel";
 import TextSubHeader from "../../widgetTypography/textSubHeader/TextSubHeader";

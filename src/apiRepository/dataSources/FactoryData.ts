@@ -1,17 +1,23 @@
+import CustomerApiModel from "../models/CustomerApiModel";
+import FactoryCustomers from "./FactoryCustomers";
 import FactoryPeople from "./FactoryPeople";
+import FactoryProjects from "./FactoryProject";
+import FactoryRoles from "./FactoryRoles";
 import FactorySkills from "./FactorySkills";
 import FactoryTeams from "./FactoryTeams";
 import PersonApiModel from "../models/PersonApiModel";
+import ProjectApiModel from "../models/ProjectApiModel";
+import RoleApiModel from "../models/RoleApiModel";
 import SkillApiModel from "../models/SkillApiModel";
 import TeamApiModel from "../models/TeamApiModel";
-import RoleApiModel from "../models/RoleApiModel";
-import FactoryRoles from "./FactoryRoles";
 
 interface IData {
+  customers: Array<CustomerApiModel>;
   people: Array<PersonApiModel>;
+  projects: Array<ProjectApiModel>;
+  roles: Array<RoleApiModel>;
   skills: Array<SkillApiModel>;
   teams: Array<TeamApiModel>;
-  roles: Array<RoleApiModel>;
 }
 
 //
@@ -19,12 +25,26 @@ interface IData {
 //
 export default class FactoryData {
   static createData(): IData {
-    const skills = FactorySkills.createList();
+    const customers = FactoryCustomers.createList();
+
     const roles = FactoryRoles.createList();
+    const skills = FactorySkills.createList();
     const teams = FactoryTeams.createList();
+
+    const projectFactory = new FactoryProjects(customers);
+    const projects = projectFactory.createList();
+
     const peopleFactory = new FactoryPeople(skills, teams, roles);
     const people = peopleFactory.createList();
-    const response = { people: people, roles: roles, skills: skills, teams: teams };
+
+    const response = {
+      customers: customers,
+      people: people,
+      projects: projects,
+      roles: roles,
+      skills: skills,
+      teams: teams,
+    };
     return response;
   }
 }

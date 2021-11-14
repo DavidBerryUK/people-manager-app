@@ -6,7 +6,7 @@ import ImageTeam from "../../widgetsUI/imageTeam/ImageRole";
 import Panel from "../../widgetsUI/panel/Panel";
 import PanelBody from "../../widgetsUI/panel/PanelBody";
 import PanelHeader from "../../widgetsUI/panel/PanelHeader";
-import PeopleTags from "../../widgetsDataLists/peopleTags/PeopleTags";
+import PeopleTags from "../../widgetTags/peopleTags/PeopleTags";
 import React, { useMemo, useState } from "react";
 import TeamApiModel from "../../../apiRepository/models/TeamApiModel";
 import TextSubHeader from "../../widgetTypography/textSubHeader/TextSubHeader";

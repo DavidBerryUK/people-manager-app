@@ -1,6 +1,6 @@
 import { EnumIconSize } from "../../../constants/enums/EnumIconSize";
 import ImageSkill from "../../widgetsUI/imageSkill/ImageSkill";
-import PeopleSkillTags from "../peopleTags/PeopleSkillTags";
+import PeopleSkillTags from "../../widgetTags/peopleTags/PeopleSkillTags";
 import React from "react";
 import SkillApiModel from "../../../apiRepository/models/SkillApiModel";
 

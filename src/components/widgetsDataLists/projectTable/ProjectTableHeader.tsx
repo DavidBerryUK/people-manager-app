@@ -7,6 +7,7 @@ const ProjectTableHeader: React.FC = () => {
     <thead>
       <tr>
         <ProjectTableHeaderCellWidget column={EnumSortColumn.Project}>Project</ProjectTableHeaderCellWidget>
+        <ProjectTableHeaderCellWidget column={EnumSortColumn.Customer}>Customer</ProjectTableHeaderCellWidget>
       </tr>
     </thead>
   );

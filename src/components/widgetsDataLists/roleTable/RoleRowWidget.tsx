@@ -1,6 +1,6 @@
 import { EnumIconSize } from "../../../constants/enums/EnumIconSize";
 import ImageRole from "../../widgetsUI/imageRole/ImageRole";
-import PeopleTags from "../peopleTags/PeopleTags";
+import PeopleTags from "../../widgetTags/peopleTags/PeopleTags";
 import React from "react";
 import RoleApiModel from "../../../apiRepository/models/RoleApiModel";
 

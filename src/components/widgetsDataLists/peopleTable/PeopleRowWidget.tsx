@@ -2,9 +2,9 @@ import { EnumIconSize } from "../../../constants/enums/EnumIconSize";
 import ImageAvatar from "../../widgetsUI/imageAvatar/ImageAvatar";
 import PersonApiModel from "../../../apiRepository/models/PersonApiModel";
 import React from "react";
-import RoleTag from "../roleTag/RoleTag";
-import SkillTags from "../skillTags/SkillTags";
-import TeamTags from "../teamTags/TeamTags";
+import RoleTag from "../../widgetTags/roleTag/RoleTag";
+import SkillTags from "../../widgetTags/skillTags/SkillTags";
+import TeamTags from "../../widgetTags/teamTags/TeamTags";
 
 interface IProperties {
   person: PersonApiModel;

@@ -6,7 +6,7 @@ import ImageSkill from "../../widgetsUI/imageSkill/ImageSkill";
 import Panel from "../../widgetsUI/panel/Panel";
 import PanelBody from "../../widgetsUI/panel/PanelBody";
 import PanelHeader from "../../widgetsUI/panel/PanelHeader";
-import PeopleSkillTags from "../../widgetsDataLists/peopleTags/PeopleSkillTags";
+import PeopleSkillTags from "../../widgetTags/peopleTags/PeopleSkillTags";
 import React, { useMemo, useState } from "react";
 import SkillApiModel from "../../../apiRepository/models/SkillApiModel";
 import TextSubHeader from "../../widgetTypography/textSubHeader/TextSubHeader";

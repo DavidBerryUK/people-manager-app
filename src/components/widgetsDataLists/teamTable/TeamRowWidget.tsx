@@ -1,6 +1,6 @@
 import { EnumIconSize } from "../../../constants/enums/EnumIconSize";
 import ImageTeam from "../../widgetsUI/imageTeam/ImageRole";
-import PeopleTags from "../peopleTags/PeopleTags";
+import PeopleTags from "../../widgetTags/peopleTags/PeopleTags";
 import React from "react";
 import TeamApiModel from "../../../apiRepository/models/TeamApiModel";
 
@@ -12,7 +12,6 @@ const TeamRowWidget: React.FC<IProperties> = (props) => {
   return (
     <tr>
       <td>
-        {" "}
         <ImageTeam fileName={props.team.iconName} size={EnumIconSize.small} />
       </td>
       <td> {props.team.name}</td>
