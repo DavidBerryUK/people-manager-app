@@ -1,10 +1,12 @@
+import { EnumDetailViewType } from "../../../constants/enums/EnumDetailViewType";
 import { UseListDetailContext } from "../../../contexts/ListDetailContext.tsx/ListDetailContext";
+import DetailCustomerWidget from "../detailCustomer/DetailCustomerWidget";
 import DetailPersonWidget from "../detailPerson/DetailPersonWidget";
 import DetailRoleWidget from "../detailRole/DetailRoleWidget";
 import DetailSkillWidget from "../detailSkill/DetailSkillWidget";
 import DetailTeamWidget from "../detailTeam/DetailTeamWidget";
 import React from "react";
-import { EnumDetailViewType } from "../../../constants/enums/EnumDetailViewType";
+import DetailProjectWidget from "../detailProject/DetailCustomerWidget";
 
 const DetailHostWidget: React.FC = (props) => {
   const { state } = UseListDetailContext();
@@ -22,6 +24,12 @@ const DetailHostWidget: React.FC = (props) => {
 
       case EnumDetailViewType.role:
         return <DetailRoleWidget />;
+
+      case EnumDetailViewType.customer:
+        return <DetailCustomerWidget />;
+
+      case EnumDetailViewType.project:
+        return <DetailProjectWidget />;
     }
 
     return <></>;
