@@ -1,14 +1,14 @@
 import { EnumSortColumn } from "../../constants/enums/EnumSortColumn";
 import { EnumSortDirection } from "../../constants/enums/EnumSortDirection";
-import ProjectApiModel from "../models/ProjectApiModel";
+import CustomerApiModel from "../models/CustomerApiModel";
 
-type compareType = { (o1: ProjectApiModel, o2: ProjectApiModel): number };
+type compareType = { (o1: CustomerApiModel, o2: CustomerApiModel): number };
 
-export default class SortProjects {
+export default class SortCustomers {
   //
-  // sort Projects lists
+  // sort Customers lists
   //
-  static sortData(data: Array<ProjectApiModel>, sortColumn: EnumSortColumn, sortDirection: EnumSortDirection): Array<ProjectApiModel> {
+  static sortData(data: Array<CustomerApiModel>, sortColumn: EnumSortColumn, sortDirection: EnumSortDirection): Array<CustomerApiModel> {
     var comparator: compareType;
 
     comparator = this.comparatorFactory(sortColumn, sortDirection);
@@ -24,21 +24,21 @@ export default class SortProjects {
   // Provide sort function depending on the sort column and direction
   //
   private static comparatorFactory(sortColumn: EnumSortColumn, sortDirection: EnumSortDirection): compareType {
-    // Project
-    if (sortColumn === EnumSortColumn.Project) {
+    // Customer
+    if (sortColumn === EnumSortColumn.Customer) {
       if (sortDirection === EnumSortDirection.asc) {
-        return (o1: ProjectApiModel, o2: ProjectApiModel): number => {
+        return (o1: CustomerApiModel, o2: CustomerApiModel): number => {
           return o1.name.localeCompare(o2.name)!;
         };
       } else {
-        return (o1: ProjectApiModel, o2: ProjectApiModel): number => {
+        return (o1: CustomerApiModel, o2: CustomerApiModel): number => {
           return o2.name.localeCompare(o1.name)!;
         };
       }
     }
 
     // return sort by project name by default
-    return (o1: ProjectApiModel, o2: ProjectApiModel): number => {
+    return (o1: CustomerApiModel, o2: CustomerApiModel): number => {
       return o1.name.localeCompare(o2.name)!;
     };
   }

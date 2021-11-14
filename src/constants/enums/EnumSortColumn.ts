@@ -4,23 +4,25 @@
 //
 export enum EnumSortColumn {
   None,
+  Customer,
   Email,
   Forename,
+  Project,
   Role,
   Skill,
-  Project,
   Surname,
   Team,
 }
 
-const noneText = "none";
+const customerText = "customer";
 const emailText = "email";
 const forenameText = "forename";
+const noneText = "none";
+const projectText = "project";
 const roleText = "role";
 const skillText = "skill";
 const surnameText = "surname";
 const teamText = "team";
-const projectText = "project";
 
 // may be a better way of doing this, but could not
 // get string->enum to compare with another enum correctly
@@ -46,7 +48,9 @@ export default class EnumSortColumnConvert {
       case teamText:
         return EnumSortColumn.Team;
       case projectText:
-        return EnumSortColumn.Team;
+        return EnumSortColumn.Project;
+      case customerText:
+        return EnumSortColumn.Customer;
     }
 
     return EnumSortColumn.None;
@@ -74,6 +78,8 @@ export default class EnumSortColumnConvert {
         return teamText;
       case EnumSortColumn.Project:
         return projectText;
+      case EnumSortColumn.Customer:
+        return customerText;
     }
     return noneText;
   }

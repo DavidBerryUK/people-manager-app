@@ -11,6 +11,7 @@ export default class FactoryNavButtons {
 
     buttons.push(new NavButtonModel(EnumTopLevelRoutes.HomePage, "Home"));
     buttons.push(new NavButtonModel(EnumTopLevelRoutes.PeopleListPageFullPath, "People"));
+    buttons.push(new NavButtonModel(EnumTopLevelRoutes.CustomerListPageFullPath, "Customers"));
     buttons.push(new NavButtonModel(EnumTopLevelRoutes.ProjectListPageFullPath, "Projects"));
     buttons.push(new NavButtonModel(EnumTopLevelRoutes.TeamListPageFullPath, "Teams"));
     buttons.push(new NavButtonModel(EnumTopLevelRoutes.RoleListPageFullPath, "Roles"));

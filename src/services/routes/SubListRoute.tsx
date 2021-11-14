@@ -5,11 +5,12 @@ import React, { lazy } from "react";
 
 // enable code splitting for pages
 //
+const CustomerListPage = lazy(() => import("../../components/pages/customerList/CustomerListPage"));
 const PeopleListPage = lazy(() => import("../../components/pages/peopleList/PeopleListPage"));
+const ProjectListPage = lazy(() => import("../../components/pages/projectList/ProjectListPage"));
+const RoleListPage = lazy(() => import("../../components/pages/roleList/RoleListPage"));
 const SkillListPage = lazy(() => import("../../components/pages/skillsList/SkillListPage"));
 const TeamListPage = lazy(() => import("../../components/pages/teamsList/TeamListPage"));
-const RoleListPage = lazy(() => import("../../components/pages/roleList/RoleListPage"));
-const ProjectListPage = lazy(() => import("../../components/pages/projectList/ProjectListPage"));
 
 const SubListRoutes: React.FC = () => {
   let { path } = useRouteMatch();
@@ -20,6 +21,7 @@ const SubListRoutes: React.FC = () => {
       <Route path={`${path}${EnumTopLevelRoutes.TeamListPageSubPath}`} component={TeamListPage} />
       <Route path={`${path}${EnumTopLevelRoutes.RoleListPageSubPath}`} component={RoleListPage} />
       <Route path={`${path}${EnumTopLevelRoutes.ProjectListPageSubPath}`} component={ProjectListPage} />
+      <Route path={`${path}${EnumTopLevelRoutes.CustomerListPageSubPath}`} component={CustomerListPage} />
     </Switch>
   );
 };
