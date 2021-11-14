@@ -3,7 +3,7 @@ import FakeApiEndpoint from "../dataSources/FakeApiEndpoint";
 import MockUtilities from "../../utilities/MockUtilities";
 import RepositorySkillListParams from "./models/RepositorySkillListParams";
 import SkillApiModel from "../models/SkillApiModel";
-import SortSkills from "../sorters/SortSkills";
+import SortSkills from "../../dataSorters/SortSkills";
 
 export default class ApiRepositorySkillList {
   //

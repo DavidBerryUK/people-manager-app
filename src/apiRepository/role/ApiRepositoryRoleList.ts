@@ -3,7 +3,7 @@ import FakeApiEndpoint from "../dataSources/FakeApiEndpoint";
 import MockUtilities from "../../utilities/MockUtilities";
 import RepositoryRoleListParams from "./models/RepositoryRoleListParams";
 import RoleApiModel from "../models/RoleApiModel";
-import SortRoles from "../sorters/SortRoles";
+import SortRoles from "../../dataSorters/SortRoles";
 
 export default class ApiRepositoryRoleList {
   //

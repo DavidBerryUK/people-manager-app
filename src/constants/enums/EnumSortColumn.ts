@@ -8,6 +8,7 @@ export enum EnumSortColumn {
   Email,
   Forename,
   Project,
+  ProjectStatus,
   Role,
   Skill,
   Surname,
@@ -19,6 +20,7 @@ const emailText = "email";
 const forenameText = "forename";
 const noneText = "none";
 const projectText = "project";
+const projectStatusText = "projectStatus";
 const roleText = "role";
 const skillText = "skill";
 const surnameText = "surname";
@@ -49,6 +51,8 @@ export default class EnumSortColumnConvert {
         return EnumSortColumn.Team;
       case projectText:
         return EnumSortColumn.Project;
+      case projectStatusText:
+        return EnumSortColumn.ProjectStatus;
       case customerText:
         return EnumSortColumn.Customer;
     }
@@ -78,6 +82,8 @@ export default class EnumSortColumnConvert {
         return teamText;
       case EnumSortColumn.Project:
         return projectText;
+      case EnumSortColumn.ProjectStatus:
+        return projectStatusText;
       case EnumSortColumn.Customer:
         return customerText;
     }

@@ -1,8 +1,7 @@
 export enum EnumCustomer {
-  CareHireSpecialists,
-  CareInsurance,
+  HealthCareSpecialists,
+  CarInsurance,
   GlobalBank,
-  HealthCareUK,
   HouseInsurance,
   MetalsIncorporated,
   MobilePhoneShop,

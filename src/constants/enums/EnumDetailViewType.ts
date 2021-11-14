@@ -3,6 +3,7 @@ export enum EnumDetailViewType {
   customer,
   person,
   project,
+  projectStatus,
   role,
   skill,
   team,
@@ -12,6 +13,7 @@ const noneText = "none";
 const customerText = "customer";
 const personText = "person";
 const projectText = "project";
+const projectStatusText = "projectStatus";
 const roleText = "role";
 const skillText = "skill";
 const teamText = "team";
@@ -30,9 +32,11 @@ export default class EnumDetailViewTypeConvert {
       case customerText:
         return EnumDetailViewType.customer;
       case personText:
-        return EnumDetailViewType.project;
-      case projectText:
         return EnumDetailViewType.person;
+      case projectText:
+        return EnumDetailViewType.project;
+      case projectStatusText:
+        return EnumDetailViewType.projectStatus;
       case roleText:
         return EnumDetailViewType.role;
       case skillText:
@@ -64,6 +68,8 @@ export default class EnumDetailViewTypeConvert {
         return customerText;
       case EnumDetailViewType.project:
         return projectText;
+      case EnumDetailViewType.projectStatus:
+        return projectStatusText;
     }
     return noneText;
   }

@@ -3,7 +3,7 @@ import FakeApiEndpoint from "../dataSources/FakeApiEndpoint";
 import MockUtilities from "../../utilities/MockUtilities";
 import ProjectApiModel from "../models/ProjectApiModel";
 import RepositoryProjectListParams from "./models/RepositoryProjectListParams";
-import SortProjects from "../sorters/SortProjects";
+import SortProjects from "../../dataSorters/SortProjects";
 
 export default class ApiRepositoryProjectList {
   //

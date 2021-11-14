@@ -1,6 +1,6 @@
-import { EnumSortColumn } from "../../constants/enums/EnumSortColumn";
-import { EnumSortDirection } from "../../constants/enums/EnumSortDirection";
-import CustomerApiModel from "../models/CustomerApiModel";
+import { EnumSortColumn } from "../constants/enums/EnumSortColumn";
+import { EnumSortDirection } from "../constants/enums/EnumSortDirection";
+import CustomerApiModel from "../apiRepository/models/CustomerApiModel";
 
 type compareType = { (o1: CustomerApiModel, o2: CustomerApiModel): number };
 

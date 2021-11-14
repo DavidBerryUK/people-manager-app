@@ -8,19 +8,18 @@ export default class FactoryCustomers {
   static createList(): Array<CustomerApiModel> {
     const list = new Array<CustomerApiModel>();
 
-    list.push(new CustomerApiModel(EnumCustomer.CareHireSpecialists, "CareHireSpecialists"));
-    list.push(new CustomerApiModel(EnumCustomer.CareInsurance, "CareInsurance, "));
-    list.push(new CustomerApiModel(EnumCustomer.GlobalBank, "GlobalBank"));
-    list.push(new CustomerApiModel(EnumCustomer.HealthCareUK, "HealthCareUK"));
-    list.push(new CustomerApiModel(EnumCustomer.HouseInsurance, "HouseInsurance"));
-    list.push(new CustomerApiModel(EnumCustomer.MetalsIncorporated, "MetalsIncorporated"));
-    list.push(new CustomerApiModel(EnumCustomer.MobilePhoneShop, "MobilePhoneShop"));
-    list.push(new CustomerApiModel(EnumCustomer.NorthernUkBank, "NorthernUkBank"));
-    list.push(new CustomerApiModel(EnumCustomer.PensionsUkLtd, "PensionsUkLtd"));
-    list.push(new CustomerApiModel(EnumCustomer.RetailKitchenware, "RetailKitchenware"));
-    list.push(new CustomerApiModel(EnumCustomer.RuggedCampingShop, "RuggedCampingShop"));
-    list.push(new CustomerApiModel(EnumCustomer.VehicleRentals, "VehicleRentals"));
-    list.push(new CustomerApiModel(EnumCustomer.VehicleServicingLtd, "VehicleServicingLtd"));
+    list.push(new CustomerApiModel(EnumCustomer.HealthCareSpecialists, "Health Care Specialists"));
+    list.push(new CustomerApiModel(EnumCustomer.CarInsurance, "Car Insurance"));
+    list.push(new CustomerApiModel(EnumCustomer.GlobalBank, "Global Bank"));
+    list.push(new CustomerApiModel(EnumCustomer.HouseInsurance, "House Insurance"));
+    list.push(new CustomerApiModel(EnumCustomer.MetalsIncorporated, "Metals Incorporated"));
+    list.push(new CustomerApiModel(EnumCustomer.MobilePhoneShop, "Mobile Phone Shop"));
+    list.push(new CustomerApiModel(EnumCustomer.NorthernUkBank, "Northern Uk Bank"));
+    list.push(new CustomerApiModel(EnumCustomer.PensionsUkLtd, "Pensions Uk Ltd"));
+    list.push(new CustomerApiModel(EnumCustomer.RetailKitchenware, "Retail Kitchenware"));
+    list.push(new CustomerApiModel(EnumCustomer.RuggedCampingShop, "Rugged Camping Shop"));
+    list.push(new CustomerApiModel(EnumCustomer.VehicleRentals, "Vehicle Rentals"));
+    list.push(new CustomerApiModel(EnumCustomer.VehicleServicingLtd, "Vehicle Servicing Ltd"));
 
     return list;
   }

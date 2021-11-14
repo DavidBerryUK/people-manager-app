@@ -4,6 +4,7 @@ export default class DetailViewStateModel {
   private _customerId: number | undefined;
   private _personId: number | undefined;
   private _projectId: number | undefined;
+  private _projectStatusId: number | undefined;
   private _roleId: number | undefined;
   private _skillId: number | undefined;
   private _teamId: number | undefined;
@@ -18,6 +19,7 @@ export default class DetailViewStateModel {
     model._customerId = this._customerId;
     model._personId = this._personId;
     model._projectId = this._projectId;
+    model._projectStatusId = this._projectStatusId;
     model._roleId = this._roleId;
     model._skillId = this._skillId;
     model._teamId = this._teamId;
@@ -58,6 +60,16 @@ export default class DetailViewStateModel {
     this.clearAllKeys();
     this.viewType = EnumDetailViewType.project;
     this._projectId = value;
+  }
+
+  get projectStatusId(): number | undefined {
+    return this._projectStatusId;
+  }
+
+  set projectStatusId(value: number | undefined) {
+    this.clearAllKeys();
+    this.viewType = EnumDetailViewType.projectStatus;
+    this._projectStatusId = value;
   }
 
   get skillId(): number | undefined {
@@ -106,6 +118,8 @@ export default class DetailViewStateModel {
         return this._customerId;
       case EnumDetailViewType.project:
         return this._projectId;
+      case EnumDetailViewType.projectStatus:
+        return this._projectStatusId;
     }
     return undefined;
   }
@@ -130,6 +144,9 @@ export default class DetailViewStateModel {
       case EnumDetailViewType.project:
         this.projectId = value;
         break;
+      case EnumDetailViewType.projectStatus:
+        this.projectStatusId = value;
+        break;
     }
   }
 
@@ -137,6 +154,7 @@ export default class DetailViewStateModel {
     this._customerId = undefined;
     this._personId = undefined;
     this._projectId = undefined;
+    this._projectStatusId = undefined;
     this._roleId = undefined;
     this._skillId = undefined;
     this._teamId = undefined;

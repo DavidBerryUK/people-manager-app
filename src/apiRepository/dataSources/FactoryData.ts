@@ -10,6 +10,8 @@ import ProjectApiModel from "../models/ProjectApiModel";
 import RoleApiModel from "../models/RoleApiModel";
 import SkillApiModel from "../models/SkillApiModel";
 import TeamApiModel from "../models/TeamApiModel";
+import FactoryProjectStatus from "./FactoryProjectStatus";
+import ProjectStatusApiModel from "../models/ProjectStatusApiModel";
 
 interface IData {
   customers: Array<CustomerApiModel>;
@@ -18,6 +20,7 @@ interface IData {
   roles: Array<RoleApiModel>;
   skills: Array<SkillApiModel>;
   teams: Array<TeamApiModel>;
+  projectStatus: Array<ProjectStatusApiModel>;
 }
 
 //
@@ -30,8 +33,9 @@ export default class FactoryData {
     const roles = FactoryRoles.createList();
     const skills = FactorySkills.createList();
     const teams = FactoryTeams.createList();
+    const projectStatus = FactoryProjectStatus.createList();
 
-    const projectFactory = new FactoryProjects(customers);
+    const projectFactory = new FactoryProjects(customers, projectStatus);
     const projects = projectFactory.createList();
 
     const peopleFactory = new FactoryPeople(skills, teams, roles);
@@ -44,6 +48,7 @@ export default class FactoryData {
       roles: roles,
       skills: skills,
       teams: teams,
+      projectStatus: projectStatus,
     };
     return response;
   }

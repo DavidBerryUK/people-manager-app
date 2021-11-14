@@ -3,7 +3,7 @@ import FakeApiEndpoint from "../dataSources/FakeApiEndpoint";
 import MockUtilities from "../../utilities/MockUtilities";
 import CustomerApiModel from "../models/CustomerApiModel";
 import RepositoryCustomerListParams from "./models/RepositoryCustomerListParams";
-import SortCustomers from "../sorters/SortCustomers";
+import SortCustomers from "../../dataSorters/SortCustomers";
 
 export default class ApiRepositoryCustomerList {
   //

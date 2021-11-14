@@ -1,6 +1,6 @@
-import { EnumSortColumn } from "../../constants/enums/EnumSortColumn";
-import { EnumSortDirection } from "../../constants/enums/EnumSortDirection";
-import ProjectApiModel from "../models/ProjectApiModel";
+import { EnumSortColumn } from "../constants/enums/EnumSortColumn";
+import { EnumSortDirection } from "../constants/enums/EnumSortDirection";
+import ProjectApiModel from "../apiRepository/models/ProjectApiModel";
 
 type compareType = { (o1: ProjectApiModel, o2: ProjectApiModel): number };
 
@@ -33,6 +33,30 @@ export default class SortProjects {
       } else {
         return (o1: ProjectApiModel, o2: ProjectApiModel): number => {
           return o2.name.localeCompare(o1.name)!;
+        };
+      }
+    }
+
+    if (sortColumn === EnumSortColumn.Customer) {
+      if (sortDirection === EnumSortDirection.asc) {
+        return (o1: ProjectApiModel, o2: ProjectApiModel): number => {
+          return o1.customer.name.localeCompare(o2.customer.name)!;
+        };
+      } else {
+        return (o1: ProjectApiModel, o2: ProjectApiModel): number => {
+          return o2.customer.name.localeCompare(o1.customer.name)!;
+        };
+      }
+    }
+
+    if (sortColumn === EnumSortColumn.ProjectStatus) {
+      if (sortDirection === EnumSortDirection.asc) {
+        return (o1: ProjectApiModel, o2: ProjectApiModel): number => {
+          return o1.status.name.localeCompare(o2.status.name)!;
+        };
+      } else {
+        return (o1: ProjectApiModel, o2: ProjectApiModel): number => {
+          return o2.status.name.localeCompare(o1.status.name)!;
         };
       }
     }

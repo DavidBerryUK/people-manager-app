@@ -3,7 +3,7 @@ import FakeApiEndpoint from "../dataSources/FakeApiEndpoint";
 import MockUtilities from "../../utilities/MockUtilities";
 import PersonApiModel from "../models/PersonApiModel";
 import RepositoryPeopleListParams from "./models/RepositoryPeopleListParams";
-import SortPeople from "../sorters/SortPeople";
+import SortPeople from "../../dataSorters/SortPeople";
 
 export default class ApiRepositoryPeopleList {
   //
