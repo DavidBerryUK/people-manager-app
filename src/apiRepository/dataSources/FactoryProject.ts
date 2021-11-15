@@ -1,9 +1,9 @@
 import { EnumCustomer } from "../enums/EnumCustomer";
 import { EnumProject } from "../enums/EnumProject";
 import { EnumProjectStatus } from "../enums/EnumProjectStatus";
-import CustomerApiModel from "../models/CustomerApiModel";
-import ProjectApiModel from "../models/ProjectApiModel";
-import ProjectStatusApiModel from "../models/ProjectStatusApiModel";
+import CustomerApiModel from "../entities/CustomerApiModel";
+import ProjectApiModel from "../entities/ProjectApiModel";
+import ProjectStatusApiModel from "../entities/ProjectStatusApiModel";
 
 //
 // Create list of teams

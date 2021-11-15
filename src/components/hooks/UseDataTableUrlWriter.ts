@@ -6,7 +6,7 @@ import { useRoleContext } from "../../contexts/roleContext/RoleContext";
 import { useSkillContext } from "../../contexts/skillContext/SkillContext";
 import { useTeamContext } from "../../contexts/teamContext/TeamContext";
 import HistoryUrlBuilder from "../../services/urlManagers/HistoryUrlBuilder";
-import PaginationApiModel from "../../apiRepository/models/PaginationApiModel";
+import PaginationModel from "../../apiRepository/models/PaginationModel";
 
 //
 // updates the url with parameters to reflect the current state
@@ -21,7 +21,7 @@ function useDataTableUrlWriter() {
   const { state: skillState } = useSkillContext();
 
   function writeUrlHistory() {
-    var pagination = new PaginationApiModel(EnumSortColumn.None);
+    var pagination = new PaginationModel(EnumSortColumn.None);
 
     if (peopleState) {
       pagination = peopleState.pagination;

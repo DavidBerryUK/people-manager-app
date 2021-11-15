@@ -1,9 +1,9 @@
-import CustomerApiModel from "../models/CustomerApiModel";
-import PersonApiModel from "../models/PersonApiModel";
-import ProjectApiModel from "../models/ProjectApiModel";
-import RoleApiModel from "../models/RoleApiModel";
-import SkillApiModel from "../models/SkillApiModel";
-import TeamApiModel from "../models/TeamApiModel";
+import CustomerApiModel from "../entities/CustomerApiModel";
+import PersonApiModel from "../entities/PersonApiModel";
+import ProjectApiModel from "../entities/ProjectApiModel";
+import RoleApiModel from "../entities/RoleApiModel";
+import SkillApiModel from "../entities/SkillApiModel";
+import TeamApiModel from "../entities/TeamApiModel";
 import DataFactory from "./FactoryData";
 
 //

@@ -1,4 +1,4 @@
-import PersonApiModel from "../../../apiRepository/models/PersonApiModel";
+import PersonApiModel from "../../../apiRepository/entities/PersonApiModel";
 import PersonTag from "./PersonTag";
 import React from "react";
 import TagContainer from "../../widgetsUI/tags/TagContainer";

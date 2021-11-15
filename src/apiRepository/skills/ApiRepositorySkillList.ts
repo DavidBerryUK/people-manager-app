@@ -1,8 +1,8 @@
-import DataListApiModel from "../models/DataListApiModel";
+import DataListApiModel from "../entities/DataListApiModel";
 import FakeApiEndpoint from "../dataSources/FakeApiEndpoint";
 import MockUtilities from "../../utilities/MockUtilities";
 import RepositorySkillListParams from "./models/RepositorySkillListParams";
-import SkillApiModel from "../models/SkillApiModel";
+import SkillApiModel from "../entities/SkillApiModel";
 import SortSkills from "../../dataSorters/SortSkills";
 
 export default class ApiRepositorySkillList {

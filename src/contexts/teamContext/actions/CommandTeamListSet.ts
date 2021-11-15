@@ -1,7 +1,7 @@
 //
 // Set Team List
-import DataListApiModel from "../../../apiRepository/models/DataListApiModel";
-import TeamApiModel from "../../../apiRepository/models/TeamApiModel";
+import DataListApiModel from "../../../apiRepository/entities/DataListApiModel";
+import TeamApiModel from "../../../apiRepository/entities/TeamApiModel";
 import RepositoryTeamListParams from "../../../apiRepository/teams/models/RepositoryTeamListParams";
 import { ITeamContextDispatchCommand } from "../interfaces/ITeamContextDispatchCommand";
 import { TeamContextProps } from "../TeamContext";

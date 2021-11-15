@@ -1,7 +1,7 @@
 import DetailViewStateModel from "../../contexts/ListDetailContext.tsx/models/DetailViewStateModel";
 import EnumSortColumnConvert from "../../constants/enums/EnumSortColumn";
 import EnumSortDirectionConvert from "../../constants/enums/EnumSortDirection";
-import PaginationApiModel from "../../apiRepository/models/PaginationApiModel";
+import PaginationModel from "../../apiRepository/models/PaginationModel";
 import UrlParameterNames from "./constants/UrlParameterNames";
 import UrlParametersModel from "./models/UrlParametersModel";
 import UrlParamStateModel from "./models/UrlParamStateModel";
@@ -11,7 +11,7 @@ export default class UrlManagerService {
   //
   // create url parameters string from object states and return..
   //
-  static createUrlParams(pagination: PaginationApiModel | null, detail: DetailViewStateModel | null): string {
+  static createUrlParams(pagination: PaginationModel | null, detail: DetailViewStateModel | null): string {
     var params = "";
 
     if (pagination) {

@@ -1,17 +1,17 @@
 import { EnumSortColumn } from "../../constants/enums/EnumSortColumn";
 import { IRoleContextDispatchCommand } from "./interfaces/IRoleContextDispatchCommand";
-import DataListApiModel from "../../apiRepository/models/DataListApiModel";
-import PaginationApiModel from "../../apiRepository/models/PaginationApiModel";
+import DataListApiModel from "../../apiRepository/entities/DataListApiModel";
+import PaginationModel from "../../apiRepository/models/PaginationModel";
 import React, { Dispatch, Reducer } from "react";
 import RepositoryRoleListParams from "../../apiRepository/role/models/RepositoryRoleListParams";
-import RoleApiModel from "../../apiRepository/models/RoleApiModel";
+import RoleApiModel from "../../apiRepository/entities/RoleApiModel";
 
 // Interface defining data structure stored in this context
 //
 export interface RoleContextProps {
   roleList: DataListApiModel<RoleApiModel>;
   previousRoleListParameters: RepositoryRoleListParams;
-  pagination: PaginationApiModel;
+  pagination: PaginationModel;
 }
 
 // Strongly type interface for updating this context, which is done by using
@@ -26,7 +26,7 @@ export interface InitContextProps {
 const initialState: RoleContextProps = {
   roleList: DataListApiModel.zero<RoleApiModel>(),
   previousRoleListParameters: RepositoryRoleListParams.zero,
-  pagination: new PaginationApiModel(EnumSortColumn.Role),
+  pagination: new PaginationModel(EnumSortColumn.Role),
 };
 
 // The reducer updates the actual data held in the context.

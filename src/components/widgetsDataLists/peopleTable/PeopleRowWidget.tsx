@@ -1,6 +1,6 @@
 import { EnumIconSize } from "../../../constants/enums/EnumIconSize";
 import ImageAvatar from "../../widgetsUI/imageAvatar/ImageAvatar";
-import PersonApiModel from "../../../apiRepository/models/PersonApiModel";
+import PersonApiModel from "../../../apiRepository/entities/PersonApiModel";
 import React from "react";
 import RoleTag from "../../widgetTags/roleTag/RoleTag";
 import SkillTags from "../../widgetTags/skillTags/SkillTags";

@@ -8,7 +8,7 @@ import PanelBody from "../../widgetsUI/panel/PanelBody";
 import PanelHeader from "../../widgetsUI/panel/PanelHeader";
 import PeopleSkillTags from "../../widgetTags/peopleTags/PeopleSkillTags";
 import React, { useMemo, useState } from "react";
-import SkillApiModel from "../../../apiRepository/models/SkillApiModel";
+import SkillApiModel from "../../../apiRepository/entities/SkillApiModel";
 import TextSubHeader from "../../widgetTypography/textSubHeader/TextSubHeader";
 import useDataTableUrlWriter from "../../hooks/UseDataTableUrlWriter";
 

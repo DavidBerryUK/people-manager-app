@@ -1,6 +1,6 @@
 import { EnumSortColumn } from "../constants/enums/EnumSortColumn";
 import { EnumSortDirection } from "../constants/enums/EnumSortDirection";
-import TeamApiModel from "../apiRepository/models/TeamApiModel";
+import TeamApiModel from "../apiRepository/entities/TeamApiModel";
 
 type compareType = { (o1: TeamApiModel, o2: TeamApiModel): number };
 

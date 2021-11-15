@@ -3,7 +3,7 @@
 //
 import { ITeamContextDispatchCommand } from "../interfaces/ITeamContextDispatchCommand";
 import { TeamContextProps } from "../TeamContext";
-import PaginationApiModel from "../../../apiRepository/models/PaginationApiModel";
+import PaginationModel from "../../../apiRepository/models/PaginationModel";
 import UrlParamStateModel from "../../../services/urlManagers/models/UrlParamStateModel";
 
 export default class CommandRestoreTeamFromUrl implements ITeamContextDispatchCommand {
@@ -18,7 +18,7 @@ export default class CommandRestoreTeamFromUrl implements ITeamContextDispatchCo
   // Update the context and return the new state
   // (this is called from within the ApplicationContext)
   execute(state: TeamContextProps): TeamContextProps {
-    const newPagination = new PaginationApiModel(this.urlParamState.sortColumn);
+    const newPagination = new PaginationModel(this.urlParamState.sortColumn);
     newPagination.pageNo = this.urlParamState.pageNumber;
     newPagination.rowsPerPage = this.urlParamState.rowsPerPage;
     newPagination.sortDirection = this.urlParamState.sortDirection;

@@ -1,13 +1,13 @@
 import { EnumSortColumn } from "../../../constants/enums/EnumSortColumn";
 import { EnumSortDirection } from "../../../constants/enums/EnumSortDirection";
-import PaginationApiModel from "../../models/PaginationApiModel";
+import PaginationModel from "../../models/PaginationModel";
 
 //
 // add parameters required to get a list of people from the repository
 //
 // this will include page no, page size, any filters etc
 //
-export default class RepositoryRoleListParams extends PaginationApiModel {
+export default class RepositoryRoleListParams extends PaginationModel {
   constructor(sortColumn: EnumSortColumn, sortDirection: EnumSortDirection, pageNo: number, rowsPerPage: number) {
     super();
     this.sortColumn = sortColumn;

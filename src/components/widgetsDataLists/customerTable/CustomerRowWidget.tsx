@@ -1,5 +1,5 @@
 import React from "react";
-import CustomerApiModel from "../../../apiRepository/models/CustomerApiModel";
+import CustomerApiModel from "../../../apiRepository/entities/CustomerApiModel";
 import ProjectTags from "../../widgetTags/projectTags/ProjectTags";
 
 interface IProperties {

@@ -1,7 +1,7 @@
 import { IProjectContextDispatchCommand } from "../interfaces/IProjectContextDispatchCommand";
 import { ProjectContextProps } from "../ProjectContext";
-import DataListApiModel from "../../../apiRepository/models/DataListApiModel";
-import ProjectApiModel from "../../../apiRepository/models/ProjectApiModel";
+import DataListApiModel from "../../../apiRepository/entities/DataListApiModel";
+import ProjectApiModel from "../../../apiRepository/entities/ProjectApiModel";
 import RepositoryProjectListParams from "../../../apiRepository/project/models/RepositoryProjectListParams";
 
 //

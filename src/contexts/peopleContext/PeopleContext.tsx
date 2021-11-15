@@ -1,8 +1,8 @@
 import { EnumSortColumn } from "../../constants/enums/EnumSortColumn";
 import { IPeopleContextDispatchCommand } from "./interfaces/IPeopleContextDispatchCommand";
-import DataListApiModel from "../../apiRepository/models/DataListApiModel";
-import PaginationApiModel from "../../apiRepository/models/PaginationApiModel";
-import PersonApiModel from "../../apiRepository/models/PersonApiModel";
+import DataListApiModel from "../../apiRepository/entities/DataListApiModel";
+import PaginationModel from "../../apiRepository/models/PaginationModel";
+import PersonApiModel from "../../apiRepository/entities/PersonApiModel";
 import React, { Dispatch, Reducer } from "react";
 import RepositoryPeopleListParams from "../../apiRepository/people/models/RepositoryPeopleListParams";
 
@@ -11,7 +11,7 @@ import RepositoryPeopleListParams from "../../apiRepository/people/models/Reposi
 export interface PeopleContextProps {
   peopleList: DataListApiModel<PersonApiModel>;
   previousPeopleListParameters: RepositoryPeopleListParams;
-  pagination: PaginationApiModel;
+  pagination: PaginationModel;
 }
 
 // Strongly type interface for updating this context, which is done by using
@@ -26,7 +26,7 @@ export interface InitContextProps {
 const initialState: PeopleContextProps = {
   peopleList: DataListApiModel.zero<PersonApiModel>(),
   previousPeopleListParameters: RepositoryPeopleListParams.zero,
-  pagination: new PaginationApiModel(EnumSortColumn.Forename),
+  pagination: new PaginationModel(EnumSortColumn.Forename),
 };
 
 // The reducer updates the actual data held in the context.

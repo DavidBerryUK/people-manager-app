@@ -1,8 +1,8 @@
 import { EnumSortColumn } from "../../constants/enums/EnumSortColumn";
 import { ICustomerContextDispatchCommand } from "./interfaces/ICustomerContextDispatchCommand";
-import CustomerApiModel from "../../apiRepository/models/CustomerApiModel";
-import DataListApiModel from "../../apiRepository/models/DataListApiModel";
-import PaginationApiModel from "../../apiRepository/models/PaginationApiModel";
+import CustomerApiModel from "../../apiRepository/entities/CustomerApiModel";
+import DataListApiModel from "../../apiRepository/entities/DataListApiModel";
+import PaginationModel from "../../apiRepository/models/PaginationModel";
 import React, { Dispatch, Reducer } from "react";
 import RepositoryCustomerListParams from "../../apiRepository/customer/models/RepositoryCustomerListParams";
 
@@ -11,7 +11,7 @@ import RepositoryCustomerListParams from "../../apiRepository/customer/models/Re
 export interface CustomerContextProps {
   customerList: DataListApiModel<CustomerApiModel>;
   previousCustomerListParameters: RepositoryCustomerListParams;
-  pagination: PaginationApiModel;
+  pagination: PaginationModel;
 }
 
 // Strongly type interface for updating this context, which is done by using
@@ -26,7 +26,7 @@ export interface InitContextProps {
 const initialState: CustomerContextProps = {
   customerList: DataListApiModel.zero<CustomerApiModel>(),
   previousCustomerListParameters: RepositoryCustomerListParams.zero,
-  pagination: new PaginationApiModel(EnumSortColumn.Customer),
+  pagination: new PaginationModel(EnumSortColumn.Customer),
 };
 
 // The reducer updates the actual data held in the context.

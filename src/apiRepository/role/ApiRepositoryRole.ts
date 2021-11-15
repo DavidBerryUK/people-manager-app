@@ -1,6 +1,6 @@
 import FakeApiEndpoint from "../dataSources/FakeApiEndpoint";
 import MockUtilities from "../../utilities/MockUtilities";
-import RoleApiModel from "../models/RoleApiModel";
+import RoleApiModel from "../entities/RoleApiModel";
 
 export default class ApiRepositoryRole {
   //

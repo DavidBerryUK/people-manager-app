@@ -1,8 +1,8 @@
 import { EnumSortColumn } from "../../constants/enums/EnumSortColumn";
 import { IProjectContextDispatchCommand } from "./interfaces/IProjectContextDispatchCommand";
-import DataListApiModel from "../../apiRepository/models/DataListApiModel";
-import PaginationApiModel from "../../apiRepository/models/PaginationApiModel";
-import ProjectApiModel from "../../apiRepository/models/ProjectApiModel";
+import DataListApiModel from "../../apiRepository/entities/DataListApiModel";
+import PaginationModel from "../../apiRepository/models/PaginationModel";
+import ProjectApiModel from "../../apiRepository/entities/ProjectApiModel";
 import React, { Dispatch, Reducer } from "react";
 import RepositoryProjectListParams from "../../apiRepository/project/models/RepositoryProjectListParams";
 
@@ -11,7 +11,7 @@ import RepositoryProjectListParams from "../../apiRepository/project/models/Repo
 export interface ProjectContextProps {
   projectList: DataListApiModel<ProjectApiModel>;
   previousProjectListParameters: RepositoryProjectListParams;
-  pagination: PaginationApiModel;
+  pagination: PaginationModel;
 }
 
 // Strongly type interface for updating this context, which is done by using
@@ -26,7 +26,7 @@ export interface InitContextProps {
 const initialState: ProjectContextProps = {
   projectList: DataListApiModel.zero<ProjectApiModel>(),
   previousProjectListParameters: RepositoryProjectListParams.zero,
-  pagination: new PaginationApiModel(EnumSortColumn.Project),
+  pagination: new PaginationModel(EnumSortColumn.Project),
 };
 
 // The reducer updates the actual data held in the context.

@@ -1,5 +1,5 @@
 import { EnumSkill } from "../enums/EnumSkill";
-import SkillApiModel from "../models/SkillApiModel";
+import SkillApiModel from "../entities/SkillApiModel";
 
 //
 // Create list of skills

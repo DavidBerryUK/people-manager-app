@@ -1,17 +1,17 @@
-import CustomerApiModel from "../models/CustomerApiModel";
+import CustomerApiModel from "../entities/CustomerApiModel";
 import FactoryCustomers from "./FactoryCustomers";
 import FactoryPeople from "./FactoryPeople";
 import FactoryProjects from "./FactoryProject";
 import FactoryRoles from "./FactoryRoles";
 import FactorySkills from "./FactorySkills";
 import FactoryTeams from "./FactoryTeams";
-import PersonApiModel from "../models/PersonApiModel";
-import ProjectApiModel from "../models/ProjectApiModel";
-import RoleApiModel from "../models/RoleApiModel";
-import SkillApiModel from "../models/SkillApiModel";
-import TeamApiModel from "../models/TeamApiModel";
+import PersonApiModel from "../entities/PersonApiModel";
+import ProjectApiModel from "../entities/ProjectApiModel";
+import RoleApiModel from "../entities/RoleApiModel";
+import SkillApiModel from "../entities/SkillApiModel";
+import TeamApiModel from "../entities/TeamApiModel";
 import FactoryProjectStatus from "./FactoryProjectStatus";
-import ProjectStatusApiModel from "../models/ProjectStatusApiModel";
+import ProjectStatusApiModel from "../entities/ProjectStatusApiModel";
 
 interface IData {
   customers: Array<CustomerApiModel>;

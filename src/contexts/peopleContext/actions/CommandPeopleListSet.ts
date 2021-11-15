@@ -1,7 +1,7 @@
 import { IPeopleContextDispatchCommand } from "../interfaces/IPeopleContextDispatchCommand";
 import { PeopleContextProps } from "../PeopleContext";
-import DataListApiModel from "../../../apiRepository/models/DataListApiModel";
-import PersonApiModel from "../../../apiRepository/models/PersonApiModel";
+import DataListApiModel from "../../../apiRepository/entities/DataListApiModel";
+import PersonApiModel from "../../../apiRepository/entities/PersonApiModel";
 import RepositoryPeopleListParams from "../../../apiRepository/people/models/RepositoryPeopleListParams";
 
 //

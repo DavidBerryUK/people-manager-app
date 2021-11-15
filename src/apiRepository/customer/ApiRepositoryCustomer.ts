@@ -1,6 +1,6 @@
+import CustomerApiModel from "../entities/CustomerApiModel";
 import FakeApiEndpoint from "../dataSources/FakeApiEndpoint";
 import MockUtilities from "../../utilities/MockUtilities";
-import CustomerApiModel from "../models/CustomerApiModel";
 
 export default class ApiRepositoryCustomer {
   //

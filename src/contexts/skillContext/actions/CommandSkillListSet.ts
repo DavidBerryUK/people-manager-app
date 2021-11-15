@@ -1,5 +1,5 @@
-import DataListApiModel from "../../../apiRepository/models/DataListApiModel";
-import SkillApiModel from "../../../apiRepository/models/SkillApiModel";
+import DataListApiModel from "../../../apiRepository/entities/DataListApiModel";
+import SkillApiModel from "../../../apiRepository/entities/SkillApiModel";
 import RepositorySkillListParams from "../../../apiRepository/skills/models/RepositorySkillListParams";
 import { ISkillContextDispatchCommand } from "../interfaces/ISkillContextDispatchCommand";
 import { SkillContextProps } from "../SkillContext";

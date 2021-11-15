@@ -1,5 +1,5 @@
 import { EnumCustomer } from "../enums/EnumCustomer";
-import CustomerApiModel from "../models/CustomerApiModel";
+import CustomerApiModel from "../entities/CustomerApiModel";
 
 //
 // Create list of customers

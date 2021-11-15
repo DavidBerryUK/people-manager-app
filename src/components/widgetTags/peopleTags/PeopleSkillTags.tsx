@@ -1,6 +1,6 @@
 import PersonSkillTag from "./PersonSkillTag";
 import React from "react";
-import SkillLevelApiModel from "../../../apiRepository/models/SkillLevelApiModel";
+import SkillLevelApiModel from "../../../apiRepository/entities/SkillLevelApiModel";
 import TagContainer from "../../widgetsUI/tags/TagContainer";
 
 interface IProperties {

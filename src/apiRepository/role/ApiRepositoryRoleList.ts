@@ -1,8 +1,8 @@
-import DataListApiModel from "../models/DataListApiModel";
+import DataListApiModel from "../entities/DataListApiModel";
 import FakeApiEndpoint from "../dataSources/FakeApiEndpoint";
 import MockUtilities from "../../utilities/MockUtilities";
 import RepositoryRoleListParams from "./models/RepositoryRoleListParams";
-import RoleApiModel from "../models/RoleApiModel";
+import RoleApiModel from "../entities/RoleApiModel";
 import SortRoles from "../../dataSorters/SortRoles";
 
 export default class ApiRepositoryRoleList {

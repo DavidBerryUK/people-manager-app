@@ -1,5 +1,5 @@
 import { EnumProjectStatus } from "../enums/EnumProjectStatus";
-import ProjectStatusApiModel from "../models/ProjectStatusApiModel";
+import ProjectStatusApiModel from "../entities/ProjectStatusApiModel";
 
 //
 // Create list of teams

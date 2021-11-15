@@ -2,7 +2,7 @@ import { EnumIconSize } from "../../../constants/enums/EnumIconSize";
 import ImageTeam from "../../widgetsUI/imageTeam/ImageRole";
 import PeopleTags from "../../widgetTags/peopleTags/PeopleTags";
 import React from "react";
-import TeamApiModel from "../../../apiRepository/models/TeamApiModel";
+import TeamApiModel from "../../../apiRepository/entities/TeamApiModel";
 
 interface IProperties {
   team: TeamApiModel;

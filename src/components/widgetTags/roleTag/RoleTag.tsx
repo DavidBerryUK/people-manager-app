@@ -2,7 +2,7 @@ import { UseListDetailContext } from "../../../contexts/ListDetailContext.tsx/Li
 import React from "react";
 import Tag from "../../widgetsUI/tags/Tag";
 import TagContainer from "../../widgetsUI/tags/TagContainer";
-import RoleApiModel from "../../../apiRepository/models/RoleApiModel";
+import RoleApiModel from "../../../apiRepository/entities/RoleApiModel";
 import CommandShowRole from "../../../contexts/ListDetailContext.tsx/actions/CommandShowRole";
 
 interface IProperties {

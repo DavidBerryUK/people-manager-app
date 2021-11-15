@@ -1,11 +1,11 @@
 import { EnumSortColumn } from "../../../constants/enums/EnumSortColumn";
-import PaginationApiModel from "../../../apiRepository/models/PaginationApiModel";
+import PaginationModel from "../../../apiRepository/models/PaginationModel";
 import React from "react";
 import SortIndicator from "../sortIndicator/SortIndicator";
 
 interface IProperties {
   column: EnumSortColumn;
-  pagination: PaginationApiModel;
+  pagination: PaginationModel;
   onClick: () => void;
 }
 

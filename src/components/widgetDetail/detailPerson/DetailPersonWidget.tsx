@@ -9,7 +9,7 @@ import ImageAvatar from "../../widgetsUI/imageAvatar/ImageAvatar";
 import Panel from "../../widgetsUI/panel/Panel";
 import PanelBody from "../../widgetsUI/panel/PanelBody";
 import PanelHeader from "../../widgetsUI/panel/PanelHeader";
-import PersonApiModel from "../../../apiRepository/models/PersonApiModel";
+import PersonApiModel from "../../../apiRepository/entities/PersonApiModel";
 import React, { useMemo, useState } from "react";
 import RoleTag from "../../widgetTags/roleTag/RoleTag";
 import SkillTags from "../../widgetTags/skillTags/SkillTags";

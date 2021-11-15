@@ -1,6 +1,6 @@
 import { UseListDetailContext } from "../../../contexts/ListDetailContext.tsx/ListDetailContext";
 import CommandShowPerson from "../../../contexts/ListDetailContext.tsx/actions/CommandShowPerson";
-import PersonApiModel from "../../../apiRepository/models/PersonApiModel";
+import PersonApiModel from "../../../apiRepository/entities/PersonApiModel";
 import React from "react";
 import Tag from "../../widgetsUI/tags/Tag";
 import TagContainer from "../../widgetsUI/tags/TagContainer";

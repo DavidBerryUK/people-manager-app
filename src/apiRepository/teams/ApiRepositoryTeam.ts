@@ -1,6 +1,6 @@
 import FakeApiEndpoint from "../dataSources/FakeApiEndpoint";
 import MockUtilities from "../../utilities/MockUtilities";
-import TeamApiModel from "../models/TeamApiModel";
+import TeamApiModel from "../entities/TeamApiModel";
 
 export default class ApiRepositoryTeam {
   //

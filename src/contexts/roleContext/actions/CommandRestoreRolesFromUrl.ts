@@ -1,7 +1,7 @@
 //
 // Restore page settings with values from the url parameters
 //
-import PaginationApiModel from "../../../apiRepository/models/PaginationApiModel";
+import PaginationModel from "../../../apiRepository/models/PaginationModel";
 import UrlParamStateModel from "../../../services/urlManagers/models/UrlParamStateModel";
 import { IRoleContextDispatchCommand } from "../interfaces/IRoleContextDispatchCommand";
 import { RoleContextProps } from "../RoleContext";
@@ -18,7 +18,7 @@ export default class CommandRestoreRolesFromUrl implements IRoleContextDispatchC
   // Update the context and return the new state
   // (this is called from within the ApplicationContext)
   execute(state: RoleContextProps): RoleContextProps {
-    const newPagination = new PaginationApiModel(this.urlParamState.sortColumn);
+    const newPagination = new PaginationModel(this.urlParamState.sortColumn);
     newPagination.pageNo = this.urlParamState.pageNumber;
     newPagination.rowsPerPage = this.urlParamState.rowsPerPage;
     newPagination.sortDirection = this.urlParamState.sortDirection;

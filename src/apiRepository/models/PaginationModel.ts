@@ -4,7 +4,7 @@ import { EnumSortDirection } from "../../constants/enums/EnumSortDirection";
 // Common pagination model for all list views,
 // includes logic for changing sort columns and toggling direction
 //
-export default class PaginationApiModel {
+export default class PaginationModel {
   private _sortColumn: EnumSortColumn;
   pageNo: number;
   rowsPerPage: number;
@@ -19,8 +19,8 @@ export default class PaginationApiModel {
 
   // clone object, required as when updating context,
   //  a new model is needed.
-  clone(): PaginationApiModel {
-    const model = new PaginationApiModel(this._sortColumn);
+  clone(): PaginationModel {
+    const model = new PaginationModel(this._sortColumn);
     model.pageNo = this.pageNo;
     model.rowsPerPage = this.rowsPerPage;
     model.sortDirection = this.sortDirection;
@@ -29,14 +29,14 @@ export default class PaginationApiModel {
 
   // determine if all values are equal
   //
-  isEqualTo(model: PaginationApiModel): boolean {
+  isEqualTo(model: PaginationModel): boolean {
     if (this._sortColumn !== model._sortColumn || this.pageNo !== model.pageNo || this.rowsPerPage !== model.rowsPerPage || this.sortDirection !== model.sortDirection) {
       return false;
     }
     return true;
   }
 
-  isNotEqualTo(model: PaginationApiModel): boolean {
+  isNotEqualTo(model: PaginationModel): boolean {
     return !this.isEqualTo(model);
   }
 

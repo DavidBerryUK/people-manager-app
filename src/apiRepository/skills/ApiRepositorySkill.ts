@@ -1,6 +1,6 @@
 import FakeApiEndpoint from "../dataSources/FakeApiEndpoint";
 import MockUtilities from "../../utilities/MockUtilities";
-import SkillApiModel from "../models/SkillApiModel";
+import SkillApiModel from "../entities/SkillApiModel";
 
 export default class ApiRepositorySkill {
   //

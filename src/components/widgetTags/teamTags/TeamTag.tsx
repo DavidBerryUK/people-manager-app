@@ -2,7 +2,7 @@ import { UseListDetailContext } from "../../../contexts/ListDetailContext.tsx/Li
 import CommandShowTeam from "../../../contexts/ListDetailContext.tsx/actions/CommandShowTeam";
 import React from "react";
 import Tag from "../../widgetsUI/tags/Tag";
-import TeamApiModel from "../../../apiRepository/models/TeamApiModel";
+import TeamApiModel from "../../../apiRepository/entities/TeamApiModel";
 
 interface IProperties {
   team: TeamApiModel;

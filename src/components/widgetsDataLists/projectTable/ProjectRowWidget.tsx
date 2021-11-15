@@ -1,5 +1,5 @@
 import CustomerTag from "../../widgetTags/customerTag/CustomerTag";
-import ProjectApiModel from "../../../apiRepository/models/ProjectApiModel";
+import ProjectApiModel from "../../../apiRepository/entities/ProjectApiModel";
 import React from "react";
 import ProjectStatusTag from "../../widgetTags/projectStatusTag/ProjectStatusTag";
 

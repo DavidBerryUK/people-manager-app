@@ -1,6 +1,6 @@
 import React from "react";
 import TagContainer from "../../widgetsUI/tags/TagContainer";
-import TeamApiModel from "../../../apiRepository/models/TeamApiModel";
+import TeamApiModel from "../../../apiRepository/entities/TeamApiModel";
 import TeamTag from "./TeamTag";
 
 interface IProperties {

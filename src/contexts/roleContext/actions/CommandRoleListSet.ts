@@ -1,12 +1,11 @@
 import { IRoleContextDispatchCommand } from "../interfaces/IRoleContextDispatchCommand";
 import { RoleContextProps } from "../RoleContext";
-import DataListApiModel from "../../../apiRepository/models/DataListApiModel";
+import DataListApiModel from "../../../apiRepository/entities/DataListApiModel";
 import RepositoryRoleListParams from "../../../apiRepository/role/models/RepositoryRoleListParams";
-import RoleApiModel from "../../../apiRepository/models/RoleApiModel";
+import RoleApiModel from "../../../apiRepository/entities/RoleApiModel";
 
 //
 // Set Role List
-
 //
 export default class CommandRoleListSet implements IRoleContextDispatchCommand {
   roleList: DataListApiModel<RoleApiModel>;

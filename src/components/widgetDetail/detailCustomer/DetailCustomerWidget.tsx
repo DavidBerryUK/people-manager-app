@@ -1,6 +1,6 @@
 import { UseListDetailContext } from "../../../contexts/ListDetailContext.tsx/ListDetailContext";
 import ApiRepositoryCustomer from "../../../apiRepository/customer/ApiRepositoryCustomer";
-import CustomerApiModel from "../../../apiRepository/models/CustomerApiModel";
+import CustomerApiModel from "../../../apiRepository/entities/CustomerApiModel";
 import Panel from "../../widgetsUI/panel/Panel";
 import PanelBody from "../../widgetsUI/panel/PanelBody";
 import PanelHeader from "../../widgetsUI/panel/PanelHeader";

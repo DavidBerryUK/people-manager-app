@@ -8,7 +8,7 @@ import PanelBody from "../../widgetsUI/panel/PanelBody";
 import PanelHeader from "../../widgetsUI/panel/PanelHeader";
 import PeopleTags from "../../widgetTags/peopleTags/PeopleTags";
 import React, { useMemo, useState } from "react";
-import RoleApiModel from "../../../apiRepository/models/RoleApiModel";
+import RoleApiModel from "../../../apiRepository/entities/RoleApiModel";
 import TextSubHeader from "../../widgetTypography/textSubHeader/TextSubHeader";
 import useDataTableUrlWriter from "../../hooks/UseDataTableUrlWriter";
 

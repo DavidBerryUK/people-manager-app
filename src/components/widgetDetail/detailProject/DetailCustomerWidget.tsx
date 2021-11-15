@@ -1,14 +1,14 @@
 import { UseListDetailContext } from "../../../contexts/ListDetailContext.tsx/ListDetailContext";
+import ApiRepositoryProject from "../../../apiRepository/project/ApiRepositoryProject";
+import CustomerTag from "../../widgetTags/customerTag/CustomerTag";
 import Panel from "../../widgetsUI/panel/Panel";
 import PanelBody from "../../widgetsUI/panel/PanelBody";
 import PanelHeader from "../../widgetsUI/panel/PanelHeader";
+import ProjectApiModel from "../../../apiRepository/entities/ProjectApiModel";
+import ProjectStatusTag from "../../widgetTags/projectStatusTag/ProjectStatusTag";
 import React, { useMemo, useState } from "react";
 import TextSubHeader from "../../widgetTypography/textSubHeader/TextSubHeader";
 import useDataTableUrlWriter from "../../hooks/UseDataTableUrlWriter";
-import ProjectApiModel from "../../../apiRepository/models/ProjectApiModel";
-import ApiRepositoryProject from "../../../apiRepository/project/ApiRepositoryProject";
-import CustomerTag from "../../widgetTags/customerTag/CustomerTag";
-import ProjectStatusTag from "../../widgetTags/projectStatusTag/ProjectStatusTag";
 
 const DetailProjectWidget: React.FC = () => {
   const { state } = UseListDetailContext();

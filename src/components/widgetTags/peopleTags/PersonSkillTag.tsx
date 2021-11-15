@@ -2,7 +2,7 @@ import { UseListDetailContext } from "../../../contexts/ListDetailContext.tsx/Li
 import CommandShowPerson from "../../../contexts/ListDetailContext.tsx/actions/CommandShowPerson";
 import Rating from "../../widgetsUI/rating/Rating";
 import React from "react";
-import SkillLevelApiModel from "../../../apiRepository/models/SkillLevelApiModel";
+import SkillLevelApiModel from "../../../apiRepository/entities/SkillLevelApiModel";
 import Tag from "../../widgetsUI/tags/Tag";
 import TagContainer from "../../widgetsUI/tags/TagContainer";
 

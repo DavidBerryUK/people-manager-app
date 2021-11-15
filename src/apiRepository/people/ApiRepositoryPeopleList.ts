@@ -1,7 +1,7 @@
-import DataListApiModel from "../models/DataListApiModel";
+import DataListApiModel from "../entities/DataListApiModel";
 import FakeApiEndpoint from "../dataSources/FakeApiEndpoint";
 import MockUtilities from "../../utilities/MockUtilities";
-import PersonApiModel from "../models/PersonApiModel";
+import PersonApiModel from "../entities/PersonApiModel";
 import RepositoryPeopleListParams from "./models/RepositoryPeopleListParams";
 import SortPeople from "../../dataSorters/SortPeople";
 

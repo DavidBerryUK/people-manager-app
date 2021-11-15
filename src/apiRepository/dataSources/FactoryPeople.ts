@@ -1,11 +1,11 @@
 import { EnumRole } from "../enums/EnumRole";
 import { EnumSkill } from "../enums/EnumSkill";
 import { EnumTeam } from "../enums/EnumTeam";
-import PersonApiModel from "../models/PersonApiModel";
-import RoleApiModel from "../models/RoleApiModel";
-import SkillApiModel from "../models/SkillApiModel";
-import SkillLevelApiModel from "../models/SkillLevelApiModel";
-import TeamApiModel from "../models/TeamApiModel";
+import PersonApiModel from "../entities/PersonApiModel";
+import RoleApiModel from "../entities/RoleApiModel";
+import SkillApiModel from "../entities/SkillApiModel";
+import SkillLevelApiModel from "../entities/SkillLevelApiModel";
+import TeamApiModel from "../entities/TeamApiModel";
 
 class SkillLevel {
   skill: EnumSkill;

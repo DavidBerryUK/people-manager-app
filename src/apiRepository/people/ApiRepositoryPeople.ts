@@ -1,6 +1,6 @@
 import FakeApiEndpoint from "../dataSources/FakeApiEndpoint";
 import MockUtilities from "../../utilities/MockUtilities";
-import PersonApiModel from "../models/PersonApiModel";
+import PersonApiModel from "../entities/PersonApiModel";
 
 export default class ApiRepositoryPeople {
   //

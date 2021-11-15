@@ -1,9 +1,9 @@
-import DataListApiModel from "../models/DataListApiModel";
+import DataListApiModel from "../entities/DataListApiModel";
 import FakeApiEndpoint from "../dataSources/FakeApiEndpoint";
 import MockUtilities from "../../utilities/MockUtilities";
 import RepositoryTeamListParams from "./models/RepositoryTeamListParams";
 import SortTeams from "../../dataSorters/SortTeams";
-import TeamApiModel from "../models/TeamApiModel";
+import TeamApiModel from "../entities/TeamApiModel";
 
 export default class ApiRepositoryTeamList {
   //

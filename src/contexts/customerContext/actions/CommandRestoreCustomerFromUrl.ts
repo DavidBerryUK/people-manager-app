@@ -1,4 +1,4 @@
-import PaginationApiModel from "../../../apiRepository/models/PaginationApiModel";
+import PaginationModel from "../../../apiRepository/models/PaginationModel";
 import UrlParamStateModel from "../../../services/urlManagers/models/UrlParamStateModel";
 import { ICustomerContextDispatchCommand } from "../interfaces/ICustomerContextDispatchCommand";
 import { CustomerContextProps } from "../CustomerContext";
@@ -19,7 +19,7 @@ export default class CommandRestoreCustomerFromUrl implements ICustomerContextDi
   // Update the context and return the new state
   // (this is called from within the ApplicationContext)
   execute(state: CustomerContextProps): CustomerContextProps {
-    const newPagination = new PaginationApiModel(this.urlParamState.sortColumn);
+    const newPagination = new PaginationModel(this.urlParamState.sortColumn);
     newPagination.pageNo = this.urlParamState.pageNumber;
     newPagination.rowsPerPage = this.urlParamState.rowsPerPage;
     newPagination.sortDirection = this.urlParamState.sortDirection;

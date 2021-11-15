@@ -2,7 +2,7 @@ import { EnumIconSize } from "../../../constants/enums/EnumIconSize";
 import ImageRole from "../../widgetsUI/imageRole/ImageRole";
 import PeopleTags from "../../widgetTags/peopleTags/PeopleTags";
 import React from "react";
-import RoleApiModel from "../../../apiRepository/models/RoleApiModel";
+import RoleApiModel from "../../../apiRepository/entities/RoleApiModel";
 
 interface IProperties {
   role: RoleApiModel;

@@ -1,7 +1,7 @@
 import { ICustomerContextDispatchCommand } from "../interfaces/ICustomerContextDispatchCommand";
 import { CustomerContextProps } from "../CustomerContext";
-import DataListApiModel from "../../../apiRepository/models/DataListApiModel";
-import CustomerApiModel from "../../../apiRepository/models/CustomerApiModel";
+import DataListApiModel from "../../../apiRepository/entities/DataListApiModel";
+import CustomerApiModel from "../../../apiRepository/entities/CustomerApiModel";
 import RepositoryCustomerListParams from "../../../apiRepository/customer/models/RepositoryCustomerListParams";
 
 //

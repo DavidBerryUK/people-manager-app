@@ -1,6 +1,6 @@
 import FakeApiEndpoint from "../dataSources/FakeApiEndpoint";
 import MockUtilities from "../../utilities/MockUtilities";
-import ProjectApiModel from "../models/ProjectApiModel";
+import ProjectApiModel from "../entities/ProjectApiModel";
 
 export default class ApiRepositoryProject {
   //

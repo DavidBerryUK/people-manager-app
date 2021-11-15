@@ -1,6 +1,6 @@
 import React from "react";
 import TagContainer from "../../widgetsUI/tags/TagContainer";
-import ProjectApiModel from "../../../apiRepository/models/ProjectApiModel";
+import ProjectApiModel from "../../../apiRepository/entities/ProjectApiModel";
 import ProjectTag from "./ProjectTag";
 
 interface IProperties {

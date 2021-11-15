@@ -1,6 +1,6 @@
 import { UseListDetailContext } from "../../../contexts/ListDetailContext.tsx/ListDetailContext";
 import CommandShowProjectStatus from "../../../contexts/ListDetailContext.tsx/actions/CommandShowProjectStatus";
-import ProjectStatusApiModel from "../../../apiRepository/models/ProjectStatusApiModel";
+import ProjectStatusApiModel from "../../../apiRepository/entities/ProjectStatusApiModel";
 import React from "react";
 import Tag from "../../widgetsUI/tags/Tag";
 import TagContainer from "../../widgetsUI/tags/TagContainer";
