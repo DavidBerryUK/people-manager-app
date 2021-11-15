@@ -1,0 +1,11 @@
+@mixin filterBar($theme-name, $background-colour, $border-color) {
+  .#{$theme-name} {
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      background-color: $background-colour;
+      border: solid 1px $background-colour;
+      padding: 4px;
+    }
+  }
+}

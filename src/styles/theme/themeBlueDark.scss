@@ -4,6 +4,7 @@
 @import "../components/table";
 @import "../components/tags";
 @import "../components/theme-button";
+@import "../components/filter-bar";
 
 @mixin createThemeBlueDark() {
   $name: "theme-blue-dark";
@@ -51,6 +52,7 @@
     }
   }
 
+  @include filterBar($name, $table-background, $tag-border);
   @include panels($name, $tag-border, $table-background, $table-header-background, $table-text, $table-header-text);
   @include tags($name, $tag-background, $tag-border, $tag-text);
   @include themeButton($name, darken($baseColor, 20));
