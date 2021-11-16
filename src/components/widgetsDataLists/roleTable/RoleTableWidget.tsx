@@ -1,3 +1,4 @@
+import { EnumToolbar } from "../../../constants/enums/EnumToolbar";
 import { useRoleContext } from "../../../contexts/roleContext/RoleContext";
 import ApiRepositoryRoleList from "../../../apiRepository/role/ApiRepositoryRoleList";
 import CommandPageNumberSet from "../../../contexts/roleContext/actions/CommandPageNumberSet";
@@ -9,13 +10,14 @@ import RoleRowWidget from "./RoleRowWidget";
 import RoleTableHeader from "./RoleTableHeader";
 import useDataTableUrlReader from "../../hooks/UseDataTableUrlReader";
 import useDataTableUrlWriter from "../../hooks/UseDataTableUrlWriter";
+import useToolbar from "../../hooks/UseToolbar";
 
 const RoleTableWidget: React.FC = () => {
   const { state: roleState, dispatch: roleDispatch } = useRoleContext();
 
-  // URL Managers
   const { writeUrlHistory } = useDataTableUrlWriter();
   useDataTableUrlReader();
+  useToolbar(EnumToolbar.roleTable);
 
   useMemo(async () => {
     var params = new RepositoryRoleListParams(roleState.pagination.sortColumn, roleState.pagination.sortDirection, roleState.pagination.pageNo, roleState.pagination.rowsPerPage);
@@ -27,11 +29,7 @@ const RoleTableWidget: React.FC = () => {
     }
   }, [roleDispatch, roleState.pagination, roleState.previousRoleListParameters, writeUrlHistory]);
 
-  //
-  // Event Handlers
-  //
   const handleOnPageChangeEvent = (pageNo: number) => {
-    // update context with new page number to force data reload
     roleDispatch(new CommandPageNumberSet(pageNo));
   };
 

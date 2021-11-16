@@ -1,18 +1,23 @@
 .layout-list {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
 
-  .region-list {
-    flex-grow: 1;
-    margin: 6px;
-  }
-  .region-detail {
-    position: sticky;
-    top: 62px;
+  .region-list-detail-container {
+    display: flex;
+    align-items: flex-start;
 
-    width: 550px;
-    min-width: 550px;
-    margin-top: 6px;
-    margin-right: 6px;
+    .region-list {
+      flex-grow: 1;
+      margin: 6px;
+    }
+    .region-detail {
+      position: sticky;
+      top: 62px;
+
+      width: 550px;
+      min-width: 550px;
+      margin-top: 6px;
+      margin-right: 6px;
+    }
   }
 }

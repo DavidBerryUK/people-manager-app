@@ -1,6 +1,6 @@
-@mixin filterBar($theme-name, $background-colour, $border-color) {
+@mixin toolBar($theme-name, $background-colour, $border-color) {
   .#{$theme-name} {
-    .filter-bar {
+    .tool-bar {
       display: flex;
       justify-content: center;
       background-color: $background-colour;

@@ -1,3 +1,4 @@
+import { EnumToolbar } from "../../../constants/enums/EnumToolbar";
 import { usePeopleContext } from "../../../contexts/peopleContext/PeopleContext";
 import ApiRepositoryPeopleList from "../../../apiRepository/people/ApiRepositoryPeopleList";
 import CommandPageNumberSet from "../../../contexts/peopleContext/actions/CommandPageNumberSet";
@@ -9,12 +10,13 @@ import React, { useMemo } from "react";
 import RepositoryPeopleListParams from "../../../apiRepository/people/models/RepositoryPeopleListParams";
 import useDataTableUrlReader from "../../hooks/UseDataTableUrlReader";
 import useDataTableUrlWriter from "../../hooks/UseDataTableUrlWriter";
+import useToolbar from "../../hooks/UseToolbar";
 
 const PeopleTableWidget: React.FC = () => {
   const { state: peopleState, dispatch: peopleDispatch } = usePeopleContext();
-
   const { writeUrlHistory } = useDataTableUrlWriter();
   useDataTableUrlReader();
+  useToolbar(EnumToolbar.peopleTable);
 
   useMemo(async () => {
     var params = new RepositoryPeopleListParams(peopleState.pagination.sortColumn, peopleState.pagination.sortDirection, peopleState.pagination.pageNo, peopleState.pagination.rowsPerPage);

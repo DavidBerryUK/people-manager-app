@@ -1,3 +1,4 @@
+import { EnumToolbar } from "../../../constants/enums/EnumToolbar";
 import { useSkillContext } from "../../../contexts/skillContext/SkillContext";
 import ApiRepositorySkillList from "../../../apiRepository/skills/ApiRepositorySkillList";
 import CommandPageNumberSet from "../../../contexts/skillContext/actions/CommandPageNumberSet";
@@ -9,6 +10,7 @@ import SkillRowWidget from "./SkillRowWidget";
 import SkillTableHeader from "./SkillTableHeader";
 import useDataTableUrlReader from "../../hooks/UseDataTableUrlReader";
 import useDataTableUrlWriter from "../../hooks/UseDataTableUrlWriter";
+import useToolbar from "../../hooks/UseToolbar";
 
 const SkillTableWidget: React.FC = () => {
   const { state: skillState, dispatch: skillDispatch } = useSkillContext();
@@ -16,6 +18,7 @@ const SkillTableWidget: React.FC = () => {
   // URL Managers
   const { writeUrlHistory } = useDataTableUrlWriter();
   useDataTableUrlReader();
+  useToolbar(EnumToolbar.skillTable);
 
   useMemo(async () => {
     var params = new RepositorySkillListParams(skillState.pagination.sortColumn, skillState.pagination.sortDirection, skillState.pagination.pageNo, skillState.pagination.rowsPerPage);
@@ -26,12 +29,8 @@ const SkillTableWidget: React.FC = () => {
       writeUrlHistory();
     }
   }, [skillDispatch, skillState.pagination, skillState.previousSkillListParameters, writeUrlHistory]);
-
-  //
-  // Event Handlers
-  //
+  
   const handleOnPageChangeEvent = (pageNo: number) => {
-    // update context with new page number to force data reload
     skillDispatch(new CommandPageNumberSet(pageNo));
   };
 

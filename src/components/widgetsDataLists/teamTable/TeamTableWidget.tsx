@@ -1,3 +1,4 @@
+import { EnumToolbar } from "../../../constants/enums/EnumToolbar";
 import { useTeamContext } from "../../../contexts/teamContext/TeamContext";
 import ApiRepositoryTeamList from "../../../apiRepository/teams/ApiRepositoryTeamList";
 import CommandPageNumberSet from "../../../contexts/teamContext/actions/CommandPageNumberSet";
@@ -9,6 +10,7 @@ import TeamRowWidget from "./TeamRowWidget";
 import TeamTableHeader from "./TeamTableHeader";
 import useDataTableUrlReader from "../../hooks/UseDataTableUrlReader";
 import useDataTableUrlWriter from "../../hooks/UseDataTableUrlWriter";
+import useToolbar from "../../hooks/UseToolbar";
 
 const TeamTableWidget: React.FC = () => {
   const { state: teamState, dispatch: teamDispatch } = useTeamContext();
@@ -16,6 +18,7 @@ const TeamTableWidget: React.FC = () => {
   // URL Managers
   const { writeUrlHistory } = useDataTableUrlWriter();
   useDataTableUrlReader();
+  useToolbar(EnumToolbar.customerTable);
 
   useMemo(async () => {
     var params = new RepositoryTeamListParams(teamState.pagination.sortColumn, teamState.pagination.sortDirection, teamState.pagination.pageNo, teamState.pagination.rowsPerPage);

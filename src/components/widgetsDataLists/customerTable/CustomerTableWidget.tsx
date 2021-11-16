@@ -1,3 +1,4 @@
+import { EnumToolbar } from "../../../constants/enums/EnumToolbar";
 import { useCustomerContext } from "../../../contexts/customerContext/CustomerContext";
 import ApiRepositoryCustomerList from "../../../apiRepository/customer/ApiRepositoryCustomerList";
 import CommandCustomerListSet from "../../../contexts/customerContext/actions/CommandCustomerListSet";
@@ -9,6 +10,7 @@ import React, { useMemo } from "react";
 import RepositoryCustomerListParams from "../../../apiRepository/customer/models/RepositoryCustomerListParams";
 import useDataTableUrlReader from "../../hooks/UseDataTableUrlReader";
 import useDataTableUrlWriter from "../../hooks/UseDataTableUrlWriter";
+import useToolbar from "../../hooks/UseToolbar";
 
 const CustomerTableWidget: React.FC = () => {
   const { state: customerState, dispatch: customerDispatch } = useCustomerContext();
@@ -16,6 +18,7 @@ const CustomerTableWidget: React.FC = () => {
   // URL Managers
   const { writeUrlHistory } = useDataTableUrlWriter();
   useDataTableUrlReader();
+  useToolbar(EnumToolbar.customerTable);
 
   useMemo(async () => {
     var params = new RepositoryCustomerListParams(customerState.pagination.sortColumn, customerState.pagination.sortDirection, customerState.pagination.pageNo, customerState.pagination.rowsPerPage);
@@ -27,11 +30,8 @@ const CustomerTableWidget: React.FC = () => {
     }
   }, [customerDispatch, customerState.pagination, customerState.previousCustomerListParameters, writeUrlHistory]);
 
-  //
-  // Event Handlers
-  //
+
   const handleOnPageChangeEvent = (pageNo: number) => {
-    // update context with new page number to force data reload
     customerDispatch(new CommandPageNumberSet(pageNo));
   };
 

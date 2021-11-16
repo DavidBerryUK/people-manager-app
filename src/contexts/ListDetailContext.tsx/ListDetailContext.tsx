@@ -1,12 +1,13 @@
+import { EnumToolbar } from "../../constants/enums/EnumToolbar";
 import { IListDetailDispatchCommand } from "./interfaces/IListDetailContextDispatchCommand";
-
-import React, { Dispatch, Reducer } from "react";
 import DetailViewStateModel from "./models/DetailViewStateModel";
+import React, { Dispatch, Reducer } from "react";
 
 // Interface defining data structure stored in this context
 //
 export interface ListDetailContextProps {
   detailView: DetailViewStateModel;
+  toolbar: EnumToolbar;
 }
 
 // Strongly type interface for updating this context, which is done by using
@@ -20,6 +21,7 @@ export interface InitContextProps {
 //
 const initialState: ListDetailContextProps = {
   detailView: new DetailViewStateModel(),
+  toolbar: EnumToolbar.none
 };
 
 // The reducer updates the actual data held in the context.
