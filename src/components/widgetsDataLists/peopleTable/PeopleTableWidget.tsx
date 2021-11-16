@@ -1,32 +1,20 @@
 import { EnumToolbar } from "../../../constants/enums/EnumToolbar";
 import { usePeopleContext } from "../../../contexts/peopleContext/PeopleContext";
-import ApiRepositoryPeopleList from "../../../apiRepository/people/ApiRepositoryPeopleList";
 import CommandPageNumberSet from "../../../contexts/peopleContext/actions/CommandPageNumberSet";
-import CommandPeopleListSet from "../../../contexts/peopleContext/actions/CommandPeopleListSet";
 import PaginationWidget from "../../widgetsUI/pagination/PaginationWidget";
 import PeopleRowWidget from "./PeopleRowWidget";
 import PeopleTableHeader from "./PeopleTableHeader";
-import React, { useMemo } from "react";
-import RepositoryPeopleListParams from "../../../apiRepository/people/models/RepositoryPeopleListParams";
+import React  from "react";
 import useDataTableUrlReader from "../../hooks/UseDataTableUrlReader";
-import useDataTableUrlWriter from "../../hooks/UseDataTableUrlWriter";
+import usePeopleListRepository from "../../hooks/UsePeopleListRepository";
 import useToolbar from "../../hooks/UseToolbar";
 
 const PeopleTableWidget: React.FC = () => {
   const { state: peopleState, dispatch: peopleDispatch } = usePeopleContext();
-  const { writeUrlHistory } = useDataTableUrlWriter();
+
   useDataTableUrlReader();
   useToolbar(EnumToolbar.peopleTable);
-
-  useMemo(async () => {
-    var params = new RepositoryPeopleListParams(peopleState.pagination.sortColumn, peopleState.pagination.sortDirection, peopleState.pagination.pageNo, peopleState.pagination.rowsPerPage);
-    if (params.isNotEqualTo(peopleState.previousPeopleListParameters)) {
-      const apiRepositoryPeopleList = new ApiRepositoryPeopleList();
-      const peopleList = await apiRepositoryPeopleList.getPeopleAsync(params);
-      peopleDispatch(new CommandPeopleListSet(peopleList, params));
-      writeUrlHistory();
-    }
-  }, [peopleDispatch, peopleState.pagination, peopleState.previousPeopleListParameters, writeUrlHistory]);
+  usePeopleListRepository();
 
   const handleOnPageChangeEvent = (pageNo: number) => {
     peopleDispatch(new CommandPageNumberSet(pageNo));
