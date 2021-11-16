@@ -4,6 +4,7 @@ import MockUtilities from "../../utilities/MockUtilities";
 import PersonApiModel from "../entities/PersonApiModel";
 import RepositoryPeopleListParams from "./models/RepositoryPeopleListParams";
 import SortPeople from "../../dataSorters/SortPeople";
+import FilterPeople from "../../dataFilters/FilterPeople";
 
 export default class ApiRepositoryPeopleList {
   //
@@ -21,7 +22,8 @@ export default class ApiRepositoryPeopleList {
 
     // sort
     fullList = SortPeople.sortData(fullList, params.sortColumn, params.sortDirection);
-
+    fullList = FilterPeople.byName(fullList, params.filter.name);
+  
     var skip = (params.pageNo - 1) * params.rowsPerPage;
     if (skip < 0) {
       skip = 0;
@@ -34,4 +36,5 @@ export default class ApiRepositoryPeopleList {
 
     return dataList;
   }
+
 }
