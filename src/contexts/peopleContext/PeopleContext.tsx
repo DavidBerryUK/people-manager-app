@@ -5,11 +5,13 @@ import PaginationModel from "../../apiRepository/models/PaginationModel";
 import PersonApiModel from "../../apiRepository/entities/PersonApiModel";
 import React, { Dispatch, Reducer } from "react";
 import RepositoryPeopleListParams from "../../apiRepository/people/models/RepositoryPeopleListParams";
+import RepositoryPeopleListFilters from "../../apiRepository/people/models/RepositoryPeopleListFilters";
 
 // Interface defining data structure stored in this context
 //
 export interface PeopleContextProps {
   peopleList: DataListApiModel<PersonApiModel>;
+  peopleListFilter: RepositoryPeopleListFilters;
   previousPeopleListParameters: RepositoryPeopleListParams;
   pagination: PaginationModel;
 }
@@ -25,6 +27,7 @@ export interface InitContextProps {
 //
 const initialState: PeopleContextProps = {
   peopleList: DataListApiModel.zero<PersonApiModel>(),
+  peopleListFilter: new RepositoryPeopleListFilters(),
   previousPeopleListParameters: RepositoryPeopleListParams.zero,
   pagination: new PaginationModel(EnumSortColumn.Forename),
 };

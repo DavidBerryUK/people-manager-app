@@ -15,14 +15,24 @@ function usePeopleListRepository() {
     const { writeUrlHistory } = useDataTableUrlWriter();
 
     useMemo(async () => {
-        var params = new RepositoryPeopleListParams(peopleState.pagination.sortColumn, peopleState.pagination.sortDirection, peopleState.pagination.pageNo, peopleState.pagination.rowsPerPage);
+        var params = new RepositoryPeopleListParams(
+            peopleState.pagination.sortColumn,
+            peopleState.pagination.sortDirection,
+            peopleState.pagination.pageNo,
+            peopleState.pagination.rowsPerPage,
+            peopleState.peopleListFilter);
         if (params.isNotEqualTo(peopleState.previousPeopleListParameters)) {
             const apiRepositoryPeopleList = new ApiRepositoryPeopleList();
             const peopleList = await apiRepositoryPeopleList.getPeopleAsync(params);
             peopleDispatch(new CommandPeopleListSet(peopleList, params));
             writeUrlHistory();
         }
-    }, [peopleDispatch, peopleState.pagination, peopleState.previousPeopleListParameters, writeUrlHistory]);
+    }, [
+        peopleDispatch,
+        peopleState.pagination,
+        peopleState.peopleListFilter,
+        peopleState.previousPeopleListParameters,
+        writeUrlHistory]);
 
 }
 
