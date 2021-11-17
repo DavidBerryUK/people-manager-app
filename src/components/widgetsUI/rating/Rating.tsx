@@ -5,9 +5,6 @@ interface IProperties {
 }
 
 const Rating: React.FC<IProperties> = (props) => {
-  // Display Template
-  //
-
   const StarIcon = (index: number): JSX.Element => {
     if (index <= props.rating) {
       return <FaStar />;

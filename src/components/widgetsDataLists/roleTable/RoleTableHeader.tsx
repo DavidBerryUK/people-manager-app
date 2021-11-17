@@ -8,7 +8,7 @@ const RoleTableHeader: React.FC = () => {
       <tr>
         <RoleTableHeaderCellWidget column={EnumSortColumn.None} />
         <RoleTableHeaderCellWidget column={EnumSortColumn.Role}>Role</RoleTableHeaderCellWidget>
-        <RoleTableHeaderCellWidget column={EnumSortColumn.None}>Role</RoleTableHeaderCellWidget>
+        <RoleTableHeaderCellWidget column={EnumSortColumn.None}>People</RoleTableHeaderCellWidget>
       </tr>
     </thead>
   );

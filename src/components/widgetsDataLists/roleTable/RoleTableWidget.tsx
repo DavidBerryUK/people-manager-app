@@ -1,33 +1,20 @@
 import { EnumToolbar } from "../../../constants/enums/EnumToolbar";
 import { useRoleContext } from "../../../contexts/roleContext/RoleContext";
-import ApiRepositoryRoleList from "../../../apiRepository/role/ApiRepositoryRoleList";
 import CommandPageNumberSet from "../../../contexts/roleContext/actions/CommandPageNumberSet";
-import CommandRoleListSet from "../../../contexts/roleContext/actions/CommandRoleListSet";
 import PaginationWidget from "../../widgetsUI/pagination/PaginationWidget";
-import React, { useMemo } from "react";
-import RepositoryRoleListParams from "../../../apiRepository/role/models/RepositoryRoleListParams";
+import React from "react";
 import RoleRowWidget from "./RoleRowWidget";
 import RoleTableHeader from "./RoleTableHeader";
 import useDataTableUrlReader from "../../hooks/UseDataTableUrlReader";
-import useDataTableUrlWriter from "../../hooks/UseDataTableUrlWriter";
+import useRoleListRepository from "../../hooks/UseRoleListRepository";
 import useToolbar from "../../hooks/UseToolbar";
 
 const RoleTableWidget: React.FC = () => {
   const { state: roleState, dispatch: roleDispatch } = useRoleContext();
 
-  const { writeUrlHistory } = useDataTableUrlWriter();
   useDataTableUrlReader();
   useToolbar(EnumToolbar.roleTable);
-
-  useMemo(async () => {
-    var params = new RepositoryRoleListParams(roleState.pagination.sortColumn, roleState.pagination.sortDirection, roleState.pagination.pageNo, roleState.pagination.rowsPerPage);
-    if (params.isNotEqualTo(roleState.previousRoleListParameters)) {
-      const apiRepositoryRoleList = new ApiRepositoryRoleList();
-      const roleList = await apiRepositoryRoleList.getRolesAsync(params);
-      roleDispatch(new CommandRoleListSet(roleList, params));
-      writeUrlHistory();
-    }
-  }, [roleDispatch, roleState.pagination, roleState.previousRoleListParameters, writeUrlHistory]);
+  useRoleListRepository();
 
   const handleOnPageChangeEvent = (pageNo: number) => {
     roleDispatch(new CommandPageNumberSet(pageNo));

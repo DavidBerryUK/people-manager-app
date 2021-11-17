@@ -21,8 +21,6 @@ const PaginationWidget: React.FC<IProperties> = (props) => {
     setPageModel(new PaginationModel(props.page, props.pageCount));
   }, [props.page, props.pageCount]);
 
-  // The currently selected page has changed, inform the host container
-  //
   function changePageClickHandler(page: number) {
     if (page < 1) {
       page = 1;
@@ -35,8 +33,6 @@ const PaginationWidget: React.FC<IProperties> = (props) => {
     }
   }
 
-  // Display Template
-  //
   return (
     <div className="paginationContainer">
       <PaginationButton enabled={pageModel.enableFirstPageButton} pageNumber={1} onPageSelected={changePageClickHandler} type={EnumButtonType.First} />

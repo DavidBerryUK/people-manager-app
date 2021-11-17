@@ -7,8 +7,6 @@ interface IProperties {
 }
 
 const SortIndicator: React.FC<IProperties> = (props) => {
-  // Display Template
-  //
   if (props.direction === EnumSortDirection.asc) {
     return <FaArrowAltCircleUp />;
   }
