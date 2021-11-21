@@ -26,7 +26,11 @@ export default class ProjectStagesChartBuilder {
   // Draw the background for the each stage
   //
   private drawTimeLineBackgrounds(myCanvas: CanvasWrapper, project: ProjectApiModel) {
-    myCanvas.context!.fillStyle = "#e5e5e5";
+    if (myCanvas.context === undefined || myCanvas.context === null) {
+      return;
+    }
+
+    myCanvas.context.fillStyle = "#e5e5e5";
 
     // timelines
     project.stages.forEach((stage, index) => {
@@ -42,7 +46,11 @@ export default class ProjectStagesChartBuilder {
   // draw the actual time the stage occupies
   //
   private drawTimeLineBars(myCanvas: CanvasWrapper, project: ProjectApiModel) {
-    myCanvas.context!.fillStyle = "#ff0000";
+    if (myCanvas.context === undefined || myCanvas.context === null) {
+      return;
+    }
+
+    myCanvas.context.fillStyle = "#ff0000";
 
     const baseX = 200;
     const border = 4;
@@ -73,8 +81,11 @@ export default class ProjectStagesChartBuilder {
   }
 
   private drawStageText(myCanvas: CanvasWrapper, project: ProjectApiModel) {
-    myCanvas.context!.font = "bold 14px Arial";
-    myCanvas.context!.textAlign = "left";
+    if (myCanvas.context === undefined || myCanvas.context === null) {
+      return;
+    }
+    myCanvas.context.font = "bold 14px Arial";
+    myCanvas.context.textAlign = "left";
 
     project.stages.forEach((stage, index) => {
       const x = 10;
@@ -90,8 +101,12 @@ export default class ProjectStagesChartBuilder {
   }
 
   private drawStageDuration(myCanvas: CanvasWrapper, project: ProjectApiModel) {
-    myCanvas.context!.font = "bold 14px Arial";
-    myCanvas.context!.textAlign = "right";
+    if (myCanvas.context === undefined || myCanvas.context === null) {
+      return;
+    }
+
+    myCanvas.context.font = "bold 14px Arial";
+    myCanvas.context.textAlign = "right";
 
     project.stages.forEach((stage, index) => {
       const x = 154;
