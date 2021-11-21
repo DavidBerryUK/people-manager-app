@@ -10,6 +10,7 @@ import ProjectStatusTag from "../../widgetTags/projectStatusTag/ProjectStatusTag
 import React, { useMemo, useState } from "react";
 import TextSubHeader from "../../widgetTypography/textSubHeader/TextSubHeader";
 import useDataTableUrlWriter from "../../hooks/UseDataTableUrlWriter";
+import ProjectStagesChart from "../../widgetCharts/projectStagesChart/ProjectStagesChart";
 
 const DetailProjectWidget: React.FC = () => {
   const { state } = UseListDetailContext();
@@ -38,6 +39,8 @@ const DetailProjectWidget: React.FC = () => {
         <ProjectStatusTag projectStatus={project.status} />
         <TextSubHeader>Stages</TextSubHeader>
         <ProjectStageTags projectStages={project.stages} />
+        <TextSubHeader>Plan</TextSubHeader>
+        <ProjectStagesChart project={project} />
       </PanelBody>
     </Panel>
   );

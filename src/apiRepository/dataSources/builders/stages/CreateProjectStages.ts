@@ -148,7 +148,7 @@ export default class CreateProjectStages {
     this.stages.push(new BuildStageModel("Discovery", RandomNumber.randomInt(15, 25), RandomNumber.randomWeeksInDays(1, 8)));
   }
   private addStageBuild() {
-    this.stages.push(new BuildStageModel("Discovery", RandomNumber.randomWeeksInDays(0, 5), RandomNumber.randomWeeksInDays(6, 200)));
+    this.stages.push(new BuildStageModel("Build", RandomNumber.randomWeeksInDays(0, 5), RandomNumber.randomWeeksInDays(6, 200)));
   }
   private addStageSupport() {
     this.stages.push(new BuildStageModel("Support", 0, RandomNumber.randomWeeksInDays(6, 200)));
