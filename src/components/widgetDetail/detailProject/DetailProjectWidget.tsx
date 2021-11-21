@@ -1,6 +1,8 @@
 import { UseListDetailContext } from "../../../contexts/ListDetailContext.tsx/ListDetailContext";
 import ApiRepositoryProject from "../../../apiRepository/project/ApiRepositoryProject";
+import ConvertProjectToGanttChart from "../../../charts/gantt/convertors/ConvertProjectToGanttChart";
 import CustomerTag from "../../widgetTags/customerTag/CustomerTag";
+import GanttChart from "../../widgetCharts/projectGanttChart/GanttChart";
 import Panel from "../../widgetsUI/panel/Panel";
 import PanelBody from "../../widgetsUI/panel/PanelBody";
 import PanelHeader from "../../widgetsUI/panel/PanelHeader";
@@ -10,7 +12,6 @@ import ProjectStatusTag from "../../widgetTags/projectStatusTag/ProjectStatusTag
 import React, { useMemo, useState } from "react";
 import TextSubHeader from "../../widgetTypography/textSubHeader/TextSubHeader";
 import useDataTableUrlWriter from "../../hooks/UseDataTableUrlWriter";
-import ProjectStagesChart from "../../widgetCharts/projectStagesChart/ProjectStagesChart";
 
 const DetailProjectWidget: React.FC = () => {
   const { state } = UseListDetailContext();
@@ -40,7 +41,7 @@ const DetailProjectWidget: React.FC = () => {
         <TextSubHeader>Stages</TextSubHeader>
         <ProjectStageTags projectStages={project.stages} />
         <TextSubHeader>Plan</TextSubHeader>
-        <ProjectStagesChart project={project} />
+        <GanttChart chartData={ConvertProjectToGanttChart.convert(project)} />
       </PanelBody>
     </Panel>
   );

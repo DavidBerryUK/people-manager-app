@@ -1,18 +1,18 @@
-import React, { useEffect, useRef } from "react";
-import ProjectApiModel from "../../../apiRepository/entities/ProjectApiModel";
+import GanttChartModel from "../../../charts/gantt/models/GanttChartModel";
 import ProjectStagesChartBuilder from "../../../charts/highlevel/ProjectStagesChartBuilder";
+import React, { useEffect, useRef } from "react";
 
 interface IProperties {
-  project: ProjectApiModel;
+  chartData: GanttChartModel;
 }
 
-const ProjectStagesChart: React.FC<IProperties> = (props) => {
+const GanttChart: React.FC<IProperties> = (props) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
     const chartBuilder = new ProjectStagesChartBuilder();
-    chartBuilder.build(props.project, canvasRef.current);
-  }, [props.project]);
+    chartBuilder.build(props.chartData, canvasRef.current);
+  }, [props.chartData]);
 
   return (
     <>
@@ -21,4 +21,4 @@ const ProjectStagesChart: React.FC<IProperties> = (props) => {
   );
 };
 
-export default ProjectStagesChart;
+export default GanttChart;
