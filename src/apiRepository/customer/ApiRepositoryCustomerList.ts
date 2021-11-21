@@ -1,7 +1,7 @@
+import CustomerApiModel from "../entities/CustomerApiModel";
 import DataListApiModel from "../entities/DataListApiModel";
 import FakeApiEndpoint from "../dataSources/FakeApiEndpoint";
 import MockUtilities from "../../utilities/MockUtilities";
-import CustomerApiModel from "../entities/CustomerApiModel";
 import RepositoryCustomerListParams from "./models/RepositoryCustomerListParams";
 import SortCustomers from "../../dataSorters/SortCustomers";
 

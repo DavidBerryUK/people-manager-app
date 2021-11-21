@@ -1,5 +1,5 @@
-import { EnumRole } from "../enums/EnumRole";
-import RoleApiModel from "../entities/RoleApiModel";
+import { EnumRole } from "../../enums/EnumRole";
+import RoleApiModel from "../../entities/RoleApiModel";
 
 //
 // Create list of teams

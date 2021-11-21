@@ -13,13 +13,13 @@ const RoleTag: React.FC<IProperties> = (props) => {
   const { dispatch } = UseListDetailContext();
 
   // event handlers
-  const handleSkillSelectedEvent = () => {
+  const handleSelectedEvent = () => {
     dispatch(new CommandShowRole(props.role.id));
   };
 
   return (
     <TagContainer>
-      <Tag onClick={handleSkillSelectedEvent}>{props.role.name}</Tag>
+      <Tag onClick={handleSelectedEvent}>{props.role.name}</Tag>
     </TagContainer>
   );
 };

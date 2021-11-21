@@ -6,7 +6,7 @@ import DetailRoleWidget from "../detailRole/DetailRoleWidget";
 import DetailSkillWidget from "../detailSkill/DetailSkillWidget";
 import DetailTeamWidget from "../detailTeam/DetailTeamWidget";
 import React from "react";
-import DetailProjectWidget from "../detailProject/DetailCustomerWidget";
+import DetailProjectWidget from "../detailProject/DetailProjectWidget";
 
 const DetailHostWidget: React.FC = (props) => {
   const { state } = UseListDetailContext();

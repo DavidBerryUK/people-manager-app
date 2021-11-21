@@ -1,9 +1,9 @@
 import DataListApiModel from "../entities/DataListApiModel";
-import FakeApiEndpoint from "../dataSources/FakeApiEndpoint";
 import MockUtilities from "../../utilities/MockUtilities";
 import ProjectApiModel from "../entities/ProjectApiModel";
 import RepositoryProjectListParams from "./models/RepositoryProjectListParams";
 import SortProjects from "../../dataSorters/SortProjects";
+import FakeApiEndpoint from "../dataSources/FakeApiEndpoint";
 
 export default class ApiRepositoryProjectList {
   //

@@ -5,6 +5,7 @@ import Panel from "../../widgetsUI/panel/Panel";
 import PanelBody from "../../widgetsUI/panel/PanelBody";
 import PanelHeader from "../../widgetsUI/panel/PanelHeader";
 import ProjectApiModel from "../../../apiRepository/entities/ProjectApiModel";
+import ProjectStageTags from "../../widgetTags/projectStageTags/ProjectStageTags";
 import ProjectStatusTag from "../../widgetTags/projectStatusTag/ProjectStatusTag";
 import React, { useMemo, useState } from "react";
 import TextSubHeader from "../../widgetTypography/textSubHeader/TextSubHeader";
@@ -35,6 +36,8 @@ const DetailProjectWidget: React.FC = () => {
         <CustomerTag customer={project.customer} />
         <TextSubHeader>Status</TextSubHeader>
         <ProjectStatusTag projectStatus={project.status} />
+        <TextSubHeader>Stages</TextSubHeader>
+        <ProjectStageTags projectStages={project.stages} />
       </PanelBody>
     </Panel>
   );

@@ -1,5 +1,5 @@
-import { EnumTeam } from "../enums/EnumTeam";
-import TeamApiModel from "../entities/TeamApiModel";
+import { EnumTeam } from "../../enums/EnumTeam";
+import TeamApiModel from "../../entities/TeamApiModel";
 
 //
 // Create list of teams

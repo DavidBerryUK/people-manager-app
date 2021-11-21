@@ -12,10 +12,10 @@ const TeamTag: React.FC<IProperties> = (props) => {
   const { dispatch } = UseListDetailContext();
 
   // event handlers
-  const handleSkillSelectedEvent = () => {
+  const handleSelectedEvent = () => {
     dispatch(new CommandShowTeam(props.team.id));
   };
-  return <Tag onClick={handleSkillSelectedEvent}>{props.team.name}</Tag>;
+  return <Tag onClick={handleSelectedEvent}>{props.team.name}</Tag>;
 };
 
 export default TeamTag;

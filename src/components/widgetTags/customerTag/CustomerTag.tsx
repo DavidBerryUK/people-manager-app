@@ -13,13 +13,13 @@ const CustomerTag: React.FC<IProperties> = (props) => {
   const { dispatch } = UseListDetailContext();
 
   // event handlers
-  const handleSkillSelectedEvent = () => {
+  const handleSelectedEvent = () => {
     dispatch(new CommandShowCustomer(props.customer.id));
   };
 
   return (
     <TagContainer>
-      <Tag onClick={handleSkillSelectedEvent}>{props.customer.name}</Tag>
+      <Tag onClick={handleSelectedEvent}>{props.customer.name}</Tag>
     </TagContainer>
   );
 };

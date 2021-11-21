@@ -1,15 +1,15 @@
 import CustomerApiModel from "./CustomerApiModel";
-import ProjectEventsApiModel from "./ProjectEventApiModel";
+import ProjectStageApiModel from "./ProjectStageApiModel";
 import ProjectHealthApiModel from "./ProjectHealthApiModel";
 import ProjectStatusApiModel from "./ProjectStatusApiModel";
 
 export default class ProjectApiModel {
   id: number;
   name: string;
-  status: ProjectStatusApiModel;
   customer: CustomerApiModel;
+  status: ProjectStatusApiModel;
   healthRatings: Array<ProjectHealthApiModel>;
-  events: Array<ProjectEventsApiModel>
+  stages: Array<ProjectStageApiModel>;
 
   constructor(id?: number, name?: string, status?: ProjectStatusApiModel, customer?: CustomerApiModel) {
     this.id = id || 0;
@@ -17,6 +17,6 @@ export default class ProjectApiModel {
     this.status = status || new ProjectStatusApiModel(-1, "");
     this.customer = customer || new CustomerApiModel();
     this.healthRatings = new Array<ProjectHealthApiModel>();
-    this.events = new Array<ProjectEventsApiModel>();
+    this.stages = new Array<ProjectStageApiModel>();
   }
 }

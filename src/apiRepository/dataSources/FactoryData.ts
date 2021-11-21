@@ -1,17 +1,18 @@
 import CustomerApiModel from "../entities/CustomerApiModel";
-import FactoryCustomers from "./FactoryCustomers";
-import FactoryPeople from "./FactoryPeople";
-import FactoryProjects from "./FactoryProject";
-import FactoryRoles from "./FactoryRoles";
-import FactorySkills from "./FactorySkills";
-import FactoryTeams from "./FactoryTeams";
+import FactoryCustomers from "./subFactories/FactoryCustomers";
+import FactoryPeople from "./subFactories/FactoryPeople";
+import FactoryProjects from "./subFactories/FactoryProject";
+import FactoryProjectStatus from "./subFactories/FactoryProjectStatus";
+import FactoryRoles from "./subFactories/FactoryRoles";
+import FactorySkills from "./subFactories/FactorySkills";
+import FactoryTeams from "./subFactories/FactoryTeams";
 import PersonApiModel from "../entities/PersonApiModel";
 import ProjectApiModel from "../entities/ProjectApiModel";
+import ProjectStatusApiModel from "../entities/ProjectStatusApiModel";
 import RoleApiModel from "../entities/RoleApiModel";
 import SkillApiModel from "../entities/SkillApiModel";
 import TeamApiModel from "../entities/TeamApiModel";
-import FactoryProjectStatus from "./FactoryProjectStatus";
-import ProjectStatusApiModel from "../entities/ProjectStatusApiModel";
+import ProjectBuilder from "./builders/ProjectBuilder";
 
 interface IData {
   customers: Array<CustomerApiModel>;
@@ -40,6 +41,12 @@ export default class FactoryData {
 
     const peopleFactory = new FactoryPeople(skills, teams, roles);
     const people = peopleFactory.createList();
+
+    const projectBuilder = new ProjectBuilder();
+
+    projects.forEach((project) => {
+      projectBuilder.createTestData(project);
+    });
 
     const response = {
       customers: customers,

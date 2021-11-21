@@ -13,12 +13,12 @@ const SkillTag: React.FC<IProperties> = (props) => {
   const { dispatch } = UseListDetailContext();
 
   // event handlers
-  const handleSkillSelectedEvent = () => {
+  const handleSelectedEvent = () => {
     dispatch(new CommandShowSkill(props.skill.skill.id));
   };
 
   return (
-    <Tag onClick={handleSkillSelectedEvent}>
+    <Tag onClick={handleSelectedEvent}>
       {props.skill.skill.name}
       <Rating rating={props.skill.level} />
     </Tag>

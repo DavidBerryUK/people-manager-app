@@ -12,10 +12,10 @@ const ProjectTag: React.FC<IProperties> = (props) => {
   const { dispatch } = UseListDetailContext();
 
   // event handlers
-  const handleSkillSelectedEvent = () => {
+  const handleSelectedEvent = () => {
     dispatch(new CommandShowProject(props.project.id));
   };
-  return <Tag onClick={handleSkillSelectedEvent}>{props.project.name}</Tag>;
+  return <Tag onClick={handleSelectedEvent}>{props.project.name}</Tag>;
 };
 
 export default ProjectTag;
