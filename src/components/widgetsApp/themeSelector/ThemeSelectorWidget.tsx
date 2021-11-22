@@ -8,8 +8,8 @@ const ThemeSelectorWidget: React.FC = () => {
 
   return (
     <div className="theme-selector">
-      {themes.map((theme, index) => (
-        <ThemeButtonWidget key={index} theme={theme} />
+      {themes.map((theme) => (
+        <ThemeButtonWidget key={theme.name} theme={theme} />
       ))}
     </div>
   );

@@ -4,7 +4,7 @@ import CommandPageNumberSet from "../../../contexts/peopleContext/actions/Comman
 import PaginationWidget from "../../widgetsUI/pagination/PaginationWidget";
 import PeopleRowWidget from "./PeopleRowWidget";
 import PeopleTableHeader from "./PeopleTableHeader";
-import React  from "react";
+import React from "react";
 import useDataTableUrlReader from "../../hooks/UseDataTableUrlReader";
 import usePeopleListRepository from "../../hooks/UsePeopleListRepository";
 import useToolbar from "../../hooks/UseToolbar";
@@ -25,8 +25,8 @@ const PeopleTableWidget: React.FC = () => {
       <table>
         <PeopleTableHeader />
         <tbody>
-          {peopleState.peopleList.data.map((row, index) => (
-            <PeopleRowWidget key={index} person={row} />
+          {peopleState.peopleList.data.map((person) => (
+            <PeopleRowWidget key={person.id} person={person} />
           ))}
         </tbody>
       </table>

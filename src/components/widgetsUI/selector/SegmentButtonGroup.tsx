@@ -8,8 +8,8 @@ interface IProperties {
 const SegmentButtonGroup: React.FC<IProperties> = (props) => {
   return (
     <div>
-      {props.options.map((option, index) => (
-        <SegmentButton key={index} option={option} />
+      {props.options.map((option) => (
+        <SegmentButton key={option.id} option={option} />
       ))}
     </div>
   );

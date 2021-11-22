@@ -25,8 +25,8 @@ const TeamTableWidget: React.FC = () => {
       <table>
         <TeamTableHeader />
         <tbody>
-          {teamState.teamList.data.map((row, index) => (
-            <TeamRowWidget key={index} team={row} />
+          {teamState.teamList.data.map((team) => (
+            <TeamRowWidget key={team.id} team={team} />
           ))}
         </tbody>
       </table>

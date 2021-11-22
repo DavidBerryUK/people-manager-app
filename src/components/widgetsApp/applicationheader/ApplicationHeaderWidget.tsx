@@ -26,9 +26,9 @@ const ApplicationHeaderWidget: React.FC = () => {
   return (
     <div className="application-header">
       <ul className="navigation">
-        {navButtons.map((button, index) => (
+        {navButtons.map((button) => (
           <li
-            key={index}
+            key={button.title}
             className={getClassName(button)}
             onClick={() => {
               handleSelectedEvent(button);

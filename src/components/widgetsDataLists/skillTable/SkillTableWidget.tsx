@@ -25,8 +25,8 @@ const SkillTableWidget: React.FC = () => {
       <table>
         <SkillTableHeader />
         <tbody>
-          {skillState.skillList.data.map((row, index) => (
-            <SkillRowWidget key={index} skill={row} />
+          {skillState.skillList.data.map((skill) => (
+            <SkillRowWidget key={skill.id} skill={skill} />
           ))}
         </tbody>
       </table>

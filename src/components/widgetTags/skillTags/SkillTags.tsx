@@ -1,7 +1,7 @@
 import React from "react";
 import SkillLevelApiModel from "../../../apiRepository/entities/SkillLevelApiModel";
-import TagContainer from "../../widgetsUI/tags/TagContainer";
 import SkillTag from "./SkillTag";
+import TagContainer from "../../widgetsUI/tags/TagContainer";
 
 interface IProperties {
   skills: Array<SkillLevelApiModel>;
@@ -10,8 +10,8 @@ interface IProperties {
 const SkillTags: React.FC<IProperties> = (props) => {
   return (
     <TagContainer>
-      {props.skills.map((skill, index) => (
-        <SkillTag key={index} skill={skill} />
+      {props.skills.map((skill) => (
+        <SkillTag key={`${skill.person.id}:${skill.skill.id}`} skill={skill} />
       ))}
     </TagContainer>
   );

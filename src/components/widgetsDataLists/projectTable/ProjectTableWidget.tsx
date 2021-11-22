@@ -25,8 +25,8 @@ const ProjectTableWidget: React.FC = () => {
       <table>
         <ProjectTableHeader />
         <tbody>
-          {projectState.projectList.data.map((row, index) => (
-            <ProjectRowWidget key={index} project={row} />
+          {projectState.projectList.data.map((project) => (
+            <ProjectRowWidget key={project.id} project={project} />
           ))}
         </tbody>
       </table>

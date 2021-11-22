@@ -25,8 +25,8 @@ const CustomerTableWidget: React.FC = () => {
       <table>
         <CustomerTableHeader />
         <tbody>
-          {customerState.customerList.data.map((row, index) => (
-            <CustomerRowWidget key={index} customer={row} />
+          {customerState.customerList.data.map((customer) => (
+            <CustomerRowWidget key={customer.id} customer={customer} />
           ))}
         </tbody>
       </table>

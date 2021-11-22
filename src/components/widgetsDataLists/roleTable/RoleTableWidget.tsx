@@ -25,8 +25,8 @@ const RoleTableWidget: React.FC = () => {
       <table>
         <RoleTableHeader />
         <tbody>
-          {roleState.roleList.data.map((row, index) => (
-            <RoleRowWidget key={index} role={row} />
+          {roleState.roleList.data.map((role) => (
+            <RoleRowWidget key={role.id} role={role} />
           ))}
         </tbody>
       </table>

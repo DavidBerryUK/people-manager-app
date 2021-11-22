@@ -10,8 +10,8 @@ interface IProperties {
 const ProjectStageTags: React.FC<IProperties> = (props) => {
   return (
     <TagContainer>
-      {props.projectStages.map((stage, index) => (
-        <ProjectStageTag key={index} projectStage={stage} />
+      {props.projectStages.map((stage) => (
+        <ProjectStageTag key={stage.id} projectStage={stage} />
       ))}
     </TagContainer>
   );

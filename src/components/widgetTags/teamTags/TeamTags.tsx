@@ -10,8 +10,8 @@ interface IProperties {
 const TeamTags: React.FC<IProperties> = (props) => {
   return (
     <TagContainer>
-      {props.teams.map((team, index) => (
-        <TeamTag key={index} team={team} />
+      {props.teams.map((team) => (
+        <TeamTag key={team.id} team={team} />
       ))}
     </TagContainer>
   );

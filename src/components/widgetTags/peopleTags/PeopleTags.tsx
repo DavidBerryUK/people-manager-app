@@ -10,8 +10,8 @@ interface IProperties {
 const PeopleTags: React.FC<IProperties> = (props) => {
   return (
     <TagContainer>
-      {props.people.map((person, index) => (
-        <PersonTag key={index} person={person} />
+      {props.people.map((person) => (
+        <PersonTag key={person.id} person={person} />
       ))}
     </TagContainer>
   );
