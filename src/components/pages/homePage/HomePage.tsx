@@ -5,7 +5,7 @@ const HomePage: React.FC = () => {
   return (
     <>
       <ProjectHealthSummary />
-      <h1>Features</h1>
+      {/* <h1>Features</h1>
       <h2>React Demo</h2>
       <p>React demo featuring preferred application architecture and approach to codling to create a maintainable enterprise application</p>
       <ul>
@@ -28,7 +28,7 @@ const HomePage: React.FC = () => {
         <li>Examples of function factories (sorting)</li>
         <li>No CSS in pages for cleaner code</li>
         <li>Experimental navigation using state context, adding in browser url later using a single custom hook</li>
-      </ul>
+      </ul> */}
     </>
   );
 };

@@ -1,0 +1,18 @@
+.health-summary {
+  background-color: linear-gradient(to bottom, rgba(42, 98, 169, 1) 0%, rgba(51, 146, 190, 1) 50%, rgba(61, 200, 213, 1) 100%);
+  // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2a62a9', endColorstr='#3dc8d5',GradientType=0 );
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  .title {
+    background-color: #ddd;
+    text-align: center;
+  }
+
+  .gauge {
+    border: solid 1px blue;
+    display: block;
+  }
+}
