@@ -1,9 +1,15 @@
 import React from "react";
+import PaletteTestWidget from "../../widgetsUI/paletteTest/PaletteTestWidget";
 import ProjectHealthSummary from "../../widgetsUI/projectHealthSummary/ProjectHealthSummary";
 
 const HomePage: React.FC = () => {
   return (
     <>
+      <PaletteTestWidget width={500} height={200} />
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
       <ProjectHealthSummary />
       {/* <h1>Features</h1>
       <h2>React Demo</h2>

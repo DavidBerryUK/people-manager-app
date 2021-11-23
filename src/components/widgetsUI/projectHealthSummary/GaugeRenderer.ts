@@ -45,7 +45,5 @@ export default class GaugeRenderer {
     context.lineWidth = lineWidth - 4;
     context.lineCap = "butt";
     context.stroke();
-
-    console.log("render");
   }
 }
