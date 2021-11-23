@@ -18,8 +18,8 @@ export default class PaletteTestRenderer {
     const midY = height / 2;
 
 
-    const colourFrom = ColourModel.rgb(0, 255, 0);
-    const colourTo = ColourModel.rgb(0, 0, 0);
+    const colourFrom = ColourModel.rgb(255, 50, 50);
+    const colourTo = ColourModel.rgb(50, 255, 50);
 
     context.clearRect(0, 0, width, height);
     this.drawBorder(context, width, height);
