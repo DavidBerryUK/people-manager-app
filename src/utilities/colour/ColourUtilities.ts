@@ -29,8 +29,9 @@ export default class ColourUtilities {
 
     static hslFromRgb(red: number, blue: number, green: number): IHueSaturationLuminosity {
         const localRed = red / 255;
-        const localGreen = green / 255;
         const localBlue = blue / 255;
+        const localGreen = green / 255;
+
         const max = Math.max(localRed, localGreen, localBlue);
         const min = Math.min(localRed, localGreen, localBlue);
         const l = (max + min) / 2;

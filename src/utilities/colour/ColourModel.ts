@@ -4,8 +4,8 @@ import ColourUtilities from "./ColourUtilities";
 //
 export default class ColourModel {
     readonly red: number = 0;
-    readonly green: number = 0;
     readonly blue: number = 0;
+    readonly green: number = 0;
     readonly hue: number = 0;
     readonly saturation: number = 0;
     readonly luminosity: number = 0;
@@ -17,8 +17,8 @@ export default class ColourModel {
     private constructor(red: number, blue: number, green: number) {
 
         this.red = red;
-        this.green = green;
         this.blue = blue;
+        this.green = green;
 
         const hsl = ColourUtilities.hslFromRgb(red, blue, green);
         this.hue = hsl.hue;
@@ -42,7 +42,7 @@ export default class ColourModel {
     // Create from HSL
     static hsl(hue: number, saturation: number, luminosity: number): ColourModel {
         const rgb = ColourUtilities.rgbFromHsl(hue, saturation, luminosity);
-        return new ColourModel(rgb.red, rgb.green, rgb.blue);
+        return new ColourModel(rgb.red, rgb.blue, rgb.green);
     }
 
 
