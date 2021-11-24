@@ -29,8 +29,8 @@ export default class ColourModel {
     }
 
     // Create from RGB
-    static rgb(red: number, blue: number, green: number): ColourModel {
-        return new ColourModel(red, blue, green);
+    static rgb(red: number, green: number, blue: number): ColourModel {
+        return new ColourModel(red, green, blue);
     }
 
     // Create from Hex

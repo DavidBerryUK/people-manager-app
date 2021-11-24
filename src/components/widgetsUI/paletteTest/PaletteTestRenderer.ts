@@ -24,7 +24,7 @@ export default class PaletteTestRenderer {
     context.clearRect(0, 0, width, height);
     this.drawBorder(context, width, height);
 
-    const radius = 4;
+    const radius = 12;
     const radius2 = radius * 2;
 
     var steps = Math.floor((width) / radius2);
