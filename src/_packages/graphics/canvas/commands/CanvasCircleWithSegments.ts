@@ -10,6 +10,7 @@ export default class CanvasCircleWithSegments {
         origin: IPoint,
         innerRadius: number,
         outerRadius: number,
+        segments: number,
         startAngleDegrees: number,
         segmentSpacingDegrees: number,
         strokeStartColour?: ColourModel,
@@ -17,8 +18,10 @@ export default class CanvasCircleWithSegments {
         fillStartColour?: ColourModel,
         fillEndColour?: ColourModel) {
 
-        const degreeArcToDraw = 270;
-        const segmentCount = 32;
+        const degreeArcToDraw = 220;
+        const segmentCount = segments;
+
+        console.log(segmentCount);
 
         if (canvas === undefined || canvas.context === undefined) {
             return;

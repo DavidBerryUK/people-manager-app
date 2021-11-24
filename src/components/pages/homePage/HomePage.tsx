@@ -7,7 +7,7 @@ import ProjectHealthSummary from "../../widgetsUI/projectHealthSummary/ProjectHe
 const HomePage: React.FC = () => {
   return (
     <>
-      <CircleWithSegments width={500} height={500} />
+      <CircleWithSegments width={500} height={500} segments={5} />
       <br></br>
       <br></br>
       <br></br>
