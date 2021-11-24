@@ -1,7 +1,7 @@
 import { differenceInCalendarDays } from "date-fns";
 
 import GanttChartModel from "../gantt/models/GanttChartModel";
-import CanvasWrapper from "../lowLevel/CanvasWrapper";
+import CanvasWrapper from "../../_packages/graphics/canvas/CanvasWrapper";
 
 export default class ProjectStagesChartBuilder {
   build(project: GanttChartModel, canvas: HTMLCanvasElement | undefined | null) {
@@ -16,7 +16,7 @@ export default class ProjectStagesChartBuilder {
     }
 
     // draw
-    myCanvas.clearCanvas();
+    myCanvas.clearCanvasSolidColour("#f0f0f0");
     this.drawStageText(myCanvas, project);
     this.drawStageDuration(myCanvas, project);
     this.drawTimeLineBackgrounds(myCanvas, project);

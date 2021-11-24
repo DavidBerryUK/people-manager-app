@@ -1,5 +1,5 @@
-import ColourModel from "../../../utilities/colour/ColourModel";
-import GradientUtilities from "../../../utilities/colour/GradientUtilities";
+import ColourModel from "../../../_packages/graphics/colour/ColourModel";
+import GradientUtilities from "../../../_packages/graphics/colour/GradientUtilities";
 
 export default class PaletteTestRenderer {
   render(canvas: HTMLCanvasElement | undefined | null) {

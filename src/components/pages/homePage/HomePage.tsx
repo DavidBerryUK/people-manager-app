@@ -1,10 +1,16 @@
 import React from "react";
+
+import CircleWithSegments from "../../widgetsUI/circleWiithSegments/CircleWithSegments";
 import PaletteTestWidget from "../../widgetsUI/paletteTest/PaletteTestWidget";
 import ProjectHealthSummary from "../../widgetsUI/projectHealthSummary/ProjectHealthSummary";
 
 const HomePage: React.FC = () => {
   return (
     <>
+      <CircleWithSegments width={500} height={500} />
+      <br></br>
+      <br></br>
+      <br></br>
       <PaletteTestWidget width={500} height={200} />
       <br></br>
       <br></br>
